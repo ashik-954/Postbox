@@ -1,80 +1,249 @@
 <!doctype html>
 <html lang="bn">
+
 <head>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1"
+>
+
 <title>আমাকে একটি মেসেজ পাঠান</title>
 
 <style>
+
+*{
+  box-sizing:border-box;
+}
+
 body{
-  font-family:Arial,sans-serif;
-  background:#f3f5ff;
-  padding:20px
+  margin:0;
+  min-height:100vh;
+  padding:20px;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef2ff,
+      #f8fafc
+    );
+
+  color:#172033;
 }
 
 main{
+
+  width:100%;
   max-width:520px;
-  margin:auto;
-  background:white;
+
+  margin:30px auto;
+
   padding:28px;
-  border-radius:22px;
-  box-shadow:0 10px 30px #0001
+
+  background:#ffffff;
+
+  border-radius:24px;
+
+  box-shadow:
+    0 15px 40px rgba(15,23,42,.10);
 }
 
-input,textarea,button{
+h1{
+
+  margin:0 0 10px;
+
+  font-size:28px;
+
+  text-align:center;
+}
+
+.intro{
+
+  margin:0 0 25px;
+
+  color:#667085;
+
+  text-align:center;
+
+  line-height:1.6;
+}
+
+label{
+
+  display:block;
+
+  margin-top:14px;
+  margin-bottom:6px;
+
+  font-weight:bold;
+
+  font-size:14px;
+}
+
+input,
+textarea,
+button{
+
   width:100%;
-  box-sizing:border-box;
+
   padding:14px;
-  margin:8px 0 14px;
-  border-radius:12px;
-  border:1px solid #ccd2e0;
-  font-size:16px
+
+  border-radius:13px;
+
+  font-size:16px;
+}
+
+input,
+textarea{
+
+  border:
+    1px solid #d0d5dd;
+
+  background:#ffffff;
+
+  outline:none;
+}
+
+input:focus,
+textarea:focus{
+
+  border-color:#4f46e5;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(79,70,229,.10);
 }
 
 textarea{
-  min-height:150px
+
+  min-height:150px;
+
+  resize:vertical;
 }
 
-button{
-  background:#4f46e5;
-  color:white;
-  border:0;
-  font-weight:bold;
-  cursor:pointer
-}
+.file-box{
 
-button:disabled{
-  opacity:.65;
-  cursor:not-allowed
+  padding:15px;
+
+  border:
+    1px dashed #a5b4fc;
+
+  border-radius:14px;
+
+  background:#f8faff;
 }
 
 .hint{
+
+  margin-top:7px;
+
   font-size:13px;
-  color:#667085
+
+  color:#667085;
+}
+
+button{
+
+  margin-top:20px;
+
+  border:0;
+
+  background:#4f46e5;
+
+  color:white;
+
+  font-weight:bold;
+
+  cursor:pointer;
+}
+
+button:disabled{
+
+  opacity:.65;
+
+  cursor:not-allowed;
 }
 
 #status{
+
+  margin-top:18px;
+
   text-align:center;
+
   font-weight:bold;
-  min-height:24px
+
+  line-height:1.5;
 }
+
+.success{
+
+  color:#087443;
+}
+
+.error{
+
+  color:#b42318;
+}
+
+.cooldown{
+
+  margin-top:14px;
+
+  padding:13px;
+
+  border-radius:13px;
+
+  background:#fff7ed;
+
+  color:#c2410c;
+
+  text-align:center;
+
+  font-weight:bold;
+}
+
+#countdown{
+
+  font-size:24px;
+
+  margin-top:4px;
+}
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <main>
 
-<h1>আমাকে একটি মেসেজ পাঠান</h1>
+<h1>
+আমাকে একটি মেসেজ পাঠান
+</h1>
 
-<p>
+
+<p class="intro">
+
 আপনার কথা বা মতামত লিখে পাঠান।
-চাইলে একটি ফাইল সংযুক্ত করতে পারেন।
+চাইলে একটি ফাইলও সংযুক্ত করতে পারেন।
+
 </p>
+
 
 <form id="f">
 
-<label>আপনার নাম</label>
+
+<label for="n">
+আপনার নাম
+</label>
 
 <input
   id="n"
@@ -84,7 +253,9 @@ button:disabled{
 >
 
 
-<label>মোবাইল নম্বর (ঐচ্ছিক)</label>
+<label for="p">
+মোবাইল নম্বর (ঐচ্ছিক)
+</label>
 
 <input
   id="p"
@@ -93,7 +264,9 @@ button:disabled{
 >
 
 
-<label>মেসেজ</label>
+<label for="m">
+মেসেজ
+</label>
 
 <textarea
   id="m"
@@ -103,7 +276,12 @@ button:disabled{
 ></textarea>
 
 
-<label>ফাইল (ঐচ্ছিক)</label>
+<label for="file">
+ফাইল (ঐচ্ছিক)
+</label>
+
+
+<div class="file-box">
 
 <input
   id="file"
@@ -111,7 +289,11 @@ button:disabled{
 >
 
 <div class="hint">
+
 সর্বোচ্চ ২০ MB • একবারে ১টি ফাইল
+
+</div>
+
 </div>
 
 
@@ -119,10 +301,31 @@ button:disabled{
   id="b"
   type="submit"
 >
+
 মেসেজ পাঠান
+
 </button>
 
+
 <div id="status"></div>
+
+
+<div
+  id="cooldownBox"
+  class="cooldown"
+  style="display:none"
+>
+
+আবার মেসেজ পাঠাতে পারবেন
+
+<div id="countdown">
+30
+</div>
+
+সেকেন্ড পরে
+
+</div>
+
 
 </form>
 
@@ -131,200 +334,234 @@ button:disabled{
 
 <script>
 
+
+/*
+ * Apps Script API
+ */
+
 const API_URL =
 "https://script.google.com/macros/s/AKfycbyd0ldrrTOYJvptf3G4IZPdUq33z_Xb5PvCNzimy6zU7-jVNJpBO7IPuZ-Brrgp7GfBKQ/exec";
 
-const MAX_FILE_SIZE =
+
+/*
+ * Settings
+ */
+
+const MAX =
 20 * 1024 * 1024;
 
-const COOLDOWN_SECONDS = 30;
+const COOLDOWN =
+30;
 
-const form =
+
+/*
+ * Elements
+ */
+
+const f =
 document.getElementById("f");
 
-const button =
+const b =
 document.getElementById("b");
 
-const status =
+const s =
 document.getElementById("status");
 
 const fileInput =
 document.getElementById("file");
 
+const cooldownBox =
+document.getElementById(
+  "cooldownBox"
+);
+
+const countdown =
+document.getElementById(
+  "countdown"
+);
+
 
 /*
- * একই browser-এর জন্য
- * একটি স্থায়ী Client ID তৈরি
+ * Permanent Client ID
  */
 
-function getClientId(){
+let clientId =
+localStorage.getItem(
+  "postbox_client_id"
+);
 
-  let id =
-  localStorage.getItem("message_client_id");
 
-  if(!id){
+if(!clientId){
 
-    if(window.crypto &&
-       crypto.randomUUID){
+  if(
+    window.crypto &&
+    typeof window.crypto.randomUUID ===
+    "function"
+  ){
 
-      id = crypto.randomUUID();
+    clientId =
+      window.crypto.randomUUID();
 
-    }else{
+  }else{
 
-      id =
+    clientId =
       "client-" +
       Date.now() +
       "-" +
       Math.random()
-      .toString(36)
-      .substring(2);
-
-    }
-
-    localStorage.setItem(
-      "message_client_id",
-      id
-    );
+        .toString(36)
+        .substring(2);
 
   }
 
-  return id;
-}
 
-
-/*
- * Local cooldown check
- */
-
-function getLastSubmission(){
-
-  return Number(
-    localStorage.getItem(
-      "message_last_submission"
-    ) || 0
+  localStorage.setItem(
+    "postbox_client_id",
+    clientId
   );
 
 }
 
 
 /*
- * Countdown চালানো
+ * Countdown timer
  */
 
-function startCooldown(seconds){
+let timer = null;
+
+
+function startCountdown(seconds){
+
+  clearInterval(timer);
 
   let remaining =
-  Math.max(
-    0,
-    Math.ceil(seconds)
-  );
+    Math.max(
+      0,
+      Number(seconds)
+    );
 
-  button.disabled = true;
 
-  function update(){
+  b.disabled = true;
 
-    if(remaining <= 0){
 
-      button.disabled = false;
+  cooldownBox.style.display =
+    "block";
 
-      button.textContent =
-      "মেসেজ পাঠান";
 
-      status.textContent = "";
+  countdown.textContent =
+    remaining;
 
-      return;
+
+  timer =
+    setInterval(
+
+      function(){
+
+        remaining--;
+
+
+        countdown.textContent =
+          Math.max(
+            0,
+            remaining
+          );
+
+
+        if(remaining <= 0){
+
+          clearInterval(timer);
+
+
+          cooldownBox.style.display =
+            "none";
+
+
+          b.disabled =
+            false;
+
+        }
+
+      },
+
+      1000
+
+    );
+
+}
+
+
+/*
+ * File size check
+ */
+
+fileInput.addEventListener(
+
+  "change",
+
+  function(){
+
+    const x =
+      fileInput.files[0];
+
+
+    if(
+      x &&
+      x.size > MAX
+    ){
+
+      s.className =
+        "error";
+
+
+      s.textContent =
+        "ফাইল ২০ MB-এর বেশি হতে পারবে না।";
+
+
+      fileInput.value =
+        "";
+
+    }else{
+
+      s.textContent =
+        "";
 
     }
 
-    button.textContent =
-    "আবার পাঠাতে " +
-    remaining +
-    " সেকেন্ড";
-
-    remaining--;
-
-    setTimeout(
-      update,
-      1000
-    );
-
   }
 
-  update();
-
-}
+);
 
 
 /*
- * Page refresh হলেও
- * cooldown বজায় থাকবে
+ * Submit
  */
 
-function checkExistingCooldown(){
-
-  const last =
-  getLastSubmission();
-
-  if(!last) return;
-
-  const elapsed =
-  (Date.now() - last) / 1000;
-
-  const remaining =
-  COOLDOWN_SECONDS - elapsed;
-
-  if(remaining > 0){
-
-    startCooldown(
-      remaining
-    );
-
-  }
-
-}
-
-
-checkExistingCooldown();
-
-
-/*
- * Form Submit
- */
-
-form.onsubmit =
+f.onsubmit =
 async function(e){
 
   e.preventDefault();
 
 
+  const x =
+    fileInput.files[0];
+
+
   /*
-   * Local cooldown
+   * File size check
    */
 
-  const last =
-  getLastSubmission();
-
-  const elapsed =
-  (Date.now() - last) / 1000;
-
   if(
-    last &&
-    elapsed < COOLDOWN_SECONDS
+    x &&
+    x.size > MAX
   ){
 
-    const remaining =
-    Math.ceil(
-      COOLDOWN_SECONDS - elapsed
-    );
+    s.className =
+      "error";
 
-    startCooldown(
-      remaining
-    );
 
-    status.textContent =
-    "আবার মেসেজ পাঠানোর আগে " +
-    remaining +
-    " সেকেন্ড অপেক্ষা করুন।";
+    s.textContent =
+      "ফাইল ২০ MB-এর বেশি হতে পারবে না।";
+
 
     return;
 
@@ -332,158 +569,140 @@ async function(e){
 
 
   /*
-   * File check
+   * Disable button
    */
 
-  const file =
-  fileInput.files[0];
-
-  if(
-    file &&
-    file.size > MAX_FILE_SIZE
-  ){
-
-    status.textContent =
-    "ফাইলের আকার ২০ MB-এর বেশি হতে পারবে না।";
-
-    return;
-
-  }
+  b.disabled =
+    true;
 
 
-  /*
-   * API URL check
-   */
-
-  if(
-    API_URL.includes(
-      "PASTE_YOUR"
-    )
-  ){
-
-    status.textContent =
-    "API URL সেট করা হয়নি।";
-
-    return;
-
-  }
+  b.textContent =
+    "পাঠানো হচ্ছে...";
 
 
-  button.disabled = true;
+  s.className =
+    "";
 
-  button.textContent =
-  "পাঠানো হচ্ছে...";
+  s.textContent =
+    "";
 
 
   try{
+
+    let fd =
+      null;
+
 
     /*
      * File → Base64
      */
 
-    let fileData = null;
+    if(x){
+
+      fd =
+        await new Promise(
+
+          function(resolve,reject){
+
+            const reader =
+              new FileReader();
 
 
-    if(file){
+            reader.onload =
+              function(){
 
-      fileData =
-      await new Promise(
-        function(resolve,reject){
+                resolve({
 
-          const reader =
-          new FileReader();
+                  name:
+                    x.name,
 
-          reader.onload =
-          function(){
+                  mimeType:
+                    x.type ||
+                    "application/octet-stream",
 
-            resolve({
+                  data:
+                    reader.result
+                      .split(",")[1]
 
-              name:
-              file.name,
+                });
 
-              mimeType:
-              file.type ||
-              "application/octet-stream",
+              };
 
-              data:
-              reader.result
-              .split(",")[1]
 
-            });
+            reader.onerror =
+              reject;
 
-          };
 
-          reader.onerror =
-          reject;
+            reader.readAsDataURL(x);
 
-          reader.readAsDataURL(
-            file
-          );
+          }
 
-        }
-      );
+        );
 
     }
 
 
     /*
-     * Client ID
-     */
-
-    const clientId =
-    getClientId();
-
-
-    /*
-     * Server-এ পাঠানো
+     * Send request
      */
 
     const response =
-    await fetch(
-      API_URL,
-      {
-        method:"POST",
+      await fetch(
 
-        headers:{
-          "Content-Type":
-          "text/plain;charset=utf-8"
-        },
+        API_URL,
 
-        body:
-        JSON.stringify({
+        {
 
-          name:
-          document
-          .getElementById("n")
-          .value
-          .trim(),
+          method:
+            "POST",
 
-          phone:
-          document
-          .getElementById("p")
-          .value
-          .trim(),
+          headers:{
+            "Content-Type":
+              "text/plain;charset=utf-8"
+          },
 
-          message:
-          document
-          .getElementById("m")
-          .value
-          .trim(),
 
-          clientId:
-          clientId,
+          body:
+            JSON.stringify({
 
-          file:
-          fileData
+              name:
+                document
+                  .getElementById("n")
+                  .value
+                  .trim(),
 
-        })
+              phone:
+                document
+                  .getElementById("p")
+                  .value
+                  .trim(),
 
-      }
-    );
+              message:
+                document
+                  .getElementById("m")
+                  .value
+                  .trim(),
+
+              file:
+                fd,
+
+              /*
+               * গুরুত্বপূর্ণ:
+               * Client ID server-এ যাচ্ছে
+               */
+
+              clientId:
+                clientId
+
+            })
+
+        }
+
+      );
 
 
     const result =
-    await response.json();
+      await response.json();
 
 
     /*
@@ -491,15 +710,23 @@ async function(e){
      */
 
     if(
-      result.cooldown
+      result.cooldown === true
     ){
 
-      status.textContent =
-      result.error;
+      s.className =
+        "error";
 
-      startCooldown(
-        result.remaining || 30
+
+      s.textContent =
+        result.error ||
+        "অনুগ্রহ করে অপেক্ষা করুন।";
+
+
+      startCountdown(
+        result.remaining ||
+        COOLDOWN
       );
+
 
       return;
 
@@ -507,7 +734,7 @@ async function(e){
 
 
     /*
-     * অন্য error
+     * Server error
      */
 
     if(
@@ -516,53 +743,64 @@ async function(e){
 
       throw new Error(
         result.error ||
-        "Submission failed"
+        "Unknown error"
       );
 
     }
 
 
     /*
-     * সফল হলে সময় সংরক্ষণ
+     * Success
      */
 
-    localStorage.setItem(
-      "message_last_submission",
-      String(Date.now())
-    );
+    f.reset();
+
+
+    s.className =
+      "success";
+
+
+    s.textContent =
+      "✓ আপনার মেসেজ সফলভাবে পাঠানো হয়েছে।";
 
 
     /*
-     * Form পরিষ্কার
+     * 30 second cooldown
      */
 
-    form.reset();
-
-
-    status.textContent =
-    "✓ আপনার মেসেজ সফলভাবে পাঠানো হয়েছে।";
-
-
-    /*
-     * ৩০ সেকেন্ড cooldown
-     */
-
-    startCooldown(
-      COOLDOWN_SECONDS
+    startCountdown(
+      COOLDOWN
     );
 
 
   }catch(error){
 
-    console.error(error);
+    s.className =
+      "error";
 
-    status.textContent =
-    "মেসেজ পাঠানো যায়নি। আবার চেষ্টা করুন।";
 
-    button.disabled = false;
+    s.textContent =
+      "মেসেজ পাঠানো যায়নি। আবার চেষ্টা করুন।";
 
-    button.textContent =
-    "মেসেজ পাঠান";
+
+    b.disabled =
+      false;
+
+  }finally{
+
+    if(
+      cooldownBox.style.display !==
+      "block"
+    ){
+
+      b.disabled =
+        false;
+
+    }
+
+
+    b.textContent =
+      "মেসেজ পাঠান";
 
   }
 
@@ -571,4 +809,5 @@ async function(e){
 </script>
 
 </body>
+
 </html>
