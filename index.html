@@ -2,15 +2,11 @@
 <html lang="bn">
 
 <head>
-
 <meta charset="utf-8">
 
-<meta
-  name="viewport"
-  content="width=device-width,initial-scale=1"
->
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>আমাকে একটি মেসেজ পাঠান</title>
+<title>আপনার কথা, আমার কাছে পৌঁছে দিন</title>
 
 <style>
 
@@ -21,198 +17,389 @@
 body{
   margin:0;
   min-height:100vh;
-  padding:20px;
+  padding:18px;
 
   font-family:
     Arial,
+    "Noto Sans Bengali",
     sans-serif;
 
   background:
     linear-gradient(
       135deg,
       #eef2ff,
-      #f8fafc
+      #f8fafc 50%,
+      #eef6ff
     );
 
   color:#172033;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
+
+
+/* Main Card */
 
 main{
-
   width:100%;
-  max-width:520px;
+  max-width:540px;
 
-  margin:30px auto;
+  padding:30px;
 
-  padding:28px;
+  background:#fff;
 
-  background:#ffffff;
-
-  border-radius:24px;
+  border-radius:26px;
 
   box-shadow:
-    0 15px 40px rgba(15,23,42,.10);
+    0 20px 55px rgba(15,23,42,.12);
 }
 
-h1{
 
-  margin:0 0 10px;
+/* Header */
+
+.header{
+  text-align:center;
+  margin-bottom:28px;
+}
+
+
+/* Logo */
+
+.logo{
+  width:68px;
+  height:68px;
+
+  margin:0 auto 16px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #7c3aed
+    );
+
+  color:white;
+
+  font-size:30px;
+
+  box-shadow:
+    0 10px 25px
+    rgba(79,70,229,.25);
+}
+
+
+/* Main title */
+
+h1{
+  margin:0;
 
   font-size:28px;
 
-  text-align:center;
+  line-height:1.35;
+
+  letter-spacing:-.3px;
 }
 
-.intro{
 
-  margin:0 0 25px;
+/* Subtitle */
+
+.subtitle{
+  margin:11px 0 0;
 
   color:#667085;
 
-  text-align:center;
+  font-size:14px;
 
-  line-height:1.6;
+  line-height:1.7;
+}
+
+
+/* Fields */
+
+.field{
+  margin-top:18px;
 }
 
 label{
-
   display:block;
 
-  margin-top:14px;
-  margin-bottom:6px;
-
-  font-weight:bold;
+  margin-bottom:7px;
 
   font-size:14px;
+
+  font-weight:700;
+
+  color:#344054;
 }
+
 
 input,
 textarea,
 button{
-
   width:100%;
 
-  padding:14px;
-
-  border-radius:13px;
+  font-family:inherit;
 
   font-size:16px;
 }
 
+
 input,
 textarea{
+
+  padding:14px 15px;
 
   border:
     1px solid #d0d5dd;
 
-  background:#ffffff;
+  border-radius:14px;
 
   outline:none;
+
+  background:#fff;
+
+  color:#101828;
+
+  transition:.2s;
 }
+
 
 input:focus,
 textarea:focus{
 
-  border-color:#4f46e5;
+  border-color:#6366f1;
 
   box-shadow:
-    0 0 0 3px
-    rgba(79,70,229,.10);
+    0 0 0 4px
+    rgba(99,102,241,.10);
 }
+
 
 textarea{
 
-  min-height:150px;
+  min-height:155px;
 
   resize:vertical;
+
+  line-height:1.6;
 }
+
+
+/* File box */
 
 .file-box{
 
-  padding:15px;
+  padding:17px;
 
   border:
     1px dashed #a5b4fc;
 
-  border-radius:14px;
+  border-radius:16px;
 
   background:#f8faff;
 }
 
+
 .hint{
 
-  margin-top:7px;
+  margin-top:8px;
+
+  font-size:12px;
+
+  color:#667085;
+
+  line-height:1.5;
+}
+
+
+.file-info{
+
+  display:none;
+
+  margin-top:10px;
+
+  padding:10px 12px;
+
+  border-radius:10px;
+
+  background:#eef2ff;
+
+  color:#3730a3;
 
   font-size:13px;
 
-  color:#667085;
+  line-height:1.5;
 }
+
+
+/* Button */
 
 button{
 
-  margin-top:20px;
+  margin-top:23px;
+
+  padding:15px;
 
   border:0;
 
-  background:#4f46e5;
+  border-radius:15px;
 
-  color:white;
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #7c3aed
+    );
 
-  font-weight:bold;
+  color:#fff;
+
+  font-weight:700;
 
   cursor:pointer;
+
+  box-shadow:
+    0 10px 22px
+    rgba(79,70,229,.22);
+
+  transition:.15s;
 }
+
+
+button:hover:not(:disabled){
+
+  transform:translateY(-1px);
+
+  box-shadow:
+    0 13px 27px
+    rgba(79,70,229,.28);
+}
+
 
 button:disabled{
 
   opacity:.65;
 
   cursor:not-allowed;
+
+  box-shadow:none;
 }
+
+
+/* Status */
 
 #status{
 
-  margin-top:18px;
+  margin-top:17px;
 
   text-align:center;
 
-  font-weight:bold;
+  font-size:14px;
 
-  line-height:1.5;
+  font-weight:700;
+
+  line-height:1.6;
 }
 
-.success{
 
+.success{
   color:#087443;
 }
 
-.error{
 
+.error{
   color:#b42318;
 }
 
+
+/* Countdown */
+
 .cooldown{
 
-  margin-top:14px;
+  display:none;
 
-  padding:13px;
+  margin-top:16px;
 
-  border-radius:13px;
+  padding:17px;
 
-  background:#fff7ed;
+  border-radius:16px;
 
-  color:#c2410c;
+  background:
+    linear-gradient(
+      135deg,
+      #fff7ed,
+      #fffbeb
+    );
+
+  border:
+    1px solid #fed7aa;
+
+  color:#9a3412;
 
   text-align:center;
 
-  font-weight:bold;
+  font-weight:700;
 }
+
 
 #countdown{
 
-  font-size:24px;
+  margin:5px 0;
 
-  margin-top:4px;
+  font-size:34px;
+
+  line-height:1.2;
+
+  font-weight:800;
+}
+
+
+/* Footer */
+
+.footer{
+
+  margin-top:22px;
+
+  text-align:center;
+
+  color:#98a2b3;
+
+  font-size:12px;
+}
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+  body{
+    padding:12px;
+  }
+
+  main{
+    padding:23px 18px;
+
+    border-radius:22px;
+  }
+
+  h1{
+    font-size:24px;
+  }
+
+  .logo{
+    width:58px;
+    height:58px;
+
+    font-size:26px;
+  }
+
 }
 
 </style>
@@ -225,21 +412,32 @@ button:disabled{
 
 <main>
 
-<h1>
-আমাকে একটি মেসেজ পাঠান
-</h1>
+
+<div class="header">
+
+  <div class="logo">
+    ✉
+  </div>
 
 
-<p class="intro">
+  <h1>
+    💬 আপনার কথা, আমার কাছে পৌঁছে দিন
+  </h1>
 
-আপনার কথা বা মতামত লিখে পাঠান।
-চাইলে একটি ফাইলও সংযুক্ত করতে পারেন।
 
-</p>
+  <p class="subtitle">
+    বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই।
+  </p>
+
+</div>
 
 
 <form id="f">
 
+
+<!-- Name -->
+
+<div class="field">
 
 <label for="n">
 আপনার নাম
@@ -249,35 +447,68 @@ button:disabled{
   id="n"
   required
   maxlength="100"
-  placeholder="নাম লিখুন"
+  autocomplete="name"
+  placeholder="আপনার নাম লিখুন"
 >
 
+</div>
+
+
+<!-- Phone -->
+
+<div class="field">
 
 <label for="p">
-মোবাইল নম্বর (ঐচ্ছিক)
+
+মোবাইল নম্বর
+
+<span style="font-weight:400;color:#98a2b3">
+(ঐচ্ছিক)
+</span>
+
 </label>
 
 <input
   id="p"
   maxlength="30"
+  autocomplete="tel"
+  inputmode="tel"
   placeholder="01XXXXXXXXX"
 >
 
+</div>
+
+
+<!-- Message -->
+
+<div class="field">
 
 <label for="m">
-মেসেজ
+আপনার মেসেজ
 </label>
 
 <textarea
   id="m"
   required
   maxlength="2000"
-  placeholder="মেসেজ লিখুন..."
+  placeholder="আপনার কথা এখানে লিখুন..."
 ></textarea>
 
+</div>
+
+
+<!-- File -->
+
+<div class="field">
 
 <label for="file">
-ফাইল (ঐচ্ছিক)
+
+ফাইল সংযুক্ত করুন
+
+<span style="font-weight:400;color:#98a2b3">
+(ঐচ্ছিক)
+</span>
+
 </label>
 
 
@@ -289,45 +520,62 @@ button:disabled{
 >
 
 <div class="hint">
-
 সর্বোচ্চ ২০ MB • একবারে ১টি ফাইল
+</div>
+
+
+<div
+  id="fileInfo"
+  class="file-info"
+></div>
 
 </div>
 
 </div>
 
+
+<!-- Send -->
 
 <button
   id="b"
   type="submit"
 >
-
 মেসেজ পাঠান
-
 </button>
 
 
 <div id="status"></div>
 
 
+<!-- Countdown -->
+
 <div
   id="cooldownBox"
   class="cooldown"
-  style="display:none"
 >
 
+<div>
 আবার মেসেজ পাঠাতে পারবেন
+</div>
 
 <div id="countdown">
 30
 </div>
 
+<div>
 সেকেন্ড পরে
+</div>
 
 </div>
 
 
 </form>
+
+
+<div class="footer">
+আপনার বার্তাটি সঠিকভাবে সংরক্ষণ করা হবে।
+</div>
+
 
 </main>
 
@@ -337,18 +585,16 @@ button:disabled{
 
 /*
  * Apps Script API
+ * বর্তমান কার্যকর URL
  */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbyd0ldrrTOYJvptf3G4IZPdUq33z_Xb5PvCNzimy6zU7-jVNJpBO7IPuZ-Brrgp7GfBKQ/exec";
 
 
-/*
- * Settings
- */
-
 const MAX =
 20 * 1024 * 1024;
+
 
 const COOLDOWN =
 30;
@@ -370,15 +616,14 @@ document.getElementById("status");
 const fileInput =
 document.getElementById("file");
 
+const fileInfo =
+document.getElementById("fileInfo");
+
 const cooldownBox =
-document.getElementById(
-  "cooldownBox"
-);
+document.getElementById("cooldownBox");
 
 const countdown =
-document.getElementById(
-  "countdown"
-);
+document.getElementById("countdown");
 
 
 /*
@@ -424,7 +669,7 @@ if(!clientId){
 
 
 /*
- * Countdown timer
+ * Countdown
  */
 
 let timer = null;
@@ -441,7 +686,8 @@ function startCountdown(seconds){
     );
 
 
-  b.disabled = true;
+  b.disabled =
+    true;
 
 
   cooldownBox.style.display =
@@ -459,7 +705,6 @@ function startCountdown(seconds){
 
         remaining--;
 
-
         countdown.textContent =
           Math.max(
             0,
@@ -471,10 +716,8 @@ function startCountdown(seconds){
 
           clearInterval(timer);
 
-
           cooldownBox.style.display =
             "none";
-
 
           b.disabled =
             false;
@@ -491,45 +734,69 @@ function startCountdown(seconds){
 
 
 /*
- * File size check
+ * File information
  */
 
 fileInput.addEventListener(
 
-  "change",
+"change",
 
-  function(){
+function(){
 
-    const x =
-      fileInput.files[0];
-
-
-    if(
-      x &&
-      x.size > MAX
-    ){
-
-      s.className =
-        "error";
+  const file =
+    fileInput.files[0];
 
 
-      s.textContent =
-        "ফাইল ২০ MB-এর বেশি হতে পারবে না।";
+  if(!file){
 
+    fileInfo.style.display =
+      "none";
 
-      fileInput.value =
-        "";
-
-    }else{
-
-      s.textContent =
-        "";
-
-    }
+    return;
 
   }
 
-);
+
+  if(file.size > MAX){
+
+    s.className =
+      "error";
+
+    s.textContent =
+      "ফাইল ২০ MB-এর বেশি হতে পারবে না।";
+
+    fileInput.value =
+      "";
+
+    fileInfo.style.display =
+      "none";
+
+    return;
+
+  }
+
+
+  const sizeMB =
+    file.size /
+    (1024 * 1024);
+
+
+  fileInfo.textContent =
+    "📎 " +
+    file.name +
+    " • " +
+    sizeMB.toFixed(2) +
+    " MB";
+
+
+  fileInfo.style.display =
+    "block";
+
+
+  s.textContent =
+    "";
+
+});
 
 
 /*
@@ -546,10 +813,6 @@ async function(e){
     fileInput.files[0];
 
 
-  /*
-   * File size check
-   */
-
   if(
     x &&
     x.size > MAX
@@ -558,19 +821,13 @@ async function(e){
     s.className =
       "error";
 
-
     s.textContent =
       "ফাইল ২০ MB-এর বেশি হতে পারবে না।";
-
 
     return;
 
   }
 
-
-  /*
-   * Disable button
-   */
 
   b.disabled =
     true;
@@ -686,11 +943,6 @@ async function(e){
               file:
                 fd,
 
-              /*
-               * গুরুত্বপূর্ণ:
-               * Client ID server-এ যাচ্ছে
-               */
-
               clientId:
                 clientId
 
@@ -756,6 +1008,14 @@ async function(e){
     f.reset();
 
 
+    fileInfo.style.display =
+      "none";
+
+
+    fileInfo.textContent =
+      "";
+
+
     s.className =
       "success";
 
@@ -763,10 +1023,6 @@ async function(e){
     s.textContent =
       "✓ আপনার মেসেজ সফলভাবে পাঠানো হয়েছে।";
 
-
-    /*
-     * 30 second cooldown
-     */
 
     startCountdown(
       COOLDOWN
@@ -807,6 +1063,7 @@ async function(e){
 };
 
 </script>
+
 
 </body>
 
