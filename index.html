@@ -3,7 +3,6 @@
 
 <head>
 <meta charset="utf-8">
-
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>আপনার কথা, আমার কাছে পৌঁছে দিন</title>
@@ -14,29 +13,55 @@
   box-sizing:border-box;
 }
 
+:root{
+  --purple:#6d28d9;
+  --purple2:#9333ea;
+  --purple3:#a855f7;
+  --dark:#241044;
+  --text:#241b35;
+  --muted:#7b7287;
+  --border:#e7ddf5;
+  --white:#ffffff;
+}
+
+html{
+  min-height:100%;
+}
+
 body{
   margin:0;
   min-height:100vh;
-  padding:18px;
+  padding:22px 14px;
 
   font-family:
     Arial,
     "Noto Sans Bengali",
+    "Noto Sans",
     sans-serif;
 
+  color:var(--text);
+
   background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(168,85,247,.18),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 15%,
+      rgba(109,40,217,.16),
+      transparent 28%
+    ),
     linear-gradient(
-      135deg,
-      #eef2ff,
-      #f8fafc 50%,
-      #eef6ff
+      145deg,
+      #f7f1ff,
+      #f8faff 48%,
+      #eee8ff
     );
 
-  color:#172033;
-
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
 }
 
 
@@ -44,16 +69,49 @@ body{
 
 main{
   width:100%;
-  max-width:540px;
+  max-width:550px;
 
-  padding:30px;
+  position:relative;
 
-  background:#fff;
+  padding:28px 26px 24px;
 
-  border-radius:26px;
+  background:
+    rgba(255,255,255,.96);
+
+  border:
+    1px solid rgba(255,255,255,.9);
+
+  border-radius:30px;
 
   box-shadow:
-    0 20px 55px rgba(15,23,42,.12);
+    0 25px 70px rgba(70,35,120,.16),
+    0 5px 18px rgba(40,20,80,.06);
+
+  overflow:hidden;
+}
+
+
+/* Decorative top */
+
+main::before{
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:0;
+  right:0;
+
+  height:7px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #5b21b6,
+      #7c3aed,
+      #a855f7,
+      #6d28d9
+    );
 }
 
 
@@ -61,85 +119,156 @@ main{
 
 .header{
   text-align:center;
-  margin-bottom:28px;
+
+  margin-top:8px;
+
+  margin-bottom:27px;
 }
 
 
-/* Logo */
+/* Profile */
 
-.logo{
-  width:68px;
-  height:68px;
-
-  margin:0 auto 16px;
-
+.profile{
   display:flex;
+
+  flex-direction:column;
+
   align-items:center;
-  justify-content:center;
 
-  border-radius:20px;
+  margin-bottom:20px;
+}
 
-  background:
-    linear-gradient(
-      135deg,
-      #4f46e5,
-      #7c3aed
-    );
 
-  color:white;
+.profile-photo{
+  width:112px;
+  height:112px;
 
-  font-size:30px;
+  object-fit:cover;
+
+  object-position:center 20%;
+
+  border-radius:50%;
+
+  border:5px solid #fff;
 
   box-shadow:
-    0 10px 25px
-    rgba(79,70,229,.25);
+    0 8px 28px rgba(88,28,135,.25),
+    0 0 0 3px rgba(139,92,246,.22);
+
+  background:#eee;
 }
 
 
-/* Main title */
+.profile-name{
+  margin-top:10px;
+
+  font-size:20px;
+
+  font-weight:800;
+
+  color:#3b176b;
+
+  letter-spacing:.1px;
+}
+
+
+/* Small personal badge */
+
+.personal-badge{
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:6px;
+
+  margin-top:7px;
+
+  padding:6px 12px;
+
+  border-radius:50px;
+
+  background:#f5edff;
+
+  color:#6d28d9;
+
+  font-size:12px;
+
+  font-weight:700;
+}
+
+
+/* Title */
 
 h1{
   margin:0;
 
+  color:#21112f;
+
   font-size:28px;
 
-  line-height:1.35;
+  line-height:1.45;
 
-  letter-spacing:-.3px;
+  font-weight:800;
+
+  letter-spacing:-.4px;
+}
+
+
+h1 .line{
+  display:block;
+}
+
+
+h1 .highlight{
+  color:#6d28d9;
 }
 
 
 /* Subtitle */
 
 .subtitle{
-  margin:11px 0 0;
+  margin:10px auto 0;
 
-  color:#667085;
+  max-width:390px;
 
-  font-size:14px;
+  color:#81798d;
 
-  line-height:1.7;
+  font-size:13px;
+
+  line-height:1.75;
 }
 
 
-/* Fields */
+/* Form */
 
 .field{
   margin-top:18px;
 }
 
+
 label{
   display:block;
 
-  margin-bottom:7px;
+  margin-bottom:8px;
+
+  color:#3f354b;
 
   font-size:14px;
 
-  font-weight:700;
-
-  color:#344054;
+  font-weight:800;
 }
 
+
+.optional{
+  color:#a29aaa;
+
+  font-weight:400;
+
+  font-size:12px;
+}
+
+
+/* Inputs */
 
 input,
 textarea,
@@ -158,63 +287,124 @@ textarea{
   padding:14px 15px;
 
   border:
-    1px solid #d0d5dd;
+    1px solid var(--border);
 
-  border-radius:14px;
+  border-radius:15px;
 
   outline:none;
 
-  background:#fff;
+  background:#fcfbff;
 
-  color:#101828;
+  color:#241b35;
 
-  transition:.2s;
+  transition:
+    border-color .2s,
+    box-shadow .2s,
+    background .2s;
+}
+
+
+input::placeholder,
+textarea::placeholder{
+  color:#aaa2b2;
 }
 
 
 input:focus,
 textarea:focus{
 
-  border-color:#6366f1;
+  border-color:#8b5cf6;
+
+  background:#fff;
 
   box-shadow:
     0 0 0 4px
-    rgba(99,102,241,.10);
+    rgba(139,92,246,.11);
 }
 
 
 textarea{
-
-  min-height:155px;
+  min-height:145px;
 
   resize:vertical;
 
-  line-height:1.6;
+  line-height:1.65;
 }
 
 
-/* File box */
+/* File area */
 
 .file-box{
 
-  padding:17px;
+  padding:15px;
 
   border:
-    1px dashed #a5b4fc;
+    1.5px dashed #c4b5fd;
 
-  border-radius:16px;
+  border-radius:17px;
 
-  background:#f8faff;
+  background:
+    linear-gradient(
+      135deg,
+      #faf7ff,
+      #f6f2ff
+    );
+}
+
+
+.file-label{
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  margin-bottom:10px;
+
+  color:#5b21b6;
+
+  font-size:13px;
+
+  font-weight:800;
+}
+
+
+.file-icon{
+  width:31px;
+  height:31px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:10px;
+
+  background:#ede9fe;
+
+  font-size:16px;
+}
+
+
+.file-box input[type="file"]{
+  padding:9px;
+
+  background:#fff;
+
+  border:1px solid #e8e0f1;
+
+  border-radius:11px;
+
+  font-size:13px;
 }
 
 
 .hint{
 
-  margin-top:8px;
+  margin-top:9px;
 
-  font-size:12px;
+  color:#8c8495;
 
-  color:#667085;
+  font-size:11.5px;
 
   line-height:1.5;
 }
@@ -228,58 +418,72 @@ textarea{
 
   padding:10px 12px;
 
-  border-radius:10px;
+  border-radius:11px;
 
-  background:#eef2ff;
+  background:#ede9fe;
 
-  color:#3730a3;
+  color:#5b21b6;
 
-  font-size:13px;
+  font-size:12px;
 
   line-height:1.5;
+
+  word-break:break-word;
 }
 
 
-/* Button */
+/* Send button */
 
 button{
 
   margin-top:23px;
 
-  padding:15px;
+  padding:16px;
 
   border:0;
 
-  border-radius:15px;
+  border-radius:16px;
 
   background:
     linear-gradient(
       135deg,
-      #4f46e5,
-      #7c3aed
+      #5b21b6,
+      #7c3aed 48%,
+      #9333ea
     );
 
   color:#fff;
 
-  font-weight:700;
+  font-weight:800;
+
+  font-size:16px;
 
   cursor:pointer;
 
   box-shadow:
-    0 10px 22px
-    rgba(79,70,229,.22);
+    0 12px 26px
+    rgba(109,40,217,.27);
 
-  transition:.15s;
+  transition:
+    transform .15s,
+    box-shadow .15s,
+    opacity .15s;
 }
 
 
 button:hover:not(:disabled){
 
-  transform:translateY(-1px);
+  transform:translateY(-2px);
 
   box-shadow:
-    0 13px 27px
-    rgba(79,70,229,.28);
+    0 16px 31px
+    rgba(109,40,217,.33);
+}
+
+
+button:active:not(:disabled){
+
+  transform:translateY(0);
 }
 
 
@@ -297,11 +501,11 @@ button:disabled{
 
 #status{
 
-  margin-top:17px;
+  margin-top:16px;
 
   text-align:center;
 
-  font-size:14px;
+  font-size:13px;
 
   font-weight:700;
 
@@ -327,9 +531,9 @@ button:disabled{
 
   margin-top:16px;
 
-  padding:17px;
+  padding:16px;
 
-  border-radius:16px;
+  border-radius:17px;
 
   background:
     linear-gradient(
@@ -349,15 +553,27 @@ button:disabled{
 }
 
 
+.cooldown-title{
+  font-size:13px;
+}
+
+
 #countdown{
 
-  margin:5px 0;
+  margin:4px 0;
 
-  font-size:34px;
+  font-size:36px;
 
-  line-height:1.2;
+  line-height:1.15;
 
-  font-weight:800;
+  font-weight:900;
+}
+
+
+.cooldown-sub{
+  font-size:12px;
+
+  font-weight:600;
 }
 
 
@@ -367,11 +583,18 @@ button:disabled{
 
   margin-top:22px;
 
+  padding-top:15px;
+
+  border-top:
+    1px solid #eee8f4;
+
   text-align:center;
 
-  color:#98a2b3;
+  color:#a19aa9;
 
-  font-size:12px;
+  font-size:11px;
+
+  line-height:1.6;
 }
 
 
@@ -380,24 +603,69 @@ button:disabled{
 @media(max-width:600px){
 
   body{
-    padding:12px;
+    padding:12px 10px;
   }
 
   main{
-    padding:23px 18px;
+    padding:
+      25px
+      17px
+      20px;
 
-    border-radius:22px;
+    border-radius:25px;
+  }
+
+  .profile-photo{
+    width:100px;
+    height:100px;
+  }
+
+  .profile-name{
+    font-size:18px;
   }
 
   h1{
     font-size:24px;
+
+    line-height:1.48;
   }
 
-  .logo{
-    width:58px;
-    height:58px;
+  .subtitle{
+    font-size:12px;
+  }
 
-    font-size:26px;
+  input,
+  textarea{
+    font-size:15px;
+  }
+
+  textarea{
+    min-height:135px;
+  }
+
+  button{
+    font-size:15px;
+  }
+
+}
+
+
+/* Very small phones */
+
+@media(max-width:360px){
+
+  main{
+    padding-left:14px;
+    padding-right:14px;
+  }
+
+  .profile-photo{
+    width:90px;
+    height:90px;
+  }
+
+  h1{
+    font-size:22px;
   }
 
 }
@@ -409,25 +677,53 @@ button:disabled{
 
 <body>
 
-
 <main>
 
 
 <div class="header">
 
-  <div class="logo">
-    ✉
+
+  <!-- Profile -->
+
+  <div class="profile">
+
+    <img
+      class="profile-photo"
+      src="1000.png"
+      alt="আশিকুর রহমান">
+
+    <div class="profile-name">
+      আশিকুর রহমান
+    </div>
+
+    <div class="personal-badge">
+      ✦ ব্যক্তিগত বার্তা
+    </div>
+
   </div>
 
 
+  <!-- Title -->
+
   <h1>
-    💬 আপনার কথা, আমার কাছে পৌঁছে দিন
+
+    <span class="line">
+      আপনার কথা,
+    </span>
+
+    <span class="line highlight">
+      আমার কাছে পৌঁছে দিন।
+    </span>
+
   </h1>
 
 
   <p class="subtitle">
+    আপনার মনের কথা বা গুরুত্বপূর্ণ কোনো বার্তা
+    এখানে পাঠাতে পারেন।
     বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই।
   </p>
+
 
 </div>
 
@@ -462,7 +758,7 @@ button:disabled{
 
 মোবাইল নম্বর
 
-<span style="font-weight:400;color:#98a2b3">
+<span class="optional">
 (ঐচ্ছিক)
 </span>
 
@@ -502,22 +798,32 @@ button:disabled{
 <div class="field">
 
 <label for="file">
-
 ফাইল সংযুক্ত করুন
-
-<span style="font-weight:400;color:#98a2b3">
-(ঐচ্ছিক)
-</span>
-
+<span class="optional">(ঐচ্ছিক)</span>
 </label>
 
 
 <div class="file-box">
 
+
+<div class="file-label">
+
+  <div class="file-icon">
+    📎
+  </div>
+
+  <span>
+    ছবি, PDF বা অন্য ফাইল
+  </span>
+
+</div>
+
+
 <input
   id="file"
   type="file"
 >
+
 
 <div class="hint">
 সর্বোচ্চ ২০ MB • একবারে ১টি ফাইল
@@ -528,6 +834,7 @@ button:disabled{
   id="fileInfo"
   class="file-info"
 ></div>
+
 
 </div>
 
@@ -554,7 +861,7 @@ button:disabled{
   class="cooldown"
 >
 
-<div>
+<div class="cooldown-title">
 আবার মেসেজ পাঠাতে পারবেন
 </div>
 
@@ -562,7 +869,7 @@ button:disabled{
 30
 </div>
 
-<div>
+<div class="cooldown-sub">
 সেকেন্ড পরে
 </div>
 
@@ -573,7 +880,7 @@ button:disabled{
 
 
 <div class="footer">
-আপনার বার্তাটি সঠিকভাবে সংরক্ষণ করা হবে।
+আপনার বার্তাটি নিরাপদভাবে সংরক্ষণ করা হবে।
 </div>
 
 
@@ -585,7 +892,7 @@ button:disabled{
 
 /*
  * Apps Script API
- * বর্তমান কার্যকর URL
+ * আপনার বর্তমান কার্যকর URL
  */
 
 const API_URL =
