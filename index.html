@@ -22,28 +22,29 @@ body{
   min-height:100vh;
 
   font-family:
-    "Noto Sans Bengali",
     Arial,
+    "Noto Sans Bengali",
+    "Noto Sans",
     sans-serif;
 
-  color:#17152d;
+  color:#17152b;
 
   background:
     radial-gradient(
-      circle at 10% 15%,
+      circle at 15% 15%,
       rgba(255,255,255,.18),
       transparent 25%
     ),
     radial-gradient(
-      circle at 90% 10%,
+      circle at 85% 75%,
       rgba(255,255,255,.12),
       transparent 25%
     ),
     linear-gradient(
       135deg,
-      #6d20d9 0%,
-      #6d2bdc 35%,
-      #2449cf 100%
+      #6624d9 0%,
+      #7431dc 38%,
+      #313fd0 100%
     );
 
   overflow-x:hidden;
@@ -55,11 +56,12 @@ body{
 body::before{
   content:"";
   position:fixed;
+
   width:420px;
   height:420px;
 
-  top:-170px;
-  right:-150px;
+  left:-230px;
+  bottom:-230px;
 
   border-radius:50%;
 
@@ -71,13 +73,14 @@ body::before{
 
 body::after{
   content:"";
+
   position:fixed;
 
-  width:380px;
-  height:380px;
+  width:360px;
+  height:360px;
 
-  bottom:-200px;
-  left:-160px;
+  right:-180px;
+  top:-180px;
 
   border-radius:50%;
 
@@ -94,32 +97,31 @@ body::after{
   width:100%;
   max-width:1050px;
 
-  margin:0 auto;
+  margin:auto;
 
-  padding:42px 24px 28px;
+  padding:28px 18px 22px;
 
   position:relative;
   z-index:1;
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* Header */
 
 .hero{
-  color:white;
 
   display:grid;
 
   grid-template-columns:
-    360px 1fr;
-
-  gap:55px;
+    42% 58%;
 
   align-items:center;
 
-  padding:10px 20px 35px;
+  min-height:390px;
+
+  padding:20px 25px 35px;
+
+  color:white;
 }
 
 
@@ -129,12 +131,10 @@ body::after{
   text-align:center;
 }
 
+.profile-image-wrap{
 
-/* Profile image */
-
-.photo-wrap{
-  width:310px;
-  height:310px;
+  width:270px;
+  height:270px;
 
   margin:auto;
 
@@ -146,36 +146,20 @@ body::after{
     linear-gradient(
       135deg,
       #ffffff,
-      #ffd5ec,
-      #b78cff,
+      #ffd7f0,
       #ffffff
     );
 
   box-shadow:
-    0 12px 35px rgba(0,0,0,.22);
+    0 0 0 5px rgba(255,255,255,.18),
+    0 15px 45px rgba(0,0,0,.20);
 
   position:relative;
 }
 
 
-.photo-wrap::before{
-  content:"";
+.profile-image{
 
-  position:absolute;
-
-  inset:4px;
-
-  border-radius:50%;
-
-  border:
-    2px solid
-    rgba(255,255,255,.7);
-
-  pointer-events:none;
-}
-
-
-.profile img{
   width:100%;
   height:100%;
 
@@ -183,522 +167,485 @@ body::after{
 
   object-fit:cover;
 
+  object-position:center top;
+
   border-radius:50%;
 
-  border:
-    6px solid white;
+  border:4px solid white;
+
+  background:#eee;
 }
 
 
-/* Verified badge */
+/* Verification */
 
-.verified{
+.verify{
+
   position:absolute;
 
-  right:3px;
-  bottom:7px;
+  right:0;
+  bottom:3px;
 
   width:58px;
   height:58px;
+
+  border-radius:50%;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  border-radius:50%;
+  background:#fff;
 
-  background:white;
+  color:#5b21d6;
 
-  color:#6823d8;
-
-  font-size:30px;
+  font-size:32px;
 
   font-weight:900;
 
   box-shadow:
-    0 7px 18px rgba(0,0,0,.22);
+    0 6px 20px rgba(0,0,0,.20);
 }
 
 
-/* Name */
-
 .profile-name{
-  margin:18px 0 0;
 
-  font-size:30px;
+  margin-top:17px;
+
+  font-size:28px;
 
   font-weight:900;
-
-  color:white;
 
   text-shadow:
     0 2px 5px rgba(0,0,0,.18);
 }
 
 
-/* Name decoration */
+.profile-line{
 
-.name-line{
-  display:flex;
+  width:150px;
 
-  justify-content:center;
-  align-items:center;
-
-  gap:12px;
-
-  margin-top:10px;
-}
-
-.name-line span{
-  width:70px;
   height:2px;
+
+  margin:11px auto 0;
 
   background:
     linear-gradient(
       90deg,
       transparent,
-      #ff9acb
-    );
-}
-
-.name-line span:last-child{
-  background:
-    linear-gradient(
-      90deg,
-      #ff9acb,
+      #ff9bdc,
       transparent
     );
+
+  position:relative;
 }
 
-.name-line b{
-  color:#ff9acb;
+.profile-line::after{
 
-  font-size:20px;
+  content:"♥";
+
+  position:absolute;
+
+  left:50%;
+  top:50%;
+
+  transform:
+    translate(-50%,-50%);
+
+  padding:0 10px;
+
+  color:#ff9bdc;
+
+  background:#6530d5;
+
+  font-size:18px;
 }
 
 
-/* Hero content */
+/* Hero text */
 
 .hero-content{
+
+  padding:10px 15px 10px 35px;
+
   position:relative;
 }
 
 
-/* Chat icon */
+.message-icon{
 
-.chat-icon{
-  width:72px;
-  height:72px;
+  width:62px;
+  height:62px;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
-  margin-bottom:18px;
+  margin-bottom:14px;
+
+  border:2px solid rgba(255,255,255,.65);
 
   border-radius:50%;
 
+  font-size:34px;
+
   background:
-    rgba(255,255,255,.14);
+    rgba(255,255,255,.08);
 
-  border:
-    2px solid
-    rgba(255,255,255,.55);
-
-  font-size:39px;
-
-  box-shadow:
-    0 8px 25px rgba(0,0,0,.12);
 }
 
-
-/* Paper plane */
-
-.plane{
-  position:absolute;
-
-  right:0;
-  top:20px;
-
-  font-size:58px;
-
-  color:#ff8fc7;
-
-  transform:
-    rotate(-12deg);
-
-  opacity:.95;
-}
-
-
-/* Hero title */
 
 .hero h1{
+
   margin:0;
 
-  font-size:47px;
+  font-size:48px;
 
-  line-height:1.25;
+  line-height:1.18;
 
   font-weight:900;
 
   letter-spacing:-1px;
 }
 
-.hero h1 .white{
-  color:white;
-}
 
 .hero h1 .yellow{
-  color:#ffd84d;
+
+  color:#ffd94a;
 }
 
-
-/* Hero divider */
 
 .hero-divider{
-  display:flex;
 
-  align-items:center;
+  width:190px;
 
-  gap:14px;
-
-  margin:24px 0 20px;
-}
-
-.hero-divider span{
-  width:220px;
   height:2px;
 
+  margin:25px 0 19px;
+
   background:
-    rgba(255,255,255,.8);
+    linear-gradient(
+      90deg,
+      white,
+      rgba(255,255,255,.15)
+    );
+
+  position:relative;
 }
 
-.hero-divider b{
-  color:#ff7dbb;
 
-  font-size:26px;
+.hero-divider::after{
+
+  content:"♥";
+
+  position:absolute;
+
+  right:-22px;
+
+  top:-12px;
+
+  color:#ff86c9;
+
+  font-size:22px;
 }
 
-
-/* Hero subtitle */
 
 .hero-subtitle{
+
   margin:0;
 
-  color:
-    rgba(255,255,255,.92);
-
-  font-size:21px;
+  font-size:19px;
 
   line-height:1.7;
+
+  color:
+    rgba(255,255,255,.94);
 }
 
 
-/* =========================
-   FORM CARD
-========================= */
+/* Paper */
 
-.form-card{
+.card{
+
+  width:100%;
+
   background:
-    rgba(255,255,255,.96);
+    rgba(255,255,255,.97);
 
   border-radius:28px;
 
-  padding:34px 44px 25px;
+  padding:30px 34px 24px;
 
   box-shadow:
-    0 20px 60px
-    rgba(20,15,70,.28);
+    0 25px 65px
+    rgba(24,15,80,.28);
 
-  border:
-    1px solid
-    rgba(255,255,255,.75);
+  position:relative;
+
+  overflow:hidden;
 }
 
 
 /* Form row */
 
 .field{
+
   display:grid;
 
-  grid-template-columns:
-    100px 1fr;
+  grid-template-columns:82px 1fr;
 
-  gap:20px;
+  gap:22px;
 
-  align-items:center;
+  align-items:start;
 
-  margin-bottom:25px;
+  margin-bottom:21px;
 }
 
 
-/* Icon box */
+/* Icons */
 
 .field-icon{
-  width:76px;
-  height:76px;
+
+  width:72px;
+  height:72px;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
   border-radius:17px;
 
-  font-size:36px;
+  font-size:34px;
 
-  border:1px solid;
+  border:1px solid rgba(0,0,0,.05);
 }
 
 
-/* Individual icon colors */
+/* Individual icon backgrounds */
 
-.name-icon{
-  color:#6824d9;
+.icon-name{
 
-  background:#f0e5ff;
-
-  border-color:#dfc8ff;
+  background:#f1e5ff;
+  color:#6425d8;
 }
 
-.contact-icon{
-  color:#1686d8;
+.icon-contact{
 
-  background:#e4f3ff;
-
-  border-color:#c9e6ff;
+  background:#e1f1ff;
+  color:#1976d2;
 }
 
-.message-icon{
-  color:#6924d9;
+.icon-message{
 
   background:#f0e4ff;
-
-  border-color:#dfc8ff;
+  color:#6825d8;
 }
 
-.file-icon{
-  color:#18a68e;
+.icon-file{
 
-  background:#e1f8f3;
-
-  border-color:#c5eee5;
+  background:#e0f7f3;
+  color:#159d8b;
 }
 
 
-/* Labels */
+/* Form content */
 
-.field-content label{
+.field-content{
+  min-width:0;
+}
+
+
+label{
+
   display:block;
 
-  margin-bottom:9px;
+  margin:2px 0 9px;
 
   font-size:17px;
 
   font-weight:900;
 
-  color:#17152d;
+  color:#18142d;
 }
 
+
 .optional{
-  color:#8b8795;
 
   font-weight:400;
 
-  font-size:14px;
+  color:#8f8a9e;
+
+  font-size:13px;
 }
 
+
 .required{
-  color:#e51c4b;
+
+  color:#e11d48;
 }
 
 
 /* Inputs */
 
 input,
-textarea{
+textarea,
+button{
+
   width:100%;
 
   font-family:inherit;
+}
 
-  font-size:17px;
 
-  color:#29243b;
-
-  outline:none;
+input,
+textarea{
 
   border-radius:14px;
 
-  transition:.2s;
-}
-
-
-input{
-  height:58px;
-
-  padding:0 20px;
-}
-
-
-textarea{
-  min-height:165px;
-
-  padding:17px 20px;
-
-  resize:vertical;
-
-  line-height:1.7;
-}
-
-
-/* Input themes */
-
-#n{
-  background:#fbf6ff;
-
   border:
-    1px solid #d9b9f5;
+    1px solid #d8c7e8;
+
+  outline:none;
+
+  padding:15px 17px;
+
+  font-size:16px;
+
+  color:#29233c;
+
+  background:#fbf8ff;
+
+  transition:
+    border .2s,
+    box-shadow .2s,
+    background .2s;
 }
 
-#p{
-  background:#f1f9ff;
 
-  border:
-    1px solid #abd3ee;
-}
+input::placeholder,
+textarea::placeholder{
 
-#m{
-  background:#fbf5ff;
-
-  border:
-    1px solid #d9b9f5;
+  color:#a49caf;
 }
 
 
 input:focus,
 textarea:focus{
+
+  border-color:#8139df;
+
+  background:#fff;
+
   box-shadow:
     0 0 0 4px
-    rgba(105,35,218,.10);
-}
-
-#n:focus,
-#m:focus{
-  border-color:#7c35df;
-}
-
-#p:focus{
-  border-color:#208dd7;
+    rgba(125,52,222,.10);
 }
 
 
-/* Placeholder */
+textarea{
 
-::placeholder{
-  color:#aaa4b2;
+  min-height:145px;
 
-  opacity:1;
+  resize:vertical;
+
+  line-height:1.6;
 }
 
 
-/* =========================
-   FILE
-========================= */
+/* Contact field */
+
+#p{
+
+  background:#f1f9ff;
+
+  border-color:#b9d8ec;
+}
+
+
+/* File */
 
 .file-box{
-  padding:16px 20px;
+
+  padding:13px;
+
+  border-radius:15px;
 
   border:
-    2px dashed #55bdae;
-
-  border-radius:16px;
+    2px dashed #57bcae;
 
   background:#effbf8;
 }
 
 
 .file-title{
-  margin-bottom:10px;
 
-  color:#247f71;
+  margin-bottom:9px;
 
-  font-size:16px;
+  font-size:14px;
 
   font-weight:800;
+
+  color:#187d6e;
 }
 
 
-.file-input{
+.file-box input[type="file"]{
+
   width:100%;
 
-  height:auto;
-
-  padding:0;
-
-  border:0;
-
-  background:white;
-
-  color:#333;
-
-  font-size:15px;
-}
-
-
-.file-input::file-selector-button{
-  padding:10px 17px;
-
-  margin-right:10px;
-
-  border:
-    1px solid #269f8e;
+  padding:9px;
 
   border-radius:10px;
 
   background:white;
 
-  color:#247f71;
+  border:1px solid #d8e6e3;
 
-  font-weight:700;
+  color:#555;
 
-  cursor:pointer;
+  font-size:14px;
 }
 
 
 .file-hint{
-  margin-top:9px;
 
-  color:#3c887e;
+  margin-top:8px;
 
   font-size:12px;
+
+  color:#378f83;
 }
 
 
 .file-info{
+
   display:none;
 
-  margin-top:10px;
+  margin-top:8px;
 
-  padding:9px 12px;
+  padding:8px 10px;
 
-  border-radius:10px;
+  border-radius:9px;
 
-  background:#dff7f1;
+  background:#dff5ef;
 
-  color:#247f71;
+  color:#147568;
 
-  font-size:13px;
+  font-size:12px;
+
+  word-break:break-word;
 }
 
 
-/* =========================
-   SEND BUTTON
-========================= */
+/* Send button */
 
 button{
-  width:100%;
 
-  height:65px;
+  margin-top:3px;
+
+  padding:17px 20px;
 
   border:0;
 
@@ -706,45 +653,51 @@ button{
 
   background:
     linear-gradient(
-      100deg,
-      #4c16e8,
-      #7c19e7,
-      #ec1598
+      90deg,
+      #4b18ed,
+      #8a22e8,
+      #ed149b
     );
 
   color:white;
 
-  font-family:inherit;
-
-  font-size:21px;
+  font-size:20px;
 
   font-weight:900;
 
   cursor:pointer;
 
   box-shadow:
-    0 12px 27px
-    rgba(115,25,224,.27);
+    0 12px 25px
+    rgba(106,28,218,.25);
 
-  transition:.2s;
+  transition:
+    transform .15s,
+    box-shadow .15s,
+    opacity .15s;
 }
 
 
 button:hover:not(:disabled){
-  transform:translateY(-2px);
+
+  transform:
+    translateY(-1px);
 
   box-shadow:
-    0 16px 32px
-    rgba(115,25,224,.34);
+    0 15px 30px
+    rgba(106,28,218,.32);
 }
 
 
 button:active:not(:disabled){
-  transform:translateY(0);
+
+  transform:
+    translateY(1px);
 }
 
 
 button:disabled{
+
   opacity:.65;
 
   cursor:not-allowed;
@@ -753,19 +706,13 @@ button:disabled{
 }
 
 
-.send-icon{
-  margin-right:10px;
-
-  font-size:24px;
-}
-
-
-/* =========================
-   STATUS
-========================= */
+/* Status */
 
 #status{
-  margin-top:15px;
+
+  min-height:20px;
+
+  margin-top:13px;
 
   text-align:center;
 
@@ -776,63 +723,28 @@ button:disabled{
   line-height:1.6;
 }
 
+
 .success{
   color:#087443;
 }
+
 
 .error{
   color:#b42318;
 }
 
 
-/* =========================
-   SECURITY MESSAGE
-========================= */
-
-.security{
-  margin-top:20px;
-
-  padding:17px 20px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  gap:14px;
-
-  border-radius:14px;
-
-  background:#fff9e9;
-
-  border:
-    1px solid #f2dfad;
-
-  color:#90691e;
-
-  font-size:15px;
-
-  text-align:center;
-}
-
-.security-icon{
-  font-size:28px;
-}
-
-
-/* =========================
-   COUNTDOWN
-========================= */
+/* Cooldown */
 
 .cooldown{
+
   display:none;
 
-  margin-top:17px;
+  margin-top:15px;
 
-  padding:18px;
+  padding:15px;
 
-  border-radius:15px;
+  border-radius:14px;
 
   background:
     linear-gradient(
@@ -853,297 +765,262 @@ button:disabled{
 
 
 #countdown{
-  margin:5px 0;
 
-  font-size:34px;
+  margin:4px 0;
 
-  line-height:1.2;
+  font-size:30px;
 
   font-weight:900;
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* Security note */
+
+.security{
+
+  margin-top:20px;
+
+  padding:14px 17px;
+
+  border-radius:13px;
+
+  border:
+    1px solid #f1dfb2;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff9e9,
+      #fffdf6
+    );
+
+  color:#805d23;
+
+  text-align:center;
+
+  font-size:14px;
+
+  line-height:1.6;
+}
+
+
+/* Footer */
 
 .footer{
-  padding:27px 10px 5px;
+
+  padding:19px 0 5px;
 
   text-align:center;
 
   color:
-    rgba(255,255,255,.9);
+    rgba(255,255,255,.88);
 
-  font-size:15px;
+  font-size:13px;
 
-  line-height:1.7;
-}
-
-.footer-heart{
-  color:#ff7cc1;
-
-  font-size:20px;
+  line-height:1.6;
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* Mobile */
 
-@media(max-width:800px){
+@media(max-width:760px){
 
   .page{
+
     padding:
-      22px 14px 25px;
+      15px
+      12px
+      15px;
   }
 
 
   .hero{
+
     grid-template-columns:1fr;
 
-    gap:25px;
-
-    text-align:center;
+    min-height:auto;
 
     padding:
-      5px 5px 30px;
+      25px 8px
+      30px;
+
+    text-align:center;
   }
 
 
-  .profile{
-    order:0;
+  .profile-image-wrap{
+
+    width:245px;
+    height:245px;
+  }
+
+
+  .profile-name{
+
+    font-size:25px;
   }
 
 
   .hero-content{
-    order:1;
+
+    padding:
+      28px 5px 0;
   }
 
 
-  .photo-wrap{
+  .message-icon{
+
+    margin:
+      0 auto 14px;
+  }
+
+
+  .hero h1{
+
+    font-size:36px;
+
+    line-height:1.2;
+  }
+
+
+  .hero-divider{
+
+    margin:
+      22px auto 17px;
+  }
+
+
+  .hero-subtitle{
+
+    font-size:16px;
+  }
+
+
+  .card{
+
+    padding:
+      25px 17px
+      19px;
+
+    border-radius:24px;
+  }
+
+
+  .field{
+
+    grid-template-columns:
+      66px 1fr;
+
+    gap:14px;
+
+    margin-bottom:19px;
+  }
+
+
+  .field-icon{
+
+    width:62px;
+    height:62px;
+
+    border-radius:15px;
+
+    font-size:29px;
+  }
+
+
+  label{
+
+    font-size:15px;
+  }
+
+
+  input,
+  textarea{
+
+    font-size:15px;
+
+    padding:
+      14px 14px;
+  }
+
+
+  textarea{
+
+    min-height:140px;
+  }
+
+
+  button{
+
+    font-size:18px;
+
+    padding:16px;
+  }
+
+
+  .security{
+
+    font-size:12px;
+  }
+
+
+  .footer{
+
+    font-size:12px;
+  }
+
+}
+
+
+/* Small phones */
+
+@media(max-width:390px){
+
+  .profile-image-wrap{
+
     width:215px;
     height:215px;
   }
 
 
-  .verified{
-    width:49px;
-    height:49px;
+  .verify{
 
-    right:2px;
-    bottom:2px;
-
-    font-size:25px;
-  }
-
-
-  .profile-name{
-    font-size:25px;
-  }
-
-
-  .chat-icon{
-    width:60px;
-    height:60px;
-
-    margin:
-      0 auto 16px;
-
-    font-size:31px;
-  }
-
-
-  .plane{
-    right:8px;
-    top:20px;
-
-    font-size:42px;
-  }
-
-
-  .hero h1{
-    font-size:32px;
-
-    line-height:1.35;
-
-    letter-spacing:-.5px;
-  }
-
-
-  .hero-divider{
-    justify-content:center;
-
-    margin:
-      18px 0 14px;
-  }
-
-
-  .hero-divider span{
-    width:90px;
-  }
-
-
-  .hero-subtitle{
-    font-size:15px;
-
-    line-height:1.7;
-  }
-
-
-  .form-card{
-    padding:
-      25px 17px 20px;
-
-    border-radius:23px;
-  }
-
-
-  .field{
-    grid-template-columns:
-      60px 1fr;
-
-    gap:11px;
-
-    align-items:start;
-
-    margin-bottom:23px;
-  }
-
-
-  .field-icon{
-    width:58px;
-    height:58px;
-
-    border-radius:14px;
+    width:48px;
+    height:48px;
 
     font-size:27px;
   }
 
 
-  .field-content label{
-    margin-top:4px;
-
-    font-size:14px;
-
-    margin-bottom:8px;
-  }
-
-
-  .optional{
-    font-size:11px;
-  }
-
-
-  input{
-    height:49px;
-
-    padding:
-      0 14px;
-
-    font-size:14px;
-  }
-
-
-  textarea{
-    min-height:140px;
-
-    padding:
-      13px 14px;
-
-    font-size:14px;
-  }
-
-
-  .file-box{
-    padding:
-      13px 12px;
-  }
-
-
-  .file-title{
-    font-size:13px;
-  }
-
-
-  .file-input{
-    font-size:12px;
-  }
-
-
-  .file-input::file-selector-button{
-    padding:
-      8px 12px;
-
-    font-size:12px;
-  }
-
-
-  .file-hint{
-    font-size:10px;
-  }
-
-
-  button{
-    height:58px;
-
-    font-size:17px;
-  }
-
-
-  .send-icon{
-    font-size:20px;
-  }
-
-
-  .security{
-    font-size:12px;
-
-    padding:
-      14px 10px;
-
-    gap:8px;
-  }
-
-
-  .security-icon{
-    font-size:23px;
-  }
-
-
-  .footer{
-    font-size:12px;
-  }
-
-}
-
-
-@media(max-width:400px){
-
   .hero h1{
-    font-size:28px;
-  }
 
-
-  .photo-wrap{
-    width:190px;
-    height:190px;
+    font-size:31px;
   }
 
 
   .field{
-    grid-template-columns:
-      52px 1fr;
 
-    gap:9px;
+    grid-template-columns:
+      55px 1fr;
+
+    gap:11px;
   }
 
 
   .field-icon{
+
     width:52px;
     height:52px;
 
-    font-size:24px;
+    font-size:25px;
+  }
+
+
+  .card{
+
+    padding:
+      22px 13px
+      17px;
   }
 
 }
@@ -1159,93 +1036,78 @@ button:disabled{
 <div class="page">
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
 <section class="hero">
 
 
-<div class="profile">
+  <!-- PROFILE -->
 
-  <div class="photo-wrap">
+  <div class="profile">
 
-    <img
-      src="1000.png"
-      alt="আশিকুর রহমান"
-    >
+    <div class="profile-image-wrap">
 
-    <div class="verified">
-      ✓
+      <img
+        class="profile-image"
+        src="1000.png"
+        alt="আশিকুর রহমান"
+      >
+
+      <div class="verify">
+        ✓
+      </div>
+
     </div>
 
-  </div>
+
+    <div class="profile-name">
+      আশিকুর রহমান
+    </div>
 
 
-  <div class="profile-name">
-    আশিকুর রহমান
-  </div>
-
-
-  <div class="name-line">
-    <span></span>
-    <b>♥</b>
-    <span></span>
-  </div>
-
-</div>
-
-
-
-<div class="hero-content">
-
-
-  <div class="chat-icon">
-    💬
-  </div>
-
-
-  <div class="plane">
-    ➤
-  </div>
-
-
-  <h1>
-    <span class="white">
-      আপনার কথা,
-    </span>
-    <br>
-    <span class="yellow">
-      আমার কাছে পৌঁছে দিন।
-    </span>
-  </h1>
-
-
-  <div class="hero-divider">
-
-    <span></span>
-
-    <b>♥</b>
+    <div class="profile-line"></div>
 
   </div>
 
 
-  <p class="hero-subtitle">
-    বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই।
-  </p>
+
+  <!-- HERO CONTENT -->
+
+  <div class="hero-content">
+
+    <div class="message-icon">
+      💬
+    </div>
 
 
-</div>
+    <h1>
+
+      আপনার কথা,<br>
+
+      <span class="yellow">
+        আমার কাছে পৌঁছে দিন।
+      </span>
+
+    </h1>
+
+
+    <div class="hero-divider"></div>
+
+
+    <p class="hero-subtitle">
+      বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই।
+    </p>
+
+  </div>
+
 
 </section>
 
 
 
-<!-- =========================
-     FORM
-========================= -->
+<!-- FORM CARD -->
 
-<main class="form-card">
+<main class="card">
 
 
 <form id="f">
@@ -1255,30 +1117,28 @@ button:disabled{
 
 <div class="field">
 
-
-<div class="field-icon name-icon">
-  👤
-</div>
-
-
-<div class="field-content">
-
-<label for="n">
-  আপনার নাম
-  <span class="required">*</span>
-</label>
+  <div class="field-icon icon-name">
+    👤
+  </div>
 
 
-<input
-  id="n"
-  required
-  maxlength="100"
-  autocomplete="name"
-  placeholder="আপনার নাম লিখুন"
->
+  <div class="field-content">
+
+    <label for="n">
+      আপনার নাম
+      <span class="required">*</span>
+    </label>
 
 
-</div>
+    <input
+      id="n"
+      required
+      maxlength="100"
+      autocomplete="name"
+      placeholder="আপনার নাম লিখুন"
+    >
+
+  </div>
 
 </div>
 
@@ -1288,34 +1148,32 @@ button:disabled{
 
 <div class="field">
 
-
-<div class="field-icon contact-icon">
-  📱
-</div>
-
-
-<div class="field-content">
-
-<label for="p">
-
-  যোগাযোগ
-
-  <span class="optional">
-    (ঐচ্ছিক)
-  </span>
-
-</label>
+  <div class="field-icon icon-contact">
+    📱
+  </div>
 
 
-<input
-  id="p"
-  maxlength="200"
-  autocomplete="off"
-  placeholder="নাম্বার, মেইল অথবা লিংক"
->
+  <div class="field-content">
+
+    <label for="p">
+
+      যোগাযোগ
+
+      <span class="optional">
+        (ঐচ্ছিক)
+      </span>
+
+    </label>
 
 
-</div>
+    <input
+      id="p"
+      maxlength="200"
+      autocomplete="off"
+      placeholder="নাম্বার, মেইল অথবা লিংক"
+    >
+
+  </div>
 
 </div>
 
@@ -1325,32 +1183,30 @@ button:disabled{
 
 <div class="field">
 
-
-<div class="field-icon message-icon">
-  💬
-</div>
-
-
-<div class="field-content">
-
-<label for="m">
-
-  আপনার মেসেজ
-
-  <span class="required">*</span>
-
-</label>
+  <div class="field-icon icon-message">
+    💬
+  </div>
 
 
-<textarea
-  id="m"
-  required
-  maxlength="2000"
-  placeholder="আপনার কথা এখানে লিখুন..."
-></textarea>
+  <div class="field-content">
+
+    <label for="m">
+
+      আপনার মেসেজ
+
+      <span class="required">*</span>
+
+    </label>
 
 
-</div>
+    <textarea
+      id="m"
+      required
+      maxlength="2000"
+      placeholder="আপনার কথা এখানে লিখুন..."
+    ></textarea>
+
+  </div>
 
 </div>
 
@@ -1360,54 +1216,52 @@ button:disabled{
 
 <div class="field">
 
-
-<div class="field-icon file-icon">
-  📎
-</div>
-
-
-<div class="field-content">
-
-<label for="file">
-
-  ফাইল সংযুক্ত করুন
-
-  <span class="optional">
-    (ঐচ্ছিক)
-  </span>
-
-</label>
+  <div class="field-icon icon-file">
+    📎
+  </div>
 
 
-<div class="file-box">
+  <div class="field-content">
+
+    <label for="file">
+
+      ফাইল সংযুক্ত করুন
+
+      <span class="optional">
+        (ঐচ্ছিক)
+      </span>
+
+    </label>
 
 
-<div class="file-title">
-  📎 ছবি, PDF বা অন্য ফাইল
-</div>
+    <div class="file-box">
 
 
-<input
-  id="file"
-  class="file-input"
-  type="file"
->
+      <div class="file-title">
+        📎 ছবি, PDF বা অন্য ফাইল
+      </div>
 
 
-<div class="file-hint">
-  সর্বোচ্চ ২০ MB • একবারে ১টি ফাইল
-</div>
+      <input
+        id="file"
+        type="file"
+      >
 
 
-<div
-  id="fileInfo"
-  class="file-info"
-></div>
+      <div class="file-hint">
+        সর্বোচ্চ ২০ MB • একবারে ১টি ফাইল
+      </div>
 
 
-</div>
+      <div
+        id="fileInfo"
+        class="file-info"
+      ></div>
 
-</div>
+
+    </div>
+
+  </div>
 
 </div>
 
@@ -1419,16 +1273,12 @@ button:disabled{
   id="b"
   type="submit"
 >
-
-<span class="send-icon">
-  ➤
-</span>
-
-মেসেজ পাঠান
-
+  ➤ &nbsp; মেসেজ পাঠান
 </button>
 
 
+
+<!-- STATUS -->
 
 <div id="status"></div>
 
@@ -1441,19 +1291,17 @@ button:disabled{
   class="cooldown"
 >
 
-<div>
-  আবার মেসেজ পাঠাতে পারবেন
-</div>
+  <div>
+    আবার মেসেজ পাঠাতে পারবেন
+  </div>
 
+  <div id="countdown">
+    30
+  </div>
 
-<div id="countdown">
-  30
-</div>
-
-
-<div>
-  সেকেন্ড পরে
-</div>
+  <div>
+    সেকেন্ড পরে
+  </div>
 
 </div>
 
@@ -1463,13 +1311,8 @@ button:disabled{
 
 <div class="security">
 
-  <div class="security-icon">
-    🛡️
-  </div>
-
-  <div>
-    আপনার মেসেজ নিরাপদে সংরক্ষিত হবে এবং গোপন রাখা হবে।
-  </div>
+  🛡️
+  আপনার মেসেজ নিরাপদে সংরক্ষিত হবে এবং গোপন রাখা হবে।
 
 </div>
 
@@ -1485,11 +1328,9 @@ button:disabled{
 
 <div class="footer">
 
-  🔒 আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ
-
-  <span class="footer-heart">
-    ♥
-  </span>
+  🔒
+  আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ
+  💜
 
 </div>
 
@@ -1501,34 +1342,30 @@ button:disabled{
 <script>
 
 
-/*
-========================================
- Apps Script API
-========================================
-*/
+/* =========================================
+   GOOGLE APPS SCRIPT API
+   ========================================= */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbyd0ldrrTOYJvptf3G4IZPdUq33z_Xb5PvCNzimy6zU7-jVNJpBO7IPuZ-Brrgp7GfBKQ/exec";
 
 
-/*
-========================================
- Settings
-========================================
-*/
+/* Maximum file size */
 
 const MAX =
 20 * 1024 * 1024;
+
+
+/* Cooldown */
 
 const COOLDOWN =
 30;
 
 
-/*
-========================================
- Elements
-========================================
-*/
+
+/* =========================================
+   ELEMENTS
+   ========================================= */
 
 const f =
 document.getElementById("f");
@@ -1552,11 +1389,10 @@ const countdown =
 document.getElementById("countdown");
 
 
-/*
-========================================
- Permanent Client ID
-========================================
-*/
+
+/* =========================================
+   PERMANENT CLIENT ID
+   ========================================= */
 
 let clientId =
 localStorage.getItem(
@@ -1596,13 +1432,13 @@ if(!clientId){
 }
 
 
-/*
-========================================
- Countdown
-========================================
-*/
 
-let timer = null;
+/* =========================================
+   COUNTDOWN
+   ========================================= */
+
+let timer =
+null;
 
 
 function startCountdown(seconds){
@@ -1644,7 +1480,9 @@ function startCountdown(seconds){
           );
 
 
-        if(remaining <= 0){
+        if(
+          remaining <= 0
+        ){
 
           clearInterval(timer);
 
@@ -1667,82 +1505,88 @@ function startCountdown(seconds){
 }
 
 
-/*
-========================================
- File information
-========================================
-*/
+
+/* =========================================
+   FILE INFORMATION
+   ========================================= */
 
 fileInput.addEventListener(
 
-"change",
+  "change",
 
-function(){
+  function(){
 
-  const file =
-    fileInput.files[0];
+    const file =
+      fileInput.files[0];
 
 
-  if(!file){
+    if(!file){
+
+      fileInfo.style.display =
+        "none";
+
+      fileInfo.textContent =
+        "";
+
+      return;
+
+    }
+
+
+    if(
+      file.size > MAX
+    ){
+
+      s.className =
+        "error";
+
+
+      s.textContent =
+        "ফাইল ২০ MB-এর বেশি হতে পারবে না।";
+
+
+      fileInput.value =
+        "";
+
+
+      fileInfo.style.display =
+        "none";
+
+
+      return;
+
+    }
+
+
+    const sizeMB =
+      file.size /
+      (1024 * 1024);
+
+
+    fileInfo.textContent =
+      "📎 " +
+      file.name +
+      " • " +
+      sizeMB.toFixed(2) +
+      " MB";
+
 
     fileInfo.style.display =
-      "none";
+      "block";
 
-    return;
-
-  }
-
-
-  if(file.size > MAX){
-
-    s.className =
-      "error";
 
     s.textContent =
-      "ফাইল ২০ MB-এর বেশি হতে পারবে না।";
-
-
-    fileInput.value =
       "";
-
-
-    fileInfo.style.display =
-      "none";
-
-
-    return;
 
   }
 
-
-  const sizeMB =
-    file.size /
-    (1024 * 1024);
+);
 
 
-  fileInfo.textContent =
-    "📎 " +
-    file.name +
-    " • " +
-    sizeMB.toFixed(2) +
-    " MB";
 
-
-  fileInfo.style.display =
-    "block";
-
-
-  s.textContent =
-    "";
-
-});
-
-
-/*
-========================================
- Submit
-========================================
-*/
+/* =========================================
+   SUBMIT
+   ========================================= */
 
 f.onsubmit =
 async function(e){
@@ -1754,9 +1598,7 @@ async function(e){
     fileInput.files[0];
 
 
-  /*
-   * File size check
-   */
+  /* File size check */
 
   if(
     x &&
@@ -1766,31 +1608,34 @@ async function(e){
     s.className =
       "error";
 
+
     s.textContent =
       "ফাইল ২০ MB-এর বেশি হতে পারবে না।";
+
 
     return;
 
   }
 
 
-  /*
-   * Button
-   */
+
+  /* Disable button */
 
   b.disabled =
     true;
 
 
-  b.innerHTML =
-    "⏳ পাঠানো হচ্ছে...";
+  b.textContent =
+    "পাঠানো হচ্ছে...";
 
 
   s.className =
     "";
 
+
   s.textContent =
     "";
+
 
 
   try{
@@ -1800,9 +1645,10 @@ async function(e){
       null;
 
 
-    /*
-     * File → Base64
-     */
+
+    /* =====================================
+       FILE → BASE64
+       ===================================== */
 
     if(x){
 
@@ -1849,9 +1695,10 @@ async function(e){
     }
 
 
-    /*
-     * Send request
-     */
+
+    /* =====================================
+       SEND REQUEST
+       ===================================== */
 
     const response =
       await fetch(
@@ -1865,157 +1712,4 @@ async function(e){
 
           headers:{
             "Content-Type":
-              "text/plain;charset=utf-8"
-          },
-
-
-          body:
-            JSON.stringify({
-
-              name:
-                document
-                  .getElementById("n")
-                  .value
-                  .trim(),
-
-              phone:
-                document
-                  .getElementById("p")
-                  .value
-                  .trim(),
-
-              message:
-                document
-                  .getElementById("m")
-                  .value
-                  .trim(),
-
-              file:
-                fd,
-
-              clientId:
-                clientId
-
-            })
-
-        }
-
-      );
-
-
-    const result =
-      await response.json();
-
-
-    /*
-     * Server cooldown
-     */
-
-    if(
-      result.cooldown === true
-    ){
-
-      s.className =
-        "error";
-
-
-      s.textContent =
-        result.error ||
-        "অনুগ্রহ করে অপেক্ষা করুন।";
-
-
-      startCountdown(
-        result.remaining ||
-        COOLDOWN
-      );
-
-
-      return;
-
-    }
-
-
-    /*
-     * Server error
-     */
-
-    if(
-      !result.success
-    ){
-
-      throw new Error(
-        result.error ||
-        "Unknown error"
-      );
-
-    }
-
-
-    /*
-     * Success
-     */
-
-    f.reset();
-
-
-    fileInfo.style.display =
-      "none";
-
-
-    fileInfo.textContent =
-      "";
-
-
-    s.className =
-      "success";
-
-
-    s.textContent =
-      "✓ আপনার মেসেজ সফলভাবে পাঠানো হয়েছে।";
-
-
-    startCountdown(
-      COOLDOWN
-    );
-
-
-  }catch(error){
-
-    s.className =
-      "error";
-
-
-    s.textContent =
-      "মেসেজ পাঠানো যায়নি। আবার চেষ্টা করুন।";
-
-
-    b.disabled =
-      false;
-
-  }finally{
-
-
-    if(
-      cooldownBox.style.display !==
-      "block"
-    ){
-
-      b.disabled =
-        false;
-
-    }
-
-
-    b.innerHTML =
-      '<span class="send-icon">➤</span> মেসেজ পাঠান';
-
-  }
-
-};
-
-</script>
-
-
-</body>
-
-</html>
+              "text/plain;charset=utf
