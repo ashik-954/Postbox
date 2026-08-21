@@ -1,2605 +1,1154 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="bn">
-
 <head>
-
-<meta charset="utf-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1">
-
-<title>আপনার কথা, আমার কাছে পৌঁছে দিন</title>
-
-<style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  min-height:100vh;
-
-  font-family:
-    Arial,
-    "Noto Sans Bengali",
-    "Noto Sans",
-    sans-serif;
-
-  color:#172033;
-
-  background:
-    linear-gradient(
-      135deg,
-      #6d28d9 0%,
-      #4f46e5 45%,
-      #2563eb 100%
-    );
-
-  overflow-x:hidden;
-}
-
-
-/* =========================================================
-   BACKGROUND DECORATION
-========================================================= */
-
-body::before{
-  content:"";
-
-  position:fixed;
-
-  width:430px;
-  height:430px;
-
-  top:-220px;
-  right:-170px;
-
-  border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(236,72,153,.55),
-      rgba(236,72,153,0)
-    );
-
-  pointer-events:none;
-}
-
-body::after{
-  content:"";
-
-  position:fixed;
-
-  width:360px;
-  height:360px;
-
-  bottom:-180px;
-  left:-160px;
-
-  border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(168,85,247,.45),
-      rgba(168,85,247,0)
-    );
-
-  pointer-events:none;
-}
-
-
-/* =========================================================
-   MAIN WRAPPER
-========================================================= */
-
-.page{
-  width:100%;
-  max-width:1080px;
-
-  margin:0 auto;
-
-  position:relative;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero{
-
-  position:relative;
-
-  min-height:520px;
-
-  padding:
-    52px
-    40px
-    62px;
-
-  overflow:hidden;
-
-  background:
-    linear-gradient(
-      135deg,
-      #6425d8 0%,
-      #4c21c9 35%,
-      #263fca 72%,
-      #174fc4 100%
-    );
-
-  border-radius:
-    0 0 55px 55px;
-
-}
-
-
-/* Decorative blobs */
-
-.hero::before{
-
-  content:"";
-
-  position:absolute;
-
-  width:430px;
-  height:260px;
-
-  right:-110px;
-  top:-100px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,.08),
-      rgba(236,72,153,.35)
-    );
-
-  border-radius:
-    0 0 0 180px;
-
-  transform:rotate(-8deg);
-
-}
-
-
-.hero::after{
-
-  content:"";
-
-  position:absolute;
-
-  width:470px;
-  height:180px;
-
-  left:-170px;
-  bottom:-100px;
-
-  background:
-    rgba(168,85,247,.32);
-
-  border-radius:50%;
-
-}
-
-
-/* =========================================================
-   HERO CONTENT
-========================================================= */
-
-.hero-content{
-
-  position:relative;
-  z-index:2;
-
-  display:grid;
-
-  grid-template-columns:
-    330px 1fr;
-
-  gap:48px;
-
-  align-items:center;
-
-}
-
-
-/* =========================================================
-   PROFILE
-========================================================= */
-
-.profile-area{
-
-  text-align:center;
-
-}
-
-
-/* Profile ring */
-
-.profile-wrap{
-
-  position:relative;
-
-  width:310px;
-  height:310px;
-
-  margin:0 auto 18px;
-
-}
-
-
-/* Profile image */
-
-.profile-image{
-
-  width:100%;
-  height:100%;
-
-  display:block;
-
-  object-fit:cover;
-
-  /*
-    মাথার উপরের অতিরিক্ত জায়গা কমানোর জন্য
-    image একটু crop করা হয়েছে
-  */
-
-  object-position:center 28%;
-
-  border-radius:50%;
-
-  border:
-    8px solid #fff;
-
-  outline:
-    7px solid rgba(244,114,182,.72);
-
-  box-shadow:
-    0 12px 40px
-    rgba(0,0,0,.28);
-
-  background:#ddd;
-
-}
-
-
-/* Verified badge */
-
-.verified{
-
-  position:absolute;
-
-  right:-3px;
-  bottom:3px;
-
-  width:68px;
-  height:68px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border-radius:50%;
-
-  background:#fff;
-
-  border:
-    5px solid #fff;
-
-  box-shadow:
-    0 7px 20px
-    rgba(0,0,0,.25);
-
-  z-index:5;
-
-}
-
-
-/* Blue verification shield */
-
-.verified::before{
-
-  content:"";
-
-  width:48px;
-  height:48px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  clip-path:
-    polygon(
-      50% 0%,
-      90% 15%,
-      90% 58%,
-      78% 78%,
-      50% 100%,
-      22% 78%,
-      10% 58%,
-      10% 15%
-    );
-
-  background:
-    linear-gradient(
-      135deg,
-      #2563eb,
-      #1d4ed8
-    );
-
-}
-
-
-/* Check */
-
-.verified::after{
-
-  content:"✓";
-
-  position:absolute;
-
-  color:#fff;
-
-  font-size:29px;
-
-  font-weight:900;
-
-  line-height:1;
-
-}
-
-
-/* Name */
-
-.profile-name{
-
-  margin:0;
-
-  color:#fff;
-
-  font-size:30px;
-
-  font-weight:800;
-
-  text-shadow:
-    0 3px 8px
-    rgba(0,0,0,.20);
-
-}
-
-
-/* Name decoration */
-
-.name-decoration{
-
-  margin-top:12px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  gap:13px;
-
-}
-
-.name-decoration span{
-
-  display:block;
-
-  width:100px;
-  height:2px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #f9a8d4
-    );
-
-}
-
-.name-decoration span:last-child{
-
-  background:
-    linear-gradient(
-      90deg,
-      #f9a8d4,
-      transparent
-    );
-
-}
-
-.name-decoration b{
-
-  color:#f9a8d4;
-
-  font-size:22px;
-
-}
-
-
-/* =========================================================
-   HERO RIGHT
-========================================================= */
-
-.hero-text{
-
-  position:relative;
-
-  color:white;
-
-}
-
-
-/* Chat icon */
-
-.chat-icon{
-
-  width:70px;
-  height:70px;
-
-  margin-bottom:12px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border:
-    1px solid
-    rgba(255,255,255,.55);
-
-  border-radius:50%;
-
-  background:
-    rgba(255,255,255,.10);
-
-  box-shadow:
-    0 8px 25px
-    rgba(0,0,0,.12);
-
-  font-size:38px;
-
-}
-
-
-/* Plane */
-
-.plane{
-
-  position:absolute;
-
-  right:15px;
-  top:20px;
-
-  font-size:54px;
-
-  color:#f472b6;
-
-  transform:
-    rotate(-12deg);
-
-}
-
-
-/* Main title */
-
-.hero-title{
-
-  margin:0;
-
-  font-size:55px;
-
-  line-height:1.15;
-
-  font-weight:900;
-
-  letter-spacing:-1.5px;
-
-}
-
-
-.hero-title .white{
-  color:#fff;
-}
-
-.hero-title .yellow{
-
-  color:#ffd84d;
-
-}
-
-
-/* Divider */
-
-.hero-divider{
-
-  margin:
-    25px 0 22px;
-
-  display:flex;
-
-  align-items:center;
-
-  gap:18px;
-
-}
-
-.hero-divider span{
-
-  height:2px;
-
-  flex:0 0 215px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #f472b6,
-      rgba(244,114,182,0)
-    );
-
-}
-
-.hero-divider span:last-child{
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(244,114,182,0),
-      #f472b6
-    );
-
-}
-
-
-.hero-divider b{
-
-  color:#fb7185;
-
-  font-size:28px;
-
-}
-
-
-/* Subtitle */
-
-.hero-subtitle{
-
-  margin:0;
-
-  color:#fff;
-
-  font-size:22px;
-
-  line-height:1.7;
-
-}
-
-
-/* =========================================================
-   FORM CARD
-========================================================= */
-
-.form-card{
-
-  position:relative;
-
-  z-index:5;
-
-  margin:
-    -25px 25px
-    0;
-
-  padding:
-    38px 42px
-    30px;
-
-  background:
-    rgba(255,255,255,.98);
-
-  border-radius:
-    28px;
-
-  box-shadow:
-    0 25px 60px
-    rgba(17,24,39,.22);
-
-}
-
-
-/* =========================================================
-   FORM ROW
-========================================================= */
-
-.field-row{
-
-  display:grid;
-
-  grid-template-columns:
-    105px 1fr;
-
-  gap:28px;
-
-  align-items:center;
-
-  margin-bottom:27px;
-
-}
-
-
-/* =========================================================
-   FIELD ICON
-========================================================= */
-
-.field-icon{
-
-  width:105px;
-  height:105px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border-radius:19px;
-
-  font-size:48px;
-
-  border:
-    1px solid
-    rgba(124,58,237,.20);
-
-  background:
-    linear-gradient(
-      135deg,
-      #f3e8ff,
-      #ede9fe
-    );
-
-  color:#5b21b6;
-
-}
-
-
-/* Contact icon */
-
-.field-row.contact .field-icon{
-
-  background:
-    linear-gradient(
-      135deg,
-      #eff6ff,
-      #dbeafe
-    );
-
-  color:#1677e8;
-
-  border-color:
-    rgba(37,99,235,.25);
-
-}
-
-
-/* Message icon */
-
-.field-row.message .field-icon{
-
-  background:
-    linear-gradient(
-      135deg,
-      #f5e8ff,
-      #ede9fe
-    );
-
-  color:#6527d8;
-
-}
-
-
-/* File icon */
-
-.field-row.file .field-icon{
-
-  background:
-    linear-gradient(
-      135deg,
-      #ecfdf5,
-      #dff7f1
-    );
-
-  color:#159b79;
-
-  border-color:
-    rgba(16,185,129,.20);
-
-}
-
-
-/* =========================================================
-   LABEL
-========================================================= */
-
-label{
-
-  display:block;
-
-  margin-bottom:10px;
-
-  color:#111b63;
-
-  font-size:22px;
-
-  font-weight:800;
-
-}
-
-.optional{
-
-  color:#7b8094;
-
-  font-size:17px;
-
-  font-weight:400;
-
-}
-
-.required{
-
-  color:#e11d48;
-
-}
-
-
-/* =========================================================
-   INPUT
-========================================================= */
-
-input[type="text"],
-input[type="tel"],
-textarea{
-
-  width:100%;
-
-  padding:
-    17px 21px;
-
-  border:
-    1px solid
-    #d7b9ee;
-
-  border-radius:15px;
-
-  outline:none;
-
-  color:#273052;
-
-  background:
-    #fbf5ff;
-
-  font-family:inherit;
-
-  font-size:19px;
-
-  transition:
-    .2s ease;
-
-}
-
-
-input::placeholder,
-textarea::placeholder{
-
-  color:#9aa0b3;
-
-}
-
-
-input:focus,
-textarea:focus{
-
-  border-color:#7042e8;
-
-  box-shadow:
-    0 0 0 4px
-    rgba(112,66,232,.10);
-
-}
-
-
-.field-row.contact input{
-
-  background:#f1f8ff;
-
-  border-color:#a9c9ef;
-
-}
-
-
-textarea{
-
-  min-height:185px;
-
-  resize:vertical;
-
-  line-height:1.6;
-
-}
-
-
-/* =========================================================
-   FILE BOX
-========================================================= */
-
-.file-box{
-
-  padding:18px;
-
-  border:
-    2px dashed
-    #42b7a4;
-
-  border-radius:16px;
-
-  background:
-    #effbf8;
-
-}
-
-
-/* File heading */
-
-.file-heading{
-
-  margin-bottom:12px;
-
-  color:#147d69;
-
-  font-size:18px;
-
-  font-weight:700;
-
-}
-
-
-/* Native file input */
-
-.file-box input[type="file"]{
-
-  width:100%;
-
-  padding:9px;
-
-  border:
-    1px solid
-    #d4e3df;
-
-  border-radius:11px;
-
-  background:#fff;
-
-  color:#333;
-
-  font-family:inherit;
-
-  font-size:16px;
-
-}
-
-
-/* Hint */
-
-.file-hint{
-
-  margin-top:9px;
-
-  color:#438d80;
-
-  font-size:14px;
-
-}
-
-
-/* Selected file */
-
-.file-info{
-
-  display:none;
-
-  margin-top:10px;
-
-  padding:9px 12px;
-
-  border-radius:9px;
-
-  background:#dff7f1;
-
-  color:#147d69;
-
-  font-size:14px;
-
-  line-height:1.5;
-
-}
-
-
-/* =========================================================
-   SEND BUTTON
-========================================================= */
-
-button{
-
-  width:100%;
-
-  margin-top:2px;
-
-  padding:19px 25px;
-
-  border:0;
-
-  border-radius:15px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #4218ed,
-      #8b20e8,
-      #ec0d91
-    );
-
-  color:#fff;
-
-  font-family:inherit;
-
-  font-size:24px;
-
-  font-weight:800;
-
-  cursor:pointer;
-
-  box-shadow:
-    0 12px 25px
-    rgba(100,30,220,.28);
-
-  transition:
-    .18s ease;
-
-}
-
-
-button:hover:not(:disabled){
-
-  transform:
-    translateY(-2px);
-
-  box-shadow:
-    0 16px 30px
-    rgba(100,30,220,.35);
-
-}
-
-
-button:active:not(:disabled){
-
-  transform:
-    translateY(0);
-
-}
-
-
-button:disabled{
-
-  opacity:.65;
-
-  cursor:not-allowed;
-
-  box-shadow:none;
-
-}
-
-
-/* =========================================================
-   STATUS
-========================================================= */
-
-#status{
-
-  margin-top:15px;
-
-  text-align:center;
-
-  font-size:15px;
-
-  font-weight:700;
-
-  line-height:1.6;
-
-}
-
-.success{
-  color:#087443;
-}
-
-.error{
-  color:#b42318;
-}
-
-
-/* =========================================================
-   PRIVACY BOX
-========================================================= */
-
-.privacy{
-
-  margin-top:18px;
-
-  padding:
-    15px 18px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  gap:13px;
-
-  border:
-    1px solid
-    #f3d9a4;
-
-  border-radius:14px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #fffaf0,
-      #fff5dc
-    );
-
-  color:#9a5a16;
-
-  font-size:16px;
-
-  line-height:1.6;
-
-  text-align:center;
-
-}
-
-.privacy-icon{
-
-  font-size:30px;
-
-  color:#f59e0b;
-
-}
-
-
-/* =========================================================
-   COOLDOWN
-========================================================= */
-
-.cooldown{
-
-  display:none;
-
-  margin-top:17px;
-
-  padding:16px;
-
-  border:
-    1px solid
-    #fed7aa;
-
-  border-radius:15px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #fff7ed,
-      #fffbeb
-    );
-
-  color:#9a3412;
-
-  text-align:center;
-
-  font-weight:700;
-
-}
-
-
-#countdown{
-
-  margin:4px 0;
-
-  font-size:35px;
-
-  line-height:1.1;
-
-  font-weight:900;
-
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.footer{
-
-  position:relative;
-
-  z-index:3;
-
-  padding:
-    30px 20px
-    34px;
-
-  color:#fff;
-
-  text-align:center;
-
-  font-size:16px;
-
-  line-height:1.7;
-
-}
-
-.footer .lock{
-
-  color:#ffd84d;
-
-  font-size:20px;
-
-}
-
-.footer .heart{
-
-  color:#f472b6;
-
-  font-size:20px;
-
-}
-
-
-/* =========================================================
-   RESPONSIVE — TABLET
-========================================================= */
-
-@media(max-width:850px){
-
-  .hero{
-
-    padding:
-      38px 25px
-      58px;
-
-  }
-
-  .hero-content{
-
-    grid-template-columns:
-      290px 1fr;
-
-    gap:28px;
-
-  }
-
-  .profile-wrap{
-
-    width:265px;
-    height:265px;
-
-  }
-
-  .profile-name{
-
-    font-size:25px;
-
-  }
-
-  .hero-title{
-
-    font-size:43px;
-
-  }
-
-  .hero-subtitle{
-
-    font-size:18px;
-
-  }
-
-  .form-card{
-
-    margin-left:18px;
-    margin-right:18px;
-
-    padding:
-      30px 28px;
-
-  }
-
-}
-
-
-/* =========================================================
-   RESPONSIVE — MOBILE
-========================================================= */
-
-@media(max-width:650px){
-
-  body{
-
-    background:
-      linear-gradient(
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>আপনার কথা, আমার কাছে পৌঁছে দিন</title>
+
+  <meta name="description" content="আশিকুর রহমানের কাছে আপনার বার্তা পাঠান।">
+  <meta name="theme-color" content="#4c1dce">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Noto Sans Bengali", sans-serif;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(183, 107, 255, 0.35), transparent 28%),
+        radial-gradient(circle at 90% 20%, rgba(52, 120, 255, 0.35), transparent 30%),
+        linear-gradient(135deg, #6420d8 0%, #4216b9 42%, #164bd5 100%);
+      color: #11134b;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 280px;
+      height: 280px;
+      left: -160px;
+      bottom: -120px;
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    body::after {
+      width: 300px;
+      height: 300px;
+      right: -160px;
+      top: -130px;
+      background: rgba(255, 255, 255, 0.10);
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-bottom: 30px;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    .hero {
+      position: relative;
+      min-height: 520px;
+      padding: 48px 42px 40px;
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 40px;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 430px;
+      height: 230px;
+      right: -100px;
+      top: -70px;
+      background: rgba(255, 255, 255, 0.09);
+      border-radius: 50%;
+      transform: rotate(-12deg);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 160px;
+      left: 240px;
+      bottom: -100px;
+      background: rgba(255, 255, 255, 0.10);
+      border-radius: 50%;
+      transform: rotate(-10deg);
+    }
+
+    /* Profile */
+
+    .profile-area {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .profile-photo-wrap {
+      width: 340px;
+      height: 340px;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 8px;
+      border-radius: 50%;
+      background: linear-gradient(
         135deg,
-        #6524d8,
-        #3039cc
+        #ffffff 0%,
+        #f8dfff 35%,
+        #4c9cff 70%,
+        #ffffff 100%
       );
-
-  }
-
-
-  .page{
-
-    width:100%;
-
-  }
-
-
-  .hero{
-
-    min-height:auto;
-
-    padding:
-      35px
-      16px
-      58px;
-
-    border-radius:
-      0 0 40px 40px;
-
-  }
-
-
-  .hero-content{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:25px;
-
-    text-align:center;
-
-  }
-
-
-  .profile-wrap{
-
-    width:220px;
-    height:220px;
-
-    margin-bottom:13px;
-
-  }
-
-
-  .profile-image{
-
-    border-width:6px;
-
-    outline-width:5px;
-
-    /*
-      Mobile-এ মাথার উপর অতিরিক্ত
-      background কম থাকবে
-    */
-
-    object-position:center 25%;
-
-  }
-
-
-  .verified{
-
-    width:57px;
-    height:57px;
-
-    right:-2px;
-    bottom:0;
-
-  }
-
-
-  .verified::before{
-
-    width:42px;
-    height:42px;
-
-  }
-
-
-  .verified::after{
-
-    font-size:25px;
-
-  }
-
-
-  .profile-name{
-
-    font-size:23px;
-
-  }
-
-
-  .name-decoration span{
-
-    width:70px;
-
-  }
-
-
-  .hero-text{
-
-    width:100%;
-
-  }
-
-
-  .chat-icon{
-
-    width:60px;
-    height:60px;
-
-    margin:
-      0 auto 12px;
-
-    font-size:31px;
-
-  }
-
-
-  .plane{
-
-    right:0;
-    top:0;
-
-    font-size:39px;
-
-  }
-
-
-  .hero-title{
-
-    font-size:32px;
-
-    line-height:1.25;
-
-    letter-spacing:-.5px;
-
-  }
-
-
-  .hero-divider{
-
-    justify-content:center;
-
-    margin:
-      19px 0 16px;
-
-  }
-
-
-  .hero-divider span{
-
-    flex:0 0 70px;
-
-  }
-
-
-  .hero-divider b{
-
-    font-size:23px;
-
-  }
-
-
-  .hero-subtitle{
-
-    font-size:15px;
-
-    line-height:1.7;
-
-  }
-
-
-  /* Form */
-
-  .form-card{
-
-    margin:
-      -24px 13px
-      0;
-
-    padding:
-      25px 15px
-      22px;
-
-    border-radius:23px;
-
-  }
-
-
-  .field-row{
-
-    grid-template-columns:
-      55px 1fr;
-
-    gap:14px;
-
-    align-items:start;
-
-    margin-bottom:22px;
-
-  }
-
-
-  .field-icon{
-
-    width:55px;
-    height:55px;
-
-    border-radius:13px;
-
-    font-size:27px;
-
-  }
-
-
-  label{
-
-    margin-bottom:7px;
-
-    font-size:16px;
-
-  }
-
-
-  .optional{
-
-    font-size:13px;
-
-  }
-
-
-  input[type="text"],
-  input[type="tel"],
-  textarea{
-
-    padding:
-      13px 14px;
-
-    border-radius:12px;
-
-    font-size:15px;
-
-  }
-
-
-  textarea{
-
-    min-height:145px;
-
-  }
-
-
-  .file-box{
-
-    padding:12px;
-
-  }
-
-
-  .file-heading{
-
-    font-size:14px;
-
-  }
-
-
-  .file-box input[type="file"]{
-
-    font-size:13px;
-
-  }
-
-
-  .file-hint{
-
-    font-size:11px;
-
-  }
-
-
-  button{
-
-    padding:16px;
-
-    font-size:19px;
-
-    border-radius:13px;
-
-  }
-
-
-  .privacy{
-
-    padding:
-      12px 10px;
-
-    gap:8px;
-
-    font-size:12px;
-
-  }
-
-
-  .privacy-icon{
-
-    font-size:23px;
-
-  }
-
-
-  .footer{
-
-    padding:
-      25px 15px
-      30px;
-
-    font-size:12px;
-
-  }
-
-}
-
-
-/* =========================================================
-   VERY SMALL PHONES
-========================================================= */
-
-@media(max-width:380px){
-
-  .hero{
-
-    padding-top:28px;
-
-  }
-
-
-  .profile-wrap{
-
-    width:190px;
-    height:190px;
-
-  }
-
-
-  .hero-title{
-
-    font-size:28px;
-
-  }
-
-
-  .field-row{
-
-    grid-template-columns:
-      48px 1fr;
-
-    gap:11px;
-
-  }
-
-
-  .field-icon{
-
-    width:48px;
-    height:48px;
-
-    font-size:24px;
-
-  }
-
-}
-
-
-/* =========================================================
-   ACCESSIBILITY
-========================================================= */
-
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible{
-
-  outline:
-    3px solid
-    rgba(37,99,235,.35);
-
-  outline-offset:2px;
-
-}
-
-</style>
-
+      box-shadow:
+        0 0 0 5px rgba(255,255,255,0.28),
+        0 15px 45px rgba(0,0,0,0.25);
+      position: relative;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 42%;
+      border-radius: 50%;
+      border: 7px solid white;
+      background: #ddd;
+    }
+
+    /* Verification badge */
+
+    .verified-badge {
+      position: absolute;
+      right: -4px;
+      bottom: 12px;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #1677ff;
+      border: 7px solid white;
+      outline: 4px solid #1677ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 7px 18px rgba(0,0,0,0.25);
+    }
+
+    .verified-badge span {
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1;
+      transform: translateY(-2px);
+    }
+
+    .profile-name {
+      color: white;
+      font-size: 32px;
+      font-weight: 900;
+      margin-top: 22px;
+      text-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    }
+
+    .name-decoration {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: 9px;
+    }
+
+    .name-decoration span {
+      width: 90px;
+      height: 2px;
+      background: rgba(255,255,255,0.8);
+    }
+
+    .name-decoration b {
+      color: #ff91c7;
+      font-size: 24px;
+    }
+
+    /* Hero text */
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+    }
+
+    .message-icon {
+      width: 70px;
+      height: 70px;
+      border: 2px solid rgba(255,255,255,0.75);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 37px;
+      margin-bottom: 22px;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero-title {
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: 1.18;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .hero-title .white {
+      color: white;
+    }
+
+    .hero-title .yellow {
+      color: #ffd84d;
+    }
+
+    .hero-line {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 28px 0 20px;
+    }
+
+    .hero-line::before,
+    .hero-line::after {
+      content: "";
+      height: 2px;
+      flex: 1;
+      background: rgba(255,255,255,0.75);
+    }
+
+    .hero-line span {
+      color: #ff82bd;
+      font-size: 28px;
+    }
+
+    .hero-subtitle {
+      color: rgba(255,255,255,0.95);
+      font-size: 23px;
+      line-height: 1.8;
+      font-weight: 500;
+    }
+
+    .paper-plane {
+      position: absolute;
+      right: 25px;
+      top: 50px;
+      font-size: 55px;
+      transform: rotate(-10deg);
+      color: #ff83bd;
+      opacity: 0.9;
+    }
+
+    /* =========================
+       FORM CARD
+    ========================== */
+
+    .form-card {
+      position: relative;
+      z-index: 5;
+      margin: -15px 25px 0;
+      padding: 38px 42px 28px;
+      background: rgba(255,255,255,0.97);
+      border-radius: 30px;
+      box-shadow:
+        0 25px 60px rgba(24, 17, 100, 0.30),
+        0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 22px;
+      margin-bottom: 26px;
+      align-items: start;
+    }
+
+    .field-icon {
+      width: 108px;
+      height: 108px;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 53px;
+      border: 1px solid rgba(91, 47, 218, 0.15);
+    }
+
+    .icon-name {
+      background: linear-gradient(145deg, #f1ddff, #fff1ff);
+      color: #6625dd;
+    }
+
+    .icon-contact {
+      background: linear-gradient(145deg, #dceeff, #eff7ff);
+      color: #1675dc;
+    }
+
+    .icon-message {
+      background: linear-gradient(145deg, #edddff, #fff1ff);
+      color: #5b20d5;
+    }
+
+    .icon-file {
+      background: linear-gradient(145deg, #dcf8f2, #edfffb);
+      color: #16a589;
+    }
+
+    .field-content {
+      width: 100%;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 23px;
+      font-weight: 800;
+      color: #111452;
+      margin-bottom: 10px;
+    }
+
+    .optional {
+      color: #888899;
+      font-size: 17px;
+      font-weight: 500;
+      margin-left: 5px;
+    }
+
+    .required {
+      color: #ed2d45;
+      margin-left: 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      border: 1.5px solid #c9b3ed;
+      border-radius: 15px;
+      background: #fcf8ff;
+      padding: 17px 21px;
+      font-family: inherit;
+      font-size: 19px;
+      color: #22244f;
+      outline: none;
+      transition: 0.25s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus {
+      border-color: #6431e8;
+      box-shadow: 0 0 0 4px rgba(99, 49, 232, 0.10);
+      background: white;
+    }
+
+    .contact-input {
+      background: #f1f8ff !important;
+      border-color: #a9cef2 !important;
+    }
+
+    textarea {
+      min-height: 210px;
+      resize: vertical;
+      line-height: 1.7;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #a5a3b3;
+    }
+
+    /* File */
+
+    .file-box {
+      border: 2px dashed #54b8a7;
+      background: #effbf8;
+      border-radius: 16px;
+      padding: 17px;
+    }
+
+    .file-title {
+      color: #138b75;
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .file-input {
+      width: 100%;
+      padding: 7px;
+      background: white;
+      border: 1px solid #d6e3e0;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 16px;
+    }
+
+    .file-info {
+      color: #418a7c;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    /* Button */
+
+    .submit-btn {
+      width: 100%;
+      border: none;
+      border-radius: 16px;
+      padding: 18px 25px;
+      margin-top: 3px;
+      background: linear-gradient(90deg, #4b18ef, #bd19e5, #ed0c8b);
+      color: white;
+      font-family: inherit;
+      font-size: 25px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 12px 25px rgba(118, 25, 221, 0.30);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(118, 25, 221, 0.40);
+    }
+
+    .submit-btn:active {
+      transform: translateY(1px);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .security-note {
+      margin-top: 22px;
+      padding: 17px 20px;
+      border: 1px solid #f0dba2;
+      border-radius: 14px;
+      background: #fff9e8;
+      color: #986a16;
+      text-align: center;
+      font-size: 17px;
+      font-weight: 500;
+    }
+
+    .security-icon {
+      font-size: 25px;
+      margin-right: 8px;
+    }
+
+    /* Footer */
+
+    .footer {
+      text-align: center;
+      color: rgba(255,255,255,0.92);
+      font-size: 17px;
+      padding: 25px 15px 5px;
+    }
+
+    .footer .lock {
+      color: #ffd62f;
+    }
+
+    .footer .heart {
+      color: #ff6caf;
+      font-size: 20px;
+    }
+
+    /* Success message */
+
+    .success-message {
+      display: none;
+      margin-top: 18px;
+      padding: 16px;
+      text-align: center;
+      border-radius: 13px;
+      background: #e9fff4;
+      border: 1px solid #65c99f;
+      color: #16805b;
+      font-weight: 700;
+    }
+
+    .error-message {
+      display: none;
+      margin-top: 18px;
+      padding: 16px;
+      text-align: center;
+      border-radius: 13px;
+      background: #fff0f2;
+      border: 1px solid #ed8d9a;
+      color: #c12942;
+      font-weight: 700;
+    }
+
+    /* =========================
+       TABLET
+    ========================== */
+
+    @media (max-width: 850px) {
+
+      .hero {
+        grid-template-columns: 300px 1fr;
+        gap: 25px;
+        padding: 35px 25px;
+      }
+
+      .profile-photo-wrap {
+        width: 280px;
+        height: 280px;
+      }
+
+      .profile-name {
+        font-size: 26px;
+      }
+
+      .hero-title {
+        font-size: 43px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+      }
+
+      .form-card {
+        margin-left: 15px;
+        margin-right: 15px;
+        padding: 30px;
+      }
+
+      .field-row {
+        grid-template-columns: 90px 1fr;
+        gap: 18px;
+      }
+
+      .field-icon {
+        width: 82px;
+        height: 82px;
+        font-size: 40px;
+      }
+
+      .field-label {
+        font-size: 20px;
+      }
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 650px) {
+
+      .page {
+        padding-bottom: 10px;
+      }
+
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 38px 18px 45px;
+        text-align: center;
+      }
+
+      .profile-area {
+        order: 1;
+      }
+
+      .hero-content {
+        order: 2;
+      }
+
+      .profile-photo-wrap {
+        width: 245px;
+        height: 245px;
+      }
+
+      .profile-photo {
+        object-position: center 40%;
+      }
+
+      .verified-badge {
+        width: 59px;
+        height: 59px;
+        right: 0;
+        bottom: 5px;
+        border-width: 6px;
+        outline-width: 3px;
+      }
+
+      .verified-badge span {
+        font-size: 34px;
+      }
+
+      .profile-name {
+        font-size: 25px;
+        margin-top: 17px;
+      }
+
+      .name-decoration span {
+        width: 60px;
+      }
+
+      .message-icon {
+        width: 58px;
+        height: 58px;
+        font-size: 30px;
+        margin: 0 auto 15px;
+      }
+
+      .hero-title {
+        font-size: 34px;
+        line-height: 1.25;
+      }
+
+      .hero-line {
+        margin: 20px 0 14px;
+        gap: 10px;
+      }
+
+      .hero-line span {
+        font-size: 22px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .paper-plane {
+        right: 15px;
+        top: 180px;
+        font-size: 38px;
+      }
+
+      .form-card {
+        margin: -10px 10px 0;
+        padding: 25px 18px 20px;
+        border-radius: 23px;
+      }
+
+      .field-row {
+        grid-template-columns: 58px 1fr;
+        gap: 14px;
+        margin-bottom: 24px;
+      }
+
+      .field-icon {
+        width: 58px;
+        height: 58px;
+        border-radius: 15px;
+        font-size: 29px;
+      }
+
+      .field-label {
+        font-size: 17px;
+        margin-bottom: 7px;
+      }
+
+      .optional {
+        font-size: 13px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      textarea {
+        padding: 13px 14px;
+        font-size: 15px;
+        border-radius: 12px;
+      }
+
+      textarea {
+        min-height: 150px;
+      }
+
+      .file-box {
+        padding: 12px;
+      }
+
+      .file-title {
+        font-size: 14px;
+      }
+
+      .file-input {
+        font-size: 13px;
+      }
+
+      .file-info {
+        font-size: 11px;
+      }
+
+      .submit-btn {
+        padding: 15px;
+        font-size: 20px;
+        border-radius: 13px;
+      }
+
+      .security-note {
+        font-size: 12px;
+        padding: 13px 8px;
+      }
+
+      .footer {
+        font-size: 12px;
+        padding-top: 22px;
+      }
+    }
+
+    @media (max-width: 390px) {
+
+      .profile-photo-wrap {
+        width: 220px;
+        height: 220px;
+      }
+
+      .hero-title {
+        font-size: 30px;
+      }
+
+      .form-card {
+        margin-left: 7px;
+        margin-right: 7px;
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .field-row {
+        grid-template-columns: 50px 1fr;
+        gap: 10px;
+      }
+
+      .field-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <div class="page">
 
-<div class="page">
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
 
+    <header class="hero">
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+      <div class="profile-area">
 
-<section class="hero">
+        <div class="profile-photo-wrap">
 
+          <!-- আপনার আসল ছবি অবশ্যই 1000.jpg নামে রাখবেন -->
+          <img
+            src="1000.jpg"
+            alt="আশিকুর রহমান"
+            class="profile-photo"
+          >
 
-  <div class="hero-content">
+          <!-- নীল verification circle + সাধারণ সাদা tick -->
+          <div class="verified-badge" aria-label="Verified">
+            <span>✓</span>
+          </div>
 
+        </div>
 
-    <!-- PROFILE -->
+        <h1 class="profile-name">
+          আশিকুর রহমান
+        </h1>
 
-    <div class="profile-area">
-
-
-      <div class="profile-wrap">
-
-        <!--
-          আপনার GitHub repository-তে থাকা
-          profile.jpg ব্যবহার করা হচ্ছে।
-
-          যদি আপনার ছবির নাম অন্য কিছু হয়,
-          শুধু নিচের profile.jpg পরিবর্তন করুন।
-        -->
-
-        <img
-          class="profile-image"
-          src="profile.jpg"
-          alt="আশিকুর রহমান"
-        >
-
-
-        <div
-          class="verified"
-          aria-label="Verified"
-        ></div>
+        <div class="name-decoration">
+          <span></span>
+          <b>♥</b>
+          <span></span>
+        </div>
 
       </div>
 
 
-      <h2 class="profile-name">
-        আশিকুর রহমান
-      </h2>
+      <div class="hero-content">
 
+        <div class="message-icon">
+          💬
+        </div>
 
-      <div class="name-decoration">
+        <div class="paper-plane">
+          ➤
+        </div>
 
-        <span></span>
+        <h2 class="hero-title">
+          <span class="white">আপনার কথা,</span><br>
+          <span class="yellow">আমার কাছে পৌঁছে দিন।</span>
+        </h2>
 
-        <b>♥</b>
+        <div class="hero-line">
+          <span>♥</span>
+        </div>
 
-        <span></span>
-
-      </div>
-
-
-    </div>
-
-
-    <!-- HERO TEXT -->
-
-    <div class="hero-text">
-
-
-      <div class="chat-icon">
-        💬
-      </div>
-
-
-      <div class="plane">
-        ➤
-      </div>
-
-
-      <h1 class="hero-title">
-
-        <span class="white">
-          আপনার কথা,
-        </span>
-
-        <br>
-
-        <span class="yellow">
-          আমার কাছে পৌঁছে দিন।
-        </span>
-
-      </h1>
-
-
-      <div class="hero-divider">
-
-        <span></span>
-
-        <b>♥</b>
-
-        <span></span>
+        <p class="hero-subtitle">
+          বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই।
+        </p>
 
       </div>
 
+    </header>
 
-      <p class="hero-subtitle">
 
-        বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই।
+    <!-- =========================
+         FORM
+    ========================== -->
 
-      </p>
+    <main class="form-card">
 
+      <form id="messageForm">
 
-    </div>
+        <!-- NAME -->
 
+        <div class="field-row">
 
-  </div>
+          <div class="field-icon icon-name">
+            👤
+          </div>
 
+          <div class="field-content">
 
-</section>
+            <label class="field-label" for="name">
+              আপনার নাম
+              <span class="required">*</span>
+            </label>
 
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="আপনার নাম লিখুন"
+              autocomplete="name"
+              required
+            >
 
+          </div>
 
-<!-- =====================================================
-     FORM CARD
-===================================================== -->
-
-<main class="form-card">
-
-
-<form id="f">
-
-
-  <!-- =================================================
-       NAME
-  ================================================== -->
-
-  <div class="field-row name">
-
-
-    <div class="field-icon">
-      👤
-    </div>
-
-
-    <div>
-
-      <label for="n">
-
-        আপনার নাম
-
-        <span class="required">
-          *
-        </span>
-
-      </label>
-
-
-      <input
-        id="n"
-        type="text"
-        required
-        maxlength="100"
-        autocomplete="name"
-        placeholder="আপনার নাম লিখুন"
-      >
-
-    </div>
-
-
-  </div>
-
-
-
-  <!-- =================================================
-       CONTACT
-  ================================================== -->
-
-  <div class="field-row contact">
-
-
-    <div class="field-icon">
-      📞
-    </div>
-
-
-    <div>
-
-      <label for="p">
-
-        যোগাযোগ
-
-        <span class="optional">
-          (ঐচ্ছিক)
-        </span>
-
-      </label>
-
-
-      <input
-        id="p"
-        type="text"
-        maxlength="200"
-        autocomplete="off"
-        placeholder="নাম্বার, মেইল অথবা লিংক"
-      >
-
-    </div>
-
-
-  </div>
-
-
-
-  <!-- =================================================
-       MESSAGE
-  ================================================== -->
-
-  <div class="field-row message">
-
-
-    <div class="field-icon">
-      💬
-    </div>
-
-
-    <div>
-
-      <label for="m">
-
-        আপনার মেসেজ
-
-        <span class="required">
-          *
-        </span>
-
-      </label>
-
-
-      <textarea
-        id="m"
-        required
-        maxlength="2000"
-        placeholder="আপনার কথা এখানে লিখুন..."
-      ></textarea>
-
-    </div>
-
-
-  </div>
-
-
-
-  <!-- =================================================
-       FILE
-  ================================================== -->
-
-  <div class="field-row file">
-
-
-    <div class="field-icon">
-      📎
-    </div>
-
-
-    <div>
-
-      <label for="file">
-
-        ফাইল সংযুক্ত করুন
-
-        <span class="optional">
-          (ঐচ্ছিক)
-        </span>
-
-      </label>
-
-
-      <div class="file-box">
-
-
-        <div class="file-heading">
-          📎 ছবি, PDF বা অন্য ফাইল
         </div>
 
 
-        <input
-          id="file"
-          type="file"
-          aria-label="ফাইল নির্বাচন করুন"
+        <!-- CONTACT -->
+
+        <div class="field-row">
+
+          <div class="field-icon icon-contact">
+            📞
+          </div>
+
+          <div class="field-content">
+
+            <label class="field-label" for="contact">
+              যোগাযোগ
+              <span class="optional">(ঐচ্ছিক)</span>
+            </label>
+
+            <input
+              type="text"
+              id="contact"
+              name="contact"
+              class="contact-input"
+              placeholder="নাম্বার, ই-মেইল অথবা লিংক"
+              autocomplete="off"
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div class="field-row">
+
+          <div class="field-icon icon-message">
+            💬
+          </div>
+
+          <div class="field-content">
+
+            <label class="field-label" for="message">
+              আপনার মেসেজ
+              <span class="required">*</span>
+            </label>
+
+            <textarea
+              id="message"
+              name="message"
+              placeholder="আপনার কথা এখানে লিখুন..."
+              required
+            ></textarea>
+
+          </div>
+
+        </div>
+
+
+        <!-- FILE -->
+
+        <div class="field-row">
+
+          <div class="field-icon icon-file">
+            📎
+          </div>
+
+          <div class="field-content">
+
+            <label class="field-label" for="file">
+              ফাইল সংযুক্ত করুন
+              <span class="optional">(ঐচ্ছিক)</span>
+            </label>
+
+            <div class="file-box">
+
+              <div class="file-title">
+                📎 ছবি, PDF বা অন্য ফাইল
+              </div>
+
+              <input
+                type="file"
+                id="file"
+                name="file"
+                class="file-input"
+              >
+
+              <div class="file-info">
+                সর্বোচ্চ ২০ MB • একবারে ১টি ফাইল
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- SUBMIT -->
+
+        <button
+          type="submit"
+          class="submit-btn"
+          id="submitButton"
         >
+          ➤ &nbsp; মেসেজ পাঠান
+        </button>
 
 
-        <div class="file-hint">
-          সর্বোচ্চ ২০ MB • একবারে ১টি ফাইল
+        <!-- SECURITY -->
+
+        <div class="security-note">
+          <span class="security-icon">🛡️</span>
+          আপনার মেসেজ নিরাপদে সংরক্ষিত হবে এবং গোপন রাখা হবে।
         </div>
 
 
         <div
-          id="fileInfo"
-          class="file-info"
-        ></div>
+          class="success-message"
+          id="successMessage"
+        >
+          ✓ আপনার মেসেজ প্রস্তুত হয়েছে।
+        </div>
+
+        <div
+          class="error-message"
+          id="errorMessage"
+        >
+          অনুগ্রহ করে প্রয়োজনীয় তথ্য সঠিকভাবে পূরণ করুন।
+        </div>
+
+      </form>
+
+    </main>
 
 
-      </div>
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
-    </div>
-
-
-  </div>
-
-
-
-  <!-- =================================================
-       SEND BUTTON
-  ================================================== -->
-
-  <button
-    id="b"
-    type="submit"
-  >
-
-    ➤ &nbsp; মেসেজ পাঠান
-
-  </button>
-
-
-
-  <!-- STATUS -->
-
-  <div id="status"></div>
-
-
-
-  <!-- =================================================
-       COOLDOWN
-  ================================================== -->
-
-  <div
-    id="cooldownBox"
-    class="cooldown"
-  >
-
-    <div>
-      আবার মেসেজ পাঠাতে পারবেন
-    </div>
-
-
-    <div id="countdown">
-      30
-    </div>
-
-
-    <div>
-      সেকেন্ড পরে
-    </div>
+    <footer class="footer">
+      <span class="lock">🔐</span>
+      আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ
+      <span class="heart">♥</span>
+    </footer>
 
   </div>
 
 
+  <script>
 
-  <!-- =================================================
-       PRIVACY
-  ================================================== -->
+    const form = document.getElementById("messageForm");
+    const fileInput = document.getElementById("file");
+    const submitButton = document.getElementById("submitButton");
+    const successMessage = document.getElementById("successMessage");
+    const errorMessage = document.getElementById("errorMessage");
 
-  <div class="privacy">
+    /*
+      সর্বোচ্চ ফাইল সাইজ:
+      20 MB
+    */
+    const MAX_FILE_SIZE = 20 * 1024 * 1024;
 
-    <span class="privacy-icon">
-      🛡️
-    </span>
 
-    <span>
-      আপনার মেসেজ নিরাপদে সংরক্ষিত হবে এবং গোপন রাখা হবে।
-    </span>
+    /*
+      ফাইল নির্বাচন করার সময়
+      20 MB-এর বেশি হলে আটকানো হবে।
+    */
 
-  </div>
+    fileInput.addEventListener("change", function () {
 
+      successMessage.style.display = "none";
+      errorMessage.style.display = "none";
 
-</form>
+      if (this.files.length === 0) {
+        return;
+      }
 
+      const file = this.files[0];
 
-</main>
+      if (file.size > MAX_FILE_SIZE) {
 
+        errorMessage.textContent =
+          "ফাইলের আকার সর্বোচ্চ ২০ MB হতে পারবে।";
 
+        errorMessage.style.display = "block";
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+        this.value = "";
 
-<footer class="footer">
+        return;
+      }
 
-  <span class="lock">
-    🔒
-  </span>
+    });
 
-  আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ
 
-  <span class="heart">
-    ♥
-  </span>
+    /*
+      Form validation
+    */
 
-</footer>
+    form.addEventListener("submit", function (event) {
 
+      event.preventDefault();
 
+      successMessage.style.display = "none";
+      errorMessage.style.display = "none";
 
-</div>
+      const name =
+        document.getElementById("name").value.trim();
 
+      const message =
+        document.getElementById("message").value.trim();
 
 
-<script>
+      if (!name || !message) {
 
-/* =========================================================
-   APPS SCRIPT API
-========================================================= */
+        errorMessage.textContent =
+          "অনুগ্রহ করে নাম এবং মেসেজ লিখুন।";
 
-const API_URL =
-"https://script.google.com/macros/s/AKfycbyd0ldrrTOYJvptf3G4IZPdUq33z_Xb5PvCNzimy6zU7-jVNJpBO7IPuZ-Brrgp7GfBKQ/exec";
+        errorMessage.style.display = "block";
 
+        return;
+      }
 
-/* =========================================================
-   SETTINGS
-========================================================= */
 
-const MAX =
-20 * 1024 * 1024;
+      /*
+        File size check
+      */
 
-const COOLDOWN =
-30;
+      if (fileInput.files.length > 0) {
 
+        const file = fileInput.files[0];
 
-/* =========================================================
-   ELEMENTS
-========================================================= */
+        if (file.size > MAX_FILE_SIZE) {
 
-const f =
-document.getElementById("f");
+          errorMessage.textContent =
+            "ফাইলের আকার সর্বোচ্চ ২০ MB হতে পারবে।";
 
-const b =
-document.getElementById("b");
+          errorMessage.style.display = "block";
 
-const s =
-document.getElementById("status");
-
-const fileInput =
-document.getElementById("file");
-
-const fileInfo =
-document.getElementById("fileInfo");
-
-const cooldownBox =
-document.getElementById("cooldownBox");
-
-const countdown =
-document.getElementById("countdown");
-
-
-/* =========================================================
-   PERMANENT CLIENT ID
-========================================================= */
-
-let clientId =
-localStorage.getItem(
-  "postbox_client_id"
-);
-
-
-if(!clientId){
-
-  if(
-    window.crypto &&
-    typeof window.crypto.randomUUID ===
-    "function"
-  ){
-
-    clientId =
-      window.crypto.randomUUID();
-
-  }else{
-
-    clientId =
-      "client-" +
-      Date.now() +
-      "-" +
-      Math.random()
-        .toString(36)
-        .substring(2);
-
-  }
-
-
-  localStorage.setItem(
-    "postbox_client_id",
-    clientId
-  );
-
-}
-
-
-/* =========================================================
-   COUNTDOWN
-========================================================= */
-
-let timer = null;
-
-
-function startCountdown(seconds){
-
-  clearInterval(timer);
-
-
-  let remaining =
-    Math.max(
-      0,
-      Number(seconds)
-    );
-
-
-  b.disabled =
-    true;
-
-
-  cooldownBox.style.display =
-    "block";
-
-
-  countdown.textContent =
-    remaining;
-
-
-  timer =
-    setInterval(
-
-      function(){
-
-        remaining--;
-
-
-        countdown.textContent =
-          Math.max(
-            0,
-            remaining
-          );
-
-
-        if(remaining <= 0){
-
-          clearInterval(timer);
-
-
-          cooldownBox.style.display =
-            "none";
-
-
-          b.disabled =
-            false;
-
+          return;
         }
 
-      },
+      }
 
-      1000
 
-    );
+      /*
+        এখানে আপনার প্রকৃত message sending
+        backend/API যুক্ত করা যাবে।
 
-}
+        বর্তমানে form validation সফল হলে
+        নিচের confirmation দেখাবে।
+      */
 
+      submitButton.disabled = true;
 
-/* =========================================================
-   FILE INFORMATION
-========================================================= */
+      submitButton.textContent =
+        "✓ মেসেজ প্রস্তুত হচ্ছে...";
 
-fileInput.addEventListener(
 
-  "change",
+      setTimeout(function () {
 
-  function(){
+        successMessage.textContent =
+          "✓ আপনার মেসেজ সফলভাবে প্রস্তুত হয়েছে।";
 
-    const file =
-      fileInput.files[0];
+        successMessage.style.display = "block";
 
+        submitButton.disabled = false;
 
-    if(!file){
+        submitButton.innerHTML =
+          "➤ &nbsp; মেসেজ পাঠান";
 
-      fileInfo.style.display =
-        "none";
+      }, 700);
 
-      fileInfo.textContent =
-        "";
+    });
 
-      return;
-
-    }
-
-
-    /* Size validation */
-
-    if(file.size > MAX){
-
-      s.className =
-        "error";
-
-      s.textContent =
-        "ফাইল ২০ MB-এর বেশি হতে পারবে না।";
-
-
-      fileInput.value =
-        "";
-
-
-      fileInfo.style.display =
-        "none";
-
-
-      return;
-
-    }
-
-
-    /* File size */
-
-    const sizeMB =
-      file.size /
-      (1024 * 1024);
-
-
-    fileInfo.textContent =
-      "📎 " +
-      file.name +
-      " • " +
-      sizeMB.toFixed(2) +
-      " MB";
-
-
-    fileInfo.style.display =
-      "block";
-
-
-    s.textContent =
-      "";
-
-  }
-
-);
-
-
-/* =========================================================
-   SUBMIT
-========================================================= */
-
-f.onsubmit =
-async function(e){
-
-  e.preventDefault();
-
-
-  /* Get file */
-
-  const x =
-    fileInput.files[0];
-
-
-  /* Validate file */
-
-  if(
-    x &&
-    x.size > MAX
-  ){
-
-    s.className =
-      "error";
-
-
-    s.textContent =
-      "ফাইল ২০ MB-এর বেশি হতে পারবে না।";
-
-
-    return;
-
-  }
-
-
-  /* Disable button */
-
-  b.disabled =
-    true;
-
-
-  b.textContent =
-    "পাঠানো হচ্ছে...";
-
-
-  s.className =
-    "";
-
-
-  s.textContent =
-    "";
-
-
-  try{
-
-
-    let fd =
-      null;
-
-
-    /* =====================================================
-       FILE → BASE64
-    ===================================================== */
-
-    if(x){
-
-      fd =
-        await new Promise(
-
-          function(resolve,reject){
-
-            const reader =
-              new FileReader();
-
-
-            reader.onload =
-              function(){
-
-                resolve({
-
-                  name:
-                    x.name,
-
-                  mimeType:
-                    x.type ||
-                    "application/octet-stream",
-
-                  data:
-                    reader.result
-                      .split(",")[1]
-
-                });
-
-              };
-
-
-            reader.onerror =
-              reject;
-
-
-            reader.readAsDataURL(x);
-
-          }
-
-        );
-
-    }
-
-
-    /* =====================================================
-       SEND REQUEST
-    ===================================================== */
-
-    const response =
-      await fetch(
-
-        API_URL,
-
-        {
-
-          method:
-            "POST",
-
-          headers:{
-
-            "Content-Type":
-              "text/plain;charset=utf-8"
-
-          },
-
-
-          body:
-            JSON.stringify({
-
-              name:
-                document
-                  .getElementById("n")
-                  .value
-                  .trim(),
-
-
-              /*
-                Contact field
-              */
-
-              phone:
-                document
-                  .getElementById("p")
-                  .value
-                  .trim(),
-
-
-              message:
-                document
-                  .getElementById("m")
-                  .value
-                  .trim(),
-
-
-              file:
-                fd,
-
-
-              clientId:
-                clientId
-
-            })
-
-        }
-
-      );
-
-
-    /* =====================================================
-       RESPONSE
-    ===================================================== */
-
-    const result =
-      await response.json();
-
-
-    /* =====================================================
-       SERVER COOLDOWN
-    ===================================================== */
-
-    if(
-      result.cooldown === true
-    ){
-
-      s.className =
-        "error";
-
-
-      s.textContent =
-        result.error ||
-        "অনুগ্রহ করে অপেক্ষা করুন।";
-
-
-      startCountdown(
-
-        result.remaining ||
-        COOLDOWN
-
-      );
-
-
-      return;
-
-    }
-
-
-    /* =====================================================
-       SERVER ERROR
-    ===================================================== */
-
-    if(
-      !result.success
-    ){
-
-      throw new Error(
-
-        result.error ||
-        "Unknown error"
-
-      );
-
-    }
-
-
-    /* =====================================================
-       SUCCESS
-    ===================================================== */
-
-    f.reset();
-
-
-    fileInfo.style.display =
-      "none";
-
-
-    fileInfo.textContent =
-      "";
-
-
-    s.className =
-      "success";
-
-
-    s.textContent =
-      "✓ আপনার মেসেজ সফলভাবে পাঠানো হয়েছে।";
-
-
-    startCountdown(
-      COOLDOWN
-    );
-
-
-  }
-
-
-  catch(error){
-
-    console.error(error);
-
-
-    s.className =
-      "error";
-
-
-    s.textContent =
-      "মেসেজ পাঠানো যায়নি। আবার চেষ্টা করুন।";
-
-
-    b.disabled =
-      false;
-
-  }
-
-
-  finally{
-
-
-    if(
-      cooldownBox.style.display !==
-      "block"
-    ){
-
-      b.disabled =
-        false;
-
-    }
-
-
-    b.textContent =
-      "➤  মেসেজ পাঠান";
-
-  }
-
-};
-
-</script>
-
+  </script>
 
 </body>
-
 </html>
