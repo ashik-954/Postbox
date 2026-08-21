@@ -523,4 +523,1734 @@ h1{
 
 .icon-user{
   color:#6527d9;
-  background:linear-gradient(135deg,#f2e7ff,#ead
+  background:linear-gradient(135deg,#f2e7ff,#ead8ff);
+}
+
+.icon-contact{
+  color:#0877d1;
+  background:linear-gradient(135deg,#e5f5ff,#d9edff);
+}
+
+.icon-message{
+  color:#6527d9;
+  background:linear-gradient(135deg,#f2e7ff,#eadcff);
+}
+
+.icon-file{
+  color:#159e89;
+  background:linear-gradient(135deg,#e5fbf6,#d9f5ef);
+}
+
+
+/* Field content */
+
+.field-content{
+  min-width:0;
+}
+
+label{
+  display:block;
+
+  margin:3px 0 9px;
+
+  color:#171331;
+
+  font-size:20px;
+
+  font-weight:900;
+}
+
+.optional{
+  color:#888395;
+  font-size:16px;
+  font-weight:400;
+}
+
+.required{
+  color:#e11d48;
+}
+
+
+/* Inputs */
+
+input,
+textarea,
+button{
+  width:100%;
+
+  font-family:inherit;
+  font-size:18px;
+}
+
+input,
+textarea{
+
+  padding:17px 20px;
+
+  border:1.5px solid #d7b7f1;
+
+  border-radius:15px;
+
+  outline:none;
+
+  color:#29233e;
+
+  background:#fbf7ff;
+
+  transition:
+    border-color .2s,
+    box-shadow .2s,
+    background .2s;
+}
+
+input::placeholder,
+textarea::placeholder{
+  color:#9b96a8;
+}
+
+input:focus,
+textarea:focus{
+  border-color:#7138dc;
+
+  background:#fff;
+
+  box-shadow:
+    0 0 0 4px rgba(113,56,220,.10);
+}
+
+
+/* Contact field */
+
+.contact-input{
+  border-color:#acd4ed;
+
+  background:#f2faff;
+}
+
+.contact-input:focus{
+  border-color:#2587d5;
+
+  box-shadow:
+    0 0 0 4px rgba(37,135,213,.10);
+}
+
+
+/* Message */
+
+textarea{
+  min-height:170px;
+
+  resize:vertical;
+
+  line-height:1.65;
+}
+
+
+/* File box */
+
+.file-box{
+  padding:17px;
+
+  border:2px dashed #49bca8;
+
+  border-radius:16px;
+
+  background:#effbf8;
+}
+
+.file-title{
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  margin-bottom:12px;
+
+  color:#187b6d;
+
+  font-size:17px;
+  font-weight:800;
+}
+
+.file-title svg{
+  width:25px;
+  height:25px;
+}
+
+.file-box input{
+  width:100%;
+
+  padding:10px;
+
+  border:1px solid #c8dcd8;
+
+  border-radius:12px;
+
+  background:#fff;
+
+  font-size:15px;
+}
+
+.file-hint{
+  margin-top:9px;
+
+  color:#32897d;
+
+  font-size:13px;
+}
+
+.file-info{
+  display:none;
+
+  margin-top:10px;
+
+  padding:10px 12px;
+
+  border-radius:10px;
+
+  background:#dff6f1;
+
+  color:#187b6d;
+
+  font-size:13px;
+
+  line-height:1.5;
+}
+
+
+/* =========================
+   SEND BUTTON
+========================= */
+
+button{
+
+  margin-top:5px;
+
+  padding:18px 22px;
+
+  border:0;
+
+  border-radius:17px;
+
+  background:
+    linear-gradient(
+      100deg,
+      #4b18ed,
+      #7627df,
+      #ed168e
+    );
+
+  color:#fff;
+
+  font-weight:900;
+
+  font-size:21px;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 12px 28px rgba(98,38,220,.28);
+
+  transition:
+    transform .15s,
+    box-shadow .15s,
+    opacity .15s;
+}
+
+button:hover:not(:disabled){
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 16px 34px rgba(98,38,220,.35);
+}
+
+button:active:not(:disabled){
+  transform:translateY(0);
+}
+
+button:disabled{
+  opacity:.65;
+  cursor:not-allowed;
+  box-shadow:none;
+}
+
+.button-icon{
+  width:28px;
+  height:28px;
+
+  vertical-align:-6px;
+
+  margin-right:7px;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+#status{
+  margin-top:17px;
+
+  text-align:center;
+
+  font-size:15px;
+
+  font-weight:800;
+
+  line-height:1.6;
+}
+
+.success{
+  color:#087443;
+}
+
+.error{
+  color:#b42318;
+}
+
+
+/* =========================
+   SECURITY NOTE
+========================= */
+
+.security-note{
+  margin-top:22px;
+
+  padding:17px 20px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  gap:12px;
+
+  border-radius:15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff9e9,
+      #fff6df
+    );
+
+  border:
+    1px solid #f2dfae;
+
+  color:#82621c;
+
+  font-size:16px;
+
+  text-align:center;
+
+  line-height:1.6;
+}
+
+.security-note svg{
+  flex:0 0 auto;
+
+  width:35px;
+  height:35px;
+
+  color:#f59e0b;
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.cooldown{
+  display:none;
+
+  margin-top:17px;
+
+  padding:17px;
+
+  border-radius:16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff7ed,
+      #fffbeb
+    );
+
+  border:
+    1px solid #fed7aa;
+
+  color:#9a3412;
+
+  text-align:center;
+
+  font-weight:800;
+}
+
+#countdown{
+  margin:5px 0;
+
+  font-size:34px;
+
+  line-height:1.2;
+
+  font-weight:900;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+  position:relative;
+
+  padding:25px 10px 5px;
+
+  text-align:center;
+
+  color:#fff;
+
+  font-size:16px;
+
+  line-height:1.7;
+}
+
+.footer-lock{
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:7px;
+}
+
+.footer-lock svg{
+  width:21px;
+  height:21px;
+}
+
+.footer-heart{
+  color:#a855f7;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+  .page{
+    padding:0 0 25px;
+  }
+
+  .hero{
+    min-height:auto;
+
+    padding:
+      35px
+      22px
+      105px;
+
+    border-radius:0 0 35px 35px;
+  }
+
+  .hero-content{
+    grid-template-columns:1fr;
+
+    gap:25px;
+
+    text-align:center;
+  }
+
+  .profile-wrap{
+    width:265px;
+    height:265px;
+  }
+
+  .profile-name{
+    font-size:27px;
+  }
+
+  .hero-text{
+    padding:0;
+  }
+
+  .hero-icon{
+    width:68px;
+    height:68px;
+
+    margin:0 auto 14px;
+  }
+
+  h1{
+    font-size:38px;
+    line-height:1.18;
+  }
+
+  .hero-divider{
+    justify-content:center;
+  }
+
+  .hero-divider::before{
+    width:130px;
+  }
+
+  .subtitle{
+    font-size:18px;
+    line-height:1.65;
+  }
+
+  .paper-plane{
+    right:12px;
+    top:28px;
+  }
+
+  .form-card{
+    margin-top:-55px;
+
+    margin-left:16px;
+    margin-right:16px;
+
+    padding:28px 20px;
+
+    border-radius:27px;
+  }
+
+  .field{
+    grid-template-columns:72px 1fr;
+
+    gap:14px;
+  }
+
+  .field-icon{
+    width:72px;
+    height:72px;
+
+    border-radius:17px;
+  }
+
+  .field-icon svg{
+    width:37px;
+    height:37px;
+  }
+
+  label{
+    font-size:17px;
+  }
+
+  .optional{
+    font-size:14px;
+  }
+
+  input,
+  textarea{
+    font-size:16px;
+  }
+
+  button{
+    font-size:19px;
+  }
+
+  .security-note{
+    font-size:14px;
+  }
+
+}
+
+
+/* Smaller phones */
+
+@media(max-width:480px){
+
+  .hero{
+    padding:
+      27px
+      15px
+      88px;
+  }
+
+  .profile-wrap{
+    width:235px;
+    height:235px;
+  }
+
+  .badge{
+    width:53px;
+    height:53px;
+
+    font-size:24px;
+
+    right:0;
+    bottom:10px;
+  }
+
+  .profile-name{
+    font-size:25px;
+  }
+
+  h1{
+    font-size:31px;
+  }
+
+  .title-line.second{
+    margin-top:2px;
+  }
+
+  .subtitle{
+    font-size:16px;
+  }
+
+  .hero-icon{
+    width:62px;
+    height:62px;
+  }
+
+  .hero-icon svg{
+    width:41px;
+    height:41px;
+  }
+
+  .form-card{
+    margin-left:10px;
+    margin-right:10px;
+
+    padding:23px 14px;
+  }
+
+  .field{
+    grid-template-columns:58px 1fr;
+
+    gap:11px;
+  }
+
+  .field-icon{
+    width:58px;
+    height:58px;
+  }
+
+  .field-icon svg{
+    width:31px;
+    height:31px;
+  }
+
+  label{
+    font-size:16px;
+  }
+
+  .optional{
+    font-size:13px;
+  }
+
+  input,
+  textarea{
+    padding:14px 14px;
+    font-size:15px;
+  }
+
+  textarea{
+    min-height:145px;
+  }
+
+  .file-box{
+    padding:12px;
+  }
+
+  .file-title{
+    font-size:14px;
+  }
+
+  button{
+    padding:16px;
+    font-size:18px;
+  }
+
+  .security-note{
+    padding:13px;
+    font-size:13px;
+  }
+
+  .footer{
+    font-size:14px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+
+    <!-- Profile -->
+
+    <div class="profile-area">
+
+      <div class="profile-wrap">
+
+        <div class="profile-ring">
+
+          <img
+            class="profile-photo"
+            src="1000.png"
+            alt="আশিকুর রহমান"
+          >
+
+        </div>
+
+
+        <div class="badge">
+          ✓
+        </div>
+
+      </div>
+
+
+      <div class="profile-name">
+        আশিকুর রহমান
+      </div>
+
+
+      <div class="name-decoration">
+
+        <span></span>
+
+        <b>♥</b>
+
+        <span></span>
+
+      </div>
+
+    </div>
+
+
+    <!-- Hero Text -->
+
+    <div class="hero-text">
+
+
+      <!-- Message icon -->
+
+      <div class="hero-icon">
+
+        <svg
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+
+          <path
+            d="M12 16C12 10.477 16.477 6 22 6H42C47.523 6 52 10.477 52 16V31C52 36.523 47.523 41 42 41H30L19 51V41H22C16.477 41 12 36.523 12 31V16Z"
+            stroke="currentColor"
+            stroke-width="4"
+            stroke-linejoin="round"
+          />
+
+          <circle cx="24" cy="24" r="3" fill="currentColor"/>
+          <circle cx="32" cy="24" r="3" fill="currentColor"/>
+          <circle cx="40" cy="24" r="3" fill="currentColor"/>
+
+        </svg>
+
+      </div>
+
+
+      <!-- Title -->
+
+      <h1>
+
+        <span class="title-line">
+          আপনার কথা,
+        </span>
+
+        <span class="title-line second">
+          আমার কাছে পৌঁছে দিন।
+        </span>
+
+      </h1>
+
+
+      <div class="hero-divider">
+
+        <span class="hero-heart">
+          ♥
+        </span>
+
+      </div>
+
+
+      <p class="subtitle">
+        বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই।
+      </p>
+
+
+      <!-- Paper plane -->
+
+      <div class="paper-plane">
+
+        <svg
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+
+          <path
+            d="M8 30L55 8L39 55L29 36L8 30Z"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linejoin="round"
+          />
+
+          <path
+            d="M29 36L55 8"
+            stroke="currentColor"
+            stroke-width="3"
+          />
+
+        </svg>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     FORM
+========================= -->
+
+<section class="form-card">
+
+
+<form id="f">
+
+
+<!-- NAME -->
+
+<div class="field">
+
+  <div class="field-icon icon-user">
+
+    <svg
+      viewBox="0 0 64 64"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+
+      <circle
+        cx="32"
+        cy="20"
+        r="10"
+        fill="currentColor"
+      />
+
+      <path
+        d="M12 53C13 41 20 34 32 34C44 34 51 41 52 53"
+        fill="currentColor"
+      />
+
+    </svg>
+
+  </div>
+
+
+  <div class="field-content">
+
+    <label for="n">
+
+      আপনার নাম
+      <span class="required">*</span>
+
+    </label>
+
+    <input
+      id="n"
+      required
+      maxlength="100"
+      autocomplete="name"
+      placeholder="আপনার নাম লিখুন"
+    >
+
+  </div>
+
+</div>
+
+
+
+<!-- CONTACT -->
+
+<div class="field">
+
+  <div class="field-icon icon-contact">
+
+    <svg
+      viewBox="0 0 64 64"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+
+      <rect
+        x="19"
+        y="7"
+        width="26"
+        height="50"
+        rx="5"
+        stroke="currentColor"
+        stroke-width="4"
+      />
+
+      <circle
+        cx="32"
+        cy="49"
+        r="2.5"
+        fill="currentColor"
+      />
+
+      <rect
+        x="25"
+        y="12"
+        width="14"
+        height="28"
+        rx="2"
+        fill="currentColor"
+        opacity=".25"
+      />
+
+    </svg>
+
+  </div>
+
+
+  <div class="field-content">
+
+    <label for="p">
+
+      যোগাযোগ
+      <span class="optional">
+        (ঐচ্ছিক)
+      </span>
+
+    </label>
+
+    <input
+      id="p"
+      class="contact-input"
+      maxlength="200"
+      autocomplete="off"
+      inputmode="text"
+      placeholder="নাম্বার, মেইল অথবা লিংক"
+    >
+
+  </div>
+
+</div>
+
+
+
+<!-- MESSAGE -->
+
+<div class="field">
+
+  <div class="field-icon icon-message">
+
+    <svg
+      viewBox="0 0 64 64"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+
+      <path
+        d="M10 12H54V43H27L17 53V43H10V12Z"
+        fill="currentColor"
+      />
+
+      <circle cx="23" cy="27" r="3" fill="white"/>
+      <circle cx="32" cy="27" r="3" fill="white"/>
+      <circle cx="41" cy="27" r="3" fill="white"/>
+
+    </svg>
+
+  </div>
+
+
+  <div class="field-content">
+
+    <label for="m">
+
+      আপনার মেসেজ
+      <span class="required">*</span>
+
+    </label>
+
+    <textarea
+      id="m"
+      required
+      maxlength="2000"
+      placeholder="আপনার কথা এখানে লিখুন..."
+    ></textarea>
+
+  </div>
+
+</div>
+
+
+
+<!-- FILE -->
+
+<div class="field">
+
+  <div class="field-icon icon-file">
+
+    <svg
+      viewBox="0 0 64 64"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+
+      <path
+        d="M42 18L24 36C20 40 20 46 24 50C28 54 34 54 38 50L52 36C58 30 58 20 52 14C46 8 36 8 30 14L14 30C7 37 7 48 14 55C21 62 32 62 39 55"
+        stroke="currentColor"
+        stroke-width="5"
+        stroke-linecap="round"
+      />
+
+      <path
+        d="M40 24L22 42"
+        stroke="currentColor"
+        stroke-width="5"
+        stroke-linecap="round"
+      />
+
+    </svg>
+
+  </div>
+
+
+  <div class="field-content">
+
+    <label for="file">
+
+      ফাইল সংযুক্ত করুন
+
+      <span class="optional">
+        (ঐচ্ছিক)
+      </span>
+
+    </label>
+
+
+    <div class="file-box">
+
+      <div class="file-title">
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+
+          <path
+            d="M20.5 11.5L12 20C8.7 23.3 3.3 18 6.5 14.7L15 6.2C17.3 3.9 21 7.5 18.7 9.8L10.5 18"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+
+        </svg>
+
+        ছবি, PDF বা অন্য ফাইল
+
+      </div>
+
+
+      <input
+        id="file"
+        type="file"
+      >
+
+
+      <div class="file-hint">
+        সর্বোচ্চ ২০ MB • একবারে ১টি ফাইল
+      </div>
+
+
+      <div
+        id="fileInfo"
+        class="file-info"
+      ></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- BUTTON -->
+
+<button
+  id="b"
+  type="submit"
+>
+
+  <svg
+    class="button-icon"
+    viewBox="0 0 64 64"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+
+    <path
+      d="M7 31L56 8L39 56L28 37L7 31Z"
+      fill="white"
+    />
+
+    <path
+      d="M28 37L56 8"
+      stroke="#7C3AED"
+      stroke-width="3"
+    />
+
+  </svg>
+
+  মেসেজ পাঠান
+
+</button>
+
+
+
+<!-- STATUS -->
+
+<div id="status"></div>
+
+
+
+<!-- COUNTDOWN -->
+
+<div
+  id="cooldownBox"
+  class="cooldown"
+>
+
+  <div>
+    আবার মেসেজ পাঠাতে পারবেন
+  </div>
+
+  <div id="countdown">
+    30
+  </div>
+
+  <div>
+    সেকেন্ড পরে
+  </div>
+
+</div>
+
+
+
+<!-- SECURITY -->
+
+<div class="security-note">
+
+  <svg
+    viewBox="0 0 64 64"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+
+    <path
+      d="M32 6L52 14V29C52 42 44 52 32 58C20 52 12 42 12 29V14L32 6Z"
+      stroke="currentColor"
+      stroke-width="4"
+    />
+
+    <path
+      d="M22 32L29 39L43 24"
+      stroke="currentColor"
+      stroke-width="5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+
+  </svg>
+
+
+  <span>
+    আপনার মেসেজ নিরাপদে সংরক্ষিত হবে এবং গোপন রাখা হবে।
+  </span>
+
+</div>
+
+
+</form>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+  <span class="footer-lock">
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+
+      <rect
+        x="5"
+        y="10"
+        width="14"
+        height="11"
+        rx="2"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+
+      <path
+        d="M8 10V7C8 4.8 9.8 3 12 3C14.2 3 16 4.8 16 7V10"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+
+    </svg>
+
+
+    আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ
+
+    <span class="footer-heart">
+      ♥
+    </span>
+
+  </span>
+
+</footer>
+
+
+</div>
+
+
+
+<script>
+
+/*
+ * ============================
+ * Apps Script API
+ * ============================
+ */
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbyd0ldrrTOYJvptf3G4IZPdUq33z_Xb5PvCNzimy6zU7-jVNJpBO7IPuZ-Brrgp7GfBKQ/exec";
+
+
+const MAX =
+20 * 1024 * 1024;
+
+
+const COOLDOWN =
+30;
+
+
+/*
+ * Elements
+ */
+
+const f =
+document.getElementById("f");
+
+const b =
+document.getElementById("b");
+
+const s =
+document.getElementById("status");
+
+const fileInput =
+document.getElementById("file");
+
+const fileInfo =
+document.getElementById("fileInfo");
+
+const cooldownBox =
+document.getElementById("cooldownBox");
+
+const countdown =
+document.getElementById("countdown");
+
+
+/*
+ * Permanent Client ID
+ */
+
+let clientId =
+localStorage.getItem(
+  "postbox_client_id"
+);
+
+
+if(!clientId){
+
+  if(
+    window.crypto &&
+    typeof window.crypto.randomUUID ===
+    "function"
+  ){
+
+    clientId =
+      window.crypto.randomUUID();
+
+  }else{
+
+    clientId =
+      "client-" +
+      Date.now() +
+      "-" +
+      Math.random()
+        .toString(36)
+        .substring(2);
+
+  }
+
+
+  localStorage.setItem(
+    "postbox_client_id",
+    clientId
+  );
+
+}
+
+
+/*
+ * Countdown
+ */
+
+let timer = null;
+
+
+function startCountdown(seconds){
+
+  clearInterval(timer);
+
+  let remaining =
+    Math.max(
+      0,
+      Number(seconds)
+    );
+
+
+  b.disabled =
+    true;
+
+
+  cooldownBox.style.display =
+    "block";
+
+
+  countdown.textContent =
+    remaining;
+
+
+  timer =
+    setInterval(
+
+      function(){
+
+        remaining--;
+
+        countdown.textContent =
+          Math.max(
+            0,
+            remaining
+          );
+
+
+        if(remaining <= 0){
+
+          clearInterval(timer);
+
+          cooldownBox.style.display =
+            "none";
+
+          b.disabled =
+            false;
+
+        }
+
+      },
+
+      1000
+
+    );
+
+}
+
+
+/*
+ * File information
+ */
+
+fileInput.addEventListener(
+  "change",
+  function(){
+
+    const file =
+      fileInput.files[0];
+
+
+    if(!file){
+
+      fileInfo.style.display =
+        "none";
+
+      fileInfo.textContent =
+        "";
+
+      return;
+
+    }
+
+
+    if(file.size > MAX){
+
+      s.className =
+        "error";
+
+      s.textContent =
+        "ফাইল ২০ MB-এর বেশি হতে পারবে না।";
+
+      fileInput.value =
+        "";
+
+      fileInfo.style.display =
+        "none";
+
+      return;
+
+    }
+
+
+    const sizeMB =
+      file.size /
+      (1024 * 1024);
+
+
+    fileInfo.textContent =
+      "📎 " +
+      file.name +
+      " • " +
+      sizeMB.toFixed(2) +
+      " MB";
+
+
+    fileInfo.style.display =
+      "block";
+
+
+    s.textContent =
+      "";
+
+  }
+);
+
+
+/*
+ * Submit
+ */
+
+f.onsubmit =
+async function(e){
+
+  e.preventDefault();
+
+
+  const x =
+    fileInput.files[0];
+
+
+  if(
+    x &&
+    x.size > MAX
+  ){
+
+    s.className =
+      "error";
+
+    s.textContent =
+      "ফাইল ২০ MB-এর বেশি হতে পারবে না।";
+
+    return;
+
+  }
+
+
+  b.disabled =
+    true;
+
+
+  b.innerHTML =
+    "পাঠানো হচ্ছে...";
+
+
+  s.className =
+    "";
+
+  s.textContent =
+    "";
+
+
+  try{
+
+    let fd =
+      null;
+
+
+    /*
+     * File → Base64
+     */
+
+    if(x){
+
+      fd =
+        await new Promise(
+
+          function(resolve,reject){
+
+            const reader =
+              new FileReader();
+
+
+            reader.onload =
+              function(){
+
+                resolve({
+
+                  name:
+                    x.name,
+
+                  mimeType:
+                    x.type ||
+                    "application/octet-stream",
+
+                  data:
+                    reader.result
+                      .split(",")[1]
+
+                });
+
+              };
+
+
+            reader.onerror =
+              reject;
+
+
+            reader.readAsDataURL(x);
+
+          }
+
+        );
+
+    }
+
+
+    /*
+     * Send request
+     */
+
+    const response =
+      await fetch(
+
+        API_URL,
+
+        {
+
+          method:
+            "POST",
+
+          headers:{
+            "Content-Type":
+              "text/plain;charset=utf-8"
+          },
+
+
+          body:
+            JSON.stringify({
+
+              name:
+                document
+                  .getElementById("n")
+                  .value
+                  .trim(),
+
+              phone:
+                document
+                  .getElementById("p")
+                  .value
+                  .trim(),
+
+              message:
+                document
+                  .getElementById("m")
+                  .value
+                  .trim(),
+
+              file:
+                fd,
+
+              clientId:
+                clientId
+
+            })
+
+        }
+
+      );
+
+
+    const result =
+      await response.json();
+
+
+    /*
+     * Server cooldown
+     */
+
+    if(
+      result.cooldown === true
+    ){
+
+      s.className =
+        "error";
+
+
+      s.textContent =
+        result.error ||
+        "অনুগ্রহ করে অপেক্ষা করুন।";
+
+
+      startCountdown(
+        result.remaining ||
+        COOLDOWN
+      );
+
+
+      return;
+
+    }
+
+
+    /*
+     * Server error
+     */
+
+    if(
+      !result.success
+    ){
+
+      throw new Error(
+        result.error ||
+        "Unknown error"
+      );
+
+    }
+
+
+    /*
+     * Success
+     */
+
+    f.reset();
+
+
+    fileInfo.style.display =
+      "none";
+
+
+    fileInfo.textContent =
+      "";
+
+
+    s.className =
+      "success";
+
+
+    s.textContent =
+      "✓ আপনার মেসেজ সফলভাবে পাঠানো হয়েছে।";
+
+
+    startCountdown(
+      COOLDOWN
+    );
+
+
+  }catch(error){
+
+    s.className =
+      "error";
+
+
+    s.textContent =
+      "মেসেজ পাঠানো যায়নি। আবার চেষ্টা করুন।";
+
+
+    b.disabled =
+      false;
+
+  }finally{
+
+    if(
+      cooldownBox.style.display !==
+      "block"
+    ){
+
+      b.disabled =
+        false;
+
+    }
+
+
+    b.innerHTML =
+      `
+      <svg
+        class="button-icon"
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7 31L56 8L39 56L28 37L7 31Z"
+          fill="white"
+        />
+        <path
+          d="M28 37L56 8"
+          stroke="#7C3AED"
+          stroke-width="3"
+        />
+      </svg>
+      মেসেজ পাঠান
+      `;
+
+  }
+
+};
+
+</script>
+
+</body>
+</html>
