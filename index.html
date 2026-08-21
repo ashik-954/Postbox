@@ -2,12 +2,19 @@
 <html lang="bn">
 
 <head>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1">
 
 <title>আপনার কথা, আমার কাছে পৌঁছে দিন</title>
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
   box-sizing:border-box;
@@ -27,46 +34,43 @@ body{
     "Noto Sans",
     sans-serif;
 
-  color:#17152b;
+  color:#172033;
 
   background:
-    radial-gradient(
-      circle at 15% 15%,
-      rgba(255,255,255,.18),
-      transparent 25%
-    ),
-    radial-gradient(
-      circle at 85% 75%,
-      rgba(255,255,255,.12),
-      transparent 25%
-    ),
     linear-gradient(
       135deg,
-      #6624d9 0%,
-      #7431dc 38%,
-      #313fd0 100%
+      #6d28d9 0%,
+      #4f46e5 45%,
+      #2563eb 100%
     );
 
   overflow-x:hidden;
 }
 
 
-/* Decorative background */
+/* =========================================================
+   BACKGROUND DECORATION
+========================================================= */
 
 body::before{
   content:"";
+
   position:fixed;
 
-  width:420px;
-  height:420px;
+  width:430px;
+  height:430px;
 
-  left:-230px;
-  bottom:-230px;
+  top:-220px;
+  right:-170px;
 
   border-radius:50%;
 
   background:
-    rgba(255,255,255,.08);
+    radial-gradient(
+      circle,
+      rgba(236,72,153,.55),
+      rgba(236,72,153,0)
+    );
 
   pointer-events:none;
 }
@@ -79,84 +83,164 @@ body::after{
   width:360px;
   height:360px;
 
-  right:-180px;
-  top:-180px;
+  bottom:-180px;
+  left:-160px;
 
   border-radius:50%;
 
   background:
-    rgba(255,255,255,.08);
+    radial-gradient(
+      circle,
+      rgba(168,85,247,.45),
+      rgba(168,85,247,0)
+    );
 
   pointer-events:none;
 }
 
 
-/* Main wrapper */
+/* =========================================================
+   MAIN WRAPPER
+========================================================= */
 
 .page{
   width:100%;
-  max-width:1050px;
+  max-width:1080px;
 
-  margin:auto;
-
-  padding:28px 18px 22px;
+  margin:0 auto;
 
   position:relative;
-  z-index:1;
 }
 
 
-/* Header */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
 
-  display:grid;
+  position:relative;
 
-  grid-template-columns:
-    42% 58%;
+  min-height:520px;
 
-  align-items:center;
+  padding:
+    52px
+    40px
+    62px;
 
-  min-height:390px;
-
-  padding:20px 25px 35px;
-
-  color:white;
-}
-
-
-/* Profile section */
-
-.profile{
-  text-align:center;
-}
-
-.profile-image-wrap{
-
-  width:270px;
-  height:270px;
-
-  margin:auto;
-
-  padding:9px;
-
-  border-radius:50%;
+  overflow:hidden;
 
   background:
     linear-gradient(
       135deg,
-      #ffffff,
-      #ffd7f0,
-      #ffffff
+      #6425d8 0%,
+      #4c21c9 35%,
+      #263fca 72%,
+      #174fc4 100%
     );
 
-  box-shadow:
-    0 0 0 5px rgba(255,255,255,.18),
-    0 15px 45px rgba(0,0,0,.20);
+  border-radius:
+    0 0 55px 55px;
 
-  position:relative;
 }
 
+
+/* Decorative blobs */
+
+.hero::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:430px;
+  height:260px;
+
+  right:-110px;
+  top:-100px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.08),
+      rgba(236,72,153,.35)
+    );
+
+  border-radius:
+    0 0 0 180px;
+
+  transform:rotate(-8deg);
+
+}
+
+
+.hero::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:470px;
+  height:180px;
+
+  left:-170px;
+  bottom:-100px;
+
+  background:
+    rgba(168,85,247,.32);
+
+  border-radius:50%;
+
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content{
+
+  position:relative;
+  z-index:2;
+
+  display:grid;
+
+  grid-template-columns:
+    330px 1fr;
+
+  gap:48px;
+
+  align-items:center;
+
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.profile-area{
+
+  text-align:center;
+
+}
+
+
+/* Profile ring */
+
+.profile-wrap{
+
+  position:relative;
+
+  width:310px;
+  height:310px;
+
+  margin:0 auto 18px;
+
+}
+
+
+/* Profile image */
 
 .profile-image{
 
@@ -167,429 +251,629 @@ body::after{
 
   object-fit:cover;
 
-  object-position:center top;
+  /*
+    মাথার উপরের অতিরিক্ত জায়গা কমানোর জন্য
+    image একটু crop করা হয়েছে
+  */
+
+  object-position:center 28%;
 
   border-radius:50%;
 
-  border:4px solid white;
+  border:
+    8px solid #fff;
 
-  background:#eee;
+  outline:
+    7px solid rgba(244,114,182,.72);
+
+  box-shadow:
+    0 12px 40px
+    rgba(0,0,0,.28);
+
+  background:#ddd;
+
 }
 
 
-/* Verification */
+/* Verified badge */
 
-.verify{
+.verified{
 
   position:absolute;
 
-  right:0;
+  right:-3px;
   bottom:3px;
 
-  width:58px;
-  height:58px;
-
-  border-radius:50%;
+  width:68px;
+  height:68px;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
+  border-radius:50%;
+
   background:#fff;
 
-  color:#5b21d6;
+  border:
+    5px solid #fff;
 
-  font-size:32px;
+  box-shadow:
+    0 7px 20px
+    rgba(0,0,0,.25);
+
+  z-index:5;
+
+}
+
+
+/* Blue verification shield */
+
+.verified::before{
+
+  content:"";
+
+  width:48px;
+  height:48px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  clip-path:
+    polygon(
+      50% 0%,
+      90% 15%,
+      90% 58%,
+      78% 78%,
+      50% 100%,
+      22% 78%,
+      10% 58%,
+      10% 15%
+    );
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #1d4ed8
+    );
+
+}
+
+
+/* Check */
+
+.verified::after{
+
+  content:"✓";
+
+  position:absolute;
+
+  color:#fff;
+
+  font-size:29px;
 
   font-weight:900;
 
-  box-shadow:
-    0 6px 20px rgba(0,0,0,.20);
+  line-height:1;
+
 }
 
+
+/* Name */
 
 .profile-name{
 
-  margin-top:17px;
+  margin:0;
 
-  font-size:28px;
+  color:#fff;
 
-  font-weight:900;
+  font-size:30px;
+
+  font-weight:800;
 
   text-shadow:
-    0 2px 5px rgba(0,0,0,.18);
+    0 3px 8px
+    rgba(0,0,0,.20);
+
 }
 
 
-.profile-line{
+/* Name decoration */
 
-  width:150px;
+.name-decoration{
 
+  margin-top:12px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:13px;
+
+}
+
+.name-decoration span{
+
+  display:block;
+
+  width:100px;
   height:2px;
-
-  margin:11px auto 0;
 
   background:
     linear-gradient(
       90deg,
       transparent,
-      #ff9bdc,
-      transparent
+      #f9a8d4
     );
 
-  position:relative;
 }
 
-.profile-line::after{
-
-  content:"♥";
-
-  position:absolute;
-
-  left:50%;
-  top:50%;
-
-  transform:
-    translate(-50%,-50%);
-
-  padding:0 10px;
-
-  color:#ff9bdc;
-
-  background:#6530d5;
-
-  font-size:18px;
-}
-
-
-/* Hero text */
-
-.hero-content{
-
-  padding:10px 15px 10px 35px;
-
-  position:relative;
-}
-
-
-.message-icon{
-
-  width:62px;
-  height:62px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  margin-bottom:14px;
-
-  border:2px solid rgba(255,255,255,.65);
-
-  border-radius:50%;
-
-  font-size:34px;
-
-  background:
-    rgba(255,255,255,.08);
-
-}
-
-
-.hero h1{
-
-  margin:0;
-
-  font-size:48px;
-
-  line-height:1.18;
-
-  font-weight:900;
-
-  letter-spacing:-1px;
-}
-
-
-.hero h1 .yellow{
-
-  color:#ffd94a;
-}
-
-
-.hero-divider{
-
-  width:190px;
-
-  height:2px;
-
-  margin:25px 0 19px;
+.name-decoration span:last-child{
 
   background:
     linear-gradient(
       90deg,
-      white,
-      rgba(255,255,255,.15)
+      #f9a8d4,
+      transparent
     );
 
-  position:relative;
+}
+
+.name-decoration b{
+
+  color:#f9a8d4;
+
+  font-size:22px;
+
 }
 
 
-.hero-divider::after{
+/* =========================================================
+   HERO RIGHT
+========================================================= */
 
-  content:"♥";
+.hero-text{
+
+  position:relative;
+
+  color:white;
+
+}
+
+
+/* Chat icon */
+
+.chat-icon{
+
+  width:70px;
+  height:70px;
+
+  margin-bottom:12px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border:
+    1px solid
+    rgba(255,255,255,.55);
+
+  border-radius:50%;
+
+  background:
+    rgba(255,255,255,.10);
+
+  box-shadow:
+    0 8px 25px
+    rgba(0,0,0,.12);
+
+  font-size:38px;
+
+}
+
+
+/* Plane */
+
+.plane{
 
   position:absolute;
 
-  right:-22px;
+  right:15px;
+  top:20px;
 
-  top:-12px;
+  font-size:54px;
 
-  color:#ff86c9;
+  color:#f472b6;
 
-  font-size:22px;
+  transform:
+    rotate(-12deg);
+
 }
 
+
+/* Main title */
+
+.hero-title{
+
+  margin:0;
+
+  font-size:55px;
+
+  line-height:1.15;
+
+  font-weight:900;
+
+  letter-spacing:-1.5px;
+
+}
+
+
+.hero-title .white{
+  color:#fff;
+}
+
+.hero-title .yellow{
+
+  color:#ffd84d;
+
+}
+
+
+/* Divider */
+
+.hero-divider{
+
+  margin:
+    25px 0 22px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:18px;
+
+}
+
+.hero-divider span{
+
+  height:2px;
+
+  flex:0 0 215px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #f472b6,
+      rgba(244,114,182,0)
+    );
+
+}
+
+.hero-divider span:last-child{
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(244,114,182,0),
+      #f472b6
+    );
+
+}
+
+
+.hero-divider b{
+
+  color:#fb7185;
+
+  font-size:28px;
+
+}
+
+
+/* Subtitle */
 
 .hero-subtitle{
 
   margin:0;
 
-  font-size:19px;
+  color:#fff;
+
+  font-size:22px;
 
   line-height:1.7;
 
-  color:
-    rgba(255,255,255,.94);
 }
 
 
-/* Paper */
+/* =========================================================
+   FORM CARD
+========================================================= */
 
-.card{
-
-  width:100%;
-
-  background:
-    rgba(255,255,255,.97);
-
-  border-radius:28px;
-
-  padding:30px 34px 24px;
-
-  box-shadow:
-    0 25px 65px
-    rgba(24,15,80,.28);
+.form-card{
 
   position:relative;
 
-  overflow:hidden;
+  z-index:5;
+
+  margin:
+    -25px 25px
+    0;
+
+  padding:
+    38px 42px
+    30px;
+
+  background:
+    rgba(255,255,255,.98);
+
+  border-radius:
+    28px;
+
+  box-shadow:
+    0 25px 60px
+    rgba(17,24,39,.22);
+
 }
 
 
-/* Form row */
+/* =========================================================
+   FORM ROW
+========================================================= */
 
-.field{
+.field-row{
 
   display:grid;
 
-  grid-template-columns:82px 1fr;
+  grid-template-columns:
+    105px 1fr;
 
-  gap:22px;
+  gap:28px;
 
-  align-items:start;
+  align-items:center;
 
-  margin-bottom:21px;
+  margin-bottom:27px;
+
 }
 
 
-/* Icons */
+/* =========================================================
+   FIELD ICON
+========================================================= */
 
 .field-icon{
 
-  width:72px;
-  height:72px;
+  width:105px;
+  height:105px;
 
   display:flex;
-
   align-items:center;
   justify-content:center;
 
-  border-radius:17px;
+  border-radius:19px;
 
-  font-size:34px;
+  font-size:48px;
 
-  border:1px solid rgba(0,0,0,.05);
+  border:
+    1px solid
+    rgba(124,58,237,.20);
+
+  background:
+    linear-gradient(
+      135deg,
+      #f3e8ff,
+      #ede9fe
+    );
+
+  color:#5b21b6;
+
 }
 
 
-/* Individual icon backgrounds */
+/* Contact icon */
 
-.icon-name{
+.field-row.contact .field-icon{
 
-  background:#f1e5ff;
-  color:#6425d8;
-}
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff,
+      #dbeafe
+    );
 
-.icon-contact{
+  color:#1677e8;
 
-  background:#e1f1ff;
-  color:#1976d2;
-}
+  border-color:
+    rgba(37,99,235,.25);
 
-.icon-message{
-
-  background:#f0e4ff;
-  color:#6825d8;
-}
-
-.icon-file{
-
-  background:#e0f7f3;
-  color:#159d8b;
 }
 
 
-/* Form content */
+/* Message icon */
 
-.field-content{
-  min-width:0;
+.field-row.message .field-icon{
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5e8ff,
+      #ede9fe
+    );
+
+  color:#6527d8;
+
 }
 
+
+/* File icon */
+
+.field-row.file .field-icon{
+
+  background:
+    linear-gradient(
+      135deg,
+      #ecfdf5,
+      #dff7f1
+    );
+
+  color:#159b79;
+
+  border-color:
+    rgba(16,185,129,.20);
+
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
 
 label{
 
   display:block;
 
-  margin:2px 0 9px;
+  margin-bottom:10px;
 
-  font-size:17px;
+  color:#111b63;
 
-  font-weight:900;
+  font-size:22px;
 
-  color:#18142d;
+  font-weight:800;
+
 }
-
 
 .optional{
 
+  color:#7b8094;
+
+  font-size:17px;
+
   font-weight:400;
 
-  color:#8f8a9e;
-
-  font-size:13px;
 }
-
 
 .required{
 
   color:#e11d48;
+
 }
 
 
-/* Inputs */
+/* =========================================================
+   INPUT
+========================================================= */
 
-input,
-textarea,
-button{
+input[type="text"],
+input[type="tel"],
+textarea{
 
   width:100%;
 
-  font-family:inherit;
-}
-
-
-input,
-textarea{
-
-  border-radius:14px;
+  padding:
+    17px 21px;
 
   border:
-    1px solid #d8c7e8;
+    1px solid
+    #d7b9ee;
+
+  border-radius:15px;
 
   outline:none;
 
-  padding:15px 17px;
+  color:#273052;
 
-  font-size:16px;
+  background:
+    #fbf5ff;
 
-  color:#29233c;
+  font-family:inherit;
 
-  background:#fbf8ff;
+  font-size:19px;
 
   transition:
-    border .2s,
-    box-shadow .2s,
-    background .2s;
+    .2s ease;
+
 }
 
 
 input::placeholder,
 textarea::placeholder{
 
-  color:#a49caf;
+  color:#9aa0b3;
+
 }
 
 
 input:focus,
 textarea:focus{
 
-  border-color:#8139df;
-
-  background:#fff;
+  border-color:#7042e8;
 
   box-shadow:
     0 0 0 4px
-    rgba(125,52,222,.10);
+    rgba(112,66,232,.10);
+
+}
+
+
+.field-row.contact input{
+
+  background:#f1f8ff;
+
+  border-color:#a9c9ef;
+
 }
 
 
 textarea{
 
-  min-height:145px;
+  min-height:185px;
 
   resize:vertical;
 
   line-height:1.6;
+
 }
 
 
-/* Contact field */
-
-#p{
-
-  background:#f1f9ff;
-
-  border-color:#b9d8ec;
-}
-
-
-/* File */
+/* =========================================================
+   FILE BOX
+========================================================= */
 
 .file-box{
 
-  padding:13px;
-
-  border-radius:15px;
+  padding:18px;
 
   border:
-    2px dashed #57bcae;
+    2px dashed
+    #42b7a4;
 
-  background:#effbf8;
+  border-radius:16px;
+
+  background:
+    #effbf8;
+
 }
 
 
-.file-title{
+/* File heading */
 
-  margin-bottom:9px;
+.file-heading{
 
-  font-size:14px;
+  margin-bottom:12px;
 
-  font-weight:800;
+  color:#147d69;
 
-  color:#187d6e;
+  font-size:18px;
+
+  font-weight:700;
+
 }
 
+
+/* Native file input */
 
 .file-box input[type="file"]{
 
@@ -597,55 +881,70 @@ textarea{
 
   padding:9px;
 
-  border-radius:10px;
+  border:
+    1px solid
+    #d4e3df;
 
-  background:white;
+  border-radius:11px;
 
-  border:1px solid #d8e6e3;
+  background:#fff;
 
-  color:#555;
+  color:#333;
 
-  font-size:14px;
+  font-family:inherit;
+
+  font-size:16px;
+
 }
 
+
+/* Hint */
 
 .file-hint{
 
-  margin-top:8px;
+  margin-top:9px;
 
-  font-size:12px;
+  color:#438d80;
 
-  color:#378f83;
+  font-size:14px;
+
 }
 
+
+/* Selected file */
 
 .file-info{
 
   display:none;
 
-  margin-top:8px;
+  margin-top:10px;
 
-  padding:8px 10px;
+  padding:9px 12px;
 
   border-radius:9px;
 
-  background:#dff5ef;
+  background:#dff7f1;
 
-  color:#147568;
+  color:#147d69;
 
-  font-size:12px;
+  font-size:14px;
 
-  word-break:break-word;
+  line-height:1.5;
+
 }
 
 
-/* Send button */
+/* =========================================================
+   SEND BUTTON
+========================================================= */
 
 button{
 
-  margin-top:3px;
+  width:100%;
 
-  padding:17px 20px;
+  margin-top:2px;
+
+  padding:19px 25px;
 
   border:0;
 
@@ -654,45 +953,48 @@ button{
   background:
     linear-gradient(
       90deg,
-      #4b18ed,
-      #8a22e8,
-      #ed149b
+      #4218ed,
+      #8b20e8,
+      #ec0d91
     );
 
-  color:white;
+  color:#fff;
 
-  font-size:20px;
+  font-family:inherit;
 
-  font-weight:900;
+  font-size:24px;
+
+  font-weight:800;
 
   cursor:pointer;
 
   box-shadow:
     0 12px 25px
-    rgba(106,28,218,.25);
+    rgba(100,30,220,.28);
 
   transition:
-    transform .15s,
-    box-shadow .15s,
-    opacity .15s;
+    .18s ease;
+
 }
 
 
 button:hover:not(:disabled){
 
   transform:
-    translateY(-1px);
+    translateY(-2px);
 
   box-shadow:
-    0 15px 30px
-    rgba(106,28,218,.32);
+    0 16px 30px
+    rgba(100,30,220,.35);
+
 }
 
 
 button:active:not(:disabled){
 
   transform:
-    translateY(1px);
+    translateY(0);
+
 }
 
 
@@ -703,48 +1005,105 @@ button:disabled{
   cursor:not-allowed;
 
   box-shadow:none;
+
 }
 
 
-/* Status */
+/* =========================================================
+   STATUS
+========================================================= */
 
 #status{
 
-  min-height:20px;
-
-  margin-top:13px;
+  margin-top:15px;
 
   text-align:center;
 
-  font-size:14px;
+  font-size:15px;
 
   font-weight:700;
 
   line-height:1.6;
-}
 
+}
 
 .success{
   color:#087443;
 }
-
 
 .error{
   color:#b42318;
 }
 
 
-/* Cooldown */
+/* =========================================================
+   PRIVACY BOX
+========================================================= */
+
+.privacy{
+
+  margin-top:18px;
+
+  padding:
+    15px 18px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:13px;
+
+  border:
+    1px solid
+    #f3d9a4;
+
+  border-radius:14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fffaf0,
+      #fff5dc
+    );
+
+  color:#9a5a16;
+
+  font-size:16px;
+
+  line-height:1.6;
+
+  text-align:center;
+
+}
+
+.privacy-icon{
+
+  font-size:30px;
+
+  color:#f59e0b;
+
+}
+
+
+/* =========================================================
+   COOLDOWN
+========================================================= */
 
 .cooldown{
 
   display:none;
 
-  margin-top:15px;
+  margin-top:17px;
 
-  padding:15px;
+  padding:16px;
 
-  border-radius:14px;
+  border:
+    1px solid
+    #fed7aa;
+
+  border-radius:15px;
 
   background:
     linear-gradient(
@@ -753,14 +1112,12 @@ button:disabled{
       #fffbeb
     );
 
-  border:
-    1px solid #fed7aa;
-
   color:#9a3412;
 
   text-align:center;
 
   font-weight:700;
+
 }
 
 
@@ -768,260 +1125,524 @@ button:disabled{
 
   margin:4px 0;
 
-  font-size:30px;
+  font-size:35px;
+
+  line-height:1.1;
 
   font-weight:900;
+
 }
 
 
-/* Security note */
-
-.security{
-
-  margin-top:20px;
-
-  padding:14px 17px;
-
-  border-radius:13px;
-
-  border:
-    1px solid #f1dfb2;
-
-  background:
-    linear-gradient(
-      135deg,
-      #fff9e9,
-      #fffdf6
-    );
-
-  color:#805d23;
-
-  text-align:center;
-
-  font-size:14px;
-
-  line-height:1.6;
-}
-
-
-/* Footer */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .footer{
 
-  padding:19px 0 5px;
+  position:relative;
+
+  z-index:3;
+
+  padding:
+    30px 20px
+    34px;
+
+  color:#fff;
 
   text-align:center;
 
-  color:
-    rgba(255,255,255,.88);
+  font-size:16px;
 
-  font-size:13px;
+  line-height:1.7;
 
-  line-height:1.6;
+}
+
+.footer .lock{
+
+  color:#ffd84d;
+
+  font-size:20px;
+
+}
+
+.footer .heart{
+
+  color:#f472b6;
+
+  font-size:20px;
+
 }
 
 
-/* Mobile */
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
 
-@media(max-width:760px){
+@media(max-width:850px){
+
+  .hero{
+
+    padding:
+      38px 25px
+      58px;
+
+  }
+
+  .hero-content{
+
+    grid-template-columns:
+      290px 1fr;
+
+    gap:28px;
+
+  }
+
+  .profile-wrap{
+
+    width:265px;
+    height:265px;
+
+  }
+
+  .profile-name{
+
+    font-size:25px;
+
+  }
+
+  .hero-title{
+
+    font-size:43px;
+
+  }
+
+  .hero-subtitle{
+
+    font-size:18px;
+
+  }
+
+  .form-card{
+
+    margin-left:18px;
+    margin-right:18px;
+
+    padding:
+      30px 28px;
+
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media(max-width:650px){
+
+  body{
+
+    background:
+      linear-gradient(
+        135deg,
+        #6524d8,
+        #3039cc
+      );
+
+  }
+
 
   .page{
 
-    padding:
-      15px
-      12px
-      15px;
+    width:100%;
+
   }
 
 
   .hero{
 
-    grid-template-columns:1fr;
-
     min-height:auto;
 
     padding:
-      25px 8px
-      30px;
+      35px
+      16px
+      58px;
 
-    text-align:center;
-  }
+    border-radius:
+      0 0 40px 40px;
 
-
-  .profile-image-wrap{
-
-    width:245px;
-    height:245px;
-  }
-
-
-  .profile-name{
-
-    font-size:25px;
   }
 
 
   .hero-content{
 
-    padding:
-      28px 5px 0;
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+    text-align:center;
+
   }
 
 
-  .message-icon{
+  .profile-wrap{
+
+    width:220px;
+    height:220px;
+
+    margin-bottom:13px;
+
+  }
+
+
+  .profile-image{
+
+    border-width:6px;
+
+    outline-width:5px;
+
+    /*
+      Mobile-এ মাথার উপর অতিরিক্ত
+      background কম থাকবে
+    */
+
+    object-position:center 25%;
+
+  }
+
+
+  .verified{
+
+    width:57px;
+    height:57px;
+
+    right:-2px;
+    bottom:0;
+
+  }
+
+
+  .verified::before{
+
+    width:42px;
+    height:42px;
+
+  }
+
+
+  .verified::after{
+
+    font-size:25px;
+
+  }
+
+
+  .profile-name{
+
+    font-size:23px;
+
+  }
+
+
+  .name-decoration span{
+
+    width:70px;
+
+  }
+
+
+  .hero-text{
+
+    width:100%;
+
+  }
+
+
+  .chat-icon{
+
+    width:60px;
+    height:60px;
 
     margin:
-      0 auto 14px;
+      0 auto 12px;
+
+    font-size:31px;
+
   }
 
 
-  .hero h1{
+  .plane{
 
-    font-size:36px;
+    right:0;
+    top:0;
 
-    line-height:1.2;
+    font-size:39px;
+
+  }
+
+
+  .hero-title{
+
+    font-size:32px;
+
+    line-height:1.25;
+
+    letter-spacing:-.5px;
+
   }
 
 
   .hero-divider{
 
+    justify-content:center;
+
     margin:
-      22px auto 17px;
+      19px 0 16px;
+
+  }
+
+
+  .hero-divider span{
+
+    flex:0 0 70px;
+
+  }
+
+
+  .hero-divider b{
+
+    font-size:23px;
+
   }
 
 
   .hero-subtitle{
 
-    font-size:16px;
+    font-size:15px;
+
+    line-height:1.7;
+
   }
 
 
-  .card{
+  /* Form */
+
+  .form-card{
+
+    margin:
+      -24px 13px
+      0;
 
     padding:
-      25px 17px
-      19px;
+      25px 15px
+      22px;
 
-    border-radius:24px;
+    border-radius:23px;
+
   }
 
 
-  .field{
+  .field-row{
 
     grid-template-columns:
-      66px 1fr;
+      55px 1fr;
 
     gap:14px;
 
-    margin-bottom:19px;
+    align-items:start;
+
+    margin-bottom:22px;
+
   }
 
 
   .field-icon{
 
-    width:62px;
-    height:62px;
+    width:55px;
+    height:55px;
 
-    border-radius:15px;
+    border-radius:13px;
 
-    font-size:29px;
+    font-size:27px;
+
   }
 
 
   label{
 
-    font-size:15px;
+    margin-bottom:7px;
+
+    font-size:16px;
+
   }
 
 
-  input,
-  textarea{
+  .optional{
 
-    font-size:15px;
+    font-size:13px;
+
+  }
+
+
+  input[type="text"],
+  input[type="tel"],
+  textarea{
 
     padding:
-      14px 14px;
+      13px 14px;
+
+    border-radius:12px;
+
+    font-size:15px;
+
   }
 
 
   textarea{
 
-    min-height:140px;
+    min-height:145px;
+
+  }
+
+
+  .file-box{
+
+    padding:12px;
+
+  }
+
+
+  .file-heading{
+
+    font-size:14px;
+
+  }
+
+
+  .file-box input[type="file"]{
+
+    font-size:13px;
+
+  }
+
+
+  .file-hint{
+
+    font-size:11px;
+
   }
 
 
   button{
 
-    font-size:18px;
-
     padding:16px;
+
+    font-size:19px;
+
+    border-radius:13px;
+
   }
 
 
-  .security{
+  .privacy{
+
+    padding:
+      12px 10px;
+
+    gap:8px;
 
     font-size:12px;
+
+  }
+
+
+  .privacy-icon{
+
+    font-size:23px;
+
   }
 
 
   .footer{
 
+    padding:
+      25px 15px
+      30px;
+
     font-size:12px;
+
   }
 
 }
 
 
-/* Small phones */
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
 
-@media(max-width:390px){
+@media(max-width:380px){
 
-  .profile-image-wrap{
+  .hero{
 
-    width:215px;
-    height:215px;
+    padding-top:28px;
+
   }
 
 
-  .verify{
+  .profile-wrap{
 
-    width:48px;
-    height:48px;
+    width:190px;
+    height:190px;
 
-    font-size:27px;
   }
 
 
-  .hero h1{
+  .hero-title{
 
-    font-size:31px;
+    font-size:28px;
+
   }
 
 
-  .field{
+  .field-row{
 
     grid-template-columns:
-      55px 1fr;
+      48px 1fr;
 
     gap:11px;
+
   }
 
 
   .field-icon{
 
-    width:52px;
-    height:52px;
+    width:48px;
+    height:48px;
 
-    font-size:25px;
+    font-size:24px;
+
   }
 
+}
 
-  .card{
 
-    padding:
-      22px 13px
-      17px;
-  }
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible{
+
+  outline:
+    3px solid
+    rgba(37,99,235,.35);
+
+  outline-offset:2px;
 
 }
 
@@ -1036,67 +1657,115 @@ button:disabled{
 <div class="page">
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
 
-  <!-- PROFILE -->
-
-  <div class="profile">
-
-    <div class="profile-image-wrap">
-
-      <img
-        class="profile-image"
-        src="1000.png"
-        alt="আশিকুর রহমান"
-      >
-
-      <div class="verify">
-        ✓
-      </div>
-
-    </div>
-
-
-    <div class="profile-name">
-      আশিকুর রহমান
-    </div>
-
-
-    <div class="profile-line"></div>
-
-  </div>
-
-
-
-  <!-- HERO CONTENT -->
-
   <div class="hero-content">
 
-    <div class="message-icon">
-      💬
+
+    <!-- PROFILE -->
+
+    <div class="profile-area">
+
+
+      <div class="profile-wrap">
+
+        <!--
+          আপনার GitHub repository-তে থাকা
+          profile.jpg ব্যবহার করা হচ্ছে।
+
+          যদি আপনার ছবির নাম অন্য কিছু হয়,
+          শুধু নিচের profile.jpg পরিবর্তন করুন।
+        -->
+
+        <img
+          class="profile-image"
+          src="profile.jpg"
+          alt="আশিকুর রহমান"
+        >
+
+
+        <div
+          class="verified"
+          aria-label="Verified"
+        ></div>
+
+      </div>
+
+
+      <h2 class="profile-name">
+        আশিকুর রহমান
+      </h2>
+
+
+      <div class="name-decoration">
+
+        <span></span>
+
+        <b>♥</b>
+
+        <span></span>
+
+      </div>
+
+
     </div>
 
 
-    <h1>
+    <!-- HERO TEXT -->
 
-      আপনার কথা,<br>
-
-      <span class="yellow">
-        আমার কাছে পৌঁছে দিন।
-      </span>
-
-    </h1>
+    <div class="hero-text">
 
 
-    <div class="hero-divider"></div>
+      <div class="chat-icon">
+        💬
+      </div>
 
 
-    <p class="hero-subtitle">
-      বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই।
-    </p>
+      <div class="plane">
+        ➤
+      </div>
+
+
+      <h1 class="hero-title">
+
+        <span class="white">
+          আপনার কথা,
+        </span>
+
+        <br>
+
+        <span class="yellow">
+          আমার কাছে পৌঁছে দিন।
+        </span>
+
+      </h1>
+
+
+      <div class="hero-divider">
+
+        <span></span>
+
+        <b>♥</b>
+
+        <span></span>
+
+      </div>
+
+
+      <p class="hero-subtitle">
+
+        বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই।
+
+      </p>
+
+
+    </div>
+
 
   </div>
 
@@ -1105,216 +1774,259 @@ button:disabled{
 
 
 
-<!-- FORM CARD -->
+<!-- =====================================================
+     FORM CARD
+===================================================== -->
 
-<main class="card">
+<main class="form-card">
 
 
 <form id="f">
 
 
-<!-- NAME -->
+  <!-- =================================================
+       NAME
+  ================================================== -->
 
-<div class="field">
-
-  <div class="field-icon icon-name">
-    👤
-  </div>
+  <div class="field-row name">
 
 
-  <div class="field-content">
-
-    <label for="n">
-      আপনার নাম
-      <span class="required">*</span>
-    </label>
+    <div class="field-icon">
+      👤
+    </div>
 
 
-    <input
-      id="n"
-      required
-      maxlength="100"
-      autocomplete="name"
-      placeholder="আপনার নাম লিখুন"
-    >
+    <div>
 
-  </div>
+      <label for="n">
 
-</div>
+        আপনার নাম
 
+        <span class="required">
+          *
+        </span>
 
-
-<!-- CONTACT -->
-
-<div class="field">
-
-  <div class="field-icon icon-contact">
-    📱
-  </div>
-
-
-  <div class="field-content">
-
-    <label for="p">
-
-      যোগাযোগ
-
-      <span class="optional">
-        (ঐচ্ছিক)
-      </span>
-
-    </label>
-
-
-    <input
-      id="p"
-      maxlength="200"
-      autocomplete="off"
-      placeholder="নাম্বার, মেইল অথবা লিংক"
-    >
-
-  </div>
-
-</div>
-
-
-
-<!-- MESSAGE -->
-
-<div class="field">
-
-  <div class="field-icon icon-message">
-    💬
-  </div>
-
-
-  <div class="field-content">
-
-    <label for="m">
-
-      আপনার মেসেজ
-
-      <span class="required">*</span>
-
-    </label>
-
-
-    <textarea
-      id="m"
-      required
-      maxlength="2000"
-      placeholder="আপনার কথা এখানে লিখুন..."
-    ></textarea>
-
-  </div>
-
-</div>
-
-
-
-<!-- FILE -->
-
-<div class="field">
-
-  <div class="field-icon icon-file">
-    📎
-  </div>
-
-
-  <div class="field-content">
-
-    <label for="file">
-
-      ফাইল সংযুক্ত করুন
-
-      <span class="optional">
-        (ঐচ্ছিক)
-      </span>
-
-    </label>
-
-
-    <div class="file-box">
-
-
-      <div class="file-title">
-        📎 ছবি, PDF বা অন্য ফাইল
-      </div>
+      </label>
 
 
       <input
-        id="file"
-        type="file"
+        id="n"
+        type="text"
+        required
+        maxlength="100"
+        autocomplete="name"
+        placeholder="আপনার নাম লিখুন"
       >
 
+    </div>
 
-      <div class="file-hint">
-        সর্বোচ্চ ২০ MB • একবারে ১টি ফাইল
+
+  </div>
+
+
+
+  <!-- =================================================
+       CONTACT
+  ================================================== -->
+
+  <div class="field-row contact">
+
+
+    <div class="field-icon">
+      📞
+    </div>
+
+
+    <div>
+
+      <label for="p">
+
+        যোগাযোগ
+
+        <span class="optional">
+          (ঐচ্ছিক)
+        </span>
+
+      </label>
+
+
+      <input
+        id="p"
+        type="text"
+        maxlength="200"
+        autocomplete="off"
+        placeholder="নাম্বার, মেইল অথবা লিংক"
+      >
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- =================================================
+       MESSAGE
+  ================================================== -->
+
+  <div class="field-row message">
+
+
+    <div class="field-icon">
+      💬
+    </div>
+
+
+    <div>
+
+      <label for="m">
+
+        আপনার মেসেজ
+
+        <span class="required">
+          *
+        </span>
+
+      </label>
+
+
+      <textarea
+        id="m"
+        required
+        maxlength="2000"
+        placeholder="আপনার কথা এখানে লিখুন..."
+      ></textarea>
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- =================================================
+       FILE
+  ================================================== -->
+
+  <div class="field-row file">
+
+
+    <div class="field-icon">
+      📎
+    </div>
+
+
+    <div>
+
+      <label for="file">
+
+        ফাইল সংযুক্ত করুন
+
+        <span class="optional">
+          (ঐচ্ছিক)
+        </span>
+
+      </label>
+
+
+      <div class="file-box">
+
+
+        <div class="file-heading">
+          📎 ছবি, PDF বা অন্য ফাইল
+        </div>
+
+
+        <input
+          id="file"
+          type="file"
+          aria-label="ফাইল নির্বাচন করুন"
+        >
+
+
+        <div class="file-hint">
+          সর্বোচ্চ ২০ MB • একবারে ১টি ফাইল
+        </div>
+
+
+        <div
+          id="fileInfo"
+          class="file-info"
+        ></div>
+
+
       </div>
 
-
-      <div
-        id="fileInfo"
-        class="file-info"
-      ></div>
+    </div>
 
 
+  </div>
+
+
+
+  <!-- =================================================
+       SEND BUTTON
+  ================================================== -->
+
+  <button
+    id="b"
+    type="submit"
+  >
+
+    ➤ &nbsp; মেসেজ পাঠান
+
+  </button>
+
+
+
+  <!-- STATUS -->
+
+  <div id="status"></div>
+
+
+
+  <!-- =================================================
+       COOLDOWN
+  ================================================== -->
+
+  <div
+    id="cooldownBox"
+    class="cooldown"
+  >
+
+    <div>
+      আবার মেসেজ পাঠাতে পারবেন
+    </div>
+
+
+    <div id="countdown">
+      30
+    </div>
+
+
+    <div>
+      সেকেন্ড পরে
     </div>
 
   </div>
 
-</div>
 
 
+  <!-- =================================================
+       PRIVACY
+  ================================================== -->
 
-<!-- SEND -->
+  <div class="privacy">
 
-<button
-  id="b"
-  type="submit"
->
-  ➤ &nbsp; মেসেজ পাঠান
-</button>
+    <span class="privacy-icon">
+      🛡️
+    </span>
 
+    <span>
+      আপনার মেসেজ নিরাপদে সংরক্ষিত হবে এবং গোপন রাখা হবে।
+    </span>
 
-
-<!-- STATUS -->
-
-<div id="status"></div>
-
-
-
-<!-- COUNTDOWN -->
-
-<div
-  id="cooldownBox"
-  class="cooldown"
->
-
-  <div>
-    আবার মেসেজ পাঠাতে পারবেন
   </div>
-
-  <div id="countdown">
-    30
-  </div>
-
-  <div>
-    সেকেন্ড পরে
-  </div>
-
-</div>
-
-
-
-<!-- SECURITY -->
-
-<div class="security">
-
-  🛡️
-  আপনার মেসেজ নিরাপদে সংরক্ষিত হবে এবং গোপন রাখা হবে।
-
-</div>
 
 
 </form>
@@ -1324,15 +2036,24 @@ button:disabled{
 
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
-<div class="footer">
+<footer class="footer">
 
-  🔒
+  <span class="lock">
+    🔒
+  </span>
+
   আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ
-  💜
 
-</div>
+  <span class="heart">
+    ♥
+  </span>
+
+</footer>
+
 
 
 </div>
@@ -1341,31 +2062,28 @@ button:disabled{
 
 <script>
 
-
-/* =========================================
-   GOOGLE APPS SCRIPT API
-   ========================================= */
+/* =========================================================
+   APPS SCRIPT API
+========================================================= */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbyd0ldrrTOYJvptf3G4IZPdUq33z_Xb5PvCNzimy6zU7-jVNJpBO7IPuZ-Brrgp7GfBKQ/exec";
 
 
-/* Maximum file size */
+/* =========================================================
+   SETTINGS
+========================================================= */
 
 const MAX =
 20 * 1024 * 1024;
-
-
-/* Cooldown */
 
 const COOLDOWN =
 30;
 
 
-
-/* =========================================
+/* =========================================================
    ELEMENTS
-   ========================================= */
+========================================================= */
 
 const f =
 document.getElementById("f");
@@ -1389,10 +2107,9 @@ const countdown =
 document.getElementById("countdown");
 
 
-
-/* =========================================
+/* =========================================================
    PERMANENT CLIENT ID
-   ========================================= */
+========================================================= */
 
 let clientId =
 localStorage.getItem(
@@ -1432,13 +2149,11 @@ if(!clientId){
 }
 
 
-
-/* =========================================
+/* =========================================================
    COUNTDOWN
-   ========================================= */
+========================================================= */
 
-let timer =
-null;
+let timer = null;
 
 
 function startCountdown(seconds){
@@ -1480,9 +2195,7 @@ function startCountdown(seconds){
           );
 
 
-        if(
-          remaining <= 0
-        ){
+        if(remaining <= 0){
 
           clearInterval(timer);
 
@@ -1505,10 +2218,9 @@ function startCountdown(seconds){
 }
 
 
-
-/* =========================================
+/* =========================================================
    FILE INFORMATION
-   ========================================= */
+========================================================= */
 
 fileInput.addEventListener(
 
@@ -1533,13 +2245,12 @@ fileInput.addEventListener(
     }
 
 
-    if(
-      file.size > MAX
-    ){
+    /* Size validation */
+
+    if(file.size > MAX){
 
       s.className =
         "error";
-
 
       s.textContent =
         "ফাইল ২০ MB-এর বেশি হতে পারবে না।";
@@ -1557,6 +2268,8 @@ fileInput.addEventListener(
 
     }
 
+
+    /* File size */
 
     const sizeMB =
       file.size /
@@ -1583,10 +2296,9 @@ fileInput.addEventListener(
 );
 
 
-
-/* =========================================
+/* =========================================================
    SUBMIT
-   ========================================= */
+========================================================= */
 
 f.onsubmit =
 async function(e){
@@ -1594,11 +2306,13 @@ async function(e){
   e.preventDefault();
 
 
+  /* Get file */
+
   const x =
     fileInput.files[0];
 
 
-  /* File size check */
+  /* Validate file */
 
   if(
     x &&
@@ -1616,7 +2330,6 @@ async function(e){
     return;
 
   }
-
 
 
   /* Disable button */
@@ -1637,7 +2350,6 @@ async function(e){
     "";
 
 
-
   try{
 
 
@@ -1645,10 +2357,9 @@ async function(e){
       null;
 
 
-
-    /* =====================================
+    /* =====================================================
        FILE → BASE64
-       ===================================== */
+    ===================================================== */
 
     if(x){
 
@@ -1695,10 +2406,9 @@ async function(e){
     }
 
 
-
-    /* =====================================
+    /* =====================================================
        SEND REQUEST
-       ===================================== */
+    ===================================================== */
 
     const response =
       await fetch(
@@ -1711,5 +2421,185 @@ async function(e){
             "POST",
 
           headers:{
+
             "Content-Type":
-              "text/plain;charset=utf
+              "text/plain;charset=utf-8"
+
+          },
+
+
+          body:
+            JSON.stringify({
+
+              name:
+                document
+                  .getElementById("n")
+                  .value
+                  .trim(),
+
+
+              /*
+                Contact field
+              */
+
+              phone:
+                document
+                  .getElementById("p")
+                  .value
+                  .trim(),
+
+
+              message:
+                document
+                  .getElementById("m")
+                  .value
+                  .trim(),
+
+
+              file:
+                fd,
+
+
+              clientId:
+                clientId
+
+            })
+
+        }
+
+      );
+
+
+    /* =====================================================
+       RESPONSE
+    ===================================================== */
+
+    const result =
+      await response.json();
+
+
+    /* =====================================================
+       SERVER COOLDOWN
+    ===================================================== */
+
+    if(
+      result.cooldown === true
+    ){
+
+      s.className =
+        "error";
+
+
+      s.textContent =
+        result.error ||
+        "অনুগ্রহ করে অপেক্ষা করুন।";
+
+
+      startCountdown(
+
+        result.remaining ||
+        COOLDOWN
+
+      );
+
+
+      return;
+
+    }
+
+
+    /* =====================================================
+       SERVER ERROR
+    ===================================================== */
+
+    if(
+      !result.success
+    ){
+
+      throw new Error(
+
+        result.error ||
+        "Unknown error"
+
+      );
+
+    }
+
+
+    /* =====================================================
+       SUCCESS
+    ===================================================== */
+
+    f.reset();
+
+
+    fileInfo.style.display =
+      "none";
+
+
+    fileInfo.textContent =
+      "";
+
+
+    s.className =
+      "success";
+
+
+    s.textContent =
+      "✓ আপনার মেসেজ সফলভাবে পাঠানো হয়েছে।";
+
+
+    startCountdown(
+      COOLDOWN
+    );
+
+
+  }
+
+
+  catch(error){
+
+    console.error(error);
+
+
+    s.className =
+      "error";
+
+
+    s.textContent =
+      "মেসেজ পাঠানো যায়নি। আবার চেষ্টা করুন।";
+
+
+    b.disabled =
+      false;
+
+  }
+
+
+  finally{
+
+
+    if(
+      cooldownBox.style.display !==
+      "block"
+    ){
+
+      b.disabled =
+        false;
+
+    }
+
+
+    b.textContent =
+      "➤  মেসেজ পাঠান";
+
+  }
+
+};
+
+</script>
+
+
+</body>
+
+</html>
