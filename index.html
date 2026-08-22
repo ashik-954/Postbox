@@ -2,12 +2,15 @@
 <html lang="bn">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#5b20e6">
+
 <title>আপনার কথা, আমার কাছে পৌঁছে দিন</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 html,body{
   margin:0;
@@ -20,6 +23,7 @@ body{
   color:#17164a;
   min-height:100vh;
   overflow-x:hidden;
+
   background:
     radial-gradient(circle at 88% 8%,rgba(255,255,255,.14) 0 100px,transparent 101px),
     radial-gradient(circle at 5% 94%,rgba(255,255,255,.10) 0 120px,transparent 121px),
@@ -33,7 +37,6 @@ body{
   padding-bottom:30px;
 }
 
-/* HERO */
 .hero{
   position:relative;
   min-height:500px;
@@ -74,7 +77,6 @@ body{
   align-items:center;
 }
 
-/* PROFILE */
 .profile-area{
   text-align:center;
 }
@@ -86,7 +88,10 @@ body{
   margin:0 auto 14px;
   padding:7px;
   border-radius:50%;
-  background:linear-gradient(135deg,#ffffff,#ffb6e8 48%,#61b8ff);
+
+  background:
+    linear-gradient(135deg,#ffffff,#ffb6e8 48%,#61b8ff);
+
   box-shadow:0 12px 40px rgba(0,0,0,.20);
 }
 
@@ -101,17 +106,20 @@ body{
   background:#eee;
 }
 
-/* VERIFICATION */
 .verify{
   position:absolute;
   right:3px;
   bottom:0;
+
   width:68px;
   height:68px;
+
   border-radius:50%;
   background:white;
   border:4px solid #2d7df4;
+
   box-shadow:0 5px 18px rgba(0,0,0,.20);
+
   display:flex;
   align-items:center;
   justify-content:center;
@@ -124,11 +132,11 @@ body{
   line-height:1;
 }
 
-/* NAME */
 .owner{
   font-size:30px;
   font-weight:900;
   color:white;
+
   text-shadow:0 2px 8px rgba(0,0,0,.15);
 }
 
@@ -152,7 +160,6 @@ body{
   font-size:22px;
 }
 
-/* HERO TEXT */
 .hero-copy{
   padding-bottom:10px;
 }
@@ -160,12 +167,16 @@ body{
 .chat-icon{
   width:72px;
   height:72px;
+
   border:2px solid rgba(255,255,255,.9);
   border-radius:50%;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   margin-bottom:16px;
+
   background:rgba(255,255,255,.06);
   font-size:39px;
 }
@@ -219,14 +230,16 @@ body{
   transform:rotate(-8deg);
 }
 
-/* FORM */
 .form-card{
   position:relative;
   z-index:5;
+
   margin:-8px 18px 0;
   padding:30px 38px 24px;
+
   border-radius:28px;
   background:rgba(255,255,255,.98);
+
   box-shadow:0 24px 60px rgba(26,18,90,.22);
 }
 
@@ -238,15 +251,18 @@ body{
   margin-bottom:22px;
 }
 
-/* ICON */
 .icon-box{
   width:88px;
   height:88px;
+
   border-radius:17px;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   font-size:42px;
+
   border:1px solid rgba(70,70,120,.10);
 }
 
@@ -270,10 +286,10 @@ body{
   color:#1fa88c;
 }
 
-/* LABEL */
 label{
   display:block;
   margin:0 0 8px;
+
   font-size:21px;
   font-weight:900;
   color:#17164a;
@@ -289,17 +305,22 @@ label{
   font-weight:400;
 }
 
-/* INPUT */
-input,textarea{
+input,
+textarea{
   width:100%;
+
   border:1.5px solid #d9c6f0;
   border-radius:15px;
+
   padding:16px 18px;
+
   font:inherit;
   font-size:19px;
+
   color:#222;
   outline:none;
   background:#fbf6ff;
+
   transition:.2s ease;
 }
 
@@ -308,9 +329,13 @@ input,textarea{
   border-color:#a8cdeb;
 }
 
-input:focus,textarea:focus{
+input:focus,
+textarea:focus{
   border-color:#6b39e9;
-  box-shadow:0 0 0 4px rgba(107,57,233,.10);
+
+  box-shadow:
+    0 0 0 4px rgba(107,57,233,.10);
+
   background:white;
 }
 
@@ -320,11 +345,12 @@ textarea{
   line-height:1.6;
 }
 
-/* FILE */
 .file-box{
   padding:16px 18px;
+
   border:2px dashed #54bda9;
   border-radius:17px;
+
   background:#effbf8;
 }
 
@@ -351,28 +377,47 @@ textarea{
 
 #fileInfo{
   display:none;
+
   margin-top:9px;
   padding:8px 10px;
+
   border-radius:9px;
+
   background:#dff7f1;
   color:#167361;
+
   font-size:13px;
+
   overflow-wrap:anywhere;
 }
 
-/* BUTTON */
 .submit{
   width:100%;
+
   margin:2px 0 0;
   padding:18px 20px;
+
   border:0;
   border-radius:17px;
+
   color:white;
-  background:linear-gradient(105deg,#4820e8 0%,#7d22e9 48%,#ee079c 100%);
-  box-shadow:0 13px 28px rgba(107,36,230,.28);
+
+  background:
+    linear-gradient(
+      105deg,
+      #4820e8 0%,
+      #7d22e9 48%,
+      #ee079c 100%
+    );
+
+  box-shadow:
+    0 13px 28px rgba(107,36,230,.28);
+
   font-size:23px;
   font-weight:900;
+
   cursor:pointer;
+
   transition:.2s ease;
 }
 
@@ -385,11 +430,12 @@ textarea{
   cursor:not-allowed;
 }
 
-/* STATUS */
 .status{
   min-height:25px;
   margin-top:12px;
+
   text-align:center;
+
   font-weight:800;
   line-height:1.5;
 }
@@ -402,16 +448,23 @@ textarea{
   color:#b42318;
 }
 
-/* COOLDOWN */
 .cooldown{
   display:none;
+
   margin-top:12px;
+
   text-align:center;
+
   padding:12px;
+
   border-radius:12px;
+
   background:#fff4e8;
+
   border:1px solid #ffd2a8;
+
   color:#9a4d10;
+
   font-weight:800;
 }
 
@@ -420,27 +473,32 @@ textarea{
   margin:3px 0;
 }
 
-/* SECURITY */
 .security{
   margin-top:18px;
+
   padding:16px;
+
   text-align:center;
+
   border:1px solid #f0d9a5;
   border-radius:14px;
+
   background:#fff9e8;
   color:#80652c;
+
   font-size:16px;
 }
 
-/* FOOTER */
 .footer{
   text-align:center;
+
   color:rgba(255,255,255,.92);
+
   font-size:16px;
+
   padding:22px 8px 4px;
 }
 
-/* TABLET */
 @media(max-width:820px){
 
   .hero{
@@ -486,7 +544,6 @@ textarea{
   }
 }
 
-/* MOBILE */
 @media(max-width:600px){
 
   .page{
@@ -593,7 +650,8 @@ textarea{
     margin-bottom:7px;
   }
 
-  input,textarea{
+  input,
+  textarea{
     padding:13px 14px;
     font-size:15px;
     border-radius:13px;
@@ -648,7 +706,6 @@ textarea{
 
   <div class="hero-grid">
 
-    <!-- PROFILE -->
     <div class="profile-area">
 
       <div class="profile-wrap">
@@ -678,7 +735,6 @@ textarea{
 
     </div>
 
-    <!-- HERO TEXT -->
     <div class="hero-copy">
 
       <div class="chat-icon">
@@ -708,10 +764,8 @@ textarea{
 </section>
 
 
-<!-- FORM -->
 <form id="f" class="form-card">
 
-  <!-- NAME -->
   <div class="row">
 
     <div class="icon-box icon-name">
@@ -738,7 +792,6 @@ textarea{
   </div>
 
 
-  <!-- CONTACT -->
   <div class="row">
 
     <div class="icon-box icon-contact">
@@ -755,6 +808,7 @@ textarea{
       <input
         id="contact"
         maxlength="100"
+        autocomplete="off"
         placeholder="নাম্বার, ই-মেইল অথবা লিংক"
       >
 
@@ -763,7 +817,6 @@ textarea{
   </div>
 
 
-  <!-- MESSAGE -->
   <div class="row">
 
     <div class="icon-box icon-message">
@@ -789,7 +842,6 @@ textarea{
   </div>
 
 
-  <!-- FILE -->
   <div class="row">
 
     <div class="icon-box icon-file">
@@ -827,7 +879,6 @@ textarea{
   </div>
 
 
-  <!-- SUBMIT -->
   <button
     id="submitBtn"
     class="submit"
@@ -844,7 +895,6 @@ textarea{
   ></div>
 
 
-  <!-- COOLDOWN -->
   <div
     id="cooldownBox"
     class="cooldown"
@@ -861,7 +911,6 @@ textarea{
   </div>
 
 
-  <!-- SECURITY -->
   <div class="security">
     🛡️ &nbsp;
     আপনার মেসেজ নিরাপদে সংরক্ষিত হবে এবং গোপন রাখা হবে।
@@ -870,7 +919,6 @@ textarea{
 </form>
 
 
-<!-- FOOTER -->
 <div class="footer">
   🔒 আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ 💗
 </div>
@@ -881,26 +929,35 @@ textarea{
 <script>
 "use strict";
 
-/* =====================================================
-   GOOGLE APPS SCRIPT WEB APP URL
-   আপনার দেওয়া নতুন URL এখানে বসানো হয়েছে
-===================================================== */
+
+/*
+ * =====================================================
+ * GOOGLE APPS SCRIPT WEB APP URL
+ * =====================================================
+ */
 
 const API_URL =
-"https://script.google.com/macros/s/AKfycbyYQB9MnAfL7V-NBPRfKCMMgmZPxpSEV7h0WNuIrhCrCLWBPvRakXWPeujfj6oXj0KV/exec";
+"https://script.google.com/macros/s/AKfycbyRrsL9UJQ0IXWjavY7KpE0inoYun44cgyHpPgJlLR6Uduy9Ka2cfNpeMhf9D0Xc40LKg/exec";
 
 
-/* =====================================================
-   SETTINGS
-===================================================== */
+/*
+ * =====================================================
+ * SETTINGS
+ * =====================================================
+ */
 
-const MAX_FILE_SIZE = 20 * 1024 * 1024;
-const COOLDOWN_SECONDS = 30;
+const MAX_FILE_SIZE =
+20 * 1024 * 1024;
+
+const COOLDOWN_SECONDS =
+30;
 
 
-/* =====================================================
-   ELEMENTS
-===================================================== */
+/*
+ * =====================================================
+ * ELEMENTS
+ * =====================================================
+ */
 
 const form =
 document.getElementById("f");
@@ -923,12 +980,15 @@ document.getElementById("cooldownBox");
 const countdown =
 document.getElementById("countdown");
 
+
 let timer = null;
 
 
-/* =====================================================
-   STATUS
-===================================================== */
+/*
+ * =====================================================
+ * STATUS
+ * =====================================================
+ */
 
 function setStatus(message,type){
 
@@ -937,12 +997,15 @@ function setStatus(message,type){
 
   statusBox.textContent =
     message || "";
+
 }
 
 
-/* =====================================================
-   COOLDOWN
-===================================================== */
+/*
+ * =====================================================
+ * COOLDOWN
+ * =====================================================
+ */
 
 function startCooldown(seconds){
 
@@ -951,8 +1014,10 @@ function startCooldown(seconds){
   let remaining =
     Math.max(
       0,
-      Number(seconds) || COOLDOWN_SECONDS
+      Number(seconds) ||
+      COOLDOWN_SECONDS
     );
+
 
   cooldownBox.style.display =
     "block";
@@ -965,33 +1030,42 @@ function startCooldown(seconds){
 
 
   timer =
-    setInterval(function(){
+    setInterval(
+      function(){
 
-      remaining--;
+        remaining--;
 
-      countdown.textContent =
-        Math.max(0,remaining);
+        countdown.textContent =
+          Math.max(
+            0,
+            remaining
+          );
 
 
-      if(remaining <= 0){
+        if(remaining <= 0){
 
-        clearInterval(timer);
+          clearInterval(timer);
 
-        cooldownBox.style.display =
-          "none";
+          cooldownBox.style.display =
+            "none";
 
-        submitBtn.disabled =
-          false;
+          submitBtn.disabled =
+            false;
 
-      }
+        }
 
-    },1000);
+      },
+      1000
+    );
+
 }
 
 
-/* =====================================================
-   FILE CHECK
-===================================================== */
+/*
+ * =====================================================
+ * FILE INFORMATION
+ * =====================================================
+ */
 
 fileInput.addEventListener(
   "change",
@@ -1010,6 +1084,7 @@ fileInput.addEventListener(
         "";
 
       return;
+
     }
 
 
@@ -1027,12 +1102,15 @@ fileInput.addEventListener(
       );
 
       return;
+
     }
 
 
     const sizeMB =
-      (file.size / (1024 * 1024))
-      .toFixed(2);
+      (
+        file.size /
+        (1024 * 1024)
+      ).toFixed(2);
 
 
     fileInfo.textContent =
@@ -1048,13 +1126,16 @@ fileInput.addEventListener(
 
 
     setStatus("","");
+
   }
 );
 
 
-/* =====================================================
-   FILE → BASE64
-===================================================== */
+/*
+ * =====================================================
+ * FILE → BASE64
+ * =====================================================
+ */
 
 function readFileAsBase64(file){
 
@@ -1068,30 +1149,45 @@ function readFileAsBase64(file){
       reader.onload =
         function(){
 
-          const result =
-            String(
-              reader.result || ""
-            );
+          try{
+
+            const result =
+              String(
+                reader.result || ""
+              );
 
 
-          const parts =
-            result.split(",");
+            const commaIndex =
+              result.indexOf(",");
 
 
-          resolve({
+            const base64 =
+              commaIndex >= 0
+              ? result.substring(
+                  commaIndex + 1
+                )
+              : "";
 
-            name:file.name,
 
-            mimeType:
-              file.type ||
-              "application/octet-stream",
+            resolve({
 
-            data:
-              parts.length > 1
-              ? parts[1]
-              : ""
+              name:
+                file.name,
 
-          });
+              mimeType:
+                file.type ||
+                "application/octet-stream",
+
+              data:
+                base64
+
+            });
+
+          }catch(error){
+
+            reject(error);
+
+          }
 
         };
 
@@ -1100,21 +1196,27 @@ function readFileAsBase64(file){
         function(){
 
           reject(
-            new Error("ফাইল পড়া যায়নি।")
+            new Error(
+              "ফাইল পড়া যায়নি।"
+            )
           );
 
         };
 
 
       reader.readAsDataURL(file);
+
     }
   );
+
 }
 
 
-/* =====================================================
-   FORM SUBMIT
-===================================================== */
+/*
+ * =====================================================
+ * FORM SUBMIT
+ * =====================================================
+ */
 
 form.addEventListener(
   "submit",
@@ -1148,33 +1250,38 @@ form.addEventListener(
       fileInput.files[0];
 
 
-    /* REQUIRED CHECK */
+    /*
+     * VALIDATION
+     */
 
     if(!name){
 
       setStatus(
-        "অনুগ্রহ করে আপনার নাম লিখুন।",
+        "আপনার নাম লিখুন।",
         "error"
       );
 
       return;
+
     }
 
 
     if(!message){
 
       setStatus(
-        "অনুগ্রহ করে আপনার মেসেজ লিখুন।",
+        "আপনার মেসেজ লিখুন।",
         "error"
       );
 
       return;
+
     }
 
 
-    /* FILE SIZE CHECK */
-
-    if(file && file.size > MAX_FILE_SIZE){
+    if(
+      file &&
+      file.size > MAX_FILE_SIZE
+    ){
 
       setStatus(
         "ফাইল ২০ MB-এর বেশি হতে পারবে না।",
@@ -1182,8 +1289,13 @@ form.addEventListener(
       );
 
       return;
+
     }
 
+
+    /*
+     * DISABLE BUTTON
+     */
 
     submitBtn.disabled =
       true;
@@ -1200,75 +1312,147 @@ form.addEventListener(
         null;
 
 
-      /* FILE PROCESS */
+      /*
+       * FILE
+       */
 
       if(file){
 
         attachedFile =
-          await readFileAsBase64(file);
+          await readFileAsBase64(
+            file
+          );
 
       }
 
 
-      /* =================================================
-         DATA
-      ================================================= */
+      /*
+       * DATA
+       */
 
-      const data = {
+      const payload = {
 
-        name:name,
+        name:
+          name,
 
-        /*
-          Backend-এর পুরোনো phone
-          field-এর পরিবর্তে contact
-          পাঠানো হচ্ছে।
-        */
+        contact:
+          contact,
 
-        phone:contact,
+        message:
+          message,
 
-        message:message,
-
-        file:attachedFile
+        file:
+          attachedFile
 
       };
 
 
-      /* =================================================
-         GOOGLE APPS SCRIPT
+      /*
+       * SEND
+       */
 
-         mode:no-cors ব্যবহার করা হয়েছে যাতে
-         GitHub Pages থেকে Google Apps Script
-         call করার সময় "Failed to fetch"
-         CORS error না আসে।
+      const response =
+        await fetch(
+          API_URL,
+          {
+            method:"POST",
 
-         no-cors হলে response পড়া যায় না,
-         তাই request সফলভাবে পাঠানো হয়েছে
-         ধরে নিয়ে success দেখানো হচ্ছে।
-      ================================================= */
+            headers:{
+              "Content-Type":
+              "text/plain;charset=utf-8"
+            },
 
-      await fetch(
-        API_URL,
-        {
-          method:"POST",
+            body:
+              JSON.stringify(
+                payload
+              )
 
-          mode:"no-cors",
-
-          headers:{
-            "Content-Type":
-            "text/plain;charset=utf-8"
-          },
-
-          body:
-            JSON.stringify(data)
-        }
-      );
+          }
+        );
 
 
-      /* =================================================
-         SUCCESS
-      ================================================= */
+      /*
+       * READ RESPONSE
+       */
+
+      const text =
+        await response.text();
+
+
+      let result;
+
+
+      try{
+
+        result =
+          JSON.parse(text);
+
+      }catch(parseError){
+
+        console.error(
+          "Server response:",
+          text
+        );
+
+        throw new Error(
+          "সার্ভার থেকে সঠিক উত্তর পাওয়া যায়নি।"
+        );
+
+      }
+
+
+      /*
+       * SERVER COOLDOWN
+       */
+
+      if(
+        result &&
+        result.cooldown === true
+      ){
+
+        setStatus(
+          result.error ||
+          "অনুগ্রহ করে কিছুক্ষণ অপেক্ষা করুন।",
+          "error"
+        );
+
+
+        startCooldown(
+          result.remaining ||
+          COOLDOWN_SECONDS
+        );
+
+
+        return;
+
+      }
+
+
+      /*
+       * ERROR
+       */
+
+      if(
+        !result ||
+        result.success !== true
+      ){
+
+        throw new Error(
+          result &&
+          result.error
+          ? result.error
+          : "মেসেজ সংরক্ষণ করা যায়নি।"
+        );
+
+      }
+
+
+      /*
+       * SUCCESS
+       */
 
       form.reset();
+
 
       fileInfo.style.display =
         "none";
@@ -1290,17 +1474,36 @@ form.addEventListener(
 
     }catch(error){
 
-      console.error(error);
+      console.error(
+        "Message error:",
+        error
+      );
 
 
       setStatus(
-        "মেসেজ পাঠানো যায়নি। আবার চেষ্টা করুন।",
+        error &&
+        error.message
+        ? error.message
+        : "মেসেজ পাঠানো যায়নি। আবার চেষ্টা করুন।",
         "error"
       );
 
 
       submitBtn.disabled =
         false;
+
+
+    }finally{
+
+      if(
+        cooldownBox.style.display !==
+        "block"
+      ){
+
+        submitBtn.disabled =
+          false;
+
+      }
 
 
       submitBtn.textContent =
