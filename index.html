@@ -1,1154 +1,961 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>আপনার কথা, আমার কাছে পৌঁছে দিন</title>
+<title>আপনার কথা, আমার কাছে পৌঁছে দিন</title>
 
-  <meta name="description" content="আশিকুর রহমানের কাছে আপনার বার্তা পাঠান।">
-  <meta name="theme-color" content="#4c1dce">
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+html{
+    scroll-behavior:smooth;
+}
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  >
+body{
+    font-family:
+        "Noto Sans Bengali",
+        "SolaimanLipi",
+        "Siyam Rupali",
+        Arial,
+        sans-serif;
+    background:
+        radial-gradient(circle at 10% 15%,rgba(255,255,255,.15),transparent 20%),
+        radial-gradient(circle at 90% 80%,rgba(255,255,255,.12),transparent 25%),
+        linear-gradient(135deg,#7125df 0%,#4d27d9 45%,#164ed5 100%);
+    color:#151047;
+    min-height:100vh;
+    overflow-x:hidden;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+/* Decorative background */
+body::before{
+    content:"";
+    position:fixed;
+    width:330px;
+    height:330px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    top:-130px;
+    right:-100px;
+    pointer-events:none;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    background:rgba(255,255,255,.07);
+    bottom:-140px;
+    left:-100px;
+    pointer-events:none;
+}
+
+.page{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+    padding:28px 18px 40px;
+}
+
+/* ================= HEADER ================= */
+
+.hero{
+    position:relative;
+    min-height:430px;
+    display:grid;
+    grid-template-columns:38% 62%;
+    align-items:center;
+    gap:20px;
+    padding:25px 20px 30px;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:240px;
+    right:-120px;
+    top:-80px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    transform:rotate(-15deg);
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:200px;
+    right:-200px;
+    bottom:-100px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+}
+
+/* Profile */
+
+.profile-area{
+    position:relative;
+    z-index:2;
+    text-align:center;
+}
+
+.profile-ring{
+    position:relative;
+    width:330px;
+    height:330px;
+    max-width:90vw;
+    max-height:90vw;
+    margin:auto;
+    padding:8px;
+    border-radius:50%;
+    background:
+        linear-gradient(135deg,#ffb8e9,#ffffff 35%,#7b5cff 70%,#ff6ccf);
+    box-shadow:
+        0 0 0 5px rgba(255,255,255,.45),
+        0 15px 45px rgba(0,0,0,.25);
+}
+
+.profile-ring img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 42%;
+    border-radius:50%;
+    border:7px solid white;
+    background:#eee;
+}
+
+/* Verified badge */
+
+.verify{
+    position:absolute;
+    right:4px;
+    bottom:4px;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#fff;
+    border:4px solid #1976ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 6px 18px rgba(0,0,0,.22);
+}
+
+.verify span{
+    width:49px;
+    height:49px;
+    border-radius:50%;
+    background:#1976ff;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:31px;
+    font-weight:900;
+    line-height:1;
+}
+
+.profile-name{
+    color:#fff;
+    font-size:34px;
+    font-weight:800;
+    margin-top:16px;
+    text-shadow:0 3px 10px rgba(0,0,0,.22);
+}
+
+.name-decoration{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    margin-top:7px;
+}
+
+.name-decoration i{
+    display:block;
+    width:75px;
+    height:2px;
+    background:linear-gradient(to right,transparent,#ff8ee8);
+}
+
+.name-decoration span{
+    color:#ff8ee8;
+    font-size:20px;
+}
+
+/* Hero text */
+
+.hero-text{
+    position:relative;
+    z-index:2;
+    padding:10px 10px 10px 20px;
+}
+
+.chat-icon{
+    width:70px;
+    height:70px;
+    border:2px solid rgba(255,255,255,.8);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:38px;
+    margin-bottom:16px;
+    background:rgba(255,255,255,.08);
+}
+
+.hero-title{
+    font-size:53px;
+    line-height:1.18;
+    font-weight:900;
+    color:white;
+    text-shadow:0 4px 10px rgba(0,0,0,.18);
+}
+
+.hero-title .gold{
+    color:#ffd84a;
+}
+
+.hero-line{
+    width:300px;
+    height:2px;
+    margin:25px 0 20px;
+    background:linear-gradient(to right,#fff,transparent);
+}
+
+.hero-subtitle{
+    color:#fff;
+    font-size:23px;
+    line-height:1.7;
+}
+
+/* ================= FORM CARD ================= */
+
+.form-card{
+    position:relative;
+    z-index:5;
+    background:rgba(255,255,255,.97);
+    border-radius:30px;
+    padding:38px 42px;
+    box-shadow:
+        0 20px 55px rgba(20,10,80,.25),
+        0 3px 10px rgba(0,0,0,.08);
+}
+
+/* Fields */
+
+.field-row{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    gap:25px;
+    align-items:start;
+    margin-bottom:25px;
+}
+
+.icon-box{
+    width:92px;
+    height:92px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+    background:linear-gradient(145deg,#f2e5ff,#e8d5ff);
+    border:1px solid #dcc7ff;
+}
+
+.icon-box.blue{
+    background:linear-gradient(145deg,#e9f5ff,#dbeeff);
+    border-color:#b7d8ff;
+}
+
+.icon-box.green{
+    background:linear-gradient(145deg,#e5fbf6,#d5f6ee);
+    border-color:#b5e8dd;
+}
+
+.field-content label{
+    display:block;
+    font-size:22px;
+    font-weight:800;
+    color:#171050;
+    margin-bottom:10px;
+}
+
+.required{
+    color:#e91e3b;
+}
+
+.optional{
+    color:#777;
+    font-size:17px;
+    font-weight:500;
+}
+
+input,
+textarea{
+    width:100%;
+    border:1.5px solid #d5b8ed;
+    border-radius:15px;
+    outline:none;
+    background:#fcf5ff;
+    color:#28204f;
+    font-family:inherit;
+    font-size:20px;
+    padding:17px 20px;
+    transition:.2s;
+}
+
+input{
+    height:62px;
+}
+
+textarea{
+    min-height:180px;
+    resize:vertical;
+}
+
+input:focus,
+textarea:focus{
+    border-color:#6932e8;
+    box-shadow:0 0 0 4px rgba(105,50,232,.10);
+}
+
+.contact-input{
+    background:#eef8ff;
+    border-color:#a9d2f5;
+}
+
+/* File */
+
+.file-area{
+    border:2px dashed #50b9a9;
+    background:#effcf9;
+    border-radius:17px;
+    padding:18px;
+}
+
+.file-title{
+    color:#197d6d;
+    font-size:18px;
+    font-weight:800;
+    margin-bottom:12px;
+}
+
+.file-input{
+    background:#fff;
+    border:1px solid #d8d8d8;
+    padding:10px;
+    height:auto;
+    font-size:16px;
+}
+
+.file-note{
+    color:#468c81;
+    font-size:14px;
+    margin-top:8px;
+}
+
+/* Button */
+
+.submit-btn{
+    width:100%;
+    border:none;
+    border-radius:17px;
+    height:72px;
+    cursor:pointer;
+    color:white;
+    font-family:inherit;
+    font-size:27px;
+    font-weight:900;
+    background:linear-gradient(90deg,#4218ef,#7621ec,#ed0c9b);
+    box-shadow:
+        0 10px 25px rgba(100,25,220,.30);
+    transition:.2s;
+}
+
+.submit-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px rgba(100,25,220,.38);
+}
+
+.submit-btn:active{
+    transform:translateY(1px);
+}
+
+.submit-btn:disabled{
+    opacity:.65;
+    cursor:not-allowed;
+}
+
+.send-icon{
+    margin-right:12px;
+}
+
+/* Privacy */
+
+.privacy{
+    margin-top:22px;
+    padding:18px;
+    border-radius:15px;
+    border:1px solid #f2dfab;
+    background:#fff9e9;
+    color:#755a25;
+    text-align:center;
+    font-size:17px;
+}
+
+/* Footer */
+
+.footer{
+    color:white;
+    text-align:center;
+    padding:28px 10px 5px;
+    font-size:17px;
+    opacity:.95;
+}
+
+/* Message */
+
+.status{
+    display:none;
+    margin-top:18px;
+    padding:14px;
+    border-radius:12px;
+    text-align:center;
+    font-weight:700;
+}
+
+.status.success{
+    display:block;
+    background:#e9fff5;
+    color:#087852;
+}
+
+.status.error{
+    display:block;
+    background:#fff0f1;
+    color:#b51f2e;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+    .page{
+        padding:0 14px 30px;
     }
 
-    html {
-      scroll-behavior: smooth;
+    .hero{
+        grid-template-columns:1fr;
+        min-height:auto;
+        padding:30px 5px 45px;
+        gap:25px;
+        text-align:center;
     }
 
-    body {
-      font-family: "Noto Sans Bengali", sans-serif;
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at 10% 10%, rgba(183, 107, 255, 0.35), transparent 28%),
-        radial-gradient(circle at 90% 20%, rgba(52, 120, 255, 0.35), transparent 30%),
-        linear-gradient(135deg, #6420d8 0%, #4216b9 42%, #164bd5 100%);
-      color: #11134b;
-      overflow-x: hidden;
+    .profile-ring{
+        width:245px;
+        height:245px;
     }
 
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
+    .verify{
+        width:59px;
+        height:59px;
+        right:1px;
+        bottom:1px;
+        border-width:3px;
     }
 
-    body::before {
-      width: 280px;
-      height: 280px;
-      left: -160px;
-      bottom: -120px;
-      background: rgba(255, 255, 255, 0.09);
+    .verify span{
+        width:42px;
+        height:42px;
+        font-size:26px;
     }
 
-    body::after {
-      width: 300px;
-      height: 300px;
-      right: -160px;
-      top: -130px;
-      background: rgba(255, 255, 255, 0.10);
+    .profile-name{
+        font-size:27px;
     }
 
-    .page {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding-bottom: 30px;
+    .hero-text{
+        padding:0 5px;
     }
 
-    /* =========================
-       HEADER
-    ========================== */
-
-    .hero {
-      position: relative;
-      min-height: 520px;
-      padding: 48px 42px 40px;
-      display: grid;
-      grid-template-columns: 360px 1fr;
-      gap: 40px;
-      align-items: center;
-      overflow: hidden;
+    .chat-icon{
+        margin:0 auto 14px;
+        width:62px;
+        height:62px;
+        font-size:32px;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 430px;
-      height: 230px;
-      right: -100px;
-      top: -70px;
-      background: rgba(255, 255, 255, 0.09);
-      border-radius: 50%;
-      transform: rotate(-12deg);
+    .hero-title{
+        font-size:37px;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 500px;
-      height: 160px;
-      left: 240px;
-      bottom: -100px;
-      background: rgba(255, 255, 255, 0.10);
-      border-radius: 50%;
-      transform: rotate(-10deg);
+    .hero-line{
+        width:220px;
+        margin:20px auto 15px;
     }
 
-    /* Profile */
-
-    .profile-area {
-      position: relative;
-      z-index: 2;
-      text-align: center;
+    .hero-subtitle{
+        font-size:17px;
     }
 
-    .profile-photo-wrap {
-      width: 340px;
-      height: 340px;
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 8px;
-      border-radius: 50%;
-      background: linear-gradient(
-        135deg,
-        #ffffff 0%,
-        #f8dfff 35%,
-        #4c9cff 70%,
-        #ffffff 100%
-      );
-      box-shadow:
-        0 0 0 5px rgba(255,255,255,0.28),
-        0 15px 45px rgba(0,0,0,0.25);
-      position: relative;
+    .form-card{
+        padding:28px 16px;
+        border-radius:25px;
     }
 
-    .profile-photo {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      object-position: center 42%;
-      border-radius: 50%;
-      border: 7px solid white;
-      background: #ddd;
+    .field-row{
+        grid-template-columns:58px 1fr;
+        gap:12px;
+        margin-bottom:22px;
     }
 
-    /* Verification badge */
-
-    .verified-badge {
-      position: absolute;
-      right: -4px;
-      bottom: 12px;
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: #1677ff;
-      border: 7px solid white;
-      outline: 4px solid #1677ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 7px 18px rgba(0,0,0,0.25);
+    .icon-box{
+        width:58px;
+        height:58px;
+        border-radius:14px;
+        font-size:28px;
     }
 
-    .verified-badge span {
-      color: white;
-      font-family: Arial, sans-serif;
-      font-size: 42px;
-      font-weight: 900;
-      line-height: 1;
-      transform: translateY(-2px);
+    .field-content label{
+        font-size:17px;
+        margin-bottom:8px;
     }
 
-    .profile-name {
-      color: white;
-      font-size: 32px;
-      font-weight: 900;
-      margin-top: 22px;
-      text-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    .optional{
+        font-size:13px;
     }
 
-    .name-decoration {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      margin-top: 9px;
+    input{
+        height:51px;
     }
 
-    .name-decoration span {
-      width: 90px;
-      height: 2px;
-      background: rgba(255,255,255,0.8);
+    input,
+    textarea{
+        font-size:16px;
+        padding:13px 14px;
+        border-radius:12px;
     }
 
-    .name-decoration b {
-      color: #ff91c7;
-      font-size: 24px;
+    textarea{
+        min-height:140px;
     }
 
-    /* Hero text */
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      color: white;
+    .file-area{
+        padding:12px;
     }
 
-    .message-icon {
-      width: 70px;
-      height: 70px;
-      border: 2px solid rgba(255,255,255,0.75);
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 37px;
-      margin-bottom: 22px;
-      background: rgba(255,255,255,0.06);
+    .file-title{
+        font-size:15px;
     }
 
-    .hero-title {
-      font-size: clamp(42px, 5vw, 68px);
-      line-height: 1.18;
-      font-weight: 900;
-      letter-spacing: -1px;
+    .file-note{
+        font-size:12px;
     }
 
-    .hero-title .white {
-      color: white;
+    .submit-btn{
+        height:60px;
+        font-size:20px;
+        border-radius:14px;
     }
 
-    .hero-title .yellow {
-      color: #ffd84d;
+    .privacy{
+        font-size:13px;
+        padding:14px 8px;
     }
 
-    .hero-line {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin: 28px 0 20px;
+    .footer{
+        font-size:13px;
+        padding-top:22px;
     }
-
-    .hero-line::before,
-    .hero-line::after {
-      content: "";
-      height: 2px;
-      flex: 1;
-      background: rgba(255,255,255,0.75);
-    }
-
-    .hero-line span {
-      color: #ff82bd;
-      font-size: 28px;
-    }
-
-    .hero-subtitle {
-      color: rgba(255,255,255,0.95);
-      font-size: 23px;
-      line-height: 1.8;
-      font-weight: 500;
-    }
-
-    .paper-plane {
-      position: absolute;
-      right: 25px;
-      top: 50px;
-      font-size: 55px;
-      transform: rotate(-10deg);
-      color: #ff83bd;
-      opacity: 0.9;
-    }
-
-    /* =========================
-       FORM CARD
-    ========================== */
-
-    .form-card {
-      position: relative;
-      z-index: 5;
-      margin: -15px 25px 0;
-      padding: 38px 42px 28px;
-      background: rgba(255,255,255,0.97);
-      border-radius: 30px;
-      box-shadow:
-        0 25px 60px rgba(24, 17, 100, 0.30),
-        0 4px 15px rgba(0,0,0,0.08);
-    }
-
-    .field-row {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 22px;
-      margin-bottom: 26px;
-      align-items: start;
-    }
-
-    .field-icon {
-      width: 108px;
-      height: 108px;
-      border-radius: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 53px;
-      border: 1px solid rgba(91, 47, 218, 0.15);
-    }
-
-    .icon-name {
-      background: linear-gradient(145deg, #f1ddff, #fff1ff);
-      color: #6625dd;
-    }
-
-    .icon-contact {
-      background: linear-gradient(145deg, #dceeff, #eff7ff);
-      color: #1675dc;
-    }
-
-    .icon-message {
-      background: linear-gradient(145deg, #edddff, #fff1ff);
-      color: #5b20d5;
-    }
-
-    .icon-file {
-      background: linear-gradient(145deg, #dcf8f2, #edfffb);
-      color: #16a589;
-    }
-
-    .field-content {
-      width: 100%;
-    }
-
-    .field-label {
-      display: block;
-      font-size: 23px;
-      font-weight: 800;
-      color: #111452;
-      margin-bottom: 10px;
-    }
-
-    .optional {
-      color: #888899;
-      font-size: 17px;
-      font-weight: 500;
-      margin-left: 5px;
-    }
-
-    .required {
-      color: #ed2d45;
-      margin-left: 4px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    textarea {
-      width: 100%;
-      border: 1.5px solid #c9b3ed;
-      border-radius: 15px;
-      background: #fcf8ff;
-      padding: 17px 21px;
-      font-family: inherit;
-      font-size: 19px;
-      color: #22244f;
-      outline: none;
-      transition: 0.25s ease;
-    }
-
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    input[type="tel"]:focus,
-    textarea:focus {
-      border-color: #6431e8;
-      box-shadow: 0 0 0 4px rgba(99, 49, 232, 0.10);
-      background: white;
-    }
-
-    .contact-input {
-      background: #f1f8ff !important;
-      border-color: #a9cef2 !important;
-    }
-
-    textarea {
-      min-height: 210px;
-      resize: vertical;
-      line-height: 1.7;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: #a5a3b3;
-    }
-
-    /* File */
-
-    .file-box {
-      border: 2px dashed #54b8a7;
-      background: #effbf8;
-      border-radius: 16px;
-      padding: 17px;
-    }
-
-    .file-title {
-      color: #138b75;
-      font-size: 18px;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .file-input {
-      width: 100%;
-      padding: 7px;
-      background: white;
-      border: 1px solid #d6e3e0;
-      border-radius: 10px;
-      font-family: inherit;
-      font-size: 16px;
-    }
-
-    .file-info {
-      color: #418a7c;
-      font-size: 14px;
-      margin-top: 8px;
-    }
-
-    /* Button */
-
-    .submit-btn {
-      width: 100%;
-      border: none;
-      border-radius: 16px;
-      padding: 18px 25px;
-      margin-top: 3px;
-      background: linear-gradient(90deg, #4b18ef, #bd19e5, #ed0c8b);
-      color: white;
-      font-family: inherit;
-      font-size: 25px;
-      font-weight: 900;
-      cursor: pointer;
-      box-shadow: 0 12px 25px rgba(118, 25, 221, 0.30);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 30px rgba(118, 25, 221, 0.40);
-    }
-
-    .submit-btn:active {
-      transform: translateY(1px);
-    }
-
-    .submit-btn:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .security-note {
-      margin-top: 22px;
-      padding: 17px 20px;
-      border: 1px solid #f0dba2;
-      border-radius: 14px;
-      background: #fff9e8;
-      color: #986a16;
-      text-align: center;
-      font-size: 17px;
-      font-weight: 500;
-    }
-
-    .security-icon {
-      font-size: 25px;
-      margin-right: 8px;
-    }
-
-    /* Footer */
-
-    .footer {
-      text-align: center;
-      color: rgba(255,255,255,0.92);
-      font-size: 17px;
-      padding: 25px 15px 5px;
-    }
-
-    .footer .lock {
-      color: #ffd62f;
-    }
-
-    .footer .heart {
-      color: #ff6caf;
-      font-size: 20px;
-    }
-
-    /* Success message */
-
-    .success-message {
-      display: none;
-      margin-top: 18px;
-      padding: 16px;
-      text-align: center;
-      border-radius: 13px;
-      background: #e9fff4;
-      border: 1px solid #65c99f;
-      color: #16805b;
-      font-weight: 700;
-    }
-
-    .error-message {
-      display: none;
-      margin-top: 18px;
-      padding: 16px;
-      text-align: center;
-      border-radius: 13px;
-      background: #fff0f2;
-      border: 1px solid #ed8d9a;
-      color: #c12942;
-      font-weight: 700;
-    }
-
-    /* =========================
-       TABLET
-    ========================== */
-
-    @media (max-width: 850px) {
-
-      .hero {
-        grid-template-columns: 300px 1fr;
-        gap: 25px;
-        padding: 35px 25px;
-      }
-
-      .profile-photo-wrap {
-        width: 280px;
-        height: 280px;
-      }
-
-      .profile-name {
-        font-size: 26px;
-      }
-
-      .hero-title {
-        font-size: 43px;
-      }
-
-      .hero-subtitle {
-        font-size: 18px;
-      }
-
-      .form-card {
-        margin-left: 15px;
-        margin-right: 15px;
-        padding: 30px;
-      }
-
-      .field-row {
-        grid-template-columns: 90px 1fr;
-        gap: 18px;
-      }
-
-      .field-icon {
-        width: 82px;
-        height: 82px;
-        font-size: 40px;
-      }
-
-      .field-label {
-        font-size: 20px;
-      }
-    }
-
-    /* =========================
-       MOBILE
-    ========================== */
-
-    @media (max-width: 650px) {
-
-      .page {
-        padding-bottom: 10px;
-      }
-
-      .hero {
-        min-height: auto;
-        grid-template-columns: 1fr;
-        gap: 25px;
-        padding: 38px 18px 45px;
-        text-align: center;
-      }
-
-      .profile-area {
-        order: 1;
-      }
-
-      .hero-content {
-        order: 2;
-      }
-
-      .profile-photo-wrap {
-        width: 245px;
-        height: 245px;
-      }
-
-      .profile-photo {
-        object-position: center 40%;
-      }
-
-      .verified-badge {
-        width: 59px;
-        height: 59px;
-        right: 0;
-        bottom: 5px;
-        border-width: 6px;
-        outline-width: 3px;
-      }
-
-      .verified-badge span {
-        font-size: 34px;
-      }
-
-      .profile-name {
-        font-size: 25px;
-        margin-top: 17px;
-      }
-
-      .name-decoration span {
-        width: 60px;
-      }
-
-      .message-icon {
-        width: 58px;
-        height: 58px;
-        font-size: 30px;
-        margin: 0 auto 15px;
-      }
-
-      .hero-title {
-        font-size: 34px;
-        line-height: 1.25;
-      }
-
-      .hero-line {
-        margin: 20px 0 14px;
-        gap: 10px;
-      }
-
-      .hero-line span {
-        font-size: 22px;
-      }
-
-      .hero-subtitle {
-        font-size: 16px;
-        line-height: 1.7;
-      }
-
-      .paper-plane {
-        right: 15px;
-        top: 180px;
-        font-size: 38px;
-      }
-
-      .form-card {
-        margin: -10px 10px 0;
-        padding: 25px 18px 20px;
-        border-radius: 23px;
-      }
-
-      .field-row {
-        grid-template-columns: 58px 1fr;
-        gap: 14px;
-        margin-bottom: 24px;
-      }
-
-      .field-icon {
-        width: 58px;
-        height: 58px;
-        border-radius: 15px;
-        font-size: 29px;
-      }
-
-      .field-label {
-        font-size: 17px;
-        margin-bottom: 7px;
-      }
-
-      .optional {
-        font-size: 13px;
-      }
-
-      input[type="text"],
-      input[type="email"],
-      input[type="tel"],
-      textarea {
-        padding: 13px 14px;
-        font-size: 15px;
-        border-radius: 12px;
-      }
-
-      textarea {
-        min-height: 150px;
-      }
-
-      .file-box {
-        padding: 12px;
-      }
-
-      .file-title {
-        font-size: 14px;
-      }
-
-      .file-input {
-        font-size: 13px;
-      }
-
-      .file-info {
-        font-size: 11px;
-      }
-
-      .submit-btn {
-        padding: 15px;
-        font-size: 20px;
-        border-radius: 13px;
-      }
-
-      .security-note {
-        font-size: 12px;
-        padding: 13px 8px;
-      }
-
-      .footer {
-        font-size: 12px;
-        padding-top: 22px;
-      }
-    }
-
-    @media (max-width: 390px) {
-
-      .profile-photo-wrap {
-        width: 220px;
-        height: 220px;
-      }
-
-      .hero-title {
-        font-size: 30px;
-      }
-
-      .form-card {
-        margin-left: 7px;
-        margin-right: 7px;
-        padding-left: 14px;
-        padding-right: 14px;
-      }
-
-      .field-row {
-        grid-template-columns: 50px 1fr;
-        gap: 10px;
-      }
-
-      .field-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 25px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <div class="page">
+<div class="page">
 
-    <!-- =========================
-         HERO SECTION
-    ========================== -->
+    <!-- ================= HERO ================= -->
 
-    <header class="hero">
+    <section class="hero">
 
-      <div class="profile-area">
+        <div class="profile-area">
 
-        <div class="profile-photo-wrap">
+            <div class="profile-ring">
 
-          <!-- আপনার আসল ছবি অবশ্যই 1000.jpg নামে রাখবেন -->
-          <img
-            src="1000.jpg"
-            alt="আশিকুর রহমান"
-            class="profile-photo"
-          >
+                <!-- IMPORTANT:
+                     1000.png এবং index.html একই folder-এ রাখুন -->
+                <img
+                    src="./1000.png"
+                    alt="আশিকুর রহমান"
+                    onerror="this.style.display='none'; this.parentElement.classList.add('image-error');"
+                >
 
-          <!-- নীল verification circle + সাধারণ সাদা tick -->
-          <div class="verified-badge" aria-label="Verified">
-            <span>✓</span>
-          </div>
-
-        </div>
-
-        <h1 class="profile-name">
-          আশিকুর রহমান
-        </h1>
-
-        <div class="name-decoration">
-          <span></span>
-          <b>♥</b>
-          <span></span>
-        </div>
-
-      </div>
-
-
-      <div class="hero-content">
-
-        <div class="message-icon">
-          💬
-        </div>
-
-        <div class="paper-plane">
-          ➤
-        </div>
-
-        <h2 class="hero-title">
-          <span class="white">আপনার কথা,</span><br>
-          <span class="yellow">আমার কাছে পৌঁছে দিন।</span>
-        </h2>
-
-        <div class="hero-line">
-          <span>♥</span>
-        </div>
-
-        <p class="hero-subtitle">
-          বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই।
-        </p>
-
-      </div>
-
-    </header>
-
-
-    <!-- =========================
-         FORM
-    ========================== -->
-
-    <main class="form-card">
-
-      <form id="messageForm">
-
-        <!-- NAME -->
-
-        <div class="field-row">
-
-          <div class="field-icon icon-name">
-            👤
-          </div>
-
-          <div class="field-content">
-
-            <label class="field-label" for="name">
-              আপনার নাম
-              <span class="required">*</span>
-            </label>
-
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="আপনার নাম লিখুন"
-              autocomplete="name"
-              required
-            >
-
-          </div>
-
-        </div>
-
-
-        <!-- CONTACT -->
-
-        <div class="field-row">
-
-          <div class="field-icon icon-contact">
-            📞
-          </div>
-
-          <div class="field-content">
-
-            <label class="field-label" for="contact">
-              যোগাযোগ
-              <span class="optional">(ঐচ্ছিক)</span>
-            </label>
-
-            <input
-              type="text"
-              id="contact"
-              name="contact"
-              class="contact-input"
-              placeholder="নাম্বার, ই-মেইল অথবা লিংক"
-              autocomplete="off"
-            >
-
-          </div>
-
-        </div>
-
-
-        <!-- MESSAGE -->
-
-        <div class="field-row">
-
-          <div class="field-icon icon-message">
-            💬
-          </div>
-
-          <div class="field-content">
-
-            <label class="field-label" for="message">
-              আপনার মেসেজ
-              <span class="required">*</span>
-            </label>
-
-            <textarea
-              id="message"
-              name="message"
-              placeholder="আপনার কথা এখানে লিখুন..."
-              required
-            ></textarea>
-
-          </div>
-
-        </div>
-
-
-        <!-- FILE -->
-
-        <div class="field-row">
-
-          <div class="field-icon icon-file">
-            📎
-          </div>
-
-          <div class="field-content">
-
-            <label class="field-label" for="file">
-              ফাইল সংযুক্ত করুন
-              <span class="optional">(ঐচ্ছিক)</span>
-            </label>
-
-            <div class="file-box">
-
-              <div class="file-title">
-                📎 ছবি, PDF বা অন্য ফাইল
-              </div>
-
-              <input
-                type="file"
-                id="file"
-                name="file"
-                class="file-input"
-              >
-
-              <div class="file-info">
-                সর্বোচ্চ ২০ MB • একবারে ১টি ফাইল
-              </div>
+                <div class="verify">
+                    <span>✓</span>
+                </div>
 
             </div>
 
-          </div>
+            <div class="profile-name">
+                আশিকুর রহমান
+            </div>
+
+            <div class="name-decoration">
+                <i></i>
+                <span>♥</span>
+                <i></i>
+            </div>
 
         </div>
 
 
-        <!-- SUBMIT -->
+        <div class="hero-text">
 
-        <button
-          type="submit"
-          class="submit-btn"
-          id="submitButton"
-        >
-          ➤ &nbsp; মেসেজ পাঠান
-        </button>
+            <div class="chat-icon">
+                💬
+            </div>
 
+            <h1 class="hero-title">
+                আপনার কথা,<br>
+                <span class="gold">
+                    আমার কাছে পৌঁছে দিন।
+                </span>
+            </h1>
 
-        <!-- SECURITY -->
+            <div class="hero-line"></div>
 
-        <div class="security-note">
-          <span class="security-icon">🛡️</span>
-          আপনার মেসেজ নিরাপদে সংরক্ষিত হবে এবং গোপন রাখা হবে।
+            <p class="hero-subtitle">
+                বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই।
+            </p>
+
         </div>
 
-
-        <div
-          class="success-message"
-          id="successMessage"
-        >
-          ✓ আপনার মেসেজ প্রস্তুত হয়েছে।
-        </div>
-
-        <div
-          class="error-message"
-          id="errorMessage"
-        >
-          অনুগ্রহ করে প্রয়োজনীয় তথ্য সঠিকভাবে পূরণ করুন।
-        </div>
-
-      </form>
-
-    </main>
+    </section>
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+    <!-- ================= FORM ================= -->
+
+    <section class="form-card">
+
+        <!--
+        ==========================================================
+        FORM ENDPOINT
+        ==========================================================
+
+        আপনার আগের backend endpoint থাকলে নিচের FORM_ENDPOINT
+        variable-এ সেটি বসাতে হবে।
+
+        উদাহরণ:
+        const FORM_ENDPOINT = "https://example.com/submit";
+
+        আমি ইচ্ছাকৃতভাবে কোনো ভুয়া endpoint দিইনি।
+        ==========================================================
+        -->
+
+        <form id="messageForm">
+
+            <!-- NAME -->
+
+            <div class="field-row">
+
+                <div class="icon-box">
+                    👤
+                </div>
+
+                <div class="field-content">
+
+                    <label>
+                        আপনার নাম
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="আপনার নাম লিখুন"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div class="field-row">
+
+                <div class="icon-box blue">
+                    📞
+                </div>
+
+                <div class="field-content">
+
+                    <label>
+                        যোগাযোগ
+                        <span class="optional">(ঐচ্ছিক)</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        name="contact"
+                        class="contact-input"
+                        placeholder="নাম্বার, ই-মেইল অথবা লিংক"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- MESSAGE -->
+
+            <div class="field-row">
+
+                <div class="icon-box">
+                    💬
+                </div>
+
+                <div class="field-content">
+
+                    <label>
+                        আপনার মেসেজ
+                        <span class="required">*</span>
+                    </label>
+
+                    <textarea
+                        name="message"
+                        placeholder="আপনার কথা এখানে লিখুন..."
+                        required
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <!-- FILE -->
+
+            <div class="field-row">
+
+                <div class="icon-box green">
+                    📎
+                </div>
+
+                <div class="field-content">
+
+                    <label>
+                        ফাইল সংযুক্ত করুন
+                        <span class="optional">(ঐচ্ছিক)</span>
+                    </label>
+
+                    <div class="file-area">
+
+                        <div class="file-title">
+                            📎 ছবি, PDF বা অন্য ফাইল
+                        </div>
+
+                        <input
+                            type="file"
+                            id="attachment"
+                            name="attachment"
+                            class="file-input"
+                            accept="image/*,.pdf,.doc,.docx,.txt"
+                        >
+
+                        <div class="file-note">
+                            সর্বোচ্চ ২০ MB • একবারে ১টি ফাইল
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTON -->
+
+            <button
+                type="submit"
+                class="submit-btn"
+                id="submitButton"
+            >
+                <span class="send-icon">➤</span>
+                মেসেজ পাঠান
+            </button>
+
+
+            <!-- STATUS -->
+
+            <div id="status" class="status"></div>
+
+
+            <!-- PRIVACY -->
+
+            <div class="privacy">
+                🛡️ আপনার মেসেজ নিরাপদে সংরক্ষিত হবে এবং গোপন রাখা হবে।
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
 
     <footer class="footer">
-      <span class="lock">🔐</span>
-      আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ
-      <span class="heart">♥</span>
+        🔒 আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ 💜
     </footer>
 
-  </div>
+</div>
 
 
-  <script>
+<script>
 
-    const form = document.getElementById("messageForm");
-    const fileInput = document.getElementById("file");
-    const submitButton = document.getElementById("submitButton");
-    const successMessage = document.getElementById("successMessage");
-    const errorMessage = document.getElementById("errorMessage");
+/*
+==========================================================
+  MESSAGE FORM
+==========================================================
 
-    /*
-      সর্বোচ্চ ফাইল সাইজ:
-      20 MB
-    */
-    const MAX_FILE_SIZE = 20 * 1024 * 1024;
+  এখানে আপনার আসল backend URL বসাতে হবে।
+
+  উদাহরণ:
+
+  const FORM_ENDPOINT =
+      "https://script.google.com/macros/s/XXXXXXXX/exec";
+
+  যদি আপনার আগের Google Apps Script / Form endpoint থাকে,
+  সেটিই এখানে ব্যবহার করবেন।
+
+==========================================================
+*/
+
+const FORM_ENDPOINT = "";
 
 
-    /*
-      ফাইল নির্বাচন করার সময়
-      20 MB-এর বেশি হলে আটকানো হবে।
-    */
+const form = document.getElementById("messageForm");
+const submitButton = document.getElementById("submitButton");
+const statusBox = document.getElementById("status");
+const attachment = document.getElementById("attachment");
 
-    fileInput.addEventListener("change", function () {
 
-      successMessage.style.display = "none";
-      errorMessage.style.display = "none";
+/* File size check */
 
-      if (this.files.length === 0) {
+attachment.addEventListener("change", function(){
+
+    if(!this.files.length){
         return;
-      }
+    }
 
-      const file = this.files[0];
+    const file = this.files[0];
+    const maxSize = 20 * 1024 * 1024;
 
-      if (file.size > MAX_FILE_SIZE) {
+    if(file.size > maxSize){
 
-        errorMessage.textContent =
-          "ফাইলের আকার সর্বোচ্চ ২০ MB হতে পারবে।";
-
-        errorMessage.style.display = "block";
+        alert("ফাইলের আকার ২০ MB-এর বেশি হতে পারবে না।");
 
         this.value = "";
+    }
 
-        return;
-      }
+});
 
-    });
+
+/* Form submit */
+
+form.addEventListener("submit", async function(event){
+
+    event.preventDefault();
+
+    statusBox.className = "status";
+    statusBox.textContent = "";
 
 
     /*
-      Form validation
+      Backend URL না থাকলে পরিষ্কারভাবে জানাবে।
     */
 
-    form.addEventListener("submit", function (event) {
+    if(!FORM_ENDPOINT){
 
-      event.preventDefault();
+        statusBox.className = "status error";
 
-      successMessage.style.display = "none";
-      errorMessage.style.display = "none";
-
-      const name =
-        document.getElementById("name").value.trim();
-
-      const message =
-        document.getElementById("message").value.trim();
-
-
-      if (!name || !message) {
-
-        errorMessage.textContent =
-          "অনুগ্রহ করে নাম এবং মেসেজ লিখুন।";
-
-        errorMessage.style.display = "block";
+        statusBox.textContent =
+            "মেসেজ পাঠানোর জন্য আপনার আগের Form/Google Apps Script endpoint এখনো যুক্ত করা হয়নি।";
 
         return;
-      }
+    }
 
 
-      /*
-        File size check
-      */
+    submitButton.disabled = true;
 
-      if (fileInput.files.length > 0) {
+    submitButton.innerHTML =
+        "⏳ মেসেজ পাঠানো হচ্ছে...";
 
-        const file = fileInput.files[0];
 
-        if (file.size > MAX_FILE_SIZE) {
+    try{
 
-          errorMessage.textContent =
-            "ফাইলের আকার সর্বোচ্চ ২০ MB হতে পারবে।";
+        const formData = new FormData(form);
 
-          errorMessage.style.display = "block";
 
-          return;
+        const response = await fetch(
+            FORM_ENDPOINT,
+            {
+                method:"POST",
+                body:formData
+            }
+        );
+
+
+        if(!response.ok){
+
+            throw new Error("Server error");
+
         }
 
-      }
+
+        form.reset();
 
 
-      /*
-        এখানে আপনার প্রকৃত message sending
-        backend/API যুক্ত করা যাবে।
+        statusBox.className = "status success";
 
-        বর্তমানে form validation সফল হলে
-        নিচের confirmation দেখাবে।
-      */
-
-      submitButton.disabled = true;
-
-      submitButton.textContent =
-        "✓ মেসেজ প্রস্তুত হচ্ছে...";
+        statusBox.textContent =
+            "✅ আপনার মেসেজ সফলভাবে পাঠানো হয়েছে।";
 
 
-      setTimeout(function () {
+    }catch(error){
 
-        successMessage.textContent =
-          "✓ আপনার মেসেজ সফলভাবে প্রস্তুত হয়েছে।";
+        statusBox.className = "status error";
 
-        successMessage.style.display = "block";
+        statusBox.textContent =
+            "❌ মেসেজ পাঠানো যায়নি। কিছুক্ষণ পর আবার চেষ্টা করুন।";
 
-        submitButton.disabled = false;
+    }
 
-        submitButton.innerHTML =
-          "➤ &nbsp; মেসেজ পাঠান";
 
-      }, 700);
+    submitButton.disabled = false;
 
-    });
+    submitButton.innerHTML =
+        '<span class="send-icon">➤</span> মেসেজ পাঠান';
 
-  </script>
+});
+
+</script>
 
 </body>
 </html>
