@@ -137,7 +137,6 @@ body{
 
   object-fit:cover;
 
-  /* মাথার উপরের অতিরিক্ত জায়গা কম */
   object-position:50% 20%;
 
   border-radius:50%;
@@ -1136,70 +1135,72 @@ textarea{
 </div>
 
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
 <script>
 "use strict";
 
+/* =========================================
+   GOOGLE APPS SCRIPT WEB APP URL
+   আপনার সর্বশেষ দেওয়া URL
+========================================= */
 
-/* আপনার আগের Google Apps Script API */
 const API_URL =
-"https://script.google.com/macros/s/AKfycbyd0ldrrTOYJvptf3G4IZPdUq33z_Xb5PvCNzimy6zU7-jVNJpBO7IPuZ-Brrgp7GfBKQ/exec";
+"https://script.google.com/macros/s/AKfycbyYQB9MnAfL7V-NBPRfKCMMgmZPxpSEV7h0WNuIrhCrCLWBPvRakXWPeujfj6oXj0KV/exec";
 
 
-const MAX_FILE_SIZE =
-20 * 1024 * 1024;
+/* =========================================
+   SETTINGS
+========================================= */
 
-
+const MAX_FILE_SIZE = 20 * 1024 * 1024;
 const COOLDOWN_SECONDS = 30;
 
+
+/* =========================================
+   ELEMENTS
+========================================= */
 
 const form =
 document.getElementById("f");
 
-
 const submitBtn =
 document.getElementById("submitBtn");
-
 
 const statusBox =
 document.getElementById("status");
 
-
 const fileInput =
 document.getElementById("file");
-
 
 const fileInfo =
 document.getElementById("fileInfo");
 
-
 const cooldownBox =
 document.getElementById("cooldownBox");
-
 
 const countdown =
 document.getElementById("countdown");
 
-
 let timer = null;
 
 
-/* STATUS */
-function setStatus(message,type){
+/* =========================================
+   STATUS MESSAGE
+========================================= */
+
+function setStatus(message, type){
 
   statusBox.className =
     "status " + (type || "");
 
   statusBox.textContent =
     message || "";
-
 }
 
 
-/* COOLDOWN */
+/* =========================================
+   COOLDOWN
+========================================= */
+
 function startCooldown(seconds){
 
   clearInterval(timer);
@@ -1226,7 +1227,7 @@ function startCooldown(seconds){
       remaining--;
 
       countdown.textContent =
-        Math.max(0,remaining);
+        Math.max(0, remaining);
 
 
       if(remaining <= 0){
@@ -1238,15 +1239,16 @@ function startCooldown(seconds){
 
         submitBtn.disabled =
           false;
-
       }
 
-    },1000);
-
+    }, 1000);
 }
 
 
-/* FILE CHECK */
+/* =========================================
+   FILE VALIDATION
+========================================= */
+
 fileInput.addEventListener(
   "change",
   function(){
@@ -1264,7 +1266,6 @@ fileInput.addEventListener(
         "";
 
       return;
-
     }
 
 
@@ -1282,7 +1283,6 @@ fileInput.addEventListener(
       );
 
       return;
-
     }
 
 
@@ -1303,13 +1303,78 @@ fileInput.addEventListener(
       "block";
 
 
-    setStatus("","");
-
+    setStatus("", "");
   }
 );
 
 
-/* FORM SUBMIT */
+/* =========================================
+   FILE → BASE64
+========================================= */
+
+function readFileAsBase64(file){
+
+  return new Promise(
+    function(resolve, reject){
+
+      const reader =
+        new FileReader();
+
+
+      reader.onload =
+        function(){
+
+          const result =
+            String(
+              reader.result || ""
+            );
+
+
+          const parts =
+            result.split(",");
+
+
+          resolve({
+
+            name:
+              file.name,
+
+            mimeType:
+              file.type ||
+              "application/octet-stream",
+
+            data:
+              parts.length > 1
+              ? parts[1]
+              : ""
+
+          });
+        };
+
+
+      reader.onerror =
+        function(){
+
+          reject(
+            new Error(
+              "ফাইল পড়া যায়নি।"
+            )
+          );
+
+        };
+
+
+      reader.readAsDataURL(file);
+
+    }
+  );
+}
+
+
+/* =========================================
+   FORM SUBMIT
+========================================= */
+
 form.addEventListener(
   "submit",
   async function(event){
@@ -1342,19 +1407,44 @@ form.addEventListener(
       fileInput.files[0];
 
 
-    if(!name || !message){
+    /* REQUIRED FIELD CHECK */
+
+    if(!name){
 
       setStatus(
-        "নাম এবং মেসেজ অবশ্যই দিতে হবে।",
+        "অনুগ্রহ করে আপনার নাম লিখুন।",
         "error"
       );
 
-      return;
+      document
+      .getElementById("name")
+      .focus();
 
+      return;
     }
 
 
-    if(file && file.size > MAX_FILE_SIZE){
+    if(!message){
+
+      setStatus(
+        "অনুগ্রহ করে আপনার মেসেজ লিখুন।",
+        "error"
+      );
+
+      document
+      .getElementById("message")
+      .focus();
+
+      return;
+    }
+
+
+    /* FILE SIZE CHECK */
+
+    if(
+      file &&
+      file.size > MAX_FILE_SIZE
+    ){
 
       setStatus(
         "ফাইল ২০ MB-এর বেশি হতে পারবে না।",
@@ -1362,9 +1452,10 @@ form.addEventListener(
       );
 
       return;
-
     }
 
+
+    /* BUTTON LOCK */
 
     submitBtn.disabled =
       true;
@@ -1372,7 +1463,7 @@ form.addEventListener(
     submitBtn.textContent =
       "পাঠানো হচ্ছে...";
 
-    setStatus("","");
+    setStatus("", "");
 
 
     try{
@@ -1381,63 +1472,50 @@ form.addEventListener(
         null;
 
 
-      /* FILE → BASE64 */
+      /* =================================
+         READ FILE
+      ================================= */
+
       if(file){
 
         attachedFile =
-          await new Promise(
-            function(resolve,reject){
-
-              const reader =
-                new FileReader();
-
-
-              reader.onload =
-                function(){
-
-                  const result =
-                    String(
-                      reader.result || ""
-                    );
-
-
-                  const parts =
-                    result.split(",");
-
-
-                  resolve({
-
-                    name:file.name,
-
-                    mimeType:
-                      file.type ||
-                      "application/octet-stream",
-
-                    data:
-                      parts.length > 1
-                      ? parts[1]
-                      : ""
-
-                  });
-
-                };
-
-
-              reader.onerror =
-                reject;
-
-
-              reader.readAsDataURL(
-                file
-              );
-
-            }
-          );
+          await readFileAsBase64(file);
 
       }
 
 
-      /* SEND TO GOOGLE APPS SCRIPT */
+      /* =================================
+         REQUEST DATA
+      ================================= */
+
+      const payload = {
+
+        name:
+          name,
+
+        /*
+          Google Apps Script-এর
+          পুরোনো backend যদি "phone"
+          field ব্যবহার করে, তাই
+          contact → phone পাঠানো হচ্ছে।
+        */
+
+        phone:
+          contact,
+
+        message:
+          message,
+
+        file:
+          attachedFile
+
+      };
+
+
+      /* =================================
+         SEND TO GOOGLE APPS SCRIPT
+      ================================= */
+
       const response =
         await fetch(
           API_URL,
@@ -1446,35 +1524,48 @@ form.addEventListener(
 
             headers:{
               "Content-Type":
-              "text/plain;charset=utf-8"
+                "text/plain;charset=utf-8"
             },
 
-            body:JSON.stringify({
-
-              name:name,
-
-              /*
-                backend-এর পুরোনো
-                phone field-এর জায়গায়
-                contact পাঠানো হচ্ছে
-              */
-              phone:contact,
-
-              message:message,
-
-              file:attachedFile
-
-            })
-
+            body:
+              JSON.stringify(payload)
           }
         );
 
 
-      const result =
-        await response.json();
+      /* =================================
+         RESPONSE READ
+      ================================= */
+
+      const responseText =
+        await response.text();
 
 
-      /* COOLDOWN FROM SERVER */
+      let result;
+
+
+      try{
+
+        result =
+          JSON.parse(responseText);
+
+      }catch(parseError){
+
+        console.error(
+          "Invalid JSON response:",
+          responseText
+        );
+
+        throw new Error(
+          "সার্ভার থেকে সঠিক উত্তর পাওয়া যায়নি।"
+        );
+      }
+
+
+      /* =================================
+         SERVER COOLDOWN
+      ================================= */
+
       if(
         result &&
         result.cooldown === true
@@ -1486,24 +1577,29 @@ form.addEventListener(
           "error"
         );
 
+
         startCooldown(
           result.remaining ||
           COOLDOWN_SECONDS
         );
 
-        return;
 
+        return;
       }
 
 
-      /* FAILED */
+      /* =================================
+         FAILED
+      ================================= */
+
       if(
         !result ||
-        !result.success
+        result.success !== true
       ){
 
         throw new Error(
-          result && result.error
+          result &&
+          result.error
           ? result.error
           : "Message failed"
         );
@@ -1511,8 +1607,12 @@ form.addEventListener(
       }
 
 
-      /* SUCCESS */
+      /* =================================
+         SUCCESS
+      ================================= */
+
       form.reset();
+
 
       fileInfo.style.display =
         "none";
@@ -1527,39 +1627,54 @@ form.addEventListener(
       );
 
 
+      /* START 30 SEC COOLDOWN */
+
       startCooldown(
+        result.cooldownSeconds ||
         COOLDOWN_SECONDS
       );
 
 
     }catch(error){
 
-      console.error(error);
+      console.error(
+        "Message sending error:",
+        error
+      );
+
 
       setStatus(
-        "মেসেজ পাঠানো যায়নি। আবার চেষ্টা করুন।",
+        error &&
+        error.message
+        ? error.message
+        : "মেসেজ পাঠানো যায়নি। আবার চেষ্টা করুন।",
         "error"
       );
+
 
       submitBtn.disabled =
         false;
 
-    }finally{
-
-      if(
-        cooldownBox.style.display !==
-        "block"
-      ){
-
-        submitBtn.disabled =
-          false;
-
-      }
-
 
       submitBtn.textContent =
         "➤  মেসেজ পাঠান";
+    }
 
+
+    /* =================================
+       RESTORE BUTTON TEXT
+    ================================= */
+
+    if(
+      cooldownBox.style.display !==
+      "block"
+    ){
+
+      submitBtn.disabled =
+        false;
+
+      submitBtn.textContent =
+        "➤  মেসেজ পাঠান";
     }
 
   }
