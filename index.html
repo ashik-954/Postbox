@@ -1,30 +1,15 @@
 <!doctype html>
 <html lang="bn">
 <head>
-
 <meta charset="utf-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1">
-
-<meta name="theme-color"
-      content="#5b20e6">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#5b20e6">
 <title>আপনার কথা, আমার কাছে পৌঁছে দিন</title>
 
-
 <style>
+*{box-sizing:border-box}
 
-/* =========================================================
-   RESET
-========================================================= */
-
-*{
-  box-sizing:border-box;
-}
-
-html,
-body{
+html,body{
   margin:0;
   padding:0;
   width:100%;
@@ -32,1453 +17,825 @@ body{
 }
 
 body{
-  font-family:
-    Arial,
-    "Noto Sans Bengali",
-    "SolaimanLipi",
-    sans-serif;
-
+  font-family:Arial,"Noto Sans Bengali","SolaimanLipi",sans-serif;
   color:#17164a;
-
   overflow-x:hidden;
-
   background:
-    radial-gradient(
-      circle at 88% 8%,
-      rgba(255,255,255,.14) 0 100px,
-      transparent 101px
-    ),
-
-    radial-gradient(
-      circle at 5% 94%,
-      rgba(255,255,255,.10) 0 120px,
-      transparent 121px
-    ),
-
-    linear-gradient(
-      135deg,
-      #6420df 0%,
-      #7629e8 40%,
-      #2850dc 100%
-    );
+    radial-gradient(circle at 88% 8%,rgba(255,255,255,.14) 0 100px,transparent 101px),
+    radial-gradient(circle at 5% 94%,rgba(255,255,255,.10) 0 120px,transparent 121px),
+    linear-gradient(135deg,#6420df 0%,#7629e8 40%,#2850dc 100%);
 }
-
-
-/* =========================================================
-   PAGE
-========================================================= */
 
 .page{
   width:100%;
   max-width:1050px;
-
   margin:0 auto;
-
-  padding-bottom:10px;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 
 
-/* =========================================================
+/* =========================
    HERO
-========================================================= */
+========================= */
 
 .hero{
-
   position:relative;
-
-  padding:
-    32px
-    30px
-    25px;
-
+  padding:32px 30px 25px;
   overflow:hidden;
-
   color:white;
+  flex:0 0 auto;
 }
 
-
 .hero:before{
-
   content:"";
-
   position:absolute;
-
   width:450px;
   height:260px;
-
   right:-100px;
   top:-120px;
-
   border-radius:50%;
-
-  background:
-    rgba(255,255,255,.08);
-
+  background:rgba(255,255,255,.08);
   transform:rotate(-18deg);
 }
 
-
 .hero:after{
-
   content:"";
-
   position:absolute;
-
   width:330px;
   height:220px;
-
   left:-170px;
   bottom:-120px;
-
   border-radius:50%;
-
-  background:
-    rgba(255,255,255,.07);
+  background:rgba(255,255,255,.07);
 }
-
-
-/* =========================================================
-   HERO GRID
-========================================================= */
 
 .hero-grid{
-
   position:relative;
-
   z-index:2;
-
   display:grid;
-
-  grid-template-columns:
-    360px
-    minmax(0,1fr);
-
+  grid-template-columns:360px minmax(0,1fr);
   gap:42px;
-
   align-items:center;
-
 }
 
 
-/* =========================================================
-   PROFILE AREA
-========================================================= */
+/* =========================
+   PROFILE
+========================= */
 
 .profile-area{
-
   text-align:center;
-
   display:flex;
-
   flex-direction:column;
-
   align-items:center;
-
   justify-content:center;
 }
 
-
 .profile-wrap{
-
   position:relative;
-
   width:300px;
   height:300px;
-
-  margin:
-    0 auto 12px;
-
+  margin:0 auto 12px;
   padding:7px;
-
   border-radius:50%;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ffffff,
-      #ffb6e8 48%,
-      #61b8ff
-    );
-
-  box-shadow:
-    0 12px 40px
-    rgba(0,0,0,.20);
+  background:linear-gradient(135deg,#fff,#ffb6e8 48%,#61b8ff);
+  box-shadow:0 12px 40px rgba(0,0,0,.20);
 }
 
-
 .profile{
-
   display:block;
-
   width:100%;
   height:100%;
-
   object-fit:cover;
-
   object-position:50% 20%;
-
   border-radius:50%;
-
   border:5px solid white;
-
   background:#eee;
 }
 
-
-/* =========================================================
-   VERIFIED
-========================================================= */
-
 .verify{
-
   position:absolute;
-
   right:0;
   bottom:0;
-
   width:62px;
   height:62px;
-
   border-radius:50%;
-
   background:white;
-
-  border:
-    4px solid #2d7df4;
-
-  box-shadow:
-    0 5px 18px
-    rgba(0,0,0,.20);
-
+  border:4px solid #2d7df4;
+  box-shadow:0 5px 18px rgba(0,0,0,.20);
   display:flex;
-
   align-items:center;
   justify-content:center;
 }
 
-
 .verify span{
-
   color:#176ee8;
-
   font-size:37px;
-
   font-weight:900;
-
   line-height:1;
 }
 
-
-/* =========================================================
-   OWNER NAME
-========================================================= */
-
 .owner{
-
   font-size:27px;
-
   font-weight:900;
-
   color:white;
-
   text-align:center;
-
-  text-shadow:
-    0 2px 8px
-    rgba(0,0,0,.15);
+  text-shadow:0 2px 8px rgba(0,0,0,.15);
 }
 
-
 .owner-line{
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   gap:12px;
-
   margin-top:7px;
 }
 
-
 .owner-line i{
-
   display:block;
-
   width:65px;
-
   height:2px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #ff9bd8
-    );
+  background:linear-gradient(90deg,transparent,#ff9bd8);
 }
 
-
 .owner-line b{
-
   color:#ff9bd8;
-
   font-size:20px;
 }
 
 
-/* =========================================================
-   HERO COPY
-========================================================= */
+/* =========================
+   HERO TEXT
+========================= */
 
 .hero-copy{
-
   display:flex;
-
   flex-direction:column;
-
   align-items:center;
-
   justify-content:center;
-
   text-align:center;
-
-  padding:
-    10px
-    20px
-    10px
-    35px;
-
+  padding:10px 15px 10px 35px;
 }
 
-
-/* CHAT ICON */
-
 .chat-icon{
-
   width:64px;
   height:64px;
-
-  border:
-    2px solid
-    rgba(255,255,255,.9);
-
+  border:2px solid rgba(255,255,255,.9);
   border-radius:50%;
-
   display:flex;
-
   align-items:center;
   justify-content:center;
-
   margin-bottom:12px;
-
-  background:
-    rgba(255,255,255,.06);
-
+  background:rgba(255,255,255,.06);
   font-size:34px;
 }
 
-
-/* MAIN TITLE */
-
 .hero h1{
-
   width:100%;
-
   margin:0;
-
   font-size:54px;
-
-  line-height:1.16;
-
+  line-height:1.13;
   font-weight:900;
-
   letter-spacing:-1px;
-
   text-align:center;
+  color:#1648c8;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.9),
+    0 2px 5px rgba(0,0,0,.10);
 }
 
-
-.hero h1 .yellow{
-
-  display:inline;
-
-  color:#ffd33d;
+.hero h1 span{
+  display:block;
+  color:#1648c8;
 }
-
-
-/* =========================================================
-   HERO DIVIDER
-========================================================= */
 
 .hero-divider{
-
   width:100%;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   gap:12px;
-
-  margin:
-    18px 0
-    12px;
+  margin:18px 0 12px;
 }
-
 
 .hero-divider i{
-
   display:block;
-
   width:210px;
-
   max-width:42%;
-
   height:2px;
-
-  background:
-    rgba(255,255,255,.75);
+  background:rgba(255,255,255,.75);
 }
 
-
 .hero-divider b{
-
   color:#ff8dbd;
-
   font-size:23px;
 }
 
-
-/* =========================================================
-   SUBTITLE
-========================================================= */
-
 .subtitle{
-
   width:100%;
-
   margin:0;
-
   font-size:18px;
-
   line-height:1.6;
-
-  color:
-    rgba(255,255,255,.92);
-
+  color:rgba(255,255,255,.92);
   text-align:center;
 }
 
-
-/* =========================================================
-   PLANE
-========================================================= */
-
 .plane{
-
   position:absolute;
-
   right:25px;
-
   top:35px;
-
   z-index:3;
-
   font-size:42px;
-
   color:#ff9ad8;
-
   transform:rotate(-8deg);
 }
 
 
-/* =========================================================
+/* =========================
    FORM CARD
-========================================================= */
+========================= */
 
 .form-card{
-
   position:relative;
-
   z-index:5;
+  margin:0 18px;
+  padding:28px 38px 24px;
+  border-radius:26px 26px 0 0;
+  background:rgba(255,255,255,.98);
+  box-shadow:0 20px 50px rgba(26,18,90,.20);
 
-  margin:
-    0 18px;
+  /* Footer পর্যন্ত সাদা অংশ */
+  flex:1 1 auto;
+  display:flex;
+  flex-direction:column;
+}
 
-  padding:
-    28px
-    38px
-    20px;
-
-  border-radius:26px;
-
-  background:
-    rgba(255,255,255,.98);
-
-  box-shadow:
-    0 20px 50px
-    rgba(26,18,90,.20);
+.form-content{
+  width:100%;
 }
 
 
-/* =========================================================
+/* =========================
    FORM ROW
-========================================================= */
+========================= */
 
 .row{
-
   display:grid;
-
-  grid-template-columns:
-    76px
-    minmax(0,1fr);
-
+  grid-template-columns:76px minmax(0,1fr);
   gap:18px;
-
   align-items:start;
-
   margin-bottom:18px;
 }
 
-
-/* =========================================================
-   ICON BOX
-========================================================= */
-
 .icon-box{
-
   width:76px;
   height:76px;
-
   border-radius:16px;
-
   display:flex;
-
   align-items:center;
   justify-content:center;
-
   font-size:36px;
-
-  border:
-    1px solid
-    rgba(70,70,120,.10);
+  border:1px solid rgba(70,70,120,.10);
 }
 
-
 .icon-name{
-
   background:#f0e5ff;
-
   color:#5420e8;
 }
 
-
 .icon-contact{
-
   background:#e4f1ff;
-
   color:#1474d9;
 }
 
-
 .icon-message{
-
   background:#f0e5ff;
-
   color:#5420e8;
 }
 
-
 .icon-file{
-
   background:#ddf7f1;
-
   color:#1fa88c;
 }
 
 
-/* =========================================================
+/* =========================
    LABEL
-========================================================= */
+========================= */
 
 label{
-
   display:block;
-
-  margin:
-    0 0 7px;
-
+  margin:0 0 7px;
   font-size:19px;
-
   font-weight:900;
-
   color:#17164a;
 }
 
-
-.required{
-
-  color:#e11d48;
-}
-
+.required{color:#e11d48}
 
 .optional{
-
   font-size:.8em;
-
   color:#92919e;
-
   font-weight:400;
 }
 
 
-/* =========================================================
+/* =========================
    INPUT
-========================================================= */
+========================= */
 
-input,
-textarea{
-
+input,textarea{
   width:100%;
-
-  border:
-    1.5px solid
-    #d9c6f0;
-
+  border:1.5px solid #d9c6f0;
   border-radius:14px;
-
-  padding:
-    14px
-    16px;
-
+  padding:14px 16px;
   font:inherit;
-
   font-size:17px;
-
   color:#222;
-
   outline:none;
-
   background:#fbf6ff;
-
-  transition:
-    .2s ease;
+  transition:.2s ease;
 }
 
-
 #contact{
-
   background:#eff8ff;
-
   border-color:#a8cdeb;
 }
 
-
-input:focus,
-textarea:focus{
-
+input:focus,textarea:focus{
   border-color:#6b39e9;
-
-  box-shadow:
-    0 0 0 4px
-    rgba(107,57,233,.10);
-
+  box-shadow:0 0 0 4px rgba(107,57,233,.10);
   background:white;
 }
 
-
 textarea{
-
   min-height:155px;
-
   resize:vertical;
-
   line-height:1.6;
 }
 
 
-/* =========================================================
-   FILE BOX
-========================================================= */
+/* =========================
+   FILE
+========================= */
 
 .file-box{
-
   padding:14px 16px;
-
-  border:
-    2px dashed
-    #54bda9;
-
+  border:2px dashed #54bda9;
   border-radius:16px;
-
   background:#effbf8;
 }
 
-
 .file-title{
-
   color:#197d69;
-
   font-size:16px;
-
   font-weight:800;
-
   margin-bottom:8px;
 }
 
-
 .file-box input{
-
   padding:9px;
-
   background:white;
-
-  border:
-    1px solid
-    #d4ddd9;
-
+  border:1px solid #d4ddd9;
   border-radius:9px;
-
   font-size:14px;
 }
 
-
 .hint{
-
   margin-top:7px;
-
   color:#458579;
-
   font-size:12px;
 }
 
-
 #fileInfo{
-
   display:none;
-
   margin-top:8px;
-
   padding:7px 9px;
-
   border-radius:8px;
-
   background:#dff7f1;
-
   color:#167361;
-
   font-size:12px;
-
   overflow-wrap:anywhere;
 }
 
 
-/* =========================================================
-   SUBMIT BUTTON
-========================================================= */
+/* =========================
+   BUTTON
+========================= */
 
 .submit{
-
   width:100%;
-
-  margin:
-    2px 0 0;
-
-  padding:
-    16px 20px;
-
+  margin:2px 0 0;
+  padding:16px 20px;
   border:0;
-
   border-radius:16px;
-
   color:white;
-
-  background:
-    linear-gradient(
-      105deg,
-      #4820e8 0%,
-      #7d22e9 48%,
-      #ee079c 100%
-    );
-
-  box-shadow:
-    0 12px 26px
-    rgba(107,36,230,.28);
-
+  background:linear-gradient(105deg,#4820e8 0%,#7d22e9 48%,#ee079c 100%);
+  box-shadow:0 12px 26px rgba(107,36,230,.28);
   font-size:21px;
-
   font-weight:900;
-
   cursor:pointer;
-
   transition:.2s ease;
 }
 
-
 .submit:hover:not(:disabled){
-
-  transform:
-    translateY(-2px);
+  transform:translateY(-2px);
 }
 
-
 .submit:disabled{
-
   opacity:.65;
-
   cursor:not-allowed;
 }
 
 
-/* =========================================================
+/* =========================
    STATUS
-========================================================= */
+========================= */
 
 .status{
-
   min-height:22px;
-
   margin-top:10px;
-
   text-align:center;
-
   font-weight:800;
-
   line-height:1.5;
 }
 
-
-.success{
-
-  color:#087443;
-}
+.success{color:#087443}
+.error{color:#b42318}
 
 
-.error{
-
-  color:#b42318;
-}
-
-
-/* =========================================================
+/* =========================
    COOLDOWN
-========================================================= */
+========================= */
 
 .cooldown{
-
   display:none;
-
   margin-top:10px;
-
   text-align:center;
-
   padding:10px;
-
   border-radius:11px;
-
   background:#fff4e8;
-
-  border:
-    1px solid
-    #ffd2a8;
-
+  border:1px solid #ffd2a8;
   color:#9a4d10;
-
   font-weight:800;
 }
 
-
 #countdown{
-
   font-size:22px;
-
   margin:2px 0;
 }
 
 
-/* =========================================================
+/* =========================
    SECURITY
-========================================================= */
+========================= */
 
 .security{
-
   margin-top:14px;
-
   padding:12px;
-
   text-align:center;
-
-  border:
-    1px solid
-    #f0d9a5;
-
+  border:1px solid #f0d9a5;
   border-radius:12px;
-
   background:#fff9e8;
-
   color:#80652c;
-
   font-size:14px;
 }
 
 
-/* =========================================================
+/* =========================
    FOOTER
-========================================================= */
+========================= */
 
 .footer{
-
+  flex:0 0 auto;
   text-align:center;
-
-  color:
-    rgba(255,255,255,.92);
-
+  color:rgba(255,255,255,.92);
   font-size:14px;
-
-  padding:
-    12px 8px 2px;
+  padding:12px 8px 10px;
 }
 
 
-/* =========================================================
+/* =========================
    TABLET
-========================================================= */
+========================= */
 
 @media(max-width:820px){
 
   .hero{
-
-    padding:
-      28px
-      18px
-      22px;
+    padding:28px 18px 22px;
   }
 
-
   .hero-grid{
-
-    grid-template-columns:
-      270px
-      minmax(0,1fr);
-
+    grid-template-columns:270px minmax(0,1fr);
     gap:24px;
   }
 
-
   .profile-wrap{
-
     width:235px;
     height:235px;
   }
 
-
   .owner{
-
     font-size:22px;
   }
 
-
   .hero-copy{
-
     padding-left:20px;
   }
 
-
   .hero h1{
-
     font-size:39px;
   }
 
-
   .subtitle{
-
     font-size:15px;
   }
 
-
   .chat-icon{
-
     width:56px;
     height:56px;
-
     font-size:29px;
   }
 
-
   .plane{
-
     font-size:34px;
-
     right:12px;
   }
 
-
   .form-card{
-
-    margin:
-      0 10px;
-
-    padding:
-      25px
-      28px
-      18px;
+    margin:0 10px;
+    padding:25px 28px 18px;
   }
-
 }
 
 
-/* =========================================================
+/* =========================
    MOBILE
-========================================================= */
+========================= */
 
 @media(max-width:600px){
 
   .page{
-
-    padding-bottom:5px;
+    min-height:100vh;
   }
-
-
-  /* -------------------------
-     HERO MOBILE
-  ------------------------- */
 
   .hero{
-
-    padding:
-      24px
-      10px
-      18px;
+    padding:24px 10px 18px;
   }
 
-
   .hero-grid{
-
-    grid-template-columns:
-      42%
-      58%;
-
+    grid-template-columns:42% 58%;
     gap:8px;
-
     align-items:center;
   }
 
-
   .profile-wrap{
-
     width:100%;
-
     max-width:180px;
-
     height:auto;
-
     aspect-ratio:1/1;
-
     padding:5px;
-
     margin-bottom:7px;
   }
 
-
   .profile{
-
     border-width:3px;
   }
 
-
   .verify{
-
     width:42px;
     height:42px;
-
     border-width:3px;
-
     right:-2px;
     bottom:-1px;
   }
 
-
   .verify span{
-
     font-size:25px;
   }
 
-
   .owner{
-
     font-size:14px;
-
     white-space:nowrap;
   }
 
-
   .owner-line{
-
     gap:7px;
-
     margin-top:4px;
   }
 
-
   .owner-line i{
-
     width:30px;
-
     height:1px;
   }
 
-
   .owner-line b{
-
     font-size:14px;
   }
 
 
-  /* -------------------------
-     HERO TEXT MOBILE
-  ------------------------- */
+  /* MOBILE HERO TEXT */
 
   .hero-copy{
-
-    padding:
-      0
-      3px
-      0
-      15px;
-
+    padding:0 3px 0 15px;
     align-items:center;
-
     justify-content:center;
-
     text-align:center;
   }
 
-
   .chat-icon{
-
     width:42px;
     height:42px;
-
     font-size:22px;
-
     margin-bottom:7px;
   }
 
-
   .hero h1{
-
     font-size:25px;
-
     line-height:1.15;
-
     letter-spacing:-.3px;
-
     text-align:center;
-
     width:100%;
   }
 
-
   .hero-divider{
-
-    margin:
-      8px 0
-      6px;
-
+    margin:8px 0 6px;
     gap:6px;
   }
 
-
   .hero-divider i{
-
     width:70px;
-
     max-width:35%;
-
     height:1px;
   }
 
-
   .hero-divider b{
-
     font-size:15px;
   }
 
-
   .subtitle{
-
     font-size:10px;
-
     line-height:1.4;
-
     text-align:center;
   }
 
-
   .plane{
-
     font-size:22px;
-
     right:5px;
-
     top:22px;
   }
 
 
-  /* -------------------------
-     FORM MOBILE
-  ------------------------- */
+  /* MOBILE FORM */
 
   .form-card{
-
-    margin:
-      0 10px;
-
-    padding:
-      18px
-      12px
-      14px;
-
-    border-radius:20px;
+    margin:0 8px;
+    padding:18px 12px 16px;
+    border-radius:20px 20px 0 0;
+    min-height:0;
   }
 
-
   .row{
-
-    grid-template-columns:
-      45px
-      minmax(0,1fr);
-
+    grid-template-columns:45px minmax(0,1fr);
     gap:9px;
-
     margin-bottom:14px;
   }
 
-
   .icon-box{
-
     width:45px;
     height:45px;
-
     border-radius:11px;
-
     font-size:23px;
   }
 
-
   label{
-
     font-size:12px;
-
     margin-bottom:5px;
   }
 
-
-  input,
-  textarea{
-
-    padding:
-      9px
-      10px;
-
+  input,textarea{
+    padding:9px 10px;
     font-size:12px;
-
     border-radius:10px;
   }
 
-
   textarea{
-
     min-height:105px;
   }
 
-
   .file-box{
-
     padding:9px;
-
     border-radius:11px;
   }
 
-
   .file-title{
-
     font-size:11px;
-
     margin-bottom:6px;
   }
 
-
   .file-box input{
-
     padding:6px;
-
     font-size:11px;
-
     border-radius:7px;
   }
 
-
   .hint{
-
     margin-top:5px;
-
     font-size:9px;
   }
-
 
   #fileInfo{
-
     margin-top:5px;
-
     padding:5px 7px;
-
     font-size:9px;
   }
 
-
   .submit{
-
-    padding:
-      11px;
-
+    padding:11px;
     border-radius:11px;
-
     font-size:14px;
   }
 
-
   .status{
-
     min-height:18px;
-
     margin-top:7px;
-
     font-size:11px;
   }
 
-
   .cooldown{
-
     margin-top:7px;
-
     padding:7px;
-
     font-size:10px;
   }
 
-
   #countdown{
-
     font-size:18px;
   }
 
-
   .security{
-
     margin-top:8px;
-
     padding:8px;
-
     border-radius:9px;
-
     font-size:9px;
   }
-
 
   .footer{
-
     font-size:9px;
-
-    padding:
-      8px
-      5px
-      0;
+    padding:8px 5px 8px;
   }
-
 }
 
 
-/* =========================================================
+/* =========================
    VERY SMALL MOBILE
-========================================================= */
+========================= */
 
 @media(max-width:380px){
 
   .hero{
-
-    padding:
-      20px
-      8px
-      15px;
+    padding:20px 8px 15px;
   }
-
 
   .hero-grid{
-
-    grid-template-columns:
-      40%
-      60%;
+    grid-template-columns:40% 60%;
   }
 
-
   .profile-wrap{
-
     max-width:150px;
   }
 
-
   .hero h1{
-
     font-size:22px;
   }
 
-
   .subtitle{
-
     font-size:9px;
   }
 
-
   .form-card{
-
-    margin:
-      0 8px;
-
-    padding:
-      15px
-      10px
-      12px;
+    margin:0 7px;
+    padding:15px 10px 12px;
   }
-
 }
 
 </style>
-
 </head>
 
 
 <body>
 
-
 <div class="page">
 
 
-<!-- =====================================================
+<!-- =========================
      HERO
-===================================================== -->
+========================= -->
 
 <section class="hero">
 
-
-  <div class="plane">
-    ➤
-  </div>
-
+  <div class="plane">➤</div>
 
   <div class="hero-grid">
 
@@ -1486,7 +843,6 @@ textarea{
     <!-- PROFILE -->
 
     <div class="profile-area">
-
 
       <div class="profile-wrap">
 
@@ -1500,14 +856,11 @@ textarea{
           "
         >
 
-
         <div
           class="verify"
           aria-label="Verified"
         >
-
           <span>✓</span>
-
         </div>
 
       </div>
@@ -1519,24 +872,17 @@ textarea{
 
 
       <div class="owner-line">
-
         <i></i>
-
         <b>♥</b>
-
         <i></i>
-
       </div>
 
-
     </div>
-
 
 
     <!-- HERO TEXT -->
 
     <div class="hero-copy">
-
 
       <div class="chat-icon">
         💬
@@ -1544,47 +890,34 @@ textarea{
 
 
       <h1>
-
-        আপনার কথা,<br>
-
-        <span class="yellow">
-          আমার কাছে পৌঁছে দিন।
-        </span>
-
+        আপনার কথা
+        <span>আমার কাছে</span>
+        <span>পৌঁছে দিন</span>
       </h1>
 
 
       <div class="hero-divider">
-
         <i></i>
-
         <b>♥</b>
-
         <i></i>
-
       </div>
 
 
       <p class="subtitle">
-
         বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই।
-
       </p>
-
 
     </div>
 
-
   </div>
-
 
 </section>
 
 
 
-<!-- =====================================================
+<!-- =========================
      FORM
-===================================================== -->
+========================= -->
 
 <form
   id="f"
@@ -1596,24 +929,16 @@ textarea{
 
   <div class="row">
 
-
     <div class="icon-box icon-name">
       👤
     </div>
 
-
     <div>
 
       <label for="name">
-
         আপনার নাম
-
-        <span class="required">
-          *
-        </span>
-
+        <span class="required">*</span>
       </label>
-
 
       <input
         id="name"
@@ -1625,7 +950,6 @@ textarea{
 
     </div>
 
-
   </div>
 
 
@@ -1634,24 +958,16 @@ textarea{
 
   <div class="row">
 
-
     <div class="icon-box icon-contact">
       📞
     </div>
 
-
     <div>
 
       <label for="contact">
-
         যোগাযোগ
-
-        <span class="optional">
-          (ঐচ্ছিক)
-        </span>
-
+        <span class="optional">(ঐচ্ছিক)</span>
       </label>
-
 
       <input
         id="contact"
@@ -1661,7 +977,6 @@ textarea{
 
     </div>
 
-
   </div>
 
 
@@ -1670,24 +985,16 @@ textarea{
 
   <div class="row">
 
-
     <div class="icon-box icon-message">
       💬
     </div>
 
-
     <div>
 
       <label for="message">
-
         আপনার মেসেজ
-
-        <span class="required">
-          *
-        </span>
-
+        <span class="required">*</span>
       </label>
-
 
       <textarea
         id="message"
@@ -1698,7 +1005,6 @@ textarea{
 
     </div>
 
-
   </div>
 
 
@@ -1707,55 +1013,37 @@ textarea{
 
   <div class="row">
 
-
     <div class="icon-box icon-file">
       📎
     </div>
 
-
     <div>
 
       <label for="file">
-
         ফাইল সংযুক্ত করুন
-
-        <span class="optional">
-          (ঐচ্ছিক)
-        </span>
-
+        <span class="optional">(ঐচ্ছিক)</span>
       </label>
-
 
       <div class="file-box">
 
-
         <div class="file-title">
-
           📎 ছবি, PDF বা অন্য ফাইল
-
         </div>
-
 
         <input
           id="file"
           type="file"
         >
 
-
         <div class="hint">
-
           সর্বোচ্চ ২০ MB • একবারে ১টি ফাইল
-
         </div>
 
-
         <div id="fileInfo"></div>
-
 
       </div>
 
     </div>
-
 
   </div>
 
@@ -1768,21 +1056,15 @@ textarea{
     class="submit"
     type="submit"
   >
-
     ➤ &nbsp; মেসেজ পাঠান
-
   </button>
 
-
-
-  <!-- STATUS -->
 
   <div
     id="status"
     class="status"
     aria-live="polite"
   ></div>
-
 
 
   <!-- COOLDOWN -->
@@ -1803,13 +1085,11 @@ textarea{
   </div>
 
 
-
   <!-- SECURITY -->
 
   <div class="security">
 
     🛡️ &nbsp;
-
     আপনার মেসেজ নিরাপদে সংরক্ষিত হবে এবং গোপন রাখা হবে।
 
   </div>
@@ -1819,14 +1099,12 @@ textarea{
 
 
 
-<!-- =====================================================
+<!-- =========================
      FOOTER
-===================================================== -->
+========================= -->
 
 <div class="footer">
-
   🔒 আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ 💗
-
 </div>
 
 
@@ -1834,26 +1112,20 @@ textarea{
 
 
 
-<!-- =====================================================
+<!-- =========================
      JAVASCRIPT
-===================================================== -->
+========================= -->
 
 <script>
 
 "use strict";
 
 
-/* =========================================================
-   GOOGLE APPS SCRIPT API
-========================================================= */
+/* GOOGLE APPS SCRIPT */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbyRrsL9UJQ0IXWjavY7KpE0inoYun44cgyHpPgJlLR6Uduy9Ka2cfNpeMhf9D0Xc40LKg/exec";
 
-
-/* =========================================================
-   SETTINGS
-========================================================= */
 
 const MAX_FILE_SIZE =
 20 * 1024 * 1024;
@@ -1863,33 +1135,23 @@ const COOLDOWN_SECONDS =
 30;
 
 
-/* =========================================================
-   ELEMENTS
-========================================================= */
-
 const form =
 document.getElementById("f");
-
 
 const submitBtn =
 document.getElementById("submitBtn");
 
-
 const statusBox =
 document.getElementById("status");
-
 
 const fileInput =
 document.getElementById("file");
 
-
 const fileInfo =
 document.getElementById("fileInfo");
 
-
 const cooldownBox =
 document.getElementById("cooldownBox");
-
 
 const countdown =
 document.getElementById("countdown");
@@ -1898,19 +1160,12 @@ document.getElementById("countdown");
 let timer = null;
 
 
+/* STATUS */
 
-/* =========================================================
-   STATUS
-========================================================= */
-
-function setStatus(
-  message,
-  type
-){
+function setStatus(message,type){
 
   statusBox.className =
-    "status " +
-    (type || "");
+    "status " + (type || "");
 
   statusBox.textContent =
     message || "";
@@ -1918,17 +1173,11 @@ function setStatus(
 }
 
 
+/* COOLDOWN */
 
-/* =========================================================
-   COOLDOWN
-========================================================= */
-
-function startCooldown(
-  seconds
-){
+function startCooldown(seconds){
 
   clearInterval(timer);
-
 
   let remaining =
     Math.max(
@@ -1937,60 +1186,44 @@ function startCooldown(
       COOLDOWN_SECONDS
     );
 
-
   cooldownBox.style.display =
     "block";
-
 
   countdown.textContent =
     remaining;
 
-
   submitBtn.disabled =
     true;
 
-
   timer =
-    setInterval(
-      function(){
+    setInterval(function(){
 
-        remaining--;
+      remaining--;
 
+      countdown.textContent =
+        Math.max(
+          0,
+          remaining
+        );
 
-        countdown.textContent =
-          Math.max(
-            0,
-            remaining
-          );
+      if(remaining <= 0){
 
+        clearInterval(timer);
 
-        if(
-          remaining <= 0
-        ){
+        cooldownBox.style.display =
+          "none";
 
-          clearInterval(timer);
+        submitBtn.disabled =
+          false;
 
+      }
 
-          cooldownBox.style.display =
-            "none";
-
-
-          submitBtn.disabled =
-            false;
-
-        }
-
-      },
-      1000
-    );
+    },1000);
 
 }
 
 
-
-/* =========================================================
-   FILE CHECK
-========================================================= */
+/* FILE CHECK */
 
 fileInput.addEventListener(
   "change",
@@ -1998,7 +1231,6 @@ fileInput.addEventListener(
 
     const file =
       fileInput.files[0];
-
 
     if(!file){
 
@@ -2009,40 +1241,29 @@ fileInput.addEventListener(
         "";
 
       return;
-
     }
 
-
-    if(
-      file.size >
-      MAX_FILE_SIZE
-    ){
+    if(file.size > MAX_FILE_SIZE){
 
       fileInput.value =
         "";
 
-
       fileInfo.style.display =
         "none";
-
 
       setStatus(
         "ফাইল ২০ MB-এর বেশি হতে পারবে না।",
         "error"
       );
 
-
       return;
-
     }
-
 
     const sizeMB =
       (
         file.size /
         (1024 * 1024)
       ).toFixed(2);
-
 
     fileInfo.textContent =
       "📎 " +
@@ -2051,24 +1272,15 @@ fileInput.addEventListener(
       sizeMB +
       " MB";
 
-
     fileInfo.style.display =
       "block";
 
-
-    setStatus(
-      "",
-      ""
-    );
-
+    setStatus("","");
   }
 );
 
 
-
-/* =========================================================
-   FORM SUBMIT
-========================================================= */
+/* FORM SUBMIT */
 
 form.addEventListener(
   "submit",
@@ -2076,13 +1288,11 @@ form.addEventListener(
 
     event.preventDefault();
 
-
     const name =
       document
       .getElementById("name")
       .value
       .trim();
-
 
     const contact =
       document
@@ -2090,24 +1300,17 @@ form.addEventListener(
       .value
       .trim();
 
-
     const message =
       document
       .getElementById("message")
       .value
       .trim();
 
-
     const file =
       fileInput.files[0];
 
 
-    /* REQUIRED CHECK */
-
-    if(
-      !name ||
-      !message
-    ){
+    if(!name || !message){
 
       setStatus(
         "নাম এবং মেসেজ অবশ্যই দিতে হবে।",
@@ -2115,16 +1318,12 @@ form.addEventListener(
       );
 
       return;
-
     }
 
 
-    /* FILE SIZE CHECK */
-
     if(
       file &&
-      file.size >
-      MAX_FILE_SIZE
+      file.size > MAX_FILE_SIZE
     ){
 
       setStatus(
@@ -2133,61 +1332,45 @@ form.addEventListener(
       );
 
       return;
-
     }
 
 
     submitBtn.disabled =
       true;
 
-
     submitBtn.textContent =
       "পাঠানো হচ্ছে...";
 
-
-    setStatus(
-      "",
-      ""
-    );
+    setStatus("","");
 
 
     try{
-
 
       let attachedFile =
         null;
 
 
-      /* =====================================================
-         FILE → BASE64
-      ===================================================== */
+      /* FILE → BASE64 */
 
       if(file){
 
         attachedFile =
           await new Promise(
-            function(
-              resolve,
-              reject
-            ){
+            function(resolve,reject){
 
               const reader =
                 new FileReader();
-
 
               reader.onload =
                 function(){
 
                   const result =
                     String(
-                      reader.result ||
-                      ""
+                      reader.result || ""
                     );
-
 
                   const parts =
                     result.split(",");
-
 
                   resolve({
 
@@ -2207,31 +1390,22 @@ form.addEventListener(
 
                 };
 
-
               reader.onerror =
                 reject;
 
-
-              reader.readAsDataURL(
-                file
-              );
+              reader.readAsDataURL(file);
 
             }
           );
-
       }
 
 
-
-      /* =====================================================
-         SEND TO GOOGLE APPS SCRIPT
-      ===================================================== */
+      /* SEND */
 
       const response =
         await fetch(
           API_URL,
           {
-
             method:"POST",
 
             headers:{
@@ -2255,7 +1429,6 @@ form.addEventListener(
                   attachedFile
 
               })
-
           }
         );
 
@@ -2264,10 +1437,7 @@ form.addEventListener(
         await response.json();
 
 
-
-      /* =====================================================
-         SERVER COOLDOWN
-      ===================================================== */
+      /* SERVER COOLDOWN */
 
       if(
         result &&
@@ -2280,22 +1450,16 @@ form.addEventListener(
           "error"
         );
 
-
         startCooldown(
           result.remaining ||
           COOLDOWN_SECONDS
         );
 
-
         return;
-
       }
 
 
-
-      /* =====================================================
-         FAILED
-      ===================================================== */
+      /* FAILED */
 
       if(
         !result ||
@@ -2312,27 +1476,20 @@ form.addEventListener(
       }
 
 
-
-      /* =====================================================
-         SUCCESS
-      ===================================================== */
+      /* SUCCESS */
 
       form.reset();
-
 
       fileInfo.style.display =
         "none";
 
-
       fileInfo.textContent =
         "";
-
 
       setStatus(
         "✓ আপনার মেসেজ সফলভাবে পাঠানো হয়েছে।",
         "success"
       );
-
 
       startCooldown(
         COOLDOWN_SECONDS
@@ -2340,55 +1497,23 @@ form.addEventListener(
 
 
     }
-
-
     catch(error){
 
-      console.error(
-        error
-      );
-
+      console.error(error);
 
       setStatus(
         "মেসেজ পাঠানো যায়নি। আবার চেষ্টা করুন।",
         "error"
       );
 
-
       submitBtn.disabled =
         false;
 
     }
-
-
     finally{
 
-      if(
-        cooldownBox.style.display !==
-        "block"
-      ){
-
-        submitBtn.disabled =
-          false;
-
-      }
-
-
-      if(
-        cooldownBox.style.display ===
-        "block"
-      ){
-
-        submitBtn.textContent =
-          "➤  মেসেজ পাঠান";
-
-      }
-      else{
-
-        submitBtn.textContent =
-          "➤  মেসেজ পাঠান";
-
-      }
+      submitBtn.textContent =
+        "➤  মেসেজ পাঠান";
 
     }
 
@@ -2396,7 +1521,6 @@ form.addEventListener(
 );
 
 </script>
-
 
 </body>
 </html>
