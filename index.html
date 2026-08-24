@@ -9,167 +9,154 @@
 <style>
 *{
     box-sizing:border-box;
-    margin:0;
-    padding:0;
 }
 
 html,body{
+    margin:0;
+    padding:0;
     width:100%;
     min-height:100%;
 }
 
 body{
-    font-family:
-        "Noto Sans Bengali",
-        "Noto Sans",
-        Arial,
-        sans-serif;
-
-    background:
-        linear-gradient(
-            135deg,
-            #5520e8 0%,
-            #7929e8 45%,
-            #304eea 100%
-        );
-
-    color:#18204a;
+    font-family:Arial,"Noto Sans Bengali",sans-serif;
+    background:linear-gradient(135deg,#5520e8,#7b25e8 48%,#2855e8);
+    color:#202040;
     overflow-x:hidden;
 }
 
-/* Decorative background */
-body::before,
-body::after{
-    content:"";
+/* Background decoration */
+.bg-circle{
     position:fixed;
     border-radius:50%;
-    pointer-events:none;
-    z-index:0;
-}
-
-body::before{
-    width:190px;
-    height:190px;
-    left:-80px;
-    bottom:-60px;
-    background:rgba(255,255,255,.09);
-}
-
-body::after{
-    width:220px;
-    height:220px;
-    right:-100px;
-    top:130px;
     background:rgba(255,255,255,.08);
+    pointer-events:none;
 }
 
-/* Main wrapper */
-.page{
-    position:relative;
-    z-index:1;
+.bg1{
+    width:240px;
+    height:240px;
+    right:-100px;
+    top:180px;
+}
+
+.bg2{
+    width:180px;
+    height:180px;
+    left:-90px;
+    bottom:-70px;
+}
+
+/* Main */
+.container{
     width:100%;
     max-width:900px;
-    margin:0 auto;
-    padding:24px 14px 12px;
+    margin:auto;
+    padding:18px 12px 8px;
+    position:relative;
+    z-index:2;
 }
 
-/* =========================
-   TOP SECTION
-========================= */
+/* ================= TOP ================= */
 
-.hero{
+.top{
     width:100%;
+    min-height:330px;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:42px;
-    min-height:320px;
-    padding:5px 10px 20px;
+
+    gap:35px;
+    padding:8px 5px 20px;
 }
 
-/* Photo area */
-.profile-area{
-    flex:0 0 300px;
+/* Photo */
+.photo-area{
+    width:320px;
+    flex-shrink:0;
+
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
 }
 
-.profile-photo-wrap{
+.photo-box{
+    width:285px;
+    height:285px;
     position:relative;
-    width:280px;
-    height:280px;
 }
 
-.profile-photo{
+.photo{
     width:100%;
     height:100%;
+
     object-fit:cover;
-    border-radius:50%;
-    border:9px solid rgba(255,255,255,.95);
-    box-shadow:
-        0 0 0 4px rgba(255,220,245,.8),
-        0 12px 35px rgba(25,0,70,.25);
     display:block;
+
+    border-radius:50%;
+
+    border:8px solid white;
+
+    box-shadow:
+        0 0 0 4px rgba(255,210,240,.8),
+        0 10px 30px rgba(20,0,70,.25);
 }
 
-.check{
+.verify{
     position:absolute;
-    right:-5px;
-    bottom:5px;
-
     width:58px;
     height:58px;
 
-    border-radius:50%;
-    background:#fff;
+    right:-5px;
+    bottom:2px;
 
-    border:4px solid #1688e8;
+    background:white;
+    border:4px solid #1889e8;
+    border-radius:50%;
+
+    color:#1889e8;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    color:#147fe0;
-    font-size:35px;
-    font-weight:900;
-
-    box-shadow:0 5px 14px rgba(0,0,0,.18);
+    font-size:34px;
+    font-weight:bold;
 }
 
-.profile-name{
-    margin-top:13px;
+.person-name{
     color:white;
-    font-size:23px;
-    font-weight:800;
+    font-size:22px;
+    font-weight:bold;
+    margin-top:12px;
     text-align:center;
 }
 
-.name-line{
-    margin-top:8px;
+.person-line{
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:13px;
+    gap:12px;
+    margin-top:6px;
 }
 
-.name-line span{
-    display:block;
-    width:58px;
+.person-line i{
+    width:55px;
     height:2px;
     background:rgba(255,255,255,.55);
 }
 
-.name-heart{
-    color:#ff9fcf;
-    font-size:21px;
+.heart{
+    color:#ff9dcc;
+    font-style:normal;
+    font-size:20px;
 }
 
-/* Text area */
+/* Hero text */
 .hero-text{
     flex:1;
-    min-width:0;
 
     display:flex;
     flex-direction:column;
@@ -179,163 +166,152 @@ body::after{
     text-align:center;
 }
 
-.message-icon{
+.chat-icon{
     width:58px;
     height:58px;
+
     border:3px solid white;
     border-radius:50%;
-
-    background:rgba(255,255,255,.12);
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:31px;
-    margin-bottom:18px;
+    background:rgba(255,255,255,.12);
 
-    box-shadow:0 5px 15px rgba(0,0,0,.12);
+    font-size:31px;
+    margin-bottom:15px;
 }
 
 .hero-title{
-    color:#fff;
+    margin:0;
 
-    font-size:44px;
-    line-height:1.16;
+    color:#00a8ff;
+
+    font-size:43px;
+    line-height:1.17;
 
     font-weight:900;
 
     text-align:center;
 
     text-shadow:
-        0 3px 8px rgba(0,0,0,.20);
-
-    margin:0;
+        0 2px 3px rgba(0,0,0,.25);
 }
 
-.hero-subtitle{
-    margin-top:18px;
+.hero-lines{
+    width:100%;
+    margin-top:15px;
 
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:13px;
-
-    width:100%;
+    gap:12px;
 }
 
-.hero-subtitle::before,
-.hero-subtitle::after{
-    content:"";
+.hero-lines span{
     width:70px;
     height:2px;
-    background:rgba(255,255,255,.65);
-}
-
-.hero-heart{
-    color:#ff9bc9;
-    font-size:22px;
+    background:rgba(255,255,255,.7);
 }
 
 .hero-small{
-    margin-top:12px;
-    color:rgba(255,255,255,.88);
-    font-size:15px;
+    margin-top:10px;
+
+    color:white;
+
+    font-size:14px;
     text-align:center;
 }
 
-/* =========================
-   FORM CARD
-========================= */
+/* ================= FORM ================= */
 
-.form-card{
+.card{
     width:100%;
+
     background:#fff;
+
     border-radius:24px;
 
-    padding:25px 25px 18px;
+    padding:22px 20px 14px;
 
     box-shadow:
-        0 18px 45px rgba(25,0,80,.22);
-
-    margin-top:5px;
+        0 15px 40px rgba(20,0,80,.25);
 }
 
-/* Form rows */
-.form-row{
+/* Row */
+.row{
     display:grid;
-    grid-template-columns:68px 1fr;
-    gap:14px;
 
-    margin-bottom:15px;
+    grid-template-columns:58px 1fr;
+
+    gap:12px;
+
+    margin-bottom:14px;
 }
 
-.form-icon{
-    width:58px;
-    height:58px;
+.icon{
+    width:55px;
+    height:55px;
 
-    border-radius:15px;
+    border-radius:14px;
+
+    background:#eee7ff;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:31px;
+    font-size:29px;
 
-    background:#eee7ff;
     border:1px solid #ddd1ff;
 }
 
-.form-content{
+.content{
     width:100%;
 }
 
 label{
     display:block;
-    margin-bottom:7px;
 
-    font-size:17px;
-    font-weight:800;
+    color:#242445;
 
-    color:#25284e;
+    font-size:16px;
+    font-weight:bold;
+
+    margin-bottom:6px;
 }
 
 .required{
-    color:#e63755;
+    color:#e5324e;
 }
 
 .optional{
-    font-size:13px;
     color:#888;
-    font-weight:500;
+    font-size:12px;
+    font-weight:normal;
 }
 
+/* Inputs */
 input[type="text"],
-input[type="tel"],
-input[type="email"],
 textarea{
     width:100%;
 
-    border:1.5px solid #d7cbea;
-    border-radius:13px;
+    border:1.5px solid #d8cde8;
+
+    border-radius:12px;
+
+    padding:12px 14px;
+
+    font-family:inherit;
+    font-size:15px;
 
     background:#fbf8ff;
 
-    color:#222;
-
-    font-family:inherit;
-    font-size:16px;
-
-    padding:13px 15px;
-
     outline:none;
-
-    transition:.2s;
 }
 
 input[type="text"]:focus,
-input[type="tel"]:focus,
-input[type="email"]:focus,
 textarea:focus{
     border-color:#7134e8;
 
@@ -343,292 +319,799 @@ textarea:focus{
         0 0 0 3px rgba(113,52,232,.10);
 }
 
-.contact-input{
-    background:#eff9ff !important;
-    border-color:#afd7ed !important;
+.contact{
+    background:#eef8ff !important;
+    border-color:#afd6eb !important;
 }
 
 textarea{
-    height:155px;
-    min-height:155px;
+    height:180px;
     resize:vertical;
 }
 
-/* =========================
-   FILE UPLOAD
-========================= */
-
+/* File */
 .file-box{
-    border:2px dashed #6bc8bb;
-    border-radius:15px;
+    padding:10px;
+
+    border:2px dashed #62c3b5;
+
+    border-radius:14px;
 
     background:#effcf9;
-
-    padding:12px;
 }
 
 .file-title{
-    color:#168879;
-    font-size:15px;
-    font-weight:800;
-    margin-bottom:8px;
+    color:#168878;
+    font-weight:bold;
+    font-size:14px;
+    margin-bottom:7px;
 }
 
 input[type="file"]{
     width:100%;
-    padding:8px;
-
-    border:1px solid #d6d6d6;
-    border-radius:10px;
 
     background:white;
 
-    font-size:14px;
+    border:1px solid #ddd;
+
+    border-radius:9px;
+
+    padding:7px;
+
+    font-size:13px;
 }
 
-.file-info{
-    margin-top:7px;
-    color:#6b918d;
-    font-size:11px;
+.file-note{
+    color:#6d918c;
+
+    font-size:10px;
+
+    margin-top:6px;
 }
 
-.file-selected{
-    margin-top:7px;
-    padding:6px 8px;
-
-    border-radius:8px;
-
-    background:#d9f5ee;
-
-    color:#397d72;
-
-    font-size:11px;
-
-    display:none;
-}
-
-/* =========================
-   SEND BUTTON
-========================= */
-
-.send-button{
+/* Button */
+.send{
     width:100%;
 
     border:0;
-    border-radius:13px;
+
+    border-radius:12px;
 
     padding:13px;
 
     background:
         linear-gradient(
             90deg,
-            #4920e8,
-            #8c22e8,
+            #4b20e8,
+            #8d21e8,
             #ec008c
         );
 
     color:white;
 
     font-family:inherit;
-    font-size:18px;
-    font-weight:900;
+
+    font-size:17px;
+    font-weight:bold;
 
     cursor:pointer;
 
     box-shadow:
-        0 8px 20px rgba(114,30,220,.25);
-
-    transition:.2s;
-
-    margin-top:2px;
+        0 8px 20px rgba(100,20,220,.25);
 }
 
-.send-button:hover{
-    transform:translateY(-1px);
-}
-
-.send-button:active{
-    transform:scale(.99);
-}
-
-.send-button:disabled{
-    opacity:.65;
-    cursor:not-allowed;
+.send:disabled{
+    opacity:.6;
 }
 
 /* Status */
 .status{
-    margin-top:10px;
-    min-height:0;
-
     text-align:center;
 
-    font-size:14px;
-    font-weight:700;
+    min-height:18px;
+
+    margin-top:8px;
+
+    font-size:13px;
+    font-weight:bold;
 }
 
 .success{
-    color:#168a61;
+    color:#13865d;
 }
 
 .error{
-    color:#d92d45;
+    color:#d52f47;
 }
 
 /* Privacy */
 .privacy{
-    margin-top:12px;
+    margin-top:8px;
 
-    padding:10px;
+    padding:9px;
 
-    border-radius:11px;
+    border-radius:10px;
 
     background:#fff9e7;
-    border:1px solid #f0dfae;
 
-    text-align:center;
+    border:1px solid #f0dfae;
 
     color:#81754c;
 
-    font-size:11px;
+    text-align:center;
+
+    font-size:10px;
 }
 
 /* Footer */
 .footer{
     text-align:center;
 
-    color:rgba(255,255,255,.90);
+    color:white;
 
-    font-size:12px;
+    font-size:10px;
 
-    padding:9px 0 0;
+    padding-top:7px;
 }
 
-/* =========================
-   TABLET
-========================= */
+/* ================= MOBILE ================= */
 
-@media(max-width:760px){
+@media(max-width:650px){
 
-    .page{
-        padding:18px 10px 8px;
+    .container{
+        padding:10px 8px 5px;
     }
 
-    .hero{
-        gap:25px;
-        min-height:265px;
+    .top{
+        min-height:255px;
+
+        gap:12px;
+
+        padding-bottom:12px;
     }
 
-    .profile-area{
-        flex-basis:235px;
+    .photo-area{
+        width:48%;
     }
 
-    .profile-photo-wrap{
-        width:220px;
-        height:220px;
-    }
-
-    .profile-name{
-        font-size:18px;
-    }
-
-    .check{
-        width:48px;
-        height:48px;
-        font-size:28px;
-    }
-
-    .hero-title{
-        font-size:34px;
-    }
-
-    .hero-small{
-        font-size:12px;
-    }
-
-    .form-card{
-        padding:20px 18px 15px;
-    }
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:600px){
-
-    .page{
-        padding:12px 8px 6px;
-    }
-
-    .hero{
-        display:flex;
-        align-items:center;
-        gap:13px;
-
-        min-height:260px;
-
-        padding:5px 2px 14px;
-    }
-
-    .profile-area{
-        flex:0 0 48%;
-    }
-
-    .profile-photo-wrap{
+    .photo-box{
         width:min(210px,43vw);
         height:min(210px,43vw);
     }
 
-    .profile-photo{
-        border-width:7px;
+    .photo{
+        border-width:6px;
     }
 
-    .check{
-        width:43px;
-        height:43px;
-        right:-2px;
-        bottom:2px;
+    .verify{
+        width:44px;
+        height:44px;
 
         font-size:25px;
+
         border-width:3px;
     }
 
-    .profile-name{
-        margin-top:8px;
+    .person-name{
         font-size:15px;
+        margin-top:7px;
     }
 
-    .name-line{
-        margin-top:4px;
+    .person-line{
         gap:7px;
+        margin-top:3px;
     }
 
-    .name-line span{
+    .person-line i{
         width:38px;
     }
 
-    .name-heart{
-        font-size:16px;
+    .heart{
+        font-size:15px;
     }
 
-    .hero-text{
-        flex:1;
-    }
-
-    .message-icon{
+    .chat-icon{
         width:47px;
         height:47px;
+
         font-size:24px;
-        margin-bottom:10px;
+
         border-width:2px;
+
+        margin-bottom:10px;
     }
 
     .hero-title{
-        font-size:28px;
-        line-height:1.18;
+        font-size:27px;
     }
 
-    .hero-subtitle{
-        margin-top:10px;
-       
+    .hero-lines{
+        margin-top:9px;
+        gap:7px;
+    }
+
+    .hero-lines span{
+        width:38px;
+    }
+
+    .hero-small{
+        font-size:9px;
+        margin-top:7px;
+    }
+
+    .card{
+        border-radius:20px;
+        padding:15px 11px 11px;
+    }
+
+    .row{
+        grid-template-columns:47px 1fr;
+        gap:8px;
+
+        margin-bottom:11px;
+    }
+
+    .icon{
+        width:46px;
+        height:46px;
+
+        font-size:24px;
+
+        border-radius:12px;
+    }
+
+    label{
+        font-size:13px;
+        margin-bottom:5px;
+    }
+
+    input[type="text"],
+    textarea{
+        font-size:14px;
+        padding:10px 11px;
+    }
+
+    textarea{
+        height:165px;
+    }
+
+    .file-box{
+        padding:8px;
+    }
+
+    .file-title{
+        font-size:12px;
+    }
+
+    input[type="file"]{
+        font-size:11px;
+    }
+
+    .send{
+        padding:11px;
+        font-size:15px;
+    }
+
+    .privacy{
+        font-size:9px;
+    }
+}
+
+/* Extra small */
+@media(max-width:390px){
+
+    .top{
+        min-height:230px;
+        gap:7px;
+    }
+
+    .photo-box{
+        width:145px;
+        height:145px;
+    }
+
+    .hero-title{
+        font-size:23px;
+    }
+
+    .chat-icon{
+        width:40px;
+        height:40px;
+        font-size:20px;
+    }
+
+    textarea{
+        height:145px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="bg-circle bg1"></div>
+<div class="bg-circle bg2"></div>
+
+
+<div class="container">
+
+    <!-- ===== TOP ===== -->
+
+    <section class="top">
+
+        <!-- PHOTO -->
+
+        <div class="photo-area">
+
+            <div class="photo-box">
+
+                <img
+                    src="1000.jpg"
+                    class="photo"
+                    alt="আশিকুর রহমান"
+                >
+
+                <div class="verify">
+                    ✓
+                </div>
+
+            </div>
+
+            <div class="person-name">
+                আশিকুর রহমান
+            </div>
+
+            <div class="person-line">
+                <i></i>
+                <em class="heart">♥</em>
+                <i></i>
+            </div>
+
+        </div>
+
+
+        <!-- TEXT -->
+
+        <div class="hero-text">
+
+            <div class="chat-icon">
+                💬
+            </div>
+
+            <h1 class="hero-title">
+                আপনার কথা<br>
+                আমার কাছে<br>
+                পৌঁছে দিন
+            </h1>
+
+            <div class="hero-lines">
+                <span></span>
+                <em class="heart">♥</em>
+                <span></span>
+            </div>
+
+            <div class="hero-small">
+                বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই!
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===== FORM ===== -->
+
+    <form
+        id="messageForm"
+        class="card"
+    >
+
+        <!-- NAME -->
+
+        <div class="row">
+
+            <div class="icon">
+                👤
+            </div>
+
+            <div class="content">
+
+                <label>
+                    আপনার নাম
+                    <span class="required">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="আপনার নাম লিখুন"
+                    required
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <div class="row">
+
+            <div
+                class="icon"
+                style="background:#e7f4ff;border-color:#d0e9fa;"
+            >
+                📞
+            </div>
+
+            <div class="content">
+
+                <label>
+                    যোগাযোগ
+                    <span class="optional">(ঐচ্ছিক)</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="contact"
+                    class="contact"
+                    placeholder="নাম্বার, ই-মেইল অথবা লিংক"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div class="row">
+
+            <div class="icon">
+                💬
+            </div>
+
+            <div class="content">
+
+                <label>
+                    আপনার মেসেজ
+                    <span class="required">*</span>
+                </label>
+
+                <textarea
+                    id="message"
+                    placeholder="আপনার কথা এখানে লিখুন..."
+                    required
+                ></textarea>
+
+            </div>
+
+        </div>
+
+
+        <!-- FILE -->
+
+        <div class="row">
+
+            <div
+                class="icon"
+                style="background:#e5fbf6;border-color:#c7eee7;"
+            >
+                📎
+            </div>
+
+            <div class="content">
+
+                <label>
+                    ফাইল সংযুক্ত করুন
+                    <span class="optional">(ঐচ্ছিক)</span>
+                </label>
+
+                <div class="file-box">
+
+                    <div class="file-title">
+                        📎 ছবি, PDF বা অন্য ফাইল
+                    </div>
+
+                    <input
+                        type="file"
+                        id="file"
+                    >
+
+                    <div class="file-note">
+                        সর্বোচ্চ ২০ MB • একবারে ১টি ফাইল
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SEND -->
+
+        <button
+            type="submit"
+            class="send"
+            id="sendButton"
+        >
+            ➤ মেসেজ পাঠান
+        </button>
+
+
+        <div
+            id="status"
+            class="status"
+        ></div>
+
+
+        <div class="privacy">
+            🛡️ আপনার মেসেজ নিরাপদে সংরক্ষিত হবে এবং গোপন রাখা হবে।
+        </div>
+
+    </form>
+
+
+    <div class="footer">
+        🔒 আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ ❤️
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================
+   GOOGLE APPS SCRIPT URL
+===================================== */
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbyRrsL9UJQ0IXWjavY7KpE0inoYun44cgyHpPgJlLR6Uduy9Ka2cfNpeMhf9D0Xc40LKg/exec";
+
+
+/* =====================================
+   FILE → BASE64
+===================================== */
+
+function convertFile(file){
+
+    return new Promise(function(resolve,reject){
+
+        const reader =
+            new FileReader();
+
+        reader.onload = function(){
+
+            const result =
+                reader.result;
+
+            const base64 =
+                result.split(",")[1];
+
+            resolve(base64);
+        };
+
+        reader.onerror =
+            function(){
+
+                reject(
+                    new Error(
+                        "ফাইল পড়া যায়নি"
+                    )
+                );
+
+            };
+
+        reader.readAsDataURL(file);
+    });
+}
+
+
+/* =====================================
+   FORM
+===================================== */
+
+document
+.getElementById("messageForm")
+.addEventListener(
+"submit",
+async function(e){
+
+    e.preventDefault();
+
+
+    const name =
+        document
+        .getElementById("name")
+        .value
+        .trim();
+
+    const contact =
+        document
+        .getElementById("contact")
+        .value
+        .trim();
+
+    const message =
+        document
+        .getElementById("message")
+        .value
+        .trim();
+
+    const file =
+        document
+        .getElementById("file")
+        .files[0];
+
+
+    if(!name){
+
+        alert(
+            "আপনার নাম লিখুন।"
+        );
+
+        return;
+    }
+
+
+    if(!message){
+
+        alert(
+            "আপনার মেসেজ লিখুন।"
+        );
+
+        return;
+    }
+
+
+    /* 20 MB limit */
+
+    if(file){
+
+        if(
+            file.size >
+            20 * 1024 * 1024
+        ){
+
+            alert(
+                "ফাইলের আকার ২০ MB-এর বেশি হতে পারবে না।"
+            );
+
+            return;
+        }
+    }
+
+
+    const button =
+        document
+        .getElementById("sendButton");
+
+    const status =
+        document
+        .getElementById("status");
+
+
+    button.disabled = true;
+
+    button.textContent =
+        "⏳ পাঠানো হচ্ছে...";
+
+    status.className =
+        "status";
+
+    status.textContent =
+        "";
+
+
+    try{
+
+        let fileData = "";
+        let fileName = "";
+        let fileType = "";
+
+
+        if(file){
+
+            fileData =
+                await convertFile(file);
+
+            fileName =
+                file.name;
+
+            fileType =
+                file.type;
+        }
+
+
+        const data = {
+
+            name:name,
+
+            contact:contact,
+
+            message:message,
+
+            fileName:fileName,
+
+            fileType:fileType,
+
+            fileData:fileData
+
+        };
+
+
+        const response =
+            await fetch(
+                SCRIPT_URL,
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                        "text/plain;charset=utf-8"
+                    },
+
+                    body:
+                    JSON.stringify(data)
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if(
+            result &&
+            result.success
+        ){
+
+            status.className =
+                "status success";
+
+            status.textContent =
+                "✓ আপনার মেসেজ সফলভাবে পাঠানো হয়েছে।";
+
+
+            document
+            .getElementById("messageForm")
+            .reset();
+
+
+        }else{
+
+            throw new Error(
+                result.message ||
+                "মেসেজ পাঠানো যায়নি।"
+            );
+
+        }
+
+
+    }catch(error){
+
+        console.error(error);
+
+        status.className =
+            "status error";
+
+        status.textContent =
+            "✕ মেসেজ পাঠানো যায়নি। আবার চেষ্টা করুন।";
+
+    }
+
+
+    button.disabled =
+        false;
+
+    button.textContent =
+        "➤ মেসেজ পাঠান";
+
+});
+
+</script>
+
+</body>
+</html>
