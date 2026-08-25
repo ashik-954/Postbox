@@ -2,356 +2,224 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>আমাকে একটি মেসেজ পাঠান</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>মেসেজ</title>
 
 <style>
 *{
   box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html,body{
-  width:100%;
-  min-height:100%;
 }
 
 body{
-  font-family:
-    "Noto Sans Bengali",
-    "Nirmala UI",
-    Arial,
-    sans-serif;
-  background:
-    radial-gradient(circle at 85% 10%,rgba(255,255,255,.12),transparent 25%),
-    linear-gradient(145deg,#6417e8 0%,#7424e9 45%,#234fe8 100%);
-  color:#17204a;
-  overflow-x:hidden;
-  padding:10px 10px 14px;
+  margin:0;
+  min-height:100vh;
+  padding:15px;
+  font-family:Arial,sans-serif;
+
+  background:linear-gradient(
+    135deg,
+    #6417e8,
+    #7424e9,
+    #234fe8
+  );
 }
 
-/* Background decoration */
-body::before,
-body::after{
-  content:"";
-  position:fixed;
-  border-radius:50%;
-  background:rgba(255,255,255,.08);
-  pointer-events:none;
-  z-index:0;
+.container{
+  max-width:650px;
+  margin:auto;
 }
 
-body::before{
-  width:190px;
-  height:190px;
-  right:-90px;
-  top:170px;
-}
-
-body::after{
-  width:150px;
-  height:150px;
-  left:-70px;
-  bottom:-55px;
-}
-
-/* Main */
-.page{
-  width:100%;
-  max-width:690px;
-  margin:0 auto;
-  position:relative;
-  z-index:1;
-}
-
-/* HEADER */
 .header{
-  display:grid;
-  grid-template-columns:42% 58%;
-  align-items:center;
-  min-height:265px;
-  padding:4px 4px 12px;
-}
-
-/* Profile */
-.profile-area{
   display:flex;
-  flex-direction:column;
   align-items:center;
   justify-content:center;
+  gap:25px;
+  padding:15px 5px 20px;
 }
 
-.photo-wrap{
+.photo-area{
   position:relative;
-  width:142px;
-  height:142px;
+  flex-shrink:0;
 }
 
-.profile-photo{
-  width:100%;
-  height:100%;
-  display:block;
+.profile{
+  width:125px;
+  height:125px;
+
   object-fit:cover;
   object-position:50% 40%;
+
   border-radius:50%;
 
-  /* Attractive blue-purple theme border */
   border:6px solid transparent;
-  background:
-    linear-gradient(#fff,#fff) padding-box,
-    linear-gradient(135deg,#18bfff,#7547ff,#d946ef) border-box;
 
-  box-shadow:
-    0 0 0 3px rgba(255,255,255,.75),
-    0 8px 20px rgba(25,0,90,.35);
+  background:
+    linear-gradient(white,white) padding-box,
+    linear-gradient(
+      135deg,
+      #19cfff,
+      #7047ff,
+      #d946ef
+    ) border-box;
+
+  display:block;
 }
 
-/* Verification circle */
 .verify{
   position:absolute;
-  width:48px;
-  height:48px;
-  right:-5px;
-  bottom:-3px;
+  right:-4px;
+  bottom:-2px;
+
+  width:42px;
+  height:42px;
 
   border-radius:50%;
 
-  /* Same blue-purple theme */
   border:5px solid #102b73;
-  background:
-    linear-gradient(145deg,#ffffff,#eef7ff);
+
+  background:white;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  box-shadow:
-    0 0 0 2px rgba(255,255,255,.95),
-    0 5px 12px rgba(0,0,0,.25);
+  color:#168be8;
+  font-size:25px;
+  font-weight:bold;
 }
 
-.verify span{
-  color:#148be8;
-  font-size:29px;
-  font-weight:900;
-  line-height:1;
-  transform:translateY(-1px);
-}
-
-.profile-name{
-  margin-top:10px;
-  color:#fff;
-  font-size:19px;
-  font-weight:800;
-  text-align:center;
-  text-shadow:0 2px 4px rgba(0,0,0,.25);
-}
-
-/* Right heading */
 .hero{
+  text-align:center;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  text-align:center;
-  padding:0 3px;
 }
 
-/* Message icon */
-.hero-icon{
-  width:52px;
-  height:52px;
+.icon{
+  width:45px;
+  height:45px;
+
   border-radius:50%;
+
+  border:3px solid white;
+
   display:flex;
   align-items:center;
   justify-content:center;
 
-  border:3px solid #fff;
-  background:rgba(255,255,255,.08);
+  font-size:23px;
 
-  margin-bottom:10px;
-
-  box-shadow:
-    0 0 0 2px rgba(255,255,255,.12),
-    0 5px 14px rgba(0,0,0,.18);
+  margin-bottom:8px;
 }
 
-.hero-icon span{
-  font-size:27px;
-  line-height:1;
-}
-
-/* Title */
-.hero-title{
-  width:100%;
+.title{
+  color:white;
+  font-size:26px;
+  font-weight:bold;
+  line-height:1.2;
   text-align:center;
-  font-weight:900;
-  line-height:1.08;
-  letter-spacing:-.4px;
-
-  /* Same center alignment for all three items */
-  display:flex;
-  flex-direction:column;
-  align-items:center;
 }
 
-.hero-title .line1,
-.hero-title .line2{
+.title span{
   display:block;
-  width:100%;
+}
+
+.title span:last-child{
+  color:#fff044;
+}
+
+.name{
+  color:white;
   text-align:center;
+  font-size:16px;
+  font-weight:bold;
+  margin-top:8px;
 }
 
-.hero-title .line1{
-  color:#fff;
-  font-size:31px;
-}
-
-.hero-title .line2{
-  color:#fff04a;
-  font-size:31px;
-}
-
-.hero-decoration{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  width:100%;
-  margin-top:12px;
-}
-
-.hero-decoration .line{
-  width:72px;
-  height:2px;
-  background:rgba(255,255,255,.9);
-}
-
-.hero-decoration .heart{
-  color:#ff8db7;
-  font-size:20px;
-  line-height:1;
-}
-
-.hero-note{
-  color:rgba(255,255,255,.95);
-  font-size:12px;
-  margin-top:7px;
+.test{
+  background:white;
+  border-radius:20px;
+  padding:20px;
   text-align:center;
+  font-size:18px;
+  color:#222;
 }
 
-/* FORM CARD */
-.card{
-  width:100%;
-  background:rgba(255,255,255,.98);
-  border-radius:22px;
-  padding:20px 18px 14px;
+@media(max-width:500px){
 
-  box-shadow:
-    0 12px 35px rgba(28,0,90,.25);
+  .header{
+    gap:12px;
+  }
 
-  border:1px solid rgba(255,255,255,.8);
+  .profile{
+    width:110px;
+    height:110px;
+  }
+
+  .verify{
+    width:38px;
+    height:38px;
+    font-size:22px;
+  }
+
+  .title{
+    font-size:21px;
+  }
+
+  .icon{
+    width:40px;
+    height:40px;
+    font-size:20px;
+  }
+
 }
+</style>
+</head>
 
-/* Form rows */
-.field{
-  display:grid;
-  grid-template-columns:72px 1fr;
-  gap:12px;
-  margin-bottom:13px;
-}
+<body>
 
-.field-icon{
-  width:60px;
-  height:60px;
-  border-radius:16px;
+<div class="container">
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  <div class="header">
 
-  font-size:30px;
+    <div class="photo-area">
 
-  background:linear-gradient(145deg,#f0e7ff,#e4f2ff);
-  border:1px solid rgba(105,62,220,.12);
-}
+      <img
+        class="profile"
+        src="1000.png"
+        alt="আশিকুর রহমান"
+      >
 
-.field-content{
-  min-width:0;
-}
+      <div class="verify">✓</div>
 
-label{
-  display:block;
-  font-size:16px;
-  font-weight:800;
-  color:#18214e;
-  margin-bottom:6px;
-}
+      <div class="name">
+        আশিকুর রহমান
+      </div>
 
-.required{
-  color:#e92f5f;
-}
+    </div>
 
-.optional{
-  color:#888;
-  font-size:13px;
-  font-weight:500;
-}
+    <div class="hero">
 
-input[type="text"],
-textarea{
-  width:100%;
-  border:2px solid #d9c9ed;
-  background:#fbf8ff;
-  color:#25254b;
-  border-radius:14px;
-  outline:none;
+      <div class="icon">
+        💬
+      </div>
 
-  font-family:inherit;
-  font-size:16px;
+      <div class="title">
+        <span>আপনার কথা</span>
+        <span>আমার কাছে পৌঁছে দিন</span>
+      </div>
 
-  padding:12px 14px;
+    </div>
 
-  transition:.2s;
-}
+  </div>
 
-input[type="text"]{
-  height:48px;
-}
+  <div class="test">
+    আপনার কথা এখানে লিখুন
+  </div>
 
-input[type="text"]:focus,
-textarea:focus{
-  border-color:#6335ed;
-  box-shadow:0 0 0 3px rgba(99,53,237,.10);
-}
+</div>
 
-.phone input{
-  background:#eef8ff;
-  border-color:#b8d8ee;
-}
-
-textarea{
-  height:205px;
-  resize:none;
-  line-height:1.5;
-}
-
-/* File */
-.file-field{
-  display:grid;
-  grid-template-columns:72px 1fr;
-  gap:12px;
-  margin-top:2px;
-}
-
-.file-box{
-  border:2px dashed #5dbfb1;
-  background:#effcf9;
-  border-radius:15px;
-  padding:10px 11px;
-}
-
-.file-title{
-  color:#258d82;
-  font-size:16
+</body>
+</html>
