@@ -230,3 +230,720 @@ body::after{
     color:#ffffff;
     font-size:13px;
     line-height:1.5;
+    margin-top:7px;
+}
+
+/* ---------- Form Card ---------- */
+
+.form-card{
+    width:100%;
+
+    background:#ffffff;
+
+    border-radius:25px;
+
+    padding:24px 22px 18px;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.20);
+}
+
+/* ---------- Form Row ---------- */
+
+.form-row{
+    display:grid;
+    grid-template-columns:72px 1fr;
+    gap:14px;
+
+    margin-bottom:16px;
+}
+
+/* ---------- Icons ---------- */
+
+.form-icon{
+    width:62px;
+    height:62px;
+
+    border-radius:16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:34px;
+
+    background:#eee5ff;
+
+    border:1px solid rgba(100,40,230,.08);
+}
+
+/* Different icon backgrounds */
+
+.form-row:nth-child(2) .form-icon{
+    background:#e4f3ff;
+}
+
+.form-row:nth-child(3) .form-icon{
+    background:#eee5ff;
+}
+
+.file-row .form-icon{
+    background:#dff9f3;
+}
+
+/* ---------- Labels ---------- */
+
+.field-label{
+    display:block;
+
+    font-size:17px;
+    font-weight:800;
+
+    color:#17203a;
+
+    margin-bottom:7px;
+}
+
+.required{
+    color:#e53962;
+}
+
+.optional{
+    color:#888;
+    font-size:14px;
+    font-weight:500;
+}
+
+/* ---------- Inputs ---------- */
+
+.input,
+.message-box{
+    width:100%;
+
+    border:2px solid #ddd1e9;
+
+    border-radius:15px;
+
+    background:#fbf9fd;
+
+    color:#222;
+
+    font-family:inherit;
+
+    outline:none;
+
+    transition:.2s;
+}
+
+.input{
+    height:52px;
+    padding:0 15px;
+    font-size:16px;
+}
+
+.input:focus,
+.message-box:focus{
+    border-color:#6d24e9;
+    box-shadow:
+        0 0 0 3px rgba(109,36,233,.10);
+}
+
+/* Contact field */
+
+.contact-input{
+    background:#eef8ff;
+    border-color:#c5dfef;
+}
+
+/* ---------- Message Box ---------- */
+
+/*
+   এখানে height ইচ্ছাকৃতভাবে ছোট রাখা হয়েছে
+*/
+
+.message-box{
+    height:125px;
+
+    min-height:125px;
+    max-height:180px;
+
+    resize:vertical;
+
+    padding:13px 15px;
+
+    font-size:16px;
+
+    line-height:1.55;
+}
+
+/* ---------- File Section ---------- */
+
+.file-box{
+    width:100%;
+
+    border:2px dashed #62c3b5;
+
+    border-radius:15px;
+
+    background:#effcf9;
+
+    padding:13px;
+}
+
+.file-title{
+    color:#248f82;
+
+    font-size:17px;
+
+    font-weight:800;
+
+    margin-bottom:9px;
+}
+
+.file-input{
+    width:100%;
+
+    background:#ffffff;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    padding:7px;
+
+    font-size:14px;
+}
+
+.file-info{
+    color:#6d9c96;
+
+    font-size:12px;
+
+    margin-top:7px;
+}
+
+/* ---------- Submit Button ---------- */
+
+.submit-btn{
+    width:100%;
+
+    height:57px;
+
+    border:none;
+
+    border-radius:14px;
+
+    margin-top:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4520e8,
+            #7b21e8,
+            #ef00a8
+        );
+
+    color:#ffffff;
+
+    font-family:inherit;
+
+    font-size:19px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 7px 15px rgba(93,30,225,.28);
+
+    transition:.2s;
+}
+
+.submit-btn:active{
+    transform:scale(.98);
+}
+
+.submit-btn:hover{
+    filter:brightness(1.06);
+}
+
+.send-arrow{
+    font-size:25px;
+    vertical-align:-2px;
+    margin-right:7px;
+}
+
+/* ---------- Security Note ---------- */
+
+.security{
+    margin-top:14px;
+
+    padding:10px 12px;
+
+    border-radius:12px;
+
+    background:#fff9e7;
+
+    border:1px solid #f0dfad;
+
+    text-align:center;
+
+    color:#8c8064;
+
+    font-size:12px;
+
+    line-height:1.5;
+}
+
+/* ---------- Footer ---------- */
+
+.footer{
+    text-align:center;
+
+    color:#ffffff;
+
+    font-size:11px;
+
+    padding:9px 0 2px;
+
+    opacity:.95;
+}
+
+/* ---------- Mobile ---------- */
+
+@media(max-width:650px){
+
+    .page{
+        padding:10px 10px 8px;
+    }
+
+    .header{
+        gap:14px;
+        padding-top:2px;
+        padding-bottom:16px;
+    }
+
+    .profile-area{
+        width:45%;
+    }
+
+    .profile-wrap{
+        width:145px;
+        height:145px;
+    }
+
+    .profile-image{
+        border-width:6px;
+    }
+
+    .profile-name{
+        font-size:17px;
+    }
+
+    .message-head{
+        width:55%;
+    }
+
+    .message-icon{
+        width:57px;
+        height:57px;
+        margin-bottom:8px;
+    }
+
+    .message-icon span{
+        font-size:33px;
+    }
+
+    .main-title{
+        font-size:29px;
+        line-height:1.18;
+    }
+
+    .title-decoration{
+        margin-top:8px;
+    }
+
+    .title-line{
+        width:48px;
+    }
+
+    .header-note{
+        font-size:11px;
+    }
+
+    .form-card{
+        padding:20px 14px 15px;
+        border-radius:22px;
+    }
+
+    .form-row{
+        grid-template-columns:55px 1fr;
+        gap:10px;
+        margin-bottom:14px;
+    }
+
+    .form-icon{
+        width:55px;
+        height:55px;
+        border-radius:14px;
+        font-size:29px;
+    }
+
+    .field-label{
+        font-size:16px;
+    }
+
+    .input{
+        height:49px;
+        font-size:15px;
+    }
+
+    .message-box{
+        height:115px;
+        min-height:115px;
+        font-size:15px;
+    }
+
+    .file-title{
+        font-size:15px;
+    }
+
+    .submit-btn{
+        height:53px;
+        font-size:18px;
+    }
+}
+
+/* ---------- Small phones ---------- */
+
+@media(max-width:390px){
+
+    .header{
+        gap:8px;
+    }
+
+    .profile-wrap{
+        width:132px;
+        height:132px;
+    }
+
+    .main-title{
+        font-size:25px;
+    }
+
+    .message-icon{
+        width:52px;
+        height:52px;
+    }
+
+    .form-card{
+        padding-left:11px;
+        padding-right:11px;
+    }
+
+    .form-row{
+        grid-template-columns:50px 1fr;
+    }
+
+    .form-icon{
+        width:50px;
+        height:50px;
+        font-size:26px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+<div class="container">
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <!-- PROFILE -->
+
+    <div class="profile-area">
+
+        <div class="profile-wrap">
+
+            <img
+                src="1000.png"
+                alt="আশিকুর রহমান"
+                class="profile-image"
+            >
+
+        </div>
+
+        <div class="profile-name">
+            আশিকুর রহমান
+        </div>
+
+    </div>
+
+
+    <!-- MESSAGE HEADING -->
+
+    <div class="message-head">
+
+        <div class="message-icon">
+            <span>💬</span>
+        </div>
+
+        <h1 class="main-title">
+
+            <span>আপনার কথা</span>
+
+            <span>আমার কাছে পৌঁছে দিন</span>
+
+        </h1>
+
+        <div class="title-decoration">
+
+            <div class="title-line"></div>
+
+            <div class="heart">♥</div>
+
+            <div class="title-line"></div>
+
+        </div>
+
+        <div class="header-note">
+            বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই!
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= FORM ================= -->
+
+<main class="form-card">
+
+<form
+    id="messageForm"
+    enctype="multipart/form-data"
+>
+
+
+<!-- NAME -->
+
+<div class="form-row">
+
+    <div class="form-icon">
+        👤
+    </div>
+
+    <div>
+
+        <label class="field-label">
+            আপনার নাম <span class="required">*</span>
+        </label>
+
+        <input
+            type="text"
+            name="name"
+            class="input"
+            placeholder="আপনার নাম লিখুন"
+            required
+        >
+
+    </div>
+
+</div>
+
+
+<!-- CONTACT -->
+
+<div class="form-row">
+
+    <div class="form-icon">
+        📞
+    </div>
+
+    <div>
+
+        <label class="field-label">
+            যোগাযোগ
+            <span class="optional">(ঐচ্ছিক)</span>
+        </label>
+
+        <input
+            type="text"
+            name="contact"
+            class="input contact-input"
+            placeholder="নাম্বার, ই-মেইল অথবা লিংক"
+        >
+
+    </div>
+
+</div>
+
+
+<!-- MESSAGE -->
+
+<div class="form-row">
+
+    <div class="form-icon">
+        💬
+    </div>
+
+    <div>
+
+        <label class="field-label">
+            আপনার মেসেজ <span class="required">*</span>
+        </label>
+
+        <textarea
+            name="message"
+            class="message-box"
+            placeholder="আপনার কথা এখানে লিখুন..."
+            required
+        ></textarea>
+
+    </div>
+
+</div>
+
+
+<!-- FILE -->
+
+<div class="form-row file-row">
+
+    <div class="form-icon">
+        📎
+    </div>
+
+    <div>
+
+        <label class="field-label">
+            ফাইল সংযুক্ত করুন
+            <span class="optional">(ঐচ্ছিক)</span>
+        </label>
+
+        <div class="file-box">
+
+            <div class="file-title">
+                📎 ছবি, PDF বা অন্য ফাইল
+            </div>
+
+            <input
+                type="file"
+                name="attachment"
+                id="attachment"
+                class="file-input"
+            >
+
+            <div class="file-info">
+                সর্বোচ্চ ২০ MB • একবারে ১টি ফাইল
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SUBMIT -->
+
+<button
+    type="submit"
+    class="submit-btn"
+>
+
+    <span class="send-arrow">➤</span>
+    মেসেজ পাঠান
+
+</button>
+
+
+<!-- SECURITY -->
+
+<div class="security">
+    🛡️ আপনার মেসেজ নিরাপদে সংরক্ষিত হবে এবং গোপনীয় রাখা হবে।
+</div>
+
+</form>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+    🔐 আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ ❤️
+</footer>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================================
+   FILE SIZE CHECK
+   Maximum 20 MB
+========================================= */
+
+const fileInput =
+    document.getElementById("attachment");
+
+fileInput.addEventListener("change", function(){
+
+    if(!this.files.length){
+        return;
+    }
+
+    const file = this.files[0];
+
+    const maxSize =
+        20 * 1024 * 1024;
+
+    if(file.size > maxSize){
+
+        alert(
+            "ফাইলের আকার ২০ MB-এর বেশি হতে পারবে না।"
+        );
+
+        this.value = "";
+
+    }
+
+});
+
+
+/* =========================================
+   FORM
+========================================= */
+
+const form =
+    document.getElementById("messageForm");
+
+form.addEventListener("submit", function(e){
+
+    /*
+      এখানে আপনার আগের message-sending
+      backend/action থাকলে সেটি ব্যবহার করতে হবে।
+
+      এই HTML-এর ডিজাইন অংশ সম্পূর্ণ প্রস্তুত।
+    */
+
+    e.preventDefault();
+
+    alert(
+        "মেসেজ পাঠানোর জন্য আপনার আগের Form/Backend সংযোগটি এই HTML-এ যুক্ত করতে হবে।"
+    );
+
+});
+
+</script>
+
+</body>
+</html>
