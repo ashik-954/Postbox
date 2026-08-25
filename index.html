@@ -4,1106 +4,229 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>আপনার কথা আমার কাছে পৌঁছে দিন</title>
+<title>আমাকে একটি মেসেজ পাঠান</title>
 
 <style>
 *{
-  box-sizing:border-box;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html,body{
-  margin:0;
-  padding:0;
-  width:100%;
-  min-height:100%;
+    width:100%;
+    min-height:100%;
 }
 
 body{
-  font-family:
-    "Noto Sans Bengali",
-    "Nirmala UI",
-    Arial,
-    sans-serif;
+    font-family:
+        "Noto Sans Bengali",
+        "Nirmala UI",
+        Arial,
+        sans-serif;
 
-  background:
-    linear-gradient(
-      135deg,
-      #6819e8 0%,
-      #7924e8 45%,
-      #2454e8 100%
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #6418e8 0%,
+            #7b22e8 45%,
+            #294eea 100%
+        );
 
-  color:#17152d;
-  overflow-x:hidden;
+    color:#17203a;
+    overflow-x:hidden;
 }
 
-/* Background decoration */
-body::before,
-body::after{
-  content:"";
-  position:fixed;
-  border-radius:50%;
-  background:rgba(255,255,255,.08);
-  pointer-events:none;
-  z-index:0;
-}
+/* ---------- Background decoration ---------- */
 
 body::before{
-  width:230px;
-  height:230px;
-  right:-100px;
-  top:180px;
+    content:"";
+    position:fixed;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    top:90px;
+    right:-110px;
+    pointer-events:none;
 }
 
 body::after{
-  width:190px;
-  height:190px;
-  left:-100px;
-  bottom:-70px;
+    content:"";
+    position:fixed;
+    width:210px;
+    height:210px;
+    border-radius:50%;
+    background:rgba(255,255,255,.07);
+    bottom:-100px;
+    left:-70px;
+    pointer-events:none;
 }
 
-/* Main */
+/* ---------- Main ---------- */
+
 .page{
-  width:100%;
-  max-width:720px;
-  margin:0 auto;
-  position:relative;
-  z-index:1;
-  padding:12px 12px 0;
+    width:100%;
+    min-height:100vh;
+    padding:22px 14px 10px;
+    position:relative;
+    z-index:1;
 }
 
-/* Header */
+.container{
+    width:100%;
+    max-width:720px;
+    margin:0 auto;
+}
+
+/* ---------- Header ---------- */
+
 .header{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:28px;
-  min-height:265px;
-  padding:8px 8px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:30px;
+    padding:5px 10px 22px;
 }
 
-/* Profile area */
+/* ---------- Profile ---------- */
+
 .profile-area{
-  width:180px;
-  flex:0 0 180px;
-  text-align:center;
-  position:relative;
-  padding-top:3px;
+    width:230px;
+    flex-shrink:0;
+    text-align:center;
 }
 
-/* Profile picture */
-.profile-picture{
-  width:132px;
-  height:132px;
-
-  display:block;
-  margin:0 auto;
-
-  border-radius:50%;
-
-  object-fit:cover;
-
-  /* Show a little more of the top of the original photo */
-  object-position:50% 30%;
-
-  border:6px solid transparent;
-
-  background:
-    linear-gradient(#fff,#fff) padding-box,
-    linear-gradient(
-      135deg,
-      #13c8ff,
-      #6550ff,
-      #d94cf0
-    ) border-box;
-
-  box-shadow:
-    0 4px 12px rgba(0,0,0,.20);
+.profile-wrap{
+    position:relative;
+    width:190px;
+    height:190px;
+    margin:0 auto 8px;
 }
 
-/* Verification */
-.verify{
-  position:absolute;
+.profile-image{
+    width:100%;
+    height:100%;
+    display:block;
 
-  width:43px;
-  height:43px;
+    object-fit:cover;
 
-  right:14px;
-  top:104px;
+    /*
+       ছবির মাথা যাতে কাটা না যায়
+       এবং সামান্য নিচের দিকে থাকে
+    */
+    object-position:center 58%;
 
-  border-radius:50%;
+    border-radius:50%;
 
-  background:#fff;
+    border:7px solid transparent;
 
-  border:5px solid #263fc2;
+    background:
+        linear-gradient(#7b20e8,#7b20e8) padding-box,
+        linear-gradient(
+            135deg,
+            #19bfff,
+            #d8a8ff,
+            #ffffff,
+            #35aaff
+        ) border-box;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  color:#168fe9;
-
-  font-family:Arial,sans-serif;
-  font-size:27px;
-  font-weight:900;
-
-  box-shadow:
-    0 3px 8px rgba(0,0,0,.22);
-
-  z-index:5;
+    box-shadow:
+        0 5px 16px rgba(0,0,0,.25);
 }
 
-/* Name */
+/* ---------- Profile Name ---------- */
+
 .profile-name{
-  color:#fff;
-  font-size:17px;
-  font-weight:700;
-  margin-top:10px;
-  white-space:nowrap;
+    color:#ffffff;
+    font-size:21px;
+    font-weight:800;
+    text-shadow:
+        0 2px 4px rgba(0,0,0,.3);
 }
 
-/* Decorative line under name */
-.name-decoration{
-  margin:8px auto 0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-}
+/* ---------- Message Header ---------- */
 
-.name-decoration::before,
-.name-decoration::after{
-  content:"";
-  width:38px;
-  height:2px;
-  background:rgba(255,255,255,.75);
-}
-
-.name-heart{
-  color:#ff8fca;
-  font-size:17px;
-  line-height:1;
-}
-
-/* Hero */
-.hero{
-  flex:1;
-  min-width:0;
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-
-  text-align:center;
+.message-head{
+    width:300px;
+    text-align:center;
+    flex-shrink:0;
 }
 
 /* Message icon */
+
 .message-icon{
-  width:48px;
-  height:48px;
+    width:66px;
+    height:66px;
 
-  border-radius:50%;
+    margin:0 auto 12px;
 
-  border:3px solid #fff;
+    border-radius:50%;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-  background:rgba(255,255,255,.04);
+    background:rgba(255,255,255,.08);
 
-  font-size:25px;
+    border:3px solid #ffffff;
 
-  margin-bottom:10px;
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.18);
+}
 
-  box-shadow:
-    0 2px 7px rgba(0,0,0,.14);
+.message-icon span{
+    font-size:39px;
+    line-height:1;
 }
 
 /* Main heading */
-.hero-title{
-  width:100%;
 
-  text-align:center;
+.main-title{
+    color:#ffe94a;
 
-  font-size:29px;
-  line-height:1.18;
+    font-size:36px;
+    line-height:1.18;
 
-  font-weight:900;
+    font-weight:900;
 
-  color:#fff04a;
+    text-align:center;
 
-  text-shadow:
-    0 2px 2px rgba(0,0,0,.12);
-
-  margin:0;
+    text-shadow:
+        0 2px 4px rgba(0,0,0,.25);
 }
 
-.hero-title span{
-  display:block;
+.main-title span{
+    display:block;
 }
 
-/* Small line */
-.hero-decoration{
-  display:flex;
-  align-items:center;
-  justify-content:center;
+/* Decorative line */
 
-  gap:12px;
+.title-decoration{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
 
-  margin-top:11px;
+    margin-top:12px;
 }
 
-.hero-decoration::before,
-.hero-decoration::after{
-  content:"";
-
-  width:48px;
-  height:2px;
-
-  background:rgba(255,255,255,.8);
+.title-line{
+    width:65px;
+    height:2px;
+    background:#ffffff;
+    opacity:.9;
 }
 
-.hero-heart{
-  color:#ff91c9;
-  font-size:18px;
+.heart{
+    color:#ff9ab9;
+    font-size:23px;
+    line-height:1;
 }
 
-/* Subtitle */
-.hero-subtitle{
-  color:rgba(255,255,255,.92);
-
-  font-size:12px;
-
-  line-height:1.5;
-
-  margin-top:7px;
-
-  text-align:center;
-}
-
-/* Form card */
-.form-card{
-  background:#fff;
-
-  border-radius:23px 23px 18px 18px;
-
-  padding:25px 20px 17px;
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.16);
-
-  width:100%;
-}
-
-/* Field */
-.field{
-  margin-bottom:17px;
-}
-
-.field-label{
-  display:block;
-
-  font-size:16px;
-  font-weight:800;
-
-  color:#181633;
-
-  margin-bottom:7px;
-}
-
-.optional{
-  font-weight:500;
-  color:#999;
-  font-size:13px;
-}
-
-.required{
-  color:#e83b67;
-}
-
-/* Input */
-.input{
-  width:100%;
-
-  height:51px;
-
-  border-radius:13px;
-
-  border:2px solid #ddcdeb;
-
-  background:#fbf8fd;
-
-  padding:0 16px;
-
-  font-family:inherit;
-  font-size:16px;
-
-  outline:none;
-
-  transition:.2s;
-}
-
-.input:focus{
-  border-color:#6c3de9;
-  box-shadow:0 0 0 3px rgba(108,61,233,.10);
-}
-
-.input.contact{
-  background:#eff9ff;
-  border-color:#b9ddec;
-}
-
-/* Message textarea */
-.message{
-  width:100%;
-
-  height:215px;
-
-  resize:vertical;
-
-  min-height:150px;
-  max-height:280px;
-
-  border-radius:15px;
-
-  border:2px solid #ded0ea;
-
-  background:#fbf9fd;
-
-  padding:14px 16px;
-
-  font-family:inherit;
-  font-size:16px;
-
-  outline:none;
-
-  line-height:1.6;
-
-  transition:.2s;
-}
-
-.message:focus{
-  border-color:#6c3de9;
-
-  box-shadow:
-    0 0 0 3px rgba(108,61,233,.10);
-}
-
-/* File area */
-.file-box{
-  border:2px dashed #62c6b5;
-
-  background:#effcf9;
-
-  border-radius:14px;
-
-  padding:11px 12px;
-}
-
-.file-title{
-  color:#278d82;
-
-  font-size:16px;
-
-  font-weight:800;
-
-  margin-bottom:8px;
-}
-
-.file-input{
-  width:100%;
-
-  padding:8px;
-
-  background:#fff;
-
-  border:1px solid #d7d7d7;
-
-  border-radius:9px;
-
-  font-family:Arial,sans-serif;
-  font-size:13px;
-}
-
-.file-help{
-  color:#79a59e;
-
-  font-size:11px;
-
-  margin-top:7px;
-}
-
-/* Send button */
-.send-button{
-  width:100%;
-
-  height:57px;
-
-  border:none;
-
-  border-radius:13px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #4d20ec,
-      #8121e8,
-      #ee00a7
-    );
-
-  color:#fff;
-
-  font-family:inherit;
-
-  font-size:18px;
-
-  font-weight:900;
-
-  cursor:pointer;
-
-  box-shadow:
-    0 6px 16px rgba(111,35,225,.28);
-
-  transition:.2s;
-}
-
-.send-button:active{
-  transform:scale(.98);
-}
-
-.send-button:disabled{
-  opacity:.65;
-  cursor:wait;
-}
-
-.send-icon{
-  font-family:Arial,sans-serif;
-  margin-right:7px;
-}
-
-/* Privacy */
-.privacy{
-  margin-top:17px;
-
-  padding:12px 10px;
-
-  text-align:center;
-
-  border-radius:10px;
-
-  background:#fff9e8;
-
-  border:1px solid #f1dfab;
-
-  color:#8a826b;
-
-  font-size:11px;
-
-  line-height:1.5;
-}
-
-/* Footer */
-.footer{
-  text-align:center;
-
-  color:rgba(255,255,255,.92);
-
-  font-size:11px;
-
-  padding:9px 5px 10px;
-
-  min-height:36px;
-}
-
-/* Status */
-.status{
-  display:none;
-
-  margin-top:12px;
-
-  padding:11px;
-
-  border-radius:9px;
-
-  text-align:center;
-
-  font-size:13px;
-  font-weight:700;
-}
-
-.status.success{
-  display:block;
-
-  background:#e8fff4;
-  color:#16835f;
-
-  border:1px solid #9bdcc5;
-}
-
-.status.error{
-  display:block;
-
-  background:#fff0f2;
-  color:#c93652;
-
-  border:1px solid #efabb8;
-}
-
-/* Mobile */
-@media(max-width:600px){
-
-  .page{
-    padding:7px 10px 0;
-  }
-
-  .header{
-    gap:13px;
-
-    min-height:245px;
-
-    padding-top:5px;
-    padding-bottom:12px;
-  }
-
-  .profile-area{
-    width:155px;
-    flex-basis:155px;
-  }
-
-  .profile-picture{
-    width:116px;
-    height:116px;
-
-    border-width:5px;
-  }
-
-  .verify{
-    width:39px;
-    height:39px;
-
-    right:12px;
-    top:91px;
-
-    border-width:5px;
-
-    font-size:24px;
-  }
-
-  .profile-name{
-    font-size:15px;
-    margin-top:9px;
-  }
-
-  .message-icon{
-    width:44px;
-    height:44px;
-
-    font-size:22px;
-
-    margin-bottom:8px;
-  }
-
-  .hero-title{
-    font-size:24px;
-  }
-
-  .hero-subtitle{
-    font-size:10px;
-  }
-
-  .hero-decoration{
-    margin-top:8px;
-  }
-
-  .hero-decoration::before,
-  .hero-decoration::after{
-    width:40px;
-  }
-
-  .form-card{
-    padding:22px 14px 15px;
-    border-radius:21px 21px 17px 17px;
-  }
-
-  .field{
-    margin-bottom:15px;
-  }
-
-  .field-label{
-    font-size:15px;
-  }
-
-  .input{
-    height:49px;
-    font-size:15px;
-  }
-
-  .message{
-    height:195px;
-    min-height:170px;
-    font-size:15px;
-  }
-
-  .file-title{
-    font-size:15px;
-  }
-
-  .send-button{
-    height:54px;
-    font-size:17px;
-  }
-}
-
-/* Very small phones */
-@media(max-width:390px){
-
-  .header{
-    gap:6px;
-  }
-
-  .profile-area{
-    width:145px;
-    flex-basis:145px;
-  }
-
-  .profile-picture{
-    width:108px;
-    height:108px;
-  }
-
-  .verify{
-    top:85px;
-    right:10px;
-  }
-
-  .hero-title{
-    font-size:21px;
-  }
-
-  .message-icon{
-    width:40px;
-    height:40px;
-    font-size:20px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<div class="page">
-
-  <!-- HEADER -->
-  <header class="header">
-
-    <!-- PROFILE -->
-    <div class="profile-area">
-
-      <img
-        src="1000.png"
-        class="profile-picture"
-        alt="আশিকুর রহমান"
-      >
-
-      <div class="verify">✓</div>
-
-      <div class="profile-name">
-        আশিকুর রহমান
-      </div>
-
-      <div class="name-decoration">
-        <span class="name-heart">♥</span>
-      </div>
-
-    </div>
-
-    <!-- MESSAGE HEADER -->
-    <div class="hero">
-
-      <div class="message-icon">
-        💬
-      </div>
-
-      <h1 class="hero-title">
-        <span>আপনার কথা</span>
-        <span>আমার কাছে পৌঁছে দিন</span>
-      </h1>
-
-      <div class="hero-decoration">
-        <span class="hero-heart">♥</span>
-      </div>
-
-      <div class="hero-subtitle">
-        বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই!
-      </div>
-
-    </div>
-
-  </header>
-
-
-  <!-- FORM -->
-  <main class="form-card">
-
-    <form id="messageForm">
-
-      <!-- NAME -->
-      <div class="field">
-
-        <label class="field-label">
-          আপনার নাম
-          <span class="required">*</span>
-        </label>
-
-        <input
-          type="text"
-          id="name"
-          name="name"
-          class="input"
-          placeholder="আপনার নাম লিখুন"
-          required
-        >
-
-      </div>
-
-
-      <!-- CONTACT -->
-      <div class="field">
-
-        <label class="field-label">
-          যোগাযোগ
-          <span class="optional">(ঐচ্ছিক)</span>
-        </label>
-
-        <input
-          type="text"
-          id="contact"
-          name="contact"
-          class="input contact"
-          placeholder="নাম্বার, ই-মেইল অথবা লিংক"
-        >
-
-      </div>
-
-
-      <!-- MESSAGE -->
-      <div class="field">
-
-        <label class="field-label">
-          আপনার মেসেজ
-          <span class="required">*</span>
-        </label>
-
-        <textarea
-          id="message"
-          name="message"
-          class="message"
-          placeholder="আপনার কথা এখানে লিখুন..."
-          required
-        ></textarea>
-
-      </div>
-
-
-      <!-- FILE -->
-      <div class="field">
-
-        <label class="field-label">
-          ফাইল সংযুক্ত করুন
-          <span class="optional">(ঐচ্ছিক)</span>
-        </label>
-
-        <div class="file-box">
-
-          <div class="file-title">
-            📎 ছবি, PDF বা অন্য ফাইল
-          </div>
-
-          <input
-            type="file"
-            id="file"
-            name="file"
-            class="file-input"
-            accept="image/*,.pdf,.doc,.docx,.txt,.zip"
-          >
-
-          <div class="file-help">
-            সর্বোচ্চ ২০ MB · একবারে ১টি ফাইল
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- BUTTON -->
-      <button
-        type="submit"
-        id="sendButton"
-        class="send-button"
-      >
-        <span class="send-icon">➤</span>
-        মেসেজ পাঠান
-      </button>
-
-
-      <!-- STATUS -->
-      <div id="status" class="status"></div>
-
-
-      <!-- PRIVACY -->
-      <div class="privacy">
-        🛡️ আপনার মেসেজ নিরাপদে সংরক্ষিত হবে এবং গোপনীয় রাখা হবে।
-      </div>
-
-    </form>
-
-  </main>
-
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    🔐 আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ ❤️
-  </footer>
-
-</div>
-
-
-<script>
-
-/* =========================================================
-   GOOGLE APPS SCRIPT WEB APP URL
-   =========================================================
-
-   আপনার আগের Google Apps Script Web App URL এখানে বসান।
-
-   উদাহরণ:
-   https://script.google.com/macros/s/XXXXXXXXXXXX/exec
-
-   ========================================================= */
-
-const GOOGLE_SCRIPT_URL =
-"YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
-
-
-const form = document.getElementById("messageForm");
-const button = document.getElementById("sendButton");
-const statusBox = document.getElementById("status");
-const fileInput = document.getElementById("file");
-
-
-/* File size check */
-fileInput.addEventListener("change", function(){
-
-  if(!this.files.length) return;
-
-  const file = this.files[0];
-
-  const maxSize =
-    20 * 1024 * 1024;
-
-  if(file.size > maxSize){
-
-    alert(
-      "ফাইলের আকার ২০ MB-এর বেশি হতে পারবে না।"
-    );
-
-    this.value = "";
-  }
-
-});
-
-
-/* Convert file to Base64 */
-function fileToBase64(file){
-
-  return new Promise(function(resolve,reject){
-
-    const reader =
-      new FileReader();
-
-    reader.onload = function(){
-
-      const result =
-        reader.result;
-
-      const base64 =
-        result.split(",")[1];
-
-      resolve({
-        name:file.name,
-        type:file.type,
-        size:file.size,
-        data:base64
-      });
-
-    };
-
-    reader.onerror =
-      function(){
-        reject(
-          new Error("ফাইল পড়া যায়নি।")
-        );
-      };
-
-    reader.readAsDataURL(file);
-
-  });
-
-}
-
-
-/* Form submit */
-form.addEventListener(
-  "submit",
-  async function(event){
-
-    event.preventDefault();
-
-
-    /* Check URL */
-    if(
-      GOOGLE_SCRIPT_URL ===
-      "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE"
-    ){
-
-      alert(
-        "প্রথমে HTML-এর GOOGLE_SCRIPT_URL অংশে আপনার Google Apps Script Web App URL বসাতে হবে।"
-      );
-
-      return;
-    }
-
-
-    const name =
-      document.getElementById("name")
-      .value.trim();
-
-    const contact =
-      document.getElementById("contact")
-      .value.trim();
-
-    const message =
-      document.getElementById("message")
-      .value.trim();
-
-
-    if(!name){
-
-      alert("দয়া করে আপনার নাম লিখুন।");
-      return;
-    }
-
-
-    if(!message){
-
-      alert("দয়া করে আপনার মেসেজ লিখুন।");
-      return;
-    }
-
-
-    button.disabled = true;
-
-    button.innerHTML =
-      "⏳ মেসেজ পাঠানো হচ্ছে...";
-
-
-    statusBox.className =
-      "status";
-
-    statusBox.textContent = "";
-
-
-    try{
-
-      let fileData = null;
-
-
-      if(fileInput.files.length){
-
-        fileData =
-          await fileToBase64(
-            fileInput.files[0]
-          );
-
-      }
-
-
-      const data = {
-
-        name:name,
-
-        contact:contact,
-
-        message:message,
-
-        file:fileData,
-
-        timestamp:
-          new Date().toISOString()
-
-      };
-
-
-      const response =
-        await fetch(
-          GOOGLE_SCRIPT_URL,
-          {
-            method:"POST",
-
-            mode:"no-cors",
-
-            headers:{
-              "Content-Type":
-                "text/plain;charset=utf-8"
-            },
-
-            body:
-              JSON.stringify(data)
-          }
-        );
-
-
-      /*
-       * no-cors response পড়া যায় না।
-       * তাই request পাঠানোর পর success message দেখানো হচ্ছে।
-       */
-
-      statusBox.className =
-        "status success";
-
-      statusBox.textContent =
-        "✓ আপনার মেসেজ পাঠানো হয়েছে। ধন্যবাদ!";
-
-
-      form.reset();
-
-
-    }catch(error){
-
-      console.error(error);
-
-
-      statusBox.className =
-        "status error";
-
-      statusBox.textContent =
-        "✕ মেসেজ পাঠানো যায়নি। আবার চেষ্টা করুন।";
-
-    }
-
-
-    button.disabled = false;
-
-    button.innerHTML =
-      '<span class="send-icon">➤</span> মেসেজ পাঠান';
-
-  }
-);
-
-</script>
-
-</body>
-</html>
+/* Small text */
+
+.header-note{
+    color:#ffffff;
+    font-size:13px;
+    line-height:1.5;
