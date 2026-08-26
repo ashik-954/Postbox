@@ -37,7 +37,7 @@ body{
     overflow-x:hidden;
 }
 
-/* ---------- Background decoration ---------- */
+/* ================= BACKGROUND ================= */
 
 body::before{
     content:"";
@@ -63,12 +63,12 @@ body::after{
     pointer-events:none;
 }
 
-/* ---------- Main ---------- */
+/* ================= PAGE ================= */
 
 .page{
     width:100%;
     min-height:100vh;
-    padding:22px 14px 10px;
+    padding:12px 14px 8px;
     position:relative;
     z-index:1;
 }
@@ -79,47 +79,50 @@ body::after{
     margin:0 auto;
 }
 
-/* ---------- Header ---------- */
+/* ================= HEADER ================= */
 
 .header{
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:30px;
-    padding:5px 10px 22px;
+    gap:26px;
+    padding:4px 10px 17px;
 }
 
-/* ---------- Profile ---------- */
+/* ================= PROFILE ================= */
 
 .profile-area{
-    width:180px;
+    width:215px;
     flex-shrink:0;
     text-align:center;
 }
 
 .profile-wrap{
     position:relative;
-    width:190px;
-    height:190px;
-    margin:0 auto 8px;
+
+    /* আগের থেকে সামান্য ছোট */
+    width:168px;
+    height:168px;
+
+    margin:0 auto 7px;
 }
 
 .profile-image{
     width:100%;
     height:100%;
+
     display:block;
 
     object-fit:cover;
 
     /*
-       ছবির মাথা যাতে কাটা না যায়
-       এবং সামান্য নিচের দিকে থাকে
+       ছবির মাথা যেন না কাটে
     */
     object-position:center 58%;
 
     border-radius:50%;
 
-    border:7px solid transparent;
+    border:6px solid transparent;
 
     background:
         linear-gradient(#7b20e8,#7b20e8) padding-box,
@@ -135,31 +138,39 @@ body::after{
         0 5px 16px rgba(0,0,0,.25);
 }
 
-/* ---------- Profile Name ---------- */
+/* ================= PROFILE NAME ================= */
 
 .profile-name{
     color:#ffffff;
-    font-size:18px;
+
+    font-size:20px;
+
     font-weight:800;
+
     text-shadow:
         0 2px 4px rgba(0,0,0,.3);
 }
 
-/* ---------- Message Header ---------- */
+/* ================= MESSAGE HEADER ================= */
 
 .message-head{
-    width:300px;
+    width:290px;
+
     text-align:center;
+
     flex-shrink:0;
 }
 
-/* Message icon */
+/* ================= MESSAGE ICON ================= */
 
 .message-icon{
-    width:50px;
-    height:50px;
+    /*
+       আগের থেকে সামান্য ছোট
+    */
+    width:57px;
+    height:57px;
 
-    margin:0 auto 12px;
+    margin:0 auto 10px;
 
     border-radius:50%;
 
@@ -176,16 +187,17 @@ body::after{
 }
 
 .message-icon span{
-    font-size:39px;
+    font-size:33px;
     line-height:1;
 }
 
-/* Main heading */
+/* ================= MAIN TITLE ================= */
 
 .main-title{
     color:#ffe94a;
 
     font-size:36px;
+
     line-height:1.18;
 
     font-weight:900;
@@ -200,84 +212,96 @@ body::after{
     display:block;
 }
 
-/* Decorative line */
+/* ================= TITLE DECORATION ================= */
 
 .title-decoration{
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     gap:10px;
 
-    margin-top:12px;
+    margin-top:10px;
 }
 
 .title-line{
-    width:65px;
+    width:60px;
     height:2px;
+
     background:#ffffff;
+
     opacity:.9;
 }
 
 .heart{
     color:#ff9ab9;
-    font-size:23px;
+
+    font-size:21px;
+
     line-height:1;
 }
 
-/* Small text */
+/* ================= HEADER NOTE ================= */
 
 .header-note{
     color:#ffffff;
-    font-size:13px;
+
+    font-size:12px;
+
     line-height:1.5;
-    margin-top:7px;
+
+    margin-top:6px;
 }
 
-/* ---------- Form Card ---------- */
+/* ================= FORM CARD ================= */
 
 .form-card{
     width:100%;
 
     background:#ffffff;
 
-    border-radius:25px;
+    border-radius:24px;
 
-    padding:24px 22px 18px;
+    padding:21px 22px 15px;
 
     box-shadow:
         0 12px 35px rgba(0,0,0,.20);
 }
 
-/* ---------- Form Row ---------- */
+/* ================= FORM ROW ================= */
 
 .form-row{
     display:grid;
-    grid-template-columns:72px 1fr;
-    gap:14px;
 
-    margin-bottom:16px;
+    grid-template-columns:65px 1fr;
+
+    gap:13px;
+
+    margin-bottom:13px;
 }
 
-/* ---------- Icons ---------- */
+/* ================= FORM ICON ================= */
 
 .form-icon{
-    width:62px;
-    height:62px;
+    width:58px;
+    height:58px;
 
-    border-radius:16px;
+    border-radius:15px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
-    font-size:34px;
+    font-size:31px;
 
     background:#eee5ff;
 
     border:1px solid rgba(100,40,230,.08);
 }
-
-/* Different icon backgrounds */
 
 .form-row:nth-child(2) .form-icon{
     background:#e4f3ff;
@@ -291,17 +315,18 @@ body::after{
     background:#dff9f3;
 }
 
-/* ---------- Labels ---------- */
+/* ================= LABEL ================= */
 
 .field-label{
     display:block;
 
-    font-size:17px;
+    font-size:16px;
+
     font-weight:800;
 
     color:#17203a;
 
-    margin-bottom:7px;
+    margin-bottom:6px;
 }
 
 .required{
@@ -310,11 +335,13 @@ body::after{
 
 .optional{
     color:#888;
-    font-size:14px;
+
+    font-size:13px;
+
     font-weight:500;
 }
 
-/* ---------- Inputs ---------- */
+/* ================= INPUT ================= */
 
 .input,
 .message-box{
@@ -322,7 +349,7 @@ body::after{
 
     border:2px solid #ddd1e9;
 
-    border-radius:15px;
+    border-radius:14px;
 
     background:#fbf9fd;
 
@@ -336,69 +363,85 @@ body::after{
 }
 
 .input{
-    height:52px;
+    height:49px;
+
     padding:0 15px;
-    font-size:16px;
+
+    font-size:15px;
 }
 
 .input:focus,
 .message-box:focus{
     border-color:#6d24e9;
+
     box-shadow:
         0 0 0 3px rgba(109,36,233,.10);
 }
 
-/* Contact field */
-
 .contact-input{
     background:#eef8ff;
+
     border-color:#c5dfef;
 }
 
-/* ---------- Message Box ---------- */
-
-/*
-   এখানে height ইচ্ছাকৃতভাবে ছোট রাখা হয়েছে
-*/
+/* ================= MESSAGE BOX ================= */
 
 .message-box{
-    height:125px;
+    /*
+       মেসেজ বক্স আগের থেকে ছোট
+    */
 
-    min-height:125px;
-    max-height:180px;
+    height:115px;
+
+    min-height:115px;
+
+    max-height:170px;
 
     resize:vertical;
 
-    padding:13px 15px;
+    padding:12px 15px;
 
-    font-size:16px;
+    font-size:15px;
 
     line-height:1.55;
 }
 
-/* ---------- File Section ---------- */
+/* ================= FILE BOX ================= */
 
 .file-box{
     width:100%;
 
+    /*
+       Width সম্পূর্ণ অপরিবর্তিত
+       শুধু vertical space কমানো হয়েছে
+    */
+
     border:2px dashed #62c3b5;
 
-    border-radius:15px;
+    border-radius:14px;
 
     background:#effcf9;
 
-    padding:7px;
+    padding:8px 11px;
 }
+
+/* ================= FILE TITLE ================= */
 
 .file-title{
     color:#248f82;
 
-    font-size:12px;
+    /*
+       লেখাটি সামান্য ছোট
+    */
+
+    font-size:14px;
 
     font-weight:800;
 
-    margin-bottom:7px;
+    margin-bottom:5px;
 }
+
+/* ================= FILE INPUT ================= */
 
 .file-input{
     width:100%;
@@ -407,11 +450,11 @@ body::after{
 
     border:1px solid #ddd;
 
-    border-radius:10px;
+    border-radius:9px;
 
     padding:5px;
 
-    font-size:12px;
+    font-size:13px;
 }
 
 .file-info{
@@ -419,21 +462,21 @@ body::after{
 
     font-size:10px;
 
-    margin-top:7px;
+    margin-top:4px;
 }
 
-/* ---------- Submit Button ---------- */
+/* ================= SUBMIT ================= */
 
 .submit-btn{
     width:100%;
 
-    height:57px;
+    height:54px;
 
     border:none;
 
     border-radius:14px;
 
-    margin-top:2px;
+    margin-top:1px;
 
     background:
         linear-gradient(
@@ -447,7 +490,7 @@ body::after{
 
     font-family:inherit;
 
-    font-size:19px;
+    font-size:18px;
 
     font-weight:900;
 
@@ -468,19 +511,21 @@ body::after{
 }
 
 .send-arrow{
-    font-size:25px;
+    font-size:23px;
+
     vertical-align:-2px;
+
     margin-right:7px;
 }
 
-/* ---------- Security Note ---------- */
+/* ================= SECURITY ================= */
 
 .security{
-    margin-top:14px;
+    margin-top:10px;
 
-    padding:10px 12px;
+    padding:8px 10px;
 
-    border-radius:12px;
+    border-radius:10px;
 
     background:#fff9e7;
 
@@ -490,37 +535,39 @@ body::after{
 
     color:#8c8064;
 
-    font-size:12px;
+    font-size:11px;
 
-    line-height:1.5;
+    line-height:1.4;
 }
 
-/* ---------- Footer ---------- */
+/* ================= FOOTER ================= */
 
 .footer{
     text-align:center;
 
     color:#ffffff;
 
-    font-size:11px;
+    font-size:10px;
 
-    padding:9px 0 2px;
+    padding:6px 0 1px;
 
     opacity:.95;
 }
 
-/* ---------- Mobile ---------- */
+/* ================= MOBILE ================= */
 
 @media(max-width:650px){
 
     .page{
-        padding:10px 10px 8px;
+        padding:8px 10px 6px;
     }
 
     .header{
-        gap:14px;
+        gap:12px;
+
         padding-top:2px;
-        padding-bottom:16px;
+
+        padding-bottom:13px;
     }
 
     .profile-area{
@@ -528,16 +575,18 @@ body::after{
     }
 
     .profile-wrap{
-        width:145px;
-        height:145px;
+
+        width:128px;
+        height:128px;
+
     }
 
     .profile-image{
-        border-width:6px;
+        border-width:5px;
     }
 
     .profile-name{
-        font-size:17px;
+        font-size:16px;
     }
 
     .message-head{
@@ -545,86 +594,112 @@ body::after{
     }
 
     .message-icon{
-        width:57px;
-        height:57px;
-        margin-bottom:8px;
+
+        width:49px;
+        height:49px;
+
+        margin-bottom:7px;
     }
 
     .message-icon span{
-        font-size:33px;
+        font-size:28px;
     }
 
     .main-title{
-        font-size:29px;
+        font-size:28px;
+
         line-height:1.18;
     }
 
     .title-decoration{
-        margin-top:8px;
+        margin-top:7px;
     }
 
     .title-line{
-        width:48px;
+        width:42px;
     }
 
     .header-note{
-        font-size:11px;
+        font-size:10px;
     }
 
     .form-card{
-        padding:20px 14px 15px;
-        border-radius:22px;
+        padding:18px 13px 13px;
+
+        border-radius:21px;
     }
 
     .form-row{
-        grid-template-columns:55px 1fr;
-        gap:10px;
-        margin-bottom:14px;
+        grid-template-columns:52px 1fr;
+
+        gap:9px;
+
+        margin-bottom:12px;
     }
 
     .form-icon{
-        width:55px;
-        height:55px;
-        border-radius:14px;
-        font-size:29px;
+        width:52px;
+        height:52px;
+
+        border-radius:13px;
+
+        font-size:27px;
     }
 
     .field-label{
-        font-size:16px;
+        font-size:15px;
     }
 
     .input{
-        height:49px;
-        font-size:15px;
+        height:47px;
+
+        font-size:14px;
     }
 
     .message-box{
-        height:115px;
-        min-height:115px;
-        font-size:15px;
+        height:105px;
+
+        min-height:105px;
+
+        font-size:14px;
+    }
+
+    .file-box{
+        padding:7px 9px;
     }
 
     .file-title{
-        font-size:15px;
+        font-size:13px;
+    }
+
+    .file-input{
+        padding:4px;
+
+        font-size:12px;
+    }
+
+    .file-info{
+        font-size:9px;
     }
 
     .submit-btn{
-        height:53px;
-        font-size:18px;
+        height:51px;
+
+        font-size:17px;
     }
 }
 
-/* ---------- Small phones ---------- */
+/* ================= SMALL PHONE ================= */
 
 @media(max-width:390px){
 
     .header{
-        gap:8px;
+        gap:6px;
     }
 
     .profile-wrap{
-        width:132px;
-        height:132px;
+        width:118px;
+        height:118px;
     }
 
     .main-title{
@@ -636,19 +711,24 @@ body::after{
         height:45px;
     }
 
+    .message-icon span{
+        font-size:25px;
+    }
+
     .form-card{
-        padding-left:11px;
-        padding-right:11px;
+        padding-left:10px;
+        padding-right:10px;
     }
 
     .form-row{
-        grid-template-columns:50px 1fr;
+        grid-template-columns:48px 1fr;
     }
 
     .form-icon{
-        width:50px;
-        height:50px;
-        font-size:26px;
+        width:48px;
+        height:48px;
+
+        font-size:25px;
     }
 }
 </style>
@@ -661,9 +741,11 @@ body::after{
 
 <div class="container">
 
+
 <!-- ================= HEADER ================= -->
 
 <header class="header">
+
 
     <!-- PROFILE -->
 
@@ -686,13 +768,16 @@ body::after{
     </div>
 
 
-    <!-- MESSAGE HEADING -->
+    <!-- MESSAGE HEADER -->
 
     <div class="message-head">
 
         <div class="message-icon">
+
             <span>💬</span>
+
         </div>
+
 
         <h1 class="main-title">
 
@@ -702,18 +787,21 @@ body::after{
 
         </h1>
 
+
         <div class="title-decoration">
 
             <div class="title-line"></div>
 
             <div class="heart">♥</div>
-
             <div class="title-line"></div>
 
         </div>
 
+
         <div class="header-note">
+
             বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই!
+
         </div>
 
     </div>
@@ -742,7 +830,10 @@ body::after{
     <div>
 
         <label class="field-label">
-            আপনার নাম <span class="required">*</span>
+
+            আপনার নাম
+            <span class="required">*</span>
+
         </label>
 
         <input
@@ -769,8 +860,10 @@ body::after{
     <div>
 
         <label class="field-label">
+
             যোগাযোগ
             <span class="optional">(ঐচ্ছিক)</span>
+
         </label>
 
         <input
@@ -796,7 +889,10 @@ body::after{
     <div>
 
         <label class="field-label">
-            আপনার মেসেজ <span class="required">*</span>
+
+            আপনার মেসেজ
+            <span class="required">*</span>
+
         </label>
 
         <textarea
@@ -822,15 +918,21 @@ body::after{
     <div>
 
         <label class="field-label">
+
             ফাইল সংযুক্ত করুন
             <span class="optional">(ঐচ্ছিক)</span>
+
         </label>
+
 
         <div class="file-box">
 
             <div class="file-title">
-                📎 ছবি, PDF বা অন্য ফাইল
+
+                📎 ছবি, PDF বা অন্যান্য ফাইল
+
             </div>
+
 
             <input
                 type="file"
@@ -839,8 +941,11 @@ body::after{
                 class="file-input"
             >
 
+
             <div class="file-info">
+
                 সর্বোচ্চ ২০ MB • একবারে ১টি ফাইল
+
             </div>
 
         </div>
@@ -850,7 +955,7 @@ body::after{
 </div>
 
 
-<!-- SUBMIT -->
+<!-- SUBMIT BUTTON -->
 
 <button
     type="submit"
@@ -858,6 +963,7 @@ body::after{
 >
 
     <span class="send-arrow">➤</span>
+
     মেসেজ পাঠান
 
 </button>
@@ -866,7 +972,9 @@ body::after{
 <!-- SECURITY -->
 
 <div class="security">
+
     🛡️ আপনার মেসেজ নিরাপদে সংরক্ষিত হবে এবং গোপনীয় রাখা হবে।
+
 </div>
 
 </form>
@@ -877,8 +985,11 @@ body::after{
 <!-- FOOTER -->
 
 <footer class="footer">
+
     🔐 আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ ❤️
+
 </footer>
+
 
 </div>
 
@@ -887,61 +998,63 @@ body::after{
 
 <script>
 
-/* =========================================
-   FILE SIZE CHECK
-   Maximum 20 MB
-========================================= */
+/* ==========================================
+   FILE SIZE LIMIT — 20 MB
+========================================== */
 
 const fileInput =
     document.getElementById("attachment");
 
-fileInput.addEventListener("change", function(){
 
-    if(!this.files.length){
-        return;
+fileInput.addEventListener(
+    "change",
+    function(){
+
+        if(!this.files.length){
+            return;
+        }
+
+        const file =
+            this.files[0];
+
+        const maxSize =
+            20 * 1024 * 1024;
+
+
+        if(file.size > maxSize){
+
+            alert(
+                "ফাইলের আকার ২০ MB-এর বেশি হতে পারবে না।"
+            );
+
+            this.value = "";
+
+        }
+
     }
-
-    const file = this.files[0];
-
-    const maxSize =
-        20 * 1024 * 1024;
-
-    if(file.size > maxSize){
-
-        alert(
-            "ফাইলের আকার ২০ MB-এর বেশি হতে পারবে না।"
-        );
-
-        this.value = "";
-
-    }
-
-});
+);
 
 
-/* =========================================
-   FORM
-========================================= */
+/* ==========================================
+   FORM BUTTON TEST
+========================================== */
 
 const form =
     document.getElementById("messageForm");
 
-form.addEventListener("submit", function(e){
 
-    /*
-      এখানে আপনার আগের message-sending
-      backend/action থাকলে সেটি ব্যবহার করতে হবে।
+form.addEventListener(
+    "submit",
+    function(event){
 
-      এই HTML-এর ডিজাইন অংশ সম্পূর্ণ প্রস্তুত।
-    */
+        event.preventDefault();
 
-    e.preventDefault();
+        alert(
+            "মেসেজ পাঠানোর backend এখনো সংযুক্ত করা হয়নি।"
+        );
 
-    alert(
-        "মেসেজ পাঠানোর জন্য আপনার আগের Form/Backend সংযোগটি এই HTML-এ যুক্ত করতে হবে।"
-    );
-
-});
+    }
+);
 
 </script>
 
