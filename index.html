@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>আমাকে একটি মেসেজ পাঠান</title>
 
+
 <style>
+
+/* ================= RESET ================= */
 
 *{
     box-sizing:border-box;
@@ -20,7 +27,11 @@ body{
     min-height:100%;
 }
 
+
+/* ================= BODY ================= */
+
 body{
+
     font-family:
         "Noto Sans Bengali",
         "Nirmala UI",
@@ -36,47 +47,67 @@ body{
         );
 
     color:#17204a;
+
     overflow-x:hidden;
 }
 
 
-/* ================= BACKGROUND ================= */
+/* ================= BACKGROUND DECORATION ================= */
 
 body::before,
 body::after{
+
     content:"";
+
     position:fixed;
+
     border-radius:50%;
-    background:rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.08);
+
     z-index:-1;
+
     pointer-events:none;
 }
 
 body::before{
+
     width:240px;
     height:240px;
+
     right:-90px;
     top:180px;
 }
 
 body::after{
+
     width:190px;
     height:190px;
+
     left:-90px;
     bottom:-60px;
 }
 
 
-/* ================= MAIN ================= */
+/* ================= MAIN PAGE ================= */
 
 .page{
+
     width:100%;
+
     max-width:760px;
+
     margin:0 auto;
+
     min-height:100vh;
 
+    /*
+       উপরে সামান্য অতিরিক্ত ফাঁকা জায়গা
+    */
+
     padding:
-        7px
+        14px
         14px
         0;
 }
@@ -85,13 +116,22 @@ body::after{
 /* ================= HEADER ================= */
 
 .header{
+
     width:100%;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     gap:15px;
+
+    /*
+       Header সামান্য বামে নেওয়া হয়েছে
+    */
+
+    transform:translateX(-5px);
 
     padding:
         2px
@@ -103,7 +143,9 @@ body::after{
 /* ================= PROFILE ================= */
 
 .profile-area{
+
     width:41%;
+
     max-width:220px;
 
     text-align:center;
@@ -111,21 +153,19 @@ body::after{
     flex-shrink:0;
 }
 
+
 .profile-frame{
 
-    /*
-       আগের 148px থেকে ছোট করা হয়েছে
-    */
+    width:105px;
 
-    width:118px;
-    height:118px;
+    height:105px;
 
     margin:
         0
         auto
-        4px;
+        3px;
 
-    padding:5px;
+    padding:4px;
 
     border-radius:50%;
 
@@ -138,13 +178,18 @@ body::after{
         );
 
     box-shadow:
-        0 0 0 2px rgba(255,255,255,.95),
-        0 6px 16px rgba(20,0,80,.25);
+        0 0 0 2px
+        rgba(255,255,255,.95),
+
+        0 6px 16px
+        rgba(20,0,80,.25);
 }
+
 
 .profile-frame img{
 
     width:100%;
+
     height:100%;
 
     display:block;
@@ -154,7 +199,7 @@ body::after{
     object-fit:cover;
 
     /*
-       ছবির মাথা যেন না কাটে
+       মাথা যেন না কাটে
     */
 
     object-position:center 62%;
@@ -162,18 +207,20 @@ body::after{
     background:#eee;
 }
 
+
 .profile-name{
 
     color:#ffffff;
 
-    font-size:16px;
+    font-size:14px;
 
     font-weight:800;
 
     line-height:1.2;
 
     text-shadow:
-        0 2px 4px rgba(0,0,0,.25);
+        0 2px 4px
+        rgba(0,0,0,.25);
 
     white-space:nowrap;
 }
@@ -203,12 +250,9 @@ body::after{
 
 .message-icon{
 
-    /*
-       আগের 58px থেকে ছোট
-    */
+    width:41px;
 
-    width:45px;
-    height:45px;
+    height:41px;
 
     flex-shrink:0;
 
@@ -224,24 +268,22 @@ body::after{
         rgba(255,255,255,.08);
 
     border:
-        3px solid #ffffff;
+        2px solid #ffffff;
 
     margin:
         0
         auto
-        5px;
+        4px;
 
     box-shadow:
-        0 3px 10px rgba(0,0,0,.18);
+        0 3px 10px
+        rgba(0,0,0,.18);
 }
+
 
 .message-icon span{
 
-    /*
-       ভেতরের 💬 চিহ্নও ছোট
-    */
-
-    font-size:23px;
+    font-size:21px;
 
     line-height:1;
 
@@ -249,17 +291,13 @@ body::after{
 }
 
 
-/* ================= MAIN TITLE ================= */
+/* ================= HERO TITLE ================= */
 
 .hero-title{
 
     width:100%;
 
     color:#fff13b;
-
-    /*
-       ছোট স্ক্রিনে যেন বাইরে না যায়
-    */
 
     font-size:
         clamp(
@@ -268,19 +306,20 @@ body::after{
             34px
         );
 
-    line-height:1.15;
+    line-height:1.12;
 
     font-weight:900;
 
     text-align:center;
 
     text-shadow:
-        0 2px 3px rgba(0,0,0,.35);
+        0 2px 3px
+        rgba(0,0,0,.35);
 }
 
 
 /*
-   দুই লাইন নিশ্চিত
+   দুই লাইন
 */
 
 .hero-title .line{
@@ -295,7 +334,7 @@ body::after{
 }
 
 
-/* ================= TITLE DECORATION ================= */
+/* ================= HERO DECORATION ================= */
 
 .hero-decoration{
 
@@ -305,16 +344,17 @@ body::after{
 
     justify-content:center;
 
-    gap:6px;
+    gap:5px;
 
-    margin-top:5px;
+    margin-top:4px;
 }
+
 
 .hero-decoration i{
 
     display:block;
 
-    width:35px;
+    width:27px;
 
     height:2px;
 
@@ -323,24 +363,26 @@ body::after{
     border-radius:10px;
 }
 
+
 .hero-decoration b{
 
     color:#ff9dc9;
 
-    font-size:18px;
+    font-size:16px;
 
     line-height:1;
 }
+
 
 .hero-subtitle{
 
     color:#ffffff;
 
-    font-size:9px;
+    font-size:8px;
 
     line-height:1.25;
 
-    margin-top:3px;
+    margin-top:2px;
 
     opacity:.95;
 }
@@ -354,17 +396,18 @@ body::after{
 
     background:#ffffff;
 
-    border-radius:25px;
+    border-radius:21px;
 
     padding:
-        16px
         13px
-        12px;
+        9px
+        10px;
 
     box-shadow:
-        0 12px 30px rgba(20,0,80,.22);
+        0 12px 30px
+        rgba(20,0,80,.22);
 
-    margin-top:2px;
+    margin-top:1px;
 }
 
 
@@ -375,14 +418,14 @@ body::after{
     display:grid;
 
     grid-template-columns:
-        64px
+        56px
         minmax(0,1fr);
 
-    gap:9px;
+    gap:8px;
 
     align-items:start;
 
-    margin-bottom:9px;
+    margin-bottom:8px;
 }
 
 
@@ -390,10 +433,11 @@ body::after{
 
 .field-icon{
 
-    width:64px;
-    height:64px;
+    width:56px;
 
-    border-radius:16px;
+    height:56px;
+
+    border-radius:13px;
 
     display:flex;
 
@@ -401,7 +445,7 @@ body::after{
 
     justify-content:center;
 
-    font-size:31px;
+    font-size:27px;
 
     background:#f0e7ff;
 
@@ -410,15 +454,21 @@ body::after{
         rgba(100,50,180,.10);
 }
 
+
 .field-icon.phone{
+
     background:#e8f5ff;
 }
 
+
 .field-icon.message{
+
     background:#f0e7ff;
 }
 
+
 .field-icon.file{
+
     background:#e4faf7;
 }
 
@@ -430,30 +480,34 @@ body::after{
     min-width:0;
 }
 
+
 .field-label{
 
     display:block;
 
     color:#17204a;
 
-    font-size:16px;
+    font-size:14px;
 
     font-weight:900;
 
     line-height:1.25;
 
-    margin-bottom:4px;
+    margin-bottom:3px;
 }
 
+
 .required{
+
     color:#ef4164;
 }
+
 
 .optional{
 
     color:#999;
 
-    font-size:12px;
+    font-size:11px;
 
     font-weight:500;
 }
@@ -480,19 +534,21 @@ textarea{
 
     font-family:inherit;
 
-    font-size:15px;
+    font-size:14px;
 
     padding:
-        10px
-        13px;
+        8px
+        11px;
 
     transition:.2s;
 }
 
+
 input[type="text"]{
 
-    height:47px;
+    height:43px;
 }
+
 
 input[type="text"]:focus,
 textarea:focus{
@@ -504,6 +560,7 @@ textarea:focus{
         rgba(113,57,233,.10);
 }
 
+
 .phone-input{
 
     background:#edf8ff !important;
@@ -514,9 +571,13 @@ textarea:focus{
 
 /* ================= MESSAGE BOX ================= */
 
+/*
+   আগের থেকে সামান্য লম্বা
+*/
+
 textarea{
 
-    height:120px;
+    height:158px;
 
     resize:none;
 
@@ -536,36 +597,34 @@ textarea{
 
     background:#effbf9;
 
-    border-radius:14px;
-
-    /*
-       উচ্চতা কম রাখা হয়েছে
-    */
+    border-radius:12px;
 
     padding:
-        6px
-        8px
-        7px;
+        5px
+        7px
+        6px;
 }
+
 
 .file-title{
 
     color:#218b7d;
 
-    font-size:13px;
+    font-size:11px;
 
     font-weight:900;
 
     line-height:1.25;
 
-    margin-bottom:3px;
+    margin-bottom:2px;
 }
+
 
 .file-input{
 
     width:100%;
 
-    height:37px;
+    height:34px;
 
     background:#ffffff;
 
@@ -577,18 +636,19 @@ textarea{
 
     padding:3px;
 
-    font-size:11px;
+    font-size:10px;
 }
+
 
 .file-note{
 
     color:#6da69f;
 
-    font-size:9px;
+    font-size:8px;
 
     line-height:1.2;
 
-    margin-top:3px;
+    margin-top:2px;
 }
 
 
@@ -598,11 +658,11 @@ textarea{
 
     width:100%;
 
-    height:54px;
+    height:51px;
 
     border:0;
 
-    border-radius:14px;
+    border-radius:13px;
 
     background:
         linear-gradient(
@@ -616,7 +676,7 @@ textarea{
 
     font-family:inherit;
 
-    font-size:19px;
+    font-size:18px;
 
     font-weight:900;
 
@@ -629,14 +689,16 @@ textarea{
     margin-top:0;
 }
 
+
 .send-button:active{
 
     transform:scale(.99);
 }
 
+
 .send-arrow{
 
-    font-size:25px;
+    font-size:22px;
 
     vertical-align:-2px;
 
@@ -648,7 +710,7 @@ textarea{
 
 .security{
 
-    margin-top:7px;
+    margin-top:6px;
 
     border:
         1px solid
@@ -661,12 +723,12 @@ textarea{
     text-align:center;
 
     padding:
-        6px
-        4px;
+        5px
+        3px;
 
     color:#8d856d;
 
-    font-size:9px;
+    font-size:8px;
 
     line-height:1.3;
 }
@@ -680,17 +742,18 @@ textarea{
 
     color:#ffffff;
 
-    font-size:9px;
+    font-size:8px;
 
     line-height:1.2;
 
     padding:
-        7px
-        5px
-        8px;
+        6px
+        3px
+        7px;
 
     text-shadow:
-        0 1px 2px rgba(0,0,0,.25);
+        0 1px 2px
+        rgba(0,0,0,.25);
 }
 
 
@@ -702,15 +765,26 @@ textarea{
 
     .page{
 
+        /*
+           উপরে নতুন সামান্য জায়গা
+        */
+
         padding:
-            5px
+            12px
             9px
             0;
     }
 
+
     .header{
 
         gap:7px;
+
+        /*
+           মোবাইলেও Header সামান্য বামে
+        */
+
+        transform:translateX(-5px);
 
         padding:
             1px
@@ -726,15 +800,18 @@ textarea{
         width:42%;
     }
 
+
     .profile-frame{
 
         width:105px;
+
         height:105px;
 
         padding:4px;
 
         margin-bottom:3px;
     }
+
 
     .profile-name{
 
@@ -750,11 +827,12 @@ textarea{
     }
 
 
-    /* SMALL MESSAGE ICON */
+    /* MESSAGE ICON */
 
     .message-icon{
 
         width:41px;
+
         height:41px;
 
         border-width:2px;
@@ -762,20 +840,24 @@ textarea{
         margin-bottom:4px;
     }
 
+
     .message-icon span{
 
         font-size:21px;
     }
 
 
-    /* TWO LINE TITLE */
+    /* TITLE */
 
     .hero-title{
 
         font-size:22px;
 
         line-height:1.12;
+
+        width:100%;
     }
+
 
     .hero-title .line{
 
@@ -792,6 +874,7 @@ textarea{
         gap:5px;
     }
 
+
     .hero-decoration i{
 
         width:27px;
@@ -799,10 +882,12 @@ textarea{
         height:2px;
     }
 
+
     .hero-decoration b{
 
         font-size:16px;
     }
+
 
     .hero-subtitle{
 
@@ -826,6 +911,7 @@ textarea{
         margin-top:1px;
     }
 
+
     .form-row{
 
         grid-template-columns:
@@ -837,15 +923,18 @@ textarea{
         margin-bottom:8px;
     }
 
+
     .field-icon{
 
         width:56px;
+
         height:56px;
 
         border-radius:13px;
 
         font-size:27px;
     }
+
 
     .field-label{
 
@@ -854,10 +943,12 @@ textarea{
         margin-bottom:3px;
     }
 
+
     .optional{
 
         font-size:11px;
     }
+
 
     input[type="text"]{
 
@@ -870,9 +961,15 @@ textarea{
             11px;
     }
 
+
+    /*
+       মোবাইলে Message box
+       আগের 105px থেকে 158px
+    */
+
     textarea{
 
-        height:105px;
+        height:158px;
 
         font-size:14px;
 
@@ -896,6 +993,7 @@ textarea{
             6px;
     }
 
+
     .file-title{
 
         font-size:11px;
@@ -903,12 +1001,14 @@ textarea{
         margin-bottom:2px;
     }
 
+
     .file-input{
 
         height:34px;
 
         font-size:10px;
     }
+
 
     .file-note{
 
@@ -928,6 +1028,7 @@ textarea{
 
         font-size:18px;
     }
+
 
     .send-arrow{
 
@@ -960,6 +1061,7 @@ textarea{
             3px
             7px;
     }
+
 }
 
 
@@ -969,42 +1071,62 @@ textarea{
 
 @media(max-width:380px){
 
+    .page{
+
+        padding:
+            10px
+            8px
+            0;
+    }
+
+
     .header{
 
         gap:4px;
+
+        transform:translateX(-4px);
     }
+
 
     .profile-frame{
 
         width:96px;
+
         height:96px;
     }
+
 
     .profile-name{
 
         font-size:13px;
     }
 
+
     .message-icon{
 
         width:38px;
+
         height:38px;
     }
+
 
     .message-icon span{
 
         font-size:19px;
     }
 
+
     .hero-title{
 
         font-size:19px;
     }
 
+
     .hero-subtitle{
 
         font-size:7px;
     }
+
 
     .form-row{
 
@@ -1013,20 +1135,31 @@ textarea{
             minmax(0,1fr);
     }
 
+
     .field-icon{
 
         width:52px;
+
         height:52px;
 
         font-size:25px;
     }
+
+
+    textarea{
+
+        height:150px;
+    }
+
 }
 
 </style>
+
 </head>
 
 
 <body>
+
 
 <div class="page">
 
@@ -1049,6 +1182,7 @@ textarea{
 
         </div>
 
+
         <div class="profile-name">
             আশিকুর রহমান
         </div>
@@ -1056,16 +1190,17 @@ textarea{
     </div>
 
 
-    <!-- MESSAGE HEADER -->
+    <!-- HERO -->
 
     <div class="hero">
 
+
         <div class="message-icon">
+
             <span>💬</span>
+
         </div>
 
-
-        <!-- TWO LINE TITLE -->
 
         <div class="hero-title">
 
@@ -1092,7 +1227,9 @@ textarea{
 
 
         <div class="hero-subtitle">
+
             বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই!
+
         </div>
 
     </div>
@@ -1109,16 +1246,27 @@ textarea{
 
     <div class="form-row">
 
+
         <div class="field-icon">
+
             👤
+
         </div>
+
 
         <div class="field">
 
+
             <label class="field-label">
+
                 আপনার নাম
-                <span class="required">*</span>
+
+                <span class="required">
+                    *
+                </span>
+
             </label>
+
 
             <input
                 type="text"
@@ -1136,11 +1284,16 @@ textarea{
 
     <div class="form-row">
 
+
         <div class="field-icon phone">
+
             📞
+
         </div>
 
+
         <div class="field">
+
 
             <label class="field-label">
 
@@ -1151,6 +1304,7 @@ textarea{
                 </span>
 
             </label>
+
 
             <input
                 type="text"
@@ -1168,11 +1322,16 @@ textarea{
 
     <div class="form-row">
 
+
         <div class="field-icon message">
+
             💬
+
         </div>
 
+
         <div class="field">
+
 
             <label class="field-label">
 
@@ -1183,6 +1342,7 @@ textarea{
                 </span>
 
             </label>
+
 
             <textarea
                 name="message"
@@ -1198,11 +1358,16 @@ textarea{
 
     <div class="form-row">
 
+
         <div class="field-icon file">
+
             📎
+
         </div>
 
+
         <div class="field">
+
 
             <label class="field-label">
 
@@ -1217,9 +1382,13 @@ textarea{
 
             <div class="file-box">
 
+
                 <div class="file-title">
+
                     📎 ছবি, PDF বা অন্যান্য ফাইল
+
                 </div>
+
 
                 <input
                     type="file"
@@ -1228,9 +1397,13 @@ textarea{
                     accept="image/*,.pdf"
                 >
 
+
                 <div class="file-note">
+
                     সর্বোচ্চ ২০ MB · একবারে ১টি ফাইল
+
                 </div>
+
 
             </div>
 
@@ -1239,7 +1412,7 @@ textarea{
     </div>
 
 
-    <!-- SEND BUTTON -->
+    <!-- SEND -->
 
     <button
         type="button"
@@ -1282,12 +1455,14 @@ textarea{
 
 <script>
 
+
 /* ================= FILE SIZE CHECK ================= */
 
 const fileInput =
     document.querySelector(
         '.file-input'
     );
+
 
 if(fileInput){
 
@@ -1299,11 +1474,14 @@ if(fileInput){
                 return;
             }
 
+
             const file =
                 this.files[0];
 
+
             const maxSize =
                 20 * 1024 * 1024;
+
 
             if(file.size > maxSize){
 
@@ -1311,11 +1489,14 @@ if(fileInput){
                     'ফাইলের আকার ২০ MB-এর বেশি হতে পারবে না।'
                 );
 
+
                 this.value = '';
+
             }
 
         }
     );
+
 }
 
 
@@ -1323,11 +1504,13 @@ if(fileInput){
 
 function sendMessage(){
 
+
     const name =
         document
         .querySelector('[name="name"]')
         .value
         .trim();
+
 
     const message =
         document
@@ -1357,9 +1540,10 @@ function sendMessage(){
 
 
     /*
-      Google Apps Script
-      এখানে সংযুক্ত করা হবে।
+       Google Apps Script
+       পরে এখানে যুক্ত করা হবে।
     */
+
 
     alert(
         'মেসেজ প্রস্তুত হয়েছে।'
@@ -1369,5 +1553,7 @@ function sendMessage(){
 
 </script>
 
+
 </body>
+
 </html>
