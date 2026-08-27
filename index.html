@@ -7,6 +7,7 @@
 <title>আমাকে একটি মেসেজ পাঠান</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -37,7 +38,9 @@ body{
     overflow-x:hidden;
 }
 
-/* Background decoration */
+
+/* ================= BACKGROUND ================= */
+
 body::before,
 body::after{
     content:"";
@@ -61,94 +64,54 @@ body::after{
     bottom:-60px;
 }
 
-/* Main wrapper */
+
+/* ================= PAGE ================= */
+
 .page{
     width:100%;
     max-width:760px;
     margin:0 auto;
+
     min-height:100vh;
-    padding:12px 14px 0;
+
+    /* উপরে সামান্য ফাঁকা জায়গা */
+    padding:20px 14px 0;
 }
+
 
 /* ================= HEADER ================= */
 
 .header{
     width:100%;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:22px;
-    padding:4px 4px 12px;
-}
 
-/* Profile area */
-.profile-area{
-    width:40%;
-    max-width:250px;
     text-align:center;
-    flex-shrink:0;
+
+    padding:4px 0 14px;
 }
 
-.profile-frame{
-    width:148px;
-    height:148px;
-    margin:0 auto 5px;
 
-    border-radius:50%;
-    padding:6px;
+/* ================= HERO ================= */
 
-    background:
-        linear-gradient(
-            135deg,
-            #00cfff,
-            #8b5cf6,
-            #f4b4ff
-        );
-
-    box-shadow:
-        0 0 0 3px rgba(255,255,255,.9),
-        0 8px 22px rgba(20,0,80,.25);
-}
-
-.profile-frame img{
-    width:100%;
-    height:100%;
-    display:block;
-
-    border-radius:50%;
-    object-fit:cover;
-
-    object-position:center 62%;
-
-    background:#eee;
-}
-
-.profile-name{
-    color:white;
-    font-size:20px;
-    font-weight:800;
-    text-shadow:0 2px 4px rgba(0,0,0,.25);
-    white-space:nowrap;
-}
-
-/* Header right */
 .hero{
-    flex:1;
-    min-width:0;
-    text-align:center;
+    width:100%;
+    max-width:500px;
 
     display:flex;
     flex-direction:column;
+
     align-items:center;
     justify-content:center;
+
+    text-align:center;
 }
+
 
 /* ================= TOP PROFILE IMAGE ================= */
 
-/*
-   আগের মেসেজ আইকনের জায়গায় 1000.png
-   ছোট গোলাকার ছবি
-*/
 .message-icon{
     width:58px;
     height:58px;
@@ -186,16 +149,20 @@ body::after{
     border-radius:50%;
 
     object-fit:cover;
+
     object-position:center;
 
     background:#eee;
 }
 
-/* Main heading */
+
+/* ================= MAIN TITLE ================= */
+
 .hero-title{
     color:#fff13b;
 
     font-size:clamp(25px,5vw,38px);
+
     line-height:1.18;
 
     font-weight:900;
@@ -205,19 +172,28 @@ body::after{
     text-shadow:
         0 2px 3px rgba(0,0,0,.35);
 
+    width:100%;
+
     max-width:370px;
 }
 
-/* Exactly two lines */
+
+/* দুই লাইনে থাকবে */
+
 .hero-title .line{
     display:block;
     white-space:nowrap;
 }
 
+
+/* ================= DECORATION ================= */
+
 .hero-decoration{
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     gap:9px;
 
     margin-top:7px;
@@ -225,28 +201,38 @@ body::after{
 
 .hero-decoration i{
     display:block;
+
     width:52px;
     height:3px;
+
     background:#fff;
+
     border-radius:10px;
 }
 
 .hero-decoration b{
     color:#ff9dc9;
+
     font-size:24px;
 }
 
+
 .hero-subtitle{
     color:white;
+
     font-size:12px;
+
     margin-top:4px;
+
     opacity:.95;
 }
+
 
 /* ================= FORM ================= */
 
 .form-card{
     width:100%;
+
     background:#fff;
 
     border-radius:27px;
@@ -256,20 +242,27 @@ body::after{
     box-shadow:
         0 12px 30px rgba(20,0,80,.22);
 
-    margin-top:4px;
+    margin-top:3px;
 }
 
-/* Form row */
+
+/* ================= FORM ROW ================= */
+
 .form-row{
     display:grid;
+
     grid-template-columns:78px 1fr;
+
     gap:12px;
+
     align-items:start;
 
     margin-bottom:13px;
 }
 
-/* Icon box */
+
+/* ================= ICON BOX ================= */
+
 .field-icon{
     width:78px;
     height:78px;
@@ -284,7 +277,8 @@ body::after{
 
     background:#f0e7ff;
 
-    border:1px solid rgba(100,50,180,.10);
+    border:
+        1px solid rgba(100,50,180,.10);
 }
 
 .field-icon.phone{
@@ -299,7 +293,9 @@ body::after{
     background:#e4faf7;
 }
 
-/* Field */
+
+/* ================= FIELD ================= */
+
 .field{
     min-width:0;
 }
@@ -310,6 +306,7 @@ body::after{
     color:#17204a;
 
     font-size:19px;
+
     font-weight:900;
 
     margin-bottom:5px;
@@ -321,16 +318,21 @@ body::after{
 
 .optional{
     color:#999;
+
     font-size:15px;
+
     font-weight:500;
 }
 
-/* Inputs */
+
+/* ================= INPUTS ================= */
+
 input[type="text"],
 textarea{
     width:100%;
 
-    border:2px solid #ddd0ea;
+    border:
+        2px solid #ddd0ea;
 
     background:#fcf9ff;
 
@@ -356,26 +358,34 @@ input[type="text"]{
 input[type="text"]:focus,
 textarea:focus{
     border-color:#7139e9;
-    box-shadow:0 0 0 3px rgba(113,57,233,.10);
+
+    box-shadow:
+        0 0 0 3px rgba(113,57,233,.10);
 }
 
 .phone-input{
     background:#edf8ff !important;
+
     border-color:#bdddf0 !important;
 }
 
-/* Message box */
+
+/* ================= MESSAGE BOX ================= */
+
 textarea{
     height:150px;
+
     resize:none;
 }
+
 
 /* ================= FILE ================= */
 
 .file-box{
     width:100%;
 
-    border:3px dashed #64c4b8;
+    border:
+        3px dashed #64c4b8;
 
     background:#effbf9;
 
@@ -388,6 +398,7 @@ textarea{
     color:#218b7d;
 
     font-size:18px;
+
     font-weight:900;
 
     margin-bottom:5px;
@@ -395,11 +406,13 @@ textarea{
 
 .file-input{
     width:100%;
+
     height:43px;
 
     background:white;
 
-    border:1px solid #d9d9d9;
+    border:
+        1px solid #d9d9d9;
 
     border-radius:11px;
 
@@ -416,7 +429,8 @@ textarea{
     margin-top:4px;
 }
 
-/* ================= BUTTON ================= */
+
+/* ================= SEND BUTTON ================= */
 
 .send-button{
     width:100%;
@@ -440,6 +454,7 @@ textarea{
     font-family:inherit;
 
     font-size:23px;
+
     font-weight:900;
 
     cursor:pointer;
@@ -456,16 +471,20 @@ textarea{
 
 .send-arrow{
     font-size:31px;
+
     vertical-align:-2px;
+
     margin-right:7px;
 }
+
 
 /* ================= SECURITY ================= */
 
 .security{
     margin-top:10px;
 
-    border:1px solid #f0dfad;
+    border:
+        1px solid #f0dfad;
 
     background:#fffbea;
 
@@ -480,6 +499,7 @@ textarea{
     font-size:12px;
 }
 
+
 /* ================= FOOTER ================= */
 
 .footer{
@@ -489,60 +509,54 @@ textarea{
 
     font-size:13px;
 
-    padding:12px 5px 14px;
+    padding:
+        12px 5px 14px;
 
-    text-shadow:0 1px 2px rgba(0,0,0,.25);
+    text-shadow:
+        0 1px 2px rgba(0,0,0,.25);
 }
+
 
 /* ================= MOBILE ================= */
 
 @media(max-width:600px){
 
     .page{
-        padding:7px 14px 0;
+        padding:
+            16px 14px 0;
     }
 
     .header{
-        gap:14px;
         padding-bottom:10px;
     }
 
-    .profile-area{
-        width:42%;
-    }
 
-    .profile-frame{
-        width:128px;
-        height:128px;
-        padding:5px;
-    }
+    /* উপরের ছোট ছবি */
 
-    .profile-name{
-        font-size:17px;
-    }
-
-    .hero{
-        width:58%;
-    }
-
-    /* উপরের আপনার ছবি */
     .message-icon{
         width:52px;
         height:52px;
+
         padding:3px;
+
         border-width:3px;
+
         margin-bottom:5px;
     }
 
+
     .hero-title{
         font-size:25px;
+
         line-height:1.15;
+
         max-width:300px;
     }
 
     .hero-title .line{
         white-space:nowrap;
     }
+
 
     .hero-decoration{
         margin-top:5px;
@@ -561,27 +575,39 @@ textarea{
         font-size:10px;
     }
 
+
+    /* ================= FORM ================= */
+
     .form-card{
-        padding:18px 12px 14px;
+        padding:
+            18px 12px 14px;
+
         border-radius:25px;
+
         margin-top:2px;
     }
 
     .form-row{
-        grid-template-columns:74px 1fr;
+        grid-template-columns:
+            74px 1fr;
+
         gap:9px;
+
         margin-bottom:12px;
     }
 
     .field-icon{
         width:74px;
         height:74px;
+
         font-size:35px;
+
         border-radius:17px;
     }
 
     .field-label{
         font-size:17px;
+
         margin-bottom:4px;
     }
 
@@ -591,29 +617,43 @@ textarea{
 
     input[type="text"]{
         height:51px;
+
         font-size:17px;
-        padding:11px 14px;
+
+        padding:
+            11px 14px;
     }
 
     textarea{
         height:145px;
+
         font-size:17px;
-        padding:12px 14px;
+
+        padding:
+            12px 14px;
     }
+
+
+    /* ================= FILE ================= */
 
     .file-box{
         border-width:3px;
+
         border-radius:17px;
-        padding:7px 9px 8px;
+
+        padding:
+            7px 9px 8px;
     }
 
     .file-title{
         font-size:16px;
+
         margin-bottom:4px;
     }
 
     .file-input{
         height:40px;
+
         font-size:13px;
     }
 
@@ -621,41 +661,45 @@ textarea{
         font-size:11px;
     }
 
+
+    /* ================= BUTTON ================= */
+
     .send-button{
         height:58px;
+
         font-size:21px;
     }
 
+
     .security{
         font-size:11px;
-        padding:8px 4px;
+
+        padding:
+            8px 4px;
     }
+
 
     .footer{
         font-size:11px;
+
         padding-top:10px;
     }
 }
 
-/* Very small screens */
+
+/* ================= VERY SMALL SCREEN ================= */
+
 @media(max-width:380px){
 
-    .header{
-        gap:8px;
-    }
-
-    .profile-frame{
-        width:115px;
-        height:115px;
-    }
-
-    .profile-name{
-        font-size:15px;
+    .page{
+        padding-left:10px;
+        padding-right:10px;
     }
 
     .message-icon{
         width:47px;
         height:47px;
+
         padding:3px;
     }
 
@@ -668,7 +712,8 @@ textarea{
     }
 
     .form-row{
-        grid-template-columns:65px 1fr;
+        grid-template-columns:
+            65px 1fr;
     }
 
     .field-icon{
@@ -676,81 +721,104 @@ textarea{
         height:65px;
     }
 }
+
 </style>
 </head>
+
 
 <body>
 
 <div class="page">
 
+
     <!-- ================= HEADER ================= -->
 
     <header class="header">
 
-        <!-- LEFT PROFILE -->
-        <div class="profile-area">
-
-            <div class="profile-frame">
-                <img
-                    src="1000.png"
-                    alt="আশিকুর রহমান"
-                >
-            </div>
-
-            <div class="profile-name">
-                আশিকুর রহমান
-            </div>
-
-        </div>
-
-
-        <!-- RIGHT HERO -->
         <div class="hero">
 
-            <!-- আপনার ছবির ছোট সংস্করণ -->
+
+            <!-- আপনার ছবি -->
+
             <div class="message-icon">
+
                 <img
                     src="1000.png"
                     alt="আশিকুর রহমান"
                 >
+
             </div>
+
+
+            <!-- প্রধান শিরোনাম -->
 
             <div class="hero-title">
-                <span class="line">আপনার কথা</span>
-                <span class="line">আমার কাছে পৌঁছে দিন</span>
+
+                <span class="line">
+                    আপনার কথা
+                </span>
+
+                <span class="line">
+                    আমার কাছে পৌঁছে দিন
+                </span>
+
             </div>
+
+
+            <!-- Decoration -->
 
             <div class="hero-decoration">
+
                 <i></i>
+
                 <b>♥</b>
+
                 <i></i>
+
             </div>
 
+
+            <!-- Subtitle -->
+
             <div class="hero-subtitle">
+
                 বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই!
+
             </div>
+
 
         </div>
 
     </header>
 
 
+
     <!-- ================= FORM ================= -->
 
     <main class="form-card">
 
+
         <!-- NAME -->
+
         <div class="form-row">
 
             <div class="field-icon">
                 👤
             </div>
 
+
             <div class="field">
 
                 <label class="field-label">
-                    আপনার নাম <span class="required">*</span>
+
+                    আপনার নাম
+
+                    <span class="required">
+                        *
+                    </span>
+
                 </label>
+
 
                 <input
                     type="text"
@@ -764,19 +832,28 @@ textarea{
         </div>
 
 
+
         <!-- CONTACT -->
+
         <div class="form-row">
 
             <div class="field-icon phone">
                 📞
             </div>
 
+
             <div class="field">
 
                 <label class="field-label">
+
                     যোগাযোগ
-                    <span class="optional">(ঐচ্ছিক)</span>
+
+                    <span class="optional">
+                        (ঐচ্ছিক)
+                    </span>
+
                 </label>
+
 
                 <input
                     type="text"
@@ -790,18 +867,28 @@ textarea{
         </div>
 
 
+
         <!-- MESSAGE -->
+
         <div class="form-row">
 
             <div class="field-icon message">
                 💬
             </div>
 
+
             <div class="field">
 
                 <label class="field-label">
-                    আপনার মেসেজ <span class="required">*</span>
+
+                    আপনার মেসেজ
+
+                    <span class="required">
+                        *
+                    </span>
+
                 </label>
+
 
                 <textarea
                     name="message"
@@ -813,25 +900,38 @@ textarea{
         </div>
 
 
+
         <!-- FILE -->
+
         <div class="form-row">
 
             <div class="field-icon file">
                 📎
             </div>
 
+
             <div class="field">
 
                 <label class="field-label">
+
                     ফাইল সংযুক্ত করুন
-                    <span class="optional">(ঐচ্ছিক)</span>
+
+                    <span class="optional">
+                        (ঐচ্ছিক)
+                    </span>
+
                 </label>
+
 
                 <div class="file-box">
 
+
                     <div class="file-title">
+
                         📎 ছবি, PDF বা অন্যান্য ফাইল
+
                     </div>
+
 
                     <input
                         type="file"
@@ -840,9 +940,13 @@ textarea{
                         accept="image/*,.pdf"
                     >
 
+
                     <div class="file-note">
+
                         সর্বোচ্চ ২০ MB · একবারে ১টি ফাইল
+
                     </div>
+
 
                 </div>
 
@@ -851,61 +955,103 @@ textarea{
         </div>
 
 
+
         <!-- SEND BUTTON -->
+
         <button
             type="button"
             class="send-button"
             onclick="sendMessage()"
         >
-            <span class="send-arrow">➤</span>
+
+            <span class="send-arrow">
+                ➤
+            </span>
+
             মেসেজ পাঠান
+
         </button>
 
 
+
         <!-- SECURITY -->
+
         <div class="security">
+
             🛡️ আপনার মেসেজ নিরাপদে সংরক্ষিত হবে এবং গোপনীয় রাখা হবে।
+
         </div>
+
 
     </main>
 
 
-    <!-- FOOTER -->
+
+    <!-- ================= FOOTER ================= -->
+
     <footer class="footer">
+
         🔐 আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ ❤️
+
     </footer>
+
 
 </div>
 
 
+
 <script>
+
 function sendMessage(){
 
     const name =
-        document.querySelector('[name="name"]').value.trim();
+        document
+        .querySelector('[name="name"]')
+        .value
+        .trim();
+
 
     const message =
-        document.querySelector('[name="message"]').value.trim();
+        document
+        .querySelector('[name="message"]')
+        .value
+        .trim();
+
 
     if(!name){
-        alert("দয়া করে আপনার নাম লিখুন।");
+
+        alert(
+            "দয়া করে আপনার নাম লিখুন।"
+        );
+
         return;
     }
 
+
     if(!message){
-        alert("দয়া করে আপনার মেসেজ লিখুন।");
+
+        alert(
+            "দয়া করে আপনার মেসেজ লিখুন।"
+        );
+
         return;
     }
+
 
     /*
       এখানে পরবর্তীতে আপনার
-      Google Apps Script যুক্ত করা যাবে।
+      Google Apps Script
+      যুক্ত করা যাবে।
     */
 
-    alert("মেসেজ প্রস্তুত হয়েছে।");
+    alert(
+        "মেসেজ প্রস্তুত হয়েছে।"
+    );
 
 }
+
 </script>
+
 
 </body>
 </html>
