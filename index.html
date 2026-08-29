@@ -594,4 +594,753 @@ textarea{
     }
 
     .hero-decoration b{
-        font-size:20
+        font-size:20px;
+    }
+
+    .hero-subtitle{
+        font-size:10px;
+    }
+
+    .form-card{
+
+        padding:
+            18px 12px 14px;
+
+        border-radius:25px;
+    }
+
+    .form-row{
+
+        grid-template-columns:
+            74px 1fr;
+
+        gap:9px;
+
+        margin-bottom:12px;
+    }
+
+    .field-icon{
+
+        width:74px;
+        height:74px;
+
+        font-size:35px;
+
+        border-radius:17px;
+    }
+
+    .field-label{
+
+        font-size:17px;
+
+        margin-bottom:4px;
+    }
+
+    .optional{
+        font-size:13px;
+    }
+
+    input[type="text"]{
+
+        height:51px;
+
+        font-size:17px;
+
+        padding:
+            11px 14px;
+    }
+
+    textarea{
+
+        height:155px;
+
+        font-size:17px;
+
+        padding:
+            12px 14px;
+    }
+
+    .file-box{
+
+        border-width:3px;
+
+        border-radius:17px;
+
+        padding:
+            7px 9px 8px;
+    }
+
+    .file-title{
+
+        font-size:16px;
+
+        margin-bottom:4px;
+    }
+
+    .file-input{
+
+        height:40px;
+
+        font-size:13px;
+    }
+
+    .file-note{
+        font-size:11px;
+    }
+
+    .send-button{
+
+        height:58px;
+
+        font-size:21px;
+    }
+
+    .security{
+
+        font-size:11px;
+
+        padding:
+            8px 4px;
+    }
+
+    .footer{
+
+        font-size:11px;
+
+        padding-top:10px;
+    }
+
+}
+
+
+/* =========================
+   VERY SMALL SCREEN
+========================= */
+
+@media(max-width:380px){
+
+    .hero-title{
+        font-size:21px;
+    }
+
+    .hero-subtitle{
+        font-size:9px;
+    }
+
+    .form-row{
+
+        grid-template-columns:
+            65px 1fr;
+    }
+
+    .field-icon{
+
+        width:65px;
+        height:65px;
+
+        font-size:32px;
+    }
+
+    .field-label{
+        font-size:16px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+<header class="header">
+
+<div class="hero">
+
+
+<div class="message-icon">
+
+<span>💬</span>
+
+</div>
+
+
+<div class="hero-title">
+
+<span class="line">
+আপনার কথা
+</span>
+
+<span class="line">
+আমার কাছে পৌঁছে দিন
+</span>
+
+</div>
+
+
+<div class="hero-decoration">
+
+<i></i>
+
+<b>♥</b>
+
+<i></i>
+
+</div>
+
+
+<div class="hero-subtitle">
+
+বার্তাটি কখন দেখা হবে—তার নির্দিষ্ট সময় নেই!
+
+</div>
+
+
+</div>
+
+</header>
+
+
+
+<main class="form-card">
+
+
+<!-- NAME -->
+
+<div class="form-row">
+
+
+<div class="field-icon">
+👤
+</div>
+
+
+<div class="field">
+
+
+<label class="field-label">
+
+আপনার নাম
+
+<span class="required">
+*
+</span>
+
+</label>
+
+
+<input
+type="text"
+name="name"
+placeholder="আপনার নাম লিখুন"
+autocomplete="name"
+>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- CONTACT -->
+
+<div class="form-row">
+
+
+<div class="field-icon phone">
+📞
+</div>
+
+
+<div class="field">
+
+
+<label class="field-label">
+
+যোগাযোগ
+
+<span class="optional">
+(ঐচ্ছিক)
+</span>
+
+</label>
+
+
+<input
+type="text"
+name="contact"
+class="phone-input"
+placeholder="নাম্বার, ই-মেইল অথবা লিংক"
+>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- MESSAGE -->
+
+<div class="form-row">
+
+
+<div class="field-icon message">
+💬
+</div>
+
+
+<div class="field">
+
+
+<label class="field-label">
+
+আপনার মেসেজ
+
+<span class="required">
+*
+</span>
+
+</label>
+
+
+<textarea
+name="message"
+placeholder="আপনার কথা এখানে লিখুন..."
+></textarea>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- FILE -->
+
+<div class="form-row">
+
+
+<div class="field-icon file">
+📎
+</div>
+
+
+<div class="field">
+
+
+<label class="field-label">
+
+ফাইল সংযুক্ত করুন
+
+<span class="optional">
+(ঐচ্ছিক)
+</span>
+
+</label>
+
+
+<div class="file-box">
+
+
+<div class="file-title">
+
+📎 ছবি, PDF বা অন্যান্য ফাইল
+
+</div>
+
+
+<input
+type="file"
+class="file-input"
+name="file"
+accept="image/*,.pdf"
+>
+
+
+<div class="file-note">
+
+সর্বোচ্চ ২০ MB · একবারে ১টি ফাইল
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- SEND -->
+
+<button
+type="button"
+class="send-button"
+onclick="sendMessage()"
+>
+
+<span class="send-arrow">
+➤
+</span>
+
+মেসেজ পাঠান
+
+</button>
+
+
+
+<!-- SECURITY -->
+
+<div class="security">
+
+🛡️ আপনার মেসেজ নিরাপদে সংরক্ষিত হবে এবং গোপনীয় রাখা হবে।
+
+</div>
+
+
+</main>
+
+
+
+<footer class="footer">
+
+🔐 আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ ❤️
+
+</footer>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================================
+   NEW GOOGLE APPS SCRIPT WEB APP URL
+========================================= */
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbzm4UaKqIZZ4mex1I_eoxSNWRdh8HeBdmPnqIONGNx7_VgtF8ShcjUeEzQu4qh2kSRc/exec";
+
+
+/* =========================================
+   MAXIMUM FILE SIZE
+========================================= */
+
+const MAX_FILE_SIZE =
+20 * 1024 * 1024;
+
+
+/* =========================================
+   FILE → BASE64
+========================================= */
+
+function fileToBase64(file){
+
+    return new Promise(
+        (resolve,reject)=>{
+
+            const reader =
+                new FileReader();
+
+            reader.onload=function(){
+
+                const result =
+                    reader.result;
+
+                const base64 =
+                    result.split(",")[1];
+
+                resolve(base64);
+            };
+
+            reader.onerror=function(){
+
+                reject(
+                    new Error(
+                        "ফাইল পড়া যায়নি।"
+                    )
+                );
+
+            };
+
+            reader.readAsDataURL(file);
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   SEND MESSAGE
+========================================= */
+
+async function sendMessage(){
+
+
+    const name =
+        document
+        .querySelector('[name="name"]')
+        .value
+        .trim();
+
+
+    const contact =
+        document
+        .querySelector('[name="contact"]')
+        .value
+        .trim();
+
+
+    const message =
+        document
+        .querySelector('[name="message"]')
+        .value
+        .trim();
+
+
+    const fileInput =
+        document
+        .querySelector('[name="file"]');
+
+
+    const file =
+        fileInput.files[0];
+
+
+    /* =========================
+       REQUIRED FIELDS
+    ========================== */
+
+    if(!name){
+
+        alert(
+            "দয়া করে আপনার নাম লিখুন।"
+        );
+
+        return;
+    }
+
+
+    if(!message){
+
+        alert(
+            "দয়া করে আপনার মেসেজ লিখুন।"
+        );
+
+        return;
+    }
+
+
+    /* =========================
+       FILE SIZE
+    ========================== */
+
+    if(file){
+
+        if(file.size > MAX_FILE_SIZE){
+
+            alert(
+                "❌ ফাইলের আকার ২০ MB-এর বেশি।\n\n" +
+                "অনুগ্রহ করে ২০ MB বা তার কম ফাইল নির্বাচন করুন।"
+            );
+
+            return;
+        }
+
+    }
+
+
+    /* =========================
+       BUTTON
+    ========================== */
+
+    const button =
+        document
+        .querySelector(".send-button");
+
+
+    button.disabled=true;
+
+    button.innerHTML =
+        "⏳ পাঠানো হচ্ছে...";
+
+
+    try{
+
+
+        /* =========================
+           DATA
+        ========================== */
+
+        const data={
+
+            name:name,
+
+            contact:contact,
+
+            message:message
+
+        };
+
+
+        /* =========================
+           FILE
+        ========================== */
+
+        if(file){
+
+            button.innerHTML =
+                "⏳ ফাইল প্রস্তুত হচ্ছে...";
+
+
+            const base64 =
+                await fileToBase64(file);
+
+
+            data.file={
+
+                name:file.name,
+
+                type:file.type,
+
+                size:file.size,
+
+                data:base64
+
+            };
+
+        }
+
+
+        /* =========================
+           SEND
+        ========================== */
+
+        button.innerHTML =
+            "⏳ মেসেজ পাঠানো হচ্ছে...";
+
+
+        const response =
+            await fetch(
+
+                SCRIPT_URL,
+
+                {
+
+                    method:"POST",
+
+                    body:
+                        JSON.stringify(data)
+
+                }
+
+            );
+
+
+        const result =
+            await response.json();
+
+
+        /* =========================
+           SUCCESS
+        ========================== */
+
+        if(result.success){
+
+            alert(
+                "✅ আপনার মেসেজ সফলভাবে পাঠানো হয়েছে।"
+            );
+
+
+            document
+            .querySelector('[name="name"]')
+            .value="";
+
+
+            document
+            .querySelector('[name="contact"]')
+            .value="";
+
+
+            document
+            .querySelector('[name="message"]')
+            .value="";
+
+
+            fileInput.value="";
+
+        }
+
+
+        /* =========================
+           SERVER ERROR
+        ========================== */
+
+        else{
+
+            alert(
+
+                "❌ মেসেজ পাঠানো যায়নি।\n\n" +
+
+                (
+                    result.message ||
+                    "আবার চেষ্টা করুন।"
+                )
+
+            );
+
+        }
+
+
+    }
+
+
+    catch(error){
+
+        console.error(error);
+
+
+        alert(
+
+            "❌ সংযোগে সমস্যা হয়েছে।\n\n" +
+            "অনুগ্রহ করে কিছুক্ষণ পর আবার চেষ্টা করুন।"
+
+        );
+
+    }
+
+
+    finally{
+
+        button.disabled=false;
+
+        button.innerHTML =
+            '<span class="send-arrow">➤</span>' +
+            'মেসেজ পাঠান';
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
