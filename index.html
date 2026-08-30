@@ -279,14 +279,14 @@ body::after{
     display:grid;
 
     grid-template-columns:
-        78px
+        62px
         1fr;
 
-    gap:12px;
+    gap:10px;
 
     align-items:start;
 
-    margin-bottom:14px;
+    margin-bottom:12px;
 
 }
 
@@ -295,17 +295,17 @@ body::after{
 
 .field-icon{
 
-    width:78px;
-    height:78px;
+    width:62px;
+    height:62px;
 
-    border-radius:18px;
+    border-radius:15px;
 
     display:flex;
 
     align-items:center;
     justify-content:center;
 
-    font-size:39px;
+    font-size:29px;
 
     background:#f0e7ff;
 
@@ -725,13 +725,13 @@ textarea{
 
 
     /* =================
-       SMALLER ICONS
+       SMALLER MOBILE ICONS
        ================= */
 
     .form-row{
 
         grid-template-columns:
-            60px
+            55px
             1fr;
 
         gap:8px;
@@ -743,12 +743,12 @@ textarea{
 
     .field-icon{
 
-        width:60px;
-        height:60px;
+        width:55px;
+        height:55px;
 
-        font-size:29px;
+        font-size:26px;
 
-        border-radius:15px;
+        border-radius:14px;
 
     }
 
@@ -782,10 +782,6 @@ textarea{
     }
 
 
-    /* =================
-       SHORTER MESSAGE BOX
-       ================= */
-
     textarea{
 
         height:145px;
@@ -798,10 +794,6 @@ textarea{
 
     }
 
-
-    /* =================
-       COMPACT FILE BOX
-       ================= */
 
     .file-box{
 
@@ -903,12 +895,10 @@ textarea{
     }
 
 
-    /* আরও ছোট স্ক্রিনে আইকন */
-
     .form-row{
 
         grid-template-columns:
-            56px
+            52px
             1fr;
 
         gap:7px;
@@ -920,12 +910,12 @@ textarea{
 
     .field-icon{
 
-        width:56px;
-        height:56px;
+        width:52px;
+        height:52px;
 
-        font-size:27px;
+        font-size:24px;
 
-        border-radius:14px;
+        border-radius:13px;
 
     }
 
@@ -1270,299 +1260,4 @@ async function sendMessage(){
 
     const button =
         document
-        .getElementById("sendButton");
-
-
-    /* NAME CHECK */
-
-    if(!name){
-
-        alert(
-            "দয়া করে আপনার নাম লিখুন।"
-        );
-
-        return;
-
-    }
-
-
-    /* MESSAGE CHECK */
-
-    if(!message){
-
-        alert(
-            "দয়া করে আপনার মেসেজ লিখুন।"
-        );
-
-        return;
-
-    }
-
-
-    /* FILE CHECK */
-
-    if(
-        fileInput.files.length > 0
-    ){
-
-        const file =
-            fileInput.files[0];
-
-
-        const maxSize =
-            20 * 1024 * 1024;
-
-
-        if(file.size > maxSize){
-
-            alert(
-                "ফাইলের আকার ২০ MB-এর বেশি হতে পারবে না।"
-            );
-
-            return;
-
-        }
-
-    }
-
-
-    /*
-    ================================================
-    BUTTON DISABLE
-    ================================================
-    */
-
-    button.disabled = true;
-
-    button.innerHTML =
-        "⏳ মেসেজ পাঠানো হচ্ছে...";
-
-
-    try{
-
-
-        /*
-        ============================================
-        FILE DATA
-        ============================================
-        */
-
-        let fileData = "";
-
-        let fileName = "";
-
-        let fileType = "";
-
-
-        if(
-            fileInput.files.length > 0
-        ){
-
-            const file =
-                fileInput.files[0];
-
-
-            fileName =
-                file.name;
-
-
-            fileType =
-                file.type;
-
-
-            fileData =
-                await readFileAsBase64(file);
-
-        }
-
-
-        /*
-        ============================================
-        DATA
-        ============================================
-        */
-
-        const data = {
-
-            name:
-                name,
-
-            contact:
-                contact,
-
-            message:
-                message,
-
-            fileName:
-                fileName,
-
-            fileType:
-                fileType,
-
-            fileData:
-                fileData
-
-        };
-
-
-        /*
-        ============================================
-        SEND TO GOOGLE APPS SCRIPT
-        ============================================
-        */
-
-        const response =
-            await fetch(
-                SCRIPT_URL,
-                {
-
-                    method:"POST",
-
-                    headers:{
-                        "Content-Type":
-                            "text/plain;charset=utf-8"
-                    },
-
-                    body:
-                        JSON.stringify(data)
-
-                }
-            );
-
-
-        /*
-        ============================================
-        RESPONSE
-        ============================================
-        */
-
-        const result =
-            await response.json();
-
-
-        if(
-            result.success
-        ){
-
-            alert(
-                "✅ আপনার মেসেজ সফলভাবে পাঠানো হয়েছে।"
-            );
-
-
-            /* CLEAR FORM */
-
-            document
-            .getElementById("name")
-            .value = "";
-
-
-            document
-            .getElementById("contact")
-            .value = "";
-
-
-            document
-            .getElementById("message")
-            .value = "";
-
-
-            fileInput.value = "";
-
-        }
-
-        else{
-
-            alert(
-                "❌ মেসেজ পাঠানো যায়নি।\n\n" +
-                (
-                    result.message ||
-                    "দয়া করে আবার চেষ্টা করুন।"
-                )
-            );
-
-        }
-
-
-    }
-
-    catch(error){
-
-        console.error(error);
-
-
-        alert(
-            "❌ মেসেজ পাঠাতে সমস্যা হয়েছে।\n\n" +
-            "ইন্টারনেট সংযোগ অথবা Apps Script পরীক্ষা করুন।"
-        );
-
-    }
-
-
-    /*
-    ================================================
-    BUTTON RESET
-    ================================================
-    */
-
-    button.disabled = false;
-
-    button.innerHTML =
-        '<span class="send-arrow">➤</span> মেসেজ পাঠান';
-
-}
-
-
-/*
-====================================================
-READ FILE AS BASE64
-====================================================
-*/
-
-function readFileAsBase64(file){
-
-    return new Promise(
-        function(resolve,reject){
-
-            const reader =
-                new FileReader();
-
-
-            reader.onload =
-                function(){
-
-                    const result =
-                        reader.result;
-
-
-                    const base64 =
-                        result
-                        .split(",")[1];
-
-
-                    resolve(base64);
-
-                };
-
-
-            reader.onerror =
-                function(){
-
-                    reject(
-                        reader.error
-                    );
-
-                };
-
-
-            reader.readAsDataURL(file);
-
-        }
-    );
-
-}
-
-</script>
-
-
-</body>
-</html>
+        .getElementById("
