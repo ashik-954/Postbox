@@ -71,7 +71,6 @@ body::after{
     width:100%;
     max-width:760px;
     margin:0 auto;
-
     min-height:100vh;
 
     padding:
@@ -101,7 +100,7 @@ body::after{
 }
 
 
-/* ================= TOP PROFILE ================= */
+/* ================= PROFILE ================= */
 
 .message-icon{
     width:72px;
@@ -134,8 +133,6 @@ body::after{
     overflow:hidden;
 }
 
-
-/* PROFILE IMAGE */
 
 .message-icon img{
     width:100%;
@@ -176,9 +173,6 @@ body::after{
 
     max-width:600px;
 }
-
-
-/* দুই লাইনে রাখা */
 
 .hero-title .line{
     display:block;
@@ -252,19 +246,14 @@ body::after{
 
 /* ================= FORM ROW ================= */
 
-/*
-আইকন বক্সটি Label-এর সাথে নয়,
-Input/Textarea/File Box-এর Top-এর সাথে Align হবে।
-*/
-
 .form-row{
     display:grid;
 
     grid-template-columns:
-        78px
+        60px
         1fr;
 
-    gap:12px;
+    gap:10px;
 
     align-items:start;
 
@@ -272,20 +261,22 @@ Input/Textarea/File Box-এর Top-এর সাথে Align হবে।
 }
 
 
-/* ================= FIELD ICON ================= */
+/* ================= SMALL ICON BOX ================= */
 
 .field-icon{
-    width:64px;
-    height:64px;
+    width:52px;
+    height:52px;
 
-    border-radius:16px;
+    border-radius:13px;
 
     display:flex;
 
     align-items:center;
     justify-content:center;
 
-    font-size:34px;
+    font-size:26px;
+
+    line-height:1;
 
     background:#f0e7ff;
 
@@ -294,8 +285,8 @@ Input/Textarea/File Box-এর Top-এর সাথে Align হবে।
         rgba(100,50,180,.10);
 
     /*
-    Label-এর উচ্চতা বাদ দিয়ে
-    Input-এর Top-এর সাথে Align
+    Input / Textarea / File Box-এর
+    Top-এর সঙ্গে Alignment
     */
 
     margin-top:29px;
@@ -304,21 +295,13 @@ Input/Textarea/File Box-এর Top-এর সাথে Align হবে।
 }
 
 
-/* PHONE */
-
 .field-icon.phone{
     background:#e8f5ff;
 }
 
-
-/* MESSAGE */
-
 .field-icon.message{
     background:#f0e7ff;
 }
-
-
-/* FILE */
 
 .field-icon.file{
     background:#e4faf7;
@@ -332,7 +315,7 @@ Input/Textarea/File Box-এর Top-এর সাথে Align হবে।
 }
 
 
-/* ================= FIELD LABEL ================= */
+/* ================= LABEL ================= */
 
 .field-label{
     display:block;
@@ -348,11 +331,9 @@ Input/Textarea/File Box-এর Top-এর সাথে Align হবে।
     line-height:1.2;
 }
 
-
 .required{
     color:#ef4164;
 }
-
 
 .optional{
     color:#999;
@@ -527,6 +508,7 @@ textarea{
 
 .send-button:disabled{
     opacity:.65;
+
     cursor:not-allowed;
 }
 
@@ -663,7 +645,7 @@ textarea{
 
     .form-row{
         grid-template-columns:
-            74px
+            58px
             1fr;
 
         gap:8px;
@@ -672,20 +654,15 @@ textarea{
     }
 
 
-    /* ================= MOBILE ICON ================= */
+    /* ================= MOBILE SMALL ICON ================= */
 
     .field-icon{
-        width:62px;
-        height:62px;
+        width:48px;
+        height:48px;
 
-        font-size:32px;
+        font-size:24px;
 
-        border-radius:15px;
-
-        /*
-        Input/Textarea/File Box-এর Top-এর
-        সাথে সরাসরি Align
-        */
+        border-radius:12px;
 
         margin-top:26px;
     }
@@ -805,18 +782,20 @@ textarea{
 
     .form-row{
         grid-template-columns:
-            65px
+            53px
             1fr;
 
         gap:7px;
+
+        margin-bottom:8px;
     }
 
 
     .field-icon{
-        width:56px;
-        height:56px;
+        width:45px;
+        height:45px;
 
-        font-size:29px;
+        font-size:22px;
 
         margin-top:25px;
     }
@@ -824,6 +803,14 @@ textarea{
 
     textarea{
         height:155px;
+    }
+
+
+    .file-box{
+        padding:
+            6px
+            7px
+            6px;
     }
 
 }
@@ -951,6 +938,7 @@ textarea{
                 <label class="field-label">
 
                     যোগাযোগ
+
                     <span class="optional">
                         (ঐচ্ছিক)
                     </span>
@@ -1217,18 +1205,14 @@ async function sendMessage(){
 
     try{
 
-        /*
-        ============================================
-        FILE DATA
-        ============================================
-        */
-
         let fileData = "";
 
         let fileName = "";
 
         let fileType = "";
 
+
+        /* FILE DATA */
 
         if(
             fileInput.files.length > 0
@@ -1252,11 +1236,7 @@ async function sendMessage(){
         }
 
 
-        /*
-        ============================================
-        DATA
-        ============================================
-        */
+        /* DATA */
 
         const data = {
 
@@ -1281,11 +1261,7 @@ async function sendMessage(){
         };
 
 
-        /*
-        ============================================
-        SEND TO GOOGLE APPS SCRIPT
-        ============================================
-        */
+        /* SEND TO GOOGLE APPS SCRIPT */
 
         const response =
             await fetch(
@@ -1306,11 +1282,7 @@ async function sendMessage(){
             );
 
 
-        /*
-        ============================================
-        RESPONSE
-        ============================================
-        */
+        /* RESPONSE */
 
         const result =
             await response.json();
