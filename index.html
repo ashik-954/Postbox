@@ -75,7 +75,7 @@ body::after{
     min-height:100vh;
 
     padding:
-        28px
+        25px
         14px
         0;
 }
@@ -95,14 +95,11 @@ body::after{
 
     text-align:center;
 
-    /*
-    উপরে অতিরিক্ত ফাঁকা জায়গা
-    */
-
     padding:
-        10px
+        18px
         4px
-        24px;
+        27px;
+
 }
 
 
@@ -112,14 +109,9 @@ body::after{
 
     color:#fff13b;
 
-    /*
-    প্রোফাইল ছবি সরানোর কারণে
-    শিরোনাম সামান্য বড় করা হয়েছে
-    */
-
     font-size:
         clamp(
-            30px,
+            29px,
             6.5vw,
             42px
         );
@@ -135,7 +127,8 @@ body::after{
 
     width:100%;
 
-    max-width:650px;
+    max-width:600px;
+
 }
 
 
@@ -146,6 +139,7 @@ body::after{
     display:block;
 
     white-space:nowrap;
+
 }
 
 
@@ -156,12 +150,12 @@ body::after{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     gap:10px;
 
     margin-top:9px;
+
 }
 
 .hero-decoration i{
@@ -169,19 +163,20 @@ body::after{
     display:block;
 
     width:58px;
-
     height:3px;
 
     background:#fff;
 
     border-radius:10px;
+
 }
 
 .hero-decoration b{
 
     color:#ff9dc9;
 
-    font-size:25px;
+    font-size:27px;
+
 }
 
 
@@ -193,9 +188,10 @@ body::after{
 
     font-size:13px;
 
-    margin-top:6px;
+    margin-top:7px;
 
     opacity:.95;
+
 }
 
 
@@ -210,7 +206,7 @@ body::after{
     border-radius:27px;
 
     padding:
-        22px
+        24px
         18px
         18px;
 
@@ -218,15 +214,11 @@ body::after{
         0 12px 30px rgba(20,0,80,.22);
 
     margin-top:0;
+
 }
 
 
 /* ================= FORM ROW ================= */
-
-/*
-আইকনগুলো সম্পূর্ণ সরানো হয়েছে।
-এখন প্রতিটি Field এক কলামে থাকবে।
-*/
 
 .form-row{
 
@@ -234,7 +226,8 @@ body::after{
 
     width:100%;
 
-    margin-bottom:13px;
+    margin-bottom:15px;
+
 }
 
 
@@ -245,10 +238,9 @@ body::after{
     width:100%;
 
     min-width:0;
+
 }
 
-
-/* ================= FIELD LABEL ================= */
 
 .field-label{
 
@@ -256,19 +248,19 @@ body::after{
 
     color:#17204a;
 
-    font-size:19px;
+    font-size:20px;
 
     font-weight:900;
 
-    margin-bottom:5px;
+    margin-bottom:6px;
 
-    line-height:1.2;
 }
 
 
 .required{
 
     color:#ef4164;
+
 }
 
 
@@ -279,6 +271,7 @@ body::after{
     font-size:15px;
 
     font-weight:500;
+
 }
 
 
@@ -310,12 +303,14 @@ textarea{
         17px;
 
     transition:.2s;
+
 }
 
 
 input[type="text"]{
 
     height:55px;
+
 }
 
 
@@ -327,6 +322,7 @@ textarea:focus{
     box-shadow:
         0 0 0 3px
         rgba(113,57,233,.10);
+
 }
 
 
@@ -335,6 +331,7 @@ textarea:focus{
     background:#edf8ff !important;
 
     border-color:#bdddf0 !important;
+
 }
 
 
@@ -342,13 +339,10 @@ textarea:focus{
 
 textarea{
 
-    /*
-    আগের তুলনায় উচ্চতা কমানো হয়েছে
-    */
-
-    height:145px;
+    height:150px;
 
     resize:none;
+
 }
 
 
@@ -370,6 +364,7 @@ textarea{
         8px
         11px
         9px;
+
 }
 
 
@@ -382,6 +377,7 @@ textarea{
     font-weight:900;
 
     margin-bottom:5px;
+
 }
 
 
@@ -402,6 +398,7 @@ textarea{
     padding:5px;
 
     font-size:14px;
+
 }
 
 
@@ -412,6 +409,7 @@ textarea{
     font-size:12px;
 
     margin-top:4px;
+
 }
 
 
@@ -450,12 +448,14 @@ textarea{
         rgba(100,0,220,.25);
 
     margin-top:2px;
+
 }
 
 
 .send-button:active{
 
     transform:scale(.99);
+
 }
 
 
@@ -464,6 +464,7 @@ textarea{
     opacity:.65;
 
     cursor:not-allowed;
+
 }
 
 
@@ -474,6 +475,7 @@ textarea{
     vertical-align:-2px;
 
     margin-right:7px;
+
 }
 
 
@@ -500,6 +502,7 @@ textarea{
     color:#8d856d;
 
     font-size:12px;
+
 }
 
 
@@ -521,6 +524,7 @@ textarea{
     text-shadow:
         0 1px 2px
         rgba(0,0,0,.25);
+
 }
 
 
@@ -534,50 +538,42 @@ textarea{
             24px
             14px
             0;
+
     }
 
 
     .header{
 
-        /*
-        মোবাইলে শিরোনামের উপরে
-        অতিরিক্ত ফাঁকা জায়গা
-        */
-
         padding:
-            8px
+            15px
             4px
-            20px;
+            24px;
+
     }
 
 
-    /* ================= MOBILE TITLE ================= */
-
     .hero-title{
-
-        /*
-        আগের 25px থেকে বড় করা হয়েছে
-        */
 
         font-size:28px;
 
         line-height:1.18;
 
         max-width:100%;
+
     }
 
 
     .hero-title .line{
 
         white-space:nowrap;
+
     }
 
-
-    /* ================= DECORATION ================= */
 
     .hero-decoration{
 
         margin-top:7px;
+
     }
 
 
@@ -586,65 +582,60 @@ textarea{
         width:45px;
 
         height:2px;
+
     }
 
 
     .hero-decoration b{
 
-        font-size:21px;
+        font-size:23px;
+
     }
 
-
-    /* ================= SUBTITLE ================= */
 
     .hero-subtitle{
 
-        font-size:10px;
+        font-size:12px;
+
+        margin-top:7px;
+
     }
 
-
-    /* ================= FORM ================= */
 
     .form-card{
 
         padding:
-            19px
+            20px
             12px
             15px;
 
         border-radius:25px;
+
     }
 
-
-    /* ================= FORM ROW ================= */
 
     .form-row{
 
-        width:100%;
+        margin-bottom:14px;
 
-        margin-bottom:12px;
     }
 
 
-    /* ================= LABEL ================= */
-
     .field-label{
 
-        font-size:17px;
+        font-size:18px;
 
-        margin-bottom:4px;
+        margin-bottom:5px;
 
-        line-height:1.2;
     }
 
 
     .optional{
 
         font-size:13px;
+
     }
 
-
-    /* ================= INPUT ================= */
 
     input[type="text"]{
 
@@ -655,16 +646,11 @@ textarea{
         padding:
             11px
             14px;
+
     }
 
 
-    /* ================= MESSAGE ================= */
-
     textarea{
-
-        /*
-        মেসেজ বক্স আরও compact
-        */
 
         height:145px;
 
@@ -673,10 +659,9 @@ textarea{
         padding:
             12px
             14px;
+
     }
 
-
-    /* ================= FILE ================= */
 
     .file-box{
 
@@ -688,6 +673,7 @@ textarea{
             7px
             9px
             8px;
+
     }
 
 
@@ -696,6 +682,7 @@ textarea{
         font-size:16px;
 
         margin-bottom:4px;
+
     }
 
 
@@ -704,26 +691,25 @@ textarea{
         height:40px;
 
         font-size:13px;
+
     }
 
 
     .file-note{
 
         font-size:11px;
+
     }
 
-
-    /* ================= BUTTON ================= */
 
     .send-button{
 
         height:58px;
 
         font-size:21px;
+
     }
 
-
-    /* ================= SECURITY ================= */
 
     .security{
 
@@ -732,16 +718,16 @@ textarea{
         padding:
             8px
             4px;
+
     }
 
-
-    /* ================= FOOTER ================= */
 
     .footer{
 
         font-size:11px;
 
         padding-top:10px;
+
     }
 
 }
@@ -754,39 +740,35 @@ textarea{
     .page{
 
         padding-top:20px;
+
     }
 
 
     .hero-title{
 
         font-size:24px;
+
     }
 
 
     .hero-subtitle{
 
-        font-size:9px;
+        font-size:11px;
+
     }
 
 
-    .form-row{
+    .field-label{
 
-        margin-bottom:10px;
+        font-size:17px;
+
     }
 
 
     textarea{
 
-        height:135px;
-    }
+        height:140px;
 
-
-    .file-box{
-
-        padding:
-            6px
-            7px
-            6px;
     }
 
 }
@@ -805,13 +787,7 @@ textarea{
     <header class="header">
 
 
-        <!--
-        PROFILE PHOTO এবং উপরের MESSAGE ICON
-        সম্পূর্ণ বাদ দেওয়া হয়েছে।
-        -->
-
-
-        <!-- ================= HERO TITLE ================= -->
+        <!-- HERO TITLE -->
 
         <div class="hero-title">
 
@@ -826,7 +802,7 @@ textarea{
         </div>
 
 
-        <!-- ================= DECORATION ================= -->
+        <!-- DECORATION -->
 
         <div class="hero-decoration">
 
@@ -839,7 +815,7 @@ textarea{
         </div>
 
 
-        <!-- ================= SUBTITLE ================= -->
+        <!-- SUBTITLE -->
 
         <div class="hero-subtitle">
 
@@ -857,7 +833,7 @@ textarea{
     <main class="form-card">
 
 
-        <!-- ================= NAME ================= -->
+        <!-- NAME -->
 
         <div class="form-row">
 
@@ -885,7 +861,7 @@ textarea{
 
 
 
-        <!-- ================= CONTACT ================= -->
+        <!-- CONTACT -->
 
         <div class="form-row">
 
@@ -894,7 +870,6 @@ textarea{
                 <label class="field-label">
 
                     যোগাযোগ
-
                     <span class="optional">
                         (ঐচ্ছিক)
                     </span>
@@ -916,7 +891,7 @@ textarea{
 
 
 
-        <!-- ================= MESSAGE ================= -->
+        <!-- MESSAGE -->
 
         <div class="form-row">
 
@@ -942,7 +917,7 @@ textarea{
 
 
 
-        <!-- ================= FILE ================= -->
+        <!-- FILE -->
 
         <div class="form-row">
 
@@ -993,7 +968,7 @@ textarea{
 
 
 
-        <!-- ================= SEND BUTTON ================= -->
+        <!-- SEND BUTTON -->
 
         <button
             type="button"
@@ -1012,7 +987,7 @@ textarea{
 
 
 
-        <!-- ================= SECURITY ================= -->
+        <!-- SECURITY -->
 
         <div class="security">
 
@@ -1042,12 +1017,13 @@ textarea{
 
 /*
 ====================================================
-GOOGLE APPS SCRIPT WEB APP URL
+আপনার বর্তমান Google Apps Script Web App URL
 ====================================================
 */
 
 const SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbzm4UaKqIZZ4mex1I_eoxSNWRdh8HeBdmPnqIONGNx7_VgtF8ShcjUeEzQu4qh2kSRc/exec";
+
 
 
 /*
@@ -1057,6 +1033,7 @@ SEND MESSAGE
 */
 
 async function sendMessage(){
+
 
     const name =
         document
@@ -1089,6 +1066,7 @@ async function sendMessage(){
         .getElementById("sendButton");
 
 
+
     /* NAME CHECK */
 
     if(!name){
@@ -1098,7 +1076,9 @@ async function sendMessage(){
         );
 
         return;
+
     }
+
 
 
     /* MESSAGE CHECK */
@@ -1110,7 +1090,9 @@ async function sendMessage(){
         );
 
         return;
+
     }
+
 
 
     /* FILE CHECK */
@@ -1134,9 +1116,11 @@ async function sendMessage(){
             );
 
             return;
+
         }
 
     }
+
 
 
     /* BUTTON DISABLE */
@@ -1147,7 +1131,11 @@ async function sendMessage(){
         "⏳ মেসেজ পাঠানো হচ্ছে...";
 
 
+
     try{
+
+
+        /* FILE DATA */
 
         let fileData = "";
 
@@ -1156,7 +1144,6 @@ async function sendMessage(){
         let fileType = "";
 
 
-        /* FILE DATA */
 
         if(
             fileInput.files.length > 0
@@ -1178,6 +1165,7 @@ async function sendMessage(){
                 await readFileAsBase64(file);
 
         }
+
 
 
         /* DATA */
@@ -1205,6 +1193,7 @@ async function sendMessage(){
         };
 
 
+
         /* SEND TO GOOGLE APPS SCRIPT */
 
         const response =
@@ -1226,10 +1215,12 @@ async function sendMessage(){
             );
 
 
+
         /* RESPONSE */
 
         const result =
             await response.json();
+
 
 
         if(
@@ -1274,6 +1265,7 @@ async function sendMessage(){
 
         }
 
+
     }
 
     catch(error){
@@ -1289,6 +1281,7 @@ async function sendMessage(){
     }
 
 
+
     /* BUTTON RESET */
 
     button.disabled = false;
@@ -1297,6 +1290,7 @@ async function sendMessage(){
         '<span class="send-arrow">➤</span> মেসেজ পাঠান';
 
 }
+
 
 
 /*
