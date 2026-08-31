@@ -75,7 +75,7 @@ body::after{
     min-height:100vh;
 
     padding:
-        18px
+        28px
         14px
         0;
 }
@@ -84,6 +84,7 @@ body::after{
 /* ================= HEADER ================= */
 
 .header{
+
     width:100%;
 
     display:flex;
@@ -94,23 +95,33 @@ body::after{
 
     text-align:center;
 
+    /*
+    উপরে অতিরিক্ত ফাঁকা জায়গা
+    */
+
     padding:
+        10px
         4px
-        4px
-        22px;
+        24px;
 }
 
 
 /* ================= HERO TITLE ================= */
 
 .hero-title{
+
     color:#fff13b;
+
+    /*
+    প্রোফাইল ছবি সরানোর কারণে
+    শিরোনাম সামান্য বড় করা হয়েছে
+    */
 
     font-size:
         clamp(
-            27px,
-            6vw,
-            40px
+            30px,
+            6.5vw,
+            42px
         );
 
     line-height:1.18;
@@ -124,14 +135,16 @@ body::after{
 
     width:100%;
 
-    max-width:600px;
+    max-width:650px;
 }
 
 
 /* দুই লাইনে রাখা */
 
 .hero-title .line{
+
     display:block;
+
     white-space:nowrap;
 }
 
@@ -139,20 +152,24 @@ body::after{
 /* ================= DECORATION ================= */
 
 .hero-decoration{
+
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     gap:10px;
 
-    margin-top:8px;
+    margin-top:9px;
 }
 
 .hero-decoration i{
+
     display:block;
 
     width:58px;
+
     height:3px;
 
     background:#fff;
@@ -161,6 +178,7 @@ body::after{
 }
 
 .hero-decoration b{
+
     color:#ff9dc9;
 
     font-size:25px;
@@ -170,11 +188,12 @@ body::after{
 /* ================= SUBTITLE ================= */
 
 .hero-subtitle{
+
     color:white;
 
     font-size:13px;
 
-    margin-top:5px;
+    margin-top:6px;
 
     opacity:.95;
 }
@@ -183,6 +202,7 @@ body::after{
 /* ================= FORM CARD ================= */
 
 .form-card{
+
     width:100%;
 
     background:#fff;
@@ -190,7 +210,7 @@ body::after{
     border-radius:27px;
 
     padding:
-        24px
+        22px
         18px
         18px;
 
@@ -203,79 +223,35 @@ body::after{
 
 /* ================= FORM ROW ================= */
 
+/*
+আইকনগুলো সম্পূর্ণ সরানো হয়েছে।
+এখন প্রতিটি Field এক কলামে থাকবে।
+*/
+
 .form-row{
-    display:grid;
 
-    grid-template-columns:
-        60px
-        1fr;
+    display:block;
 
-    gap:10px;
+    width:100%;
 
-    align-items:start;
-
-    margin-bottom:10px;
-}
-
-
-/* ================= SMALL ICON BOX ================= */
-
-.field-icon{
-    width:52px;
-    height:52px;
-
-    border-radius:13px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    font-size:26px;
-
-    line-height:1;
-
-    background:#f0e7ff;
-
-    border:
-        1px solid
-        rgba(100,50,180,.10);
-
-    /*
-    আইকন বক্স নিজ নিজ
-    Input / Textarea / File Box-এর
-    Top-এর সঙ্গে Alignment
-    */
-
-    margin-top:29px;
-
-    justify-self:start;
-}
-
-
-.field-icon.phone{
-    background:#e8f5ff;
-}
-
-.field-icon.message{
-    background:#f0e7ff;
-}
-
-.field-icon.file{
-    background:#e4faf7;
+    margin-bottom:13px;
 }
 
 
 /* ================= FIELD ================= */
 
 .field{
+
+    width:100%;
+
     min-width:0;
 }
 
 
-/* ================= LABEL ================= */
+/* ================= FIELD LABEL ================= */
 
 .field-label{
+
     display:block;
 
     color:#17204a;
@@ -291,11 +267,13 @@ body::after{
 
 
 .required{
+
     color:#ef4164;
 }
 
 
 .optional{
+
     color:#999;
 
     font-size:15px;
@@ -308,6 +286,7 @@ body::after{
 
 input[type="text"],
 textarea{
+
     width:100%;
 
     border:
@@ -335,12 +314,14 @@ textarea{
 
 
 input[type="text"]{
+
     height:55px;
 }
 
 
 input[type="text"]:focus,
 textarea:focus{
+
     border-color:#7139e9;
 
     box-shadow:
@@ -350,6 +331,7 @@ textarea:focus{
 
 
 .phone-input{
+
     background:#edf8ff !important;
 
     border-color:#bdddf0 !important;
@@ -359,7 +341,12 @@ textarea:focus{
 /* ================= MESSAGE ================= */
 
 textarea{
-    height:175px;
+
+    /*
+    আগের তুলনায় উচ্চতা কমানো হয়েছে
+    */
+
+    height:145px;
 
     resize:none;
 }
@@ -368,6 +355,7 @@ textarea{
 /* ================= FILE ================= */
 
 .file-box{
+
     width:100%;
 
     border:
@@ -386,6 +374,7 @@ textarea{
 
 
 .file-title{
+
     color:#218b7d;
 
     font-size:18px;
@@ -397,6 +386,7 @@ textarea{
 
 
 .file-input{
+
     width:100%;
 
     height:43px;
@@ -416,6 +406,7 @@ textarea{
 
 
 .file-note{
+
     color:#6da69f;
 
     font-size:12px;
@@ -427,6 +418,7 @@ textarea{
 /* ================= BUTTON ================= */
 
 .send-button{
+
     width:100%;
 
     height:62px;
@@ -462,11 +454,13 @@ textarea{
 
 
 .send-button:active{
+
     transform:scale(.99);
 }
 
 
 .send-button:disabled{
+
     opacity:.65;
 
     cursor:not-allowed;
@@ -474,6 +468,7 @@ textarea{
 
 
 .send-arrow{
+
     font-size:31px;
 
     vertical-align:-2px;
@@ -485,6 +480,7 @@ textarea{
 /* ================= SECURITY ================= */
 
 .security{
+
     margin-top:10px;
 
     border:
@@ -510,6 +506,7 @@ textarea{
 /* ================= FOOTER ================= */
 
 .footer{
+
     text-align:center;
 
     color:white;
@@ -532,20 +529,37 @@ textarea{
 @media(max-width:600px){
 
     .page{
+
         padding:
-            10px
+            24px
             14px
             0;
     }
 
 
     .header{
-        padding-bottom:20px;
+
+        /*
+        মোবাইলে শিরোনামের উপরে
+        অতিরিক্ত ফাঁকা জায়গা
+        */
+
+        padding:
+            8px
+            4px
+            20px;
     }
 
 
+    /* ================= MOBILE TITLE ================= */
+
     .hero-title{
-        font-size:25px;
+
+        /*
+        আগের 25px থেকে বড় করা হয়েছে
+        */
+
+        font-size:28px;
 
         line-height:1.18;
 
@@ -554,16 +568,21 @@ textarea{
 
 
     .hero-title .line{
+
         white-space:nowrap;
     }
 
 
+    /* ================= DECORATION ================= */
+
     .hero-decoration{
-        margin-top:6px;
+
+        margin-top:7px;
     }
 
 
     .hero-decoration i{
+
         width:45px;
 
         height:2px;
@@ -571,16 +590,23 @@ textarea{
 
 
     .hero-decoration b{
+
         font-size:21px;
     }
 
 
+    /* ================= SUBTITLE ================= */
+
     .hero-subtitle{
+
         font-size:10px;
     }
 
 
+    /* ================= FORM ================= */
+
     .form-card{
+
         padding:
             19px
             12px
@@ -590,34 +616,20 @@ textarea{
     }
 
 
-    /* ================= MOBILE ROW ================= */
+    /* ================= FORM ROW ================= */
 
     .form-row{
-        grid-template-columns:
-            58px
-            1fr;
 
-        gap:8px;
+        width:100%;
 
-        margin-bottom:9px;
+        margin-bottom:12px;
     }
 
 
-    /* ================= MOBILE ICON ================= */
-
-    .field-icon{
-        width:48px;
-        height:48px;
-
-        font-size:24px;
-
-        border-radius:12px;
-
-        margin-top:26px;
-    }
-
+    /* ================= LABEL ================= */
 
     .field-label{
+
         font-size:17px;
 
         margin-bottom:4px;
@@ -627,11 +639,15 @@ textarea{
 
 
     .optional{
+
         font-size:13px;
     }
 
 
+    /* ================= INPUT ================= */
+
     input[type="text"]{
+
         height:51px;
 
         font-size:17px;
@@ -642,8 +658,15 @@ textarea{
     }
 
 
+    /* ================= MESSAGE ================= */
+
     textarea{
-        height:165px;
+
+        /*
+        মেসেজ বক্স আরও compact
+        */
+
+        height:145px;
 
         font-size:17px;
 
@@ -653,7 +676,10 @@ textarea{
     }
 
 
+    /* ================= FILE ================= */
+
     .file-box{
+
         border-width:3px;
 
         border-radius:17px;
@@ -666,6 +692,7 @@ textarea{
 
 
     .file-title{
+
         font-size:16px;
 
         margin-bottom:4px;
@@ -673,6 +700,7 @@ textarea{
 
 
     .file-input{
+
         height:40px;
 
         font-size:13px;
@@ -680,18 +708,25 @@ textarea{
 
 
     .file-note{
+
         font-size:11px;
     }
 
 
+    /* ================= BUTTON ================= */
+
     .send-button{
+
         height:58px;
 
         font-size:21px;
     }
 
 
+    /* ================= SECURITY ================= */
+
     .security{
+
         font-size:11px;
 
         padding:
@@ -700,7 +735,10 @@ textarea{
     }
 
 
+    /* ================= FOOTER ================= */
+
     .footer{
+
         font-size:11px;
 
         padding-top:10px;
@@ -713,43 +751,38 @@ textarea{
 
 @media(max-width:380px){
 
+    .page{
+
+        padding-top:20px;
+    }
+
+
     .hero-title{
-        font-size:21px;
+
+        font-size:24px;
     }
 
 
     .hero-subtitle{
+
         font-size:9px;
     }
 
 
     .form-row{
-        grid-template-columns:
-            53px
-            1fr;
 
-        gap:7px;
-
-        margin-bottom:8px;
-    }
-
-
-    .field-icon{
-        width:45px;
-        height:45px;
-
-        font-size:22px;
-
-        margin-top:25px;
+        margin-bottom:10px;
     }
 
 
     textarea{
-        height:155px;
+
+        height:135px;
     }
 
 
     .file-box{
+
         padding:
             6px
             7px
@@ -773,8 +806,8 @@ textarea{
 
 
         <!--
-        PROFILE PHOTO এবং MESSAGE ICON
-        সম্পূর্ণ বাদ দেওয়া হয়েছে।
+        PROFILE PHOTO এবং উপরের MESSAGE ICON
+        সম্পূর্ণ বাদ দেওয়া হয়েছে।
         -->
 
 
@@ -828,13 +861,6 @@ textarea{
 
         <div class="form-row">
 
-            <div class="field-icon">
-
-                👤
-
-            </div>
-
-
             <div class="field">
 
                 <label class="field-label">
@@ -862,13 +888,6 @@ textarea{
         <!-- ================= CONTACT ================= -->
 
         <div class="form-row">
-
-            <div class="field-icon phone">
-
-                📞
-
-            </div>
-
 
             <div class="field">
 
@@ -901,13 +920,6 @@ textarea{
 
         <div class="form-row">
 
-            <div class="field-icon message">
-
-                💬
-
-            </div>
-
-
             <div class="field">
 
                 <label class="field-label">
@@ -933,13 +945,6 @@ textarea{
         <!-- ================= FILE ================= -->
 
         <div class="form-row">
-
-            <div class="field-icon file">
-
-                📎
-
-            </div>
-
 
             <div class="field">
 
